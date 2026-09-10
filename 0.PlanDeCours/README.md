@@ -17,121 +17,62 @@
 
 ---
 
-## :b: Plan de Cours 📈 
+# 🚀 INF1083 – Développement d'applications (Automne 2026)
 
-```mermaid
-flowchart LR
+📚 Ce cours initie les étudiants au développement d'applications hybrides et web, de la conception jusqu'au déploiement, avec un accent sur les interfaces graphiques, les bases de données et les bonnes pratiques de développement.
 
-A["🐧
-Installation Linux
-• Ubuntu Server
-• Machines virtuelles
-• SSH
-• Configuration initiale
-"]
+## 🎯 Ce que les étudiants apprendront
 
---> B["💻
-Ligne de commande
-• Navigation
-• Fichiers et dossiers
-• Éditeurs texte
-• Processus
-"]
+### 🏗️ 1. Introduction aux applications hybrides
+- Comprendre les différences entre applications 🌐 web, 📱 natives et 🔄 hybrides.
+- Créer et configurer un projet d'application.
+- Utiliser les outils de compilation et de débogage.
+- Modifier les fichiers de configuration.
+- Produire une documentation technique professionnelle.
 
-B --> C["👥
-Utilisateurs & Groupes
-• Comptes
-• Groupes
-• Sudo
-• Gestion organisationnelle
-"]
+### 🎨 2. Design d'interfaces graphiques
+- Concevoir des interfaces conviviales.
+- Réaliser des maquettes papier ou numériques.
+- Utiliser les contrôles graphiques appropriés.
+- Programmer les événements et interactions utilisateur.
+- Tester et corriger les interfaces développées.
 
-C --> D["🔐
-Permissions & Sécurité
-• chmod
-• chown
-• ACL
-• Pare-feu
-"]
+### 💾 3. Applications connectées aux données
+- Développer des applications web et hybrides.
+- Connecter une application à une base de données.
+- Lire, ajouter et modifier des données.
+- Effectuer la validation des entrées utilisateur.
+- Comprendre le modèle client-serveur.
 
-D --> E["⚙️
-Scripts & Automatisation
-• Bash
-• Variables
-• Boucles
-• Tâches planifiées
-"]
+### 📝 Évaluations
 
-E --> F1["🌐
-Services Réseau
-• Web
-• DNS
-• SSH
-• Applications serveur
-"]
+| Activité                                                       | Valeur |
+| -------------------------------------------------------------- | -----: |
+| 🧪 Laboratoire : Introduction aux applications hybrides et web |   15 % |
+| ❓ Quiz : Référentiel                                           |    5 % |
+| 🧪 Laboratoire : Référentiel                                   |   10 % |
+| 🎨 Laboratoire : Design d'interface graphique                  |   10 % |
+| 💻 Laboratoire : Programmation d'interface graphique           |   10 % |
+| 🚀 Projet : Application hybride et web simple                  |   25 % |
+| 🌟 Projet : Application hybride et web avec contenu généré     |   25 % |
 
-E --> F2["🥼
-Services Linux
- - Web
- - DNS
- - Réseau
- - Déploiement
-"]
+Total : 100 %
 
-F2 --> H
+### ✅ Note de passage
 
-F1 --> H["📊
-Surveillance & Diagnostic
-• Logs
-• Dépannage
-• Performance
-• Monitoring
-"]
+🎯 60 % (C-)
 
-H --> I["📚
-Documentation
-• Procédures
-• Changements
-• Bonnes pratiques
-"]
+### 💼 Compétences développées
 
-I --> J["🚀
-Projet Final
-Serveur Web complet
-• Installation
-• Sécurisation
-• Configuration
-• Documentation
-"]
-```
+Les étudiants développeront leur capacité à :
 
-Vue « parcours étudiant »
-```mermaid
-flowchart LR
+- 🔍 Analyser et résoudre des problèmes informatiques.
+- 🛠️ Développer des solutions robustes.
+- 📋 Appliquer des principes de gestion de projet.
+- 🤖 Utiliser des scripts et la programmation pour automatiser des tâches.
+- 🗣️ Communiquer efficacement dans un contexte professionnel.
+- ⏰ Gérer leur temps et leurs ressources efficacement.
 
-A["🛠️ Installer"] --> B["💻 Administrer"]
-B --> C["👤 Gérer les utilisateurs"]
-C --> D["🔒 Sécuriser"]
-D --> E["🤖 Automatiser"]
-E --> F["🌐 Déployer des services"]
-F --> G["📈 Surveiller"]
-G --> H["🚀 Exploiter en production"]
-```
+### ⭐ Résumé en une phrase
 
-Résumé du cours en une ligne
-
-🐧 Installer → Administrer → Sécuriser → Automatiser → Déployer → Surveiller → Documenter → Mettre en production un serveur Linux d'entreprise.
-
-| Étape                     | Ce que l'étudiant devient             |
-| ------------------------- | ------------------------------------- |
-| 🐣 Installation Linux     | Junior Linux User                     |
-| 💻 Ligne de commande      | Terminal Ninja                        |
-| 👥 Utilisateurs & groupes | Administrateur système                |
-| 🔐 Sécurité               | Gardien du serveur                    |
-| ⚙️ Scripts Bash           | Automatisation Guru                   |
-| 🌐 Services réseau        | Architecte Linux                      |
-| 📊 Monitoring             | Dépanneur d'élite                     |
-| 🚀 Projet final           | Linux SysAdmin prêt pour l'entreprise |
-
-Cette progression reflète directement les trois RAC du cours : installation, administration des comptes et permissions, puis optimisation, sécurité et surveillance des systèmes Linux.
-
+🚀 INF1083 prépare les étudiants à concevoir, programmer, déboguer et déployer des applications hybrides et web modernes tout en appliquant les meilleures pratiques de l'industrie.
