@@ -1,68 +1,59 @@
-# 🎯 Résultats d'apprentissage du cours (RAC)
+# 🚀 INF1083 – Développement d'applications (Automne 2026)
 
-## 🐧 RAC 1 – Installer un système Linux en réseau
+📚 Ce cours initie les étudiants au développement d'applications hybrides et web, de la conception jusqu'au déploiement, avec un accent sur les interfaces graphiques, les bases de données et les bonnes pratiques de développement.
 
-À la fin de cette étape, l'étudiant sera capable de :
+## 🎯 Ce que les étudiants apprendront
 
-- ⚙️ Installer Linux dans un environnement physique ou virtuel.
-- 🔧 Configurer les paramètres essentiels du système.
-- ⬆️ Effectuer les mises à jour du système.
-- 🌐 Installer et configurer des services et applications serveur.
-- 📝 Produire la documentation technique associée à l'installation.
+### 🏗️ 1. Introduction aux applications hybrides
+- Comprendre les différences entre applications 🌐 web, 📱 natives et 🔄 hybrides.
+- Créer et configurer un projet d'application.
+- Utiliser les outils de compilation et de débogage.
+- Modifier les fichiers de configuration.
+- Produire une documentation technique professionnelle.
 
-## 👥 RAC 2 – Gérer les comptes, groupes et permissions
+### 🎨 2. Design d'interfaces graphiques
+- Concevoir des interfaces conviviales.
+- Réaliser des maquettes papier ou numériques.
+- Utiliser les contrôles graphiques appropriés.
+- Programmer les événements et interactions utilisateur.
+- Tester et corriger les interfaces développées.
 
-À la fin de cette étape, l'étudiant sera capable de :
+### 💾 3. Applications connectées aux données
+- Développer des applications web et hybrides.
+- Connecter une application à une base de données.
+- Lire, ajouter et modifier des données.
+- Effectuer la validation des entrées utilisateur.
+- Comprendre le modèle client-serveur.
 
-- 👤 Créer et administrer des utilisateurs et groupes.
-- 🔐 Gérer les permissions et privilèges d'accès.
-- 🏢 Organiser les comptes selon la structure d'une entreprise.
-- 🤖 Automatiser des tâches administratives à l'aide de scripts Bash.
+### 📝 Évaluations
 
-## 📊 RAC 3 – Optimiser, sécuriser et surveiller Linux
+| Activité                                                       | Valeur |
+| -------------------------------------------------------------- | -----: |
+| 🧪 Laboratoire : Introduction aux applications hybrides et web |   15 % |
+| ❓ Quiz : Référentiel                                           |    5 % |
+| 🧪 Laboratoire : Référentiel                                   |   10 % |
+| 🎨 Laboratoire : Design d'interface graphique                  |   10 % |
+| 💻 Laboratoire : Programmation d'interface graphique           |   10 % |
+| 🚀 Projet : Application hybride et web simple                  |   25 % |
+| 🌟 Projet : Application hybride et web avec contenu généré     |   25 % |
 
-À la fin de cette étape, l'étudiant sera capable de :
+Total : 100 %
 
-- 🛡️ Sécuriser un système Linux.
-- 🔍 Diagnostiquer et résoudre des problèmes système.
-- ⚡ Adapter la configuration selon les besoins de l'entreprise.
-- 📈 Surveiller les performances et l'état du système.
-- 📝 Documenter les modifications et procédures.
-- 🤖 Automatiser la surveillance et certaines opérations administratives.
+### ✅ Note de passage
 
-## 🧪 Évaluations
+🎯 60 % (C-)
 
-| Évaluation                                                     |    % |
-| -------------------------------------------------------------- | ---: |
-| 🐧 Laboratoire : Installation initiale du système              | 10 % |
-| ❓ Quiz : Installation et configuration initiale                | 10 % |
-| 👥 Laboratoire : Gestion des comptes, processus et permissions | 10 % |
-| 💻 Laboratoire : Ligne de commande                             | 10 % |
-| ❓ Quiz : Gestion des comptes, processus et permissions         | 10 % |
-| 📦 Laboratoire : Installation d'application                    | 10 % |
-| ⚙️ Laboratoire : Configuration                                 | 10 % |
-| ❓ Quiz : Configuration et surveillance                         | 10 % |
-| 🚀 Projet final : Mise en fonction d'un serveur Web            | 20 % |
+### 💼 Compétences développées
 
+Les étudiants développeront leur capacité à :
 
-Total : 100 %.
+- 🔍 Analyser et résoudre des problèmes informatiques.
+- 🛠️ Développer des solutions robustes.
+- 📋 Appliquer des principes de gestion de projet.
+- 🤖 Utiliser des scripts et la programmation pour automatiser des tâches.
+- 🗣️ Communiquer efficacement dans un contexte professionnel.
+- ⏰ Gérer leur temps et leurs ressources efficacement.
 
-# ✅ Note de passage
-- 60 % (C-)
+### ⭐ Résumé en une phrase
 
-# 🏆 Compétences développées
-
-Durant le cours, les étudiants développeront :
-
-- 💻 Administration de systèmes Linux.
-- 🔒 Sécurité des environnements informatiques.
-- 🔧 Diagnostic et dépannage.
-- 🤖 Automatisation par scripts.
-- 🌐 Déploiement de services et infrastructures.
-- 📚 Documentation technique professionnelle.
-- 🧠 Résolution de problèmes et pensée analytique.
-- ⏱️ Gestion du temps et des ressources.
-
-# 🎓 Résumé en une phrase
-
-🐧 Installer → Administrer → Sécuriser → Automatiser → Surveiller → Déployer un serveur Linux professionnel en appliquant les pratiques utilisées en entreprise.
+🚀 INF1083 prépare les étudiants à concevoir, programmer, déboguer et déployer des applications hybrides et web modernes tout en appliquant les meilleures pratiques de l'industrie.
