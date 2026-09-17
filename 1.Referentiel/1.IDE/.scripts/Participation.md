@@ -1,4 +1,4 @@
-# Participation au 17-09-2026 15:08
+# Participation au 17-09-2026 16:06
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -30,7 +30,7 @@
 | 11 | [300157423](../300157423/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 12 | [300157606](../300157606/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 13 | [300157727](../300157727/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| 14 | [300158085](../300158085/README.md) :point_right: [kevinmayele-ai](https://github.com/kevinmayele-ai) <image src='https://avatars0.githubusercontent.com/u/258312358?s=460&v=4' width=20 height=20></image> | :x: | :x: |
+| 14 | [300158085](../300158085/README.md) :point_right: [kevinmayele-ai](https://github.com/kevinmayele-ai) <image src='https://avatars0.githubusercontent.com/u/258312358?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
 | 15 | [300159180](../300159180/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 16 | [300159195](../300159195/README.md) :point_right: [islemtd3-hue](https://github.com/islemtd3-hue) <image src='https://avatars0.githubusercontent.com/u/261489005?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 17 | [300159203](../300159203/README.md) :point_right: [riadhsahraoui](https://github.com/riadhsahraoui) <image src='https://avatars0.githubusercontent.com/u/261489597?s=460&v=4' width=20 height=20></image> | :x: | :x: |
