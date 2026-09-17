@@ -5,8 +5,8 @@
 Créer un dossier pour le projet :
 
 ```
-mkdir MonProjet
-cd MonProjet
+mkdir ~/Developer/MonProjet
+cd ~/Developer/MonProjet
 ```
 
 
