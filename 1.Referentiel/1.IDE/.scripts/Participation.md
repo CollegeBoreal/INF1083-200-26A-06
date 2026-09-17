@@ -1,4 +1,4 @@
-# Participation au 17-09-2026 18:51
+# Participation au 17-09-2026 19:07
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -18,7 +18,7 @@
 |------|----------------------------|--------------|--------|
 | 0 | [300124366](../300124366/README.md) :point_right: [rb0980h-dot](https://github.com/rb0980h-dot) <image src='https://avatars0.githubusercontent.com/u/261495945?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 1 | [300147253](../300147253/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| 2 | [300147891](../300147891/README.md) :point_right: [amadbarry96](https://github.com/amadbarry96) <image src='https://avatars0.githubusercontent.com/u/261496046?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
+| 2 | [300147891](../300147891/README.md) :point_right: [amadbarry96](https://github.com/amadbarry96) <image src='https://avatars0.githubusercontent.com/u/261496046?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 3 | [300151722](../300151722/README.md) :point_right: [islamoustani5-collab](https://github.com/islamoustani5-collab) <image src='https://avatars0.githubusercontent.com/u/261488966?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 4 | [300152004](../300152004/README.md) :point_right: [danielmananga](https://github.com/danielmananga) <image src='https://avatars0.githubusercontent.com/u/218153814?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 5 | [300153405](../300153405/README.md) :point_right: [rekaikkhaled](https://github.com/rekaikkhaled) <image src='https://avatars0.githubusercontent.com/u/261492660?s=460&v=4' width=20 height=20></image> | :x: | :x: |
@@ -44,4 +44,4 @@
 | 25 | [300160504](../300160504/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 26 | [300160733](../300160733/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 27 | [300160862](../300160862/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| :abacus: | \$\\frac{1}{28}\$ = 3.57% | \$\displaystyle\sum_{i=1}^{28} s_i\$ = 1 |
+| :abacus: | \$\\frac{2}{28}\$ = 7.14% | \$\displaystyle\sum_{i=1}^{28} s_i\$ = 2 |
