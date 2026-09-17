@@ -1,5 +1,4 @@
-# Kevin Mayele
-Identifiant Boréal : 300158085
+
 # Configuration de Git, SSH et Visual Studio Code
 
 **Nom :** Kevin Mayele  
