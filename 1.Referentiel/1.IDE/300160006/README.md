@@ -24,7 +24,17 @@ J’ai également créé un dossier images afin de mieux organiser les captures 
 
 <img src="images/Screenshot 2026-09-19 193513.png" width="800" height="700">
 
+Dans mon dossier, j’ai créé un fichier README.md avec l’éditeur Nano. J’y ai ajouté une description de mon travail ainsi que des informations permettant de présenter les différentes étapes réalisées. J’ai appris à enregistrer le fichier dans Nano avec Ctrl + O, puis à quitter l’éditeur avec Ctrl + X.
+
+Pendant le travail, j’ai utilisé plusieurs commandes Git, notamment git status pour vérifier l’état des fichiers, git add . pour ajouter les modifications, git commit pour enregistrer les changements dans l’historique et git pull pour récupérer les modifications présentes sur le dépôt distant.
+
 <img src="images/Screenshot 2026-09-19 193605.png" width="800" height="700">
+
+Finalement, après avoir ajouté et enregistré toutes les modifications, j’ai créé un commit pour sauvegarder mon travail. J’ai ensuite utilisé la commande git push afin d’envoyer les modifications vers le dépôt GitHub.
+
+## Conclusion
+
+Ce travail m’a permis de mieux comprendre le fonctionnement de Git et GitHub et de pratiquer les commandes essentielles pour gérer un projet. J’ai également appris à organiser mes fichiers, à utiliser Nano, à ajouter des images dans un README et à synchroniser mon travail avec GitHub. Ces connaissances pourront être utiles pour mes prochains travaux et projets en informatique.
 
 
 
