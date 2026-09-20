@@ -13,18 +13,7 @@ Dans ce travail, j’ai réalisé les étapes suivantes :
 
 ##### 1. Création et accès au projet
 
-J’ai créé et utilisé un répertoire Developer pour organiser mes projets.
-
-mkdir Developer
-cd Developer
-
-J’ai ensuite cloné le dépôt du cours avec :
-
-git clone https://github.com/CollegeBoreal/INF1083-200-26A-06.git
-
-Puis, je suis entré dans le répertoire du travail :
-
-cd INF1083-200-26A-06/1.Referentiel/1.IDE
+Pour commencer, j’ai créé un répertoire Developer afin d’organiser mon environnement de travail mais ce dossier existait deja. J’ai ensuite cloné le dépôt du cours INF1083 à partir de GitHub à l’aide de la commande git clone. Après avoir cloné le dépôt, je me suis déplacée dans le répertoire correspondant au travail et j’ai créé mon dossier personnel avec mon numéro d’étudiant.
 
 <img src="images/Screenshot 2026-09-19 193236.png" width="800" height="700">
 
