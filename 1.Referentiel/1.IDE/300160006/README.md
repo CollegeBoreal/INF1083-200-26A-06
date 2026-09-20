@@ -20,6 +20,8 @@ la connexion SSH était déjà configurée sur mon ordinateur. Je n’ai donc pa
 
 <img src="images/Screenshot 2026-09-19 193414.png" width="800" height="700">
 
+J’ai également créé un dossier images afin de mieux organiser les captures d’écran réalisées pendant le travail. J’ai placé plusieurs images dans ce dossier, puis je les ai ajoutées au dépôt avec la commande git add .. J’ai ensuite inséré certaines de ces images dans le fichier README.md afin d’illustrer les étapes réalisées.
+
 <img src="images/Screenshot 2026-09-19 193513.png" width="800" height="700">
 
 <img src="images/Screenshot 2026-09-19 193605.png" width="800" height="700">
