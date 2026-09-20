@@ -16,7 +16,8 @@ Pour commencer, j’ai créé un répertoire Developer afin d’organiser mon en
 
 <img src="images/Screenshot 2026-09-19 193236.png" width="800" height="700">
 
-a connexion SSH était déjà configurée sur mon ordinateur. Je n’ai donc pas eu besoin de créer une nouvelle clé SSH. J’ai simplement vérifié que la connexion avec GitHub fonctionnait à l’aide de la commande ssh -T git@github.com et j’ai utilisé l’adresse SSH du dépôt pour communiquer avec GitHub.
+la connexion SSH était déjà configurée sur mon ordinateur. Je n’ai donc pas eu besoin de créer une nouvelle clé SSH. J’ai simplement vérifié que la connexion avec GitHub fonctionnait à l’aide de la commande ssh -T git@github.com et j’ai utilisé l’adresse SSH du dépôt pour communiquer avec GitHub.
+
 <img src="images/Screenshot 2026-09-19 193414.png" width="800" height="700">
 
 <img src="images/Screenshot 2026-09-19 193513.png" width="800" height="700">
