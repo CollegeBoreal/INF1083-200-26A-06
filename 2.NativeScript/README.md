@@ -1,5 +1,3 @@
----
-
 # 🚀 Créer votre première application
 
 Créer un projet :
