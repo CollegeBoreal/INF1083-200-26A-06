@@ -220,21 +220,3 @@ xcodebuild -version
 open -a Simulator
 ```
 
----
-
-# 🚀 Créer votre première application
-
-Créer un projet :
-
-```bash
-ns create BonjourMonde
-```
-
-Se déplacer dans le dossier :
-
-```bash
-cd BonjourMonde
-```
-
----
-
