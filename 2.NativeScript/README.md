@@ -4,7 +4,7 @@
 # 🚀 Créer votre première application
 
 
-- [ ] Créer un répertoire avec son 🆔 et ajouter le fichier README.md
+- [ ] Créer un répertoire avec son 🆔 et ajouter le fichier README.md et un répertoire `images` 🖼️
 
 
 - [ ] Dans votre répertoire 🆔, Créer un projet :
