@@ -13,12 +13,6 @@
 ns create B🆔
 ```
 
-Se déplacer dans le dossier :
-
-```bash
-cd 🆔
-```
-
 ---
 
 ## 💁‍♂️ Choisissez les options suivantes
@@ -68,6 +62,13 @@ Debug the project with Chrome DevTools:
 
 For more options consult the docs or run ns --help
 ```
+
+Se déplacer dans le dossier :
+
+```bash
+cd 🆔
+```
+
 
 ---
 
