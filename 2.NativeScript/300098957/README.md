@@ -149,6 +149,9 @@ brew install cocoapods
 Warning: cocoapods 1.17.0 is already installed and up-to-date.
 To reinstall 1.17.0, run:
   brew reinstall cocoapods
+```
+
+</details>
 
 ```bash
 pod --version
