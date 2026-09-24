@@ -75,3 +75,5 @@ cd 🆔
 # References
 
 - [ ]  [NativeScript](https://nativescript.org)
+- [ ]  [OpenJS](https://openjsf.org/blog/nativescript-9-1)
+- [ ]  [Roadmap: FrontEnd Developer](https://roadmap.sh/frontend)
