@@ -6,4 +6,4 @@
 
 ## Développement d'applications
 
-![Développement d'applications](Images/developpement_applications.jpg)
+![Développement d'applications](images/developpement_applications.jpg)
