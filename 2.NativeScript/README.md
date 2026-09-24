@@ -10,13 +10,13 @@
 - [ ] Créer un projet :
 
 ```bash
-ns create BonjourMonde
+ns create B🆔
 ```
 
 Se déplacer dans le dossier :
 
 ```bash
-cd BonjourMonde
+cd 🆔
 ```
 
 ---
