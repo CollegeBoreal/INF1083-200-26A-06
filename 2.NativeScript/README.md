@@ -1,6 +1,13 @@
+
+
+
 # 🚀 Créer votre première application
 
-Créer un projet :
+
+- [ ] Créer un répertoire avec son 🆔 et ajouter le fichier README.md
+
+
+- [ ] Créer un projet :
 
 ```bash
 ns create BonjourMonde
