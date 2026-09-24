@@ -7,7 +7,7 @@
 - [ ] Créer un répertoire avec son 🆔 et ajouter le fichier README.md
 
 
-- [ ] Créer un projet :
+- [ ] Dans votre répertoire 🆔, Créer un projet :
 
 ```bash
 ns create B🆔
@@ -20,6 +20,8 @@ cd 🆔
 ```
 
 ---
+
+## 💁‍♂️ Choisissez les options suivantes
 
 ```lua
 # Let’s create a NativeScript app!
@@ -43,6 +45,10 @@ can skip this prompt next time using the --template option, or using --ng, --rea
     Tabs
     visionOS
 ```
+
+## 🚀 Aprés la création du projet: 
+
+Éxécuter selon la plateforme
 
 ```lua
 [@nativescript/webpack] Initialized config.
