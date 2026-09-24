@@ -45,7 +45,7 @@ Run `gem update --system 4.0.21` to update your installation.
 gem update --system 4.0.21
 ```
 
-<details>
+<details><summary>🪵 Log</summary>
 
 ```lua
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
@@ -53,12 +53,32 @@ Updating rubygems-update
 Fetching rubygems-update-4.0.21.gem
 ERROR:  While executing gem ... (Gem::FilePermissionError)
     You don't have write permissions for the /Library/Ruby/Gems/2.6.0 directory.
-➜  BonjourMonde git:(main) ✗ sudo gem install xcodeproj
+```
+
+</details>
+
+```bash
+sudo gem install xcodeproj
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
 Successfully installed xcodeproj-1.28.1
 Parsing documentation for xcodeproj-1.28.1
 Done installing documentation for xcodeproj after 0 seconds
 1 gem installed
-➜  BonjourMonde git:(main) ✗ sudo gem update --system 4.0.21
+```
+
+</details>
+
+```bash
+sudo gem update --system 4.0.21
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+
 Fetching rubygems-update-4.0.21.gem
 Successfully installed rubygems-update-4.0.21
 Parsing documentation for rubygems-update-4.0.21
@@ -97,35 +117,103 @@ If you do not wish to install this documentation in the future, use the
 'gem help env' for details.
 
 RubyGems system software updated
-➜  BonjourMonde git:(main) ✗ ruby -e "require 'xcodeproj'; puts 'OK'"
+```
+
+</details>
+
+```bash
+ruby -e "require 'xcodeproj'; puts 'OK'"
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- xcodeproj (LoadError)
 	from /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
 	from -e:1:in `<main>'
-➜  BonjourMonde git:(main) ✗ brew install cocoapods
+
+```
+
+</details>
+
+```bash
+brew install cocoapods
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
 Warning: cocoapods 1.17.0 is already installed and up-to-date.
 To reinstall 1.17.0, run:
   brew reinstall cocoapods
-➜  BonjourMonde git:(main) ✗ pod --version
-1.17.0
-➜  BonjourMonde git:(main) ✗ ruby -e "require 'xcodeproj'"
+
+```bash
+pod --version
+```
+> 1.17.0
+
+```bash
+ruby -e "require 'xcodeproj'"
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- xcodeproj (LoadError)
 	from /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
 	from -e:1:in `<main>'
-➜  BonjourMonde git:(main) ✗ pod env | grep Ruby
+```
+
+</details>
+
+```bash
+pod env | grep Ruby
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
         Ruby : ruby 4.0.7 (2026-09-15 revision 229531a6cf) +PRISM [arm64-darwin25]
     RubyGems : 4.0.21
 Ruby lib dir : /opt/homebrew/Cellar/ruby/4.0.7/lib
-➜  BonjourMonde git:(main) ✗ which pod
-/opt/homebrew/bin/pod
-➜  BonjourMonde git:(main) ✗ gem list xcodeproj
+
+```
+</details>
+
+```bash
+which pod
+```
+> /opt/homebrew/bin/pod
+
+```bash
+gem list xcodeproj
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 
 *** LOCAL GEMS ***
+```
+
+</details>
 
 
-➜  BonjourMonde git:(main) ✗ sudo gem install xcodeproj
+```bash
+sudo gem install xcodeproj
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
 
 Password:
 Successfully installed xcodeproj-1.28.1
@@ -138,11 +226,22 @@ Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi 
 *** LOCAL GEMS ***
 
 
-➜  BonjourMonde git:(main) ✗ sudo gem list xcodeproj
+```bash
+sudo gem list xcodeproj
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+
 
 *** LOCAL GEMS ***
 
 xcodeproj (1.28.1)
+```
+
+</details>
+
+
 ➜  BonjourMonde git:(main) ✗ ruby -e "require 'xcodeproj'; puts 'OK'"
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- xcodeproj (LoadError)
