@@ -42,15 +42,6 @@ can skip this prompt next time using the --template option, or using --ng, --rea
 
 ## 🚀 Aprés la création du projet: 
 
-Se déplacer dans le dossier :
-
-```bash
-cd B🆔
-```
-
-
-Éxécuter selon la plateforme
-
 ```lua
 [@nativescript/webpack] Initialized config.
 Project B🆔 was successfully created.
@@ -68,6 +59,18 @@ Debug the project with Chrome DevTools:
   $ ns debug android
 
 For more options consult the docs or run ns --help
+```
+
+- [ ] Se déplacer dans le dossier :
+
+```bash
+cd B🆔
+```
+
+- [ ] Éxécuter selon la plateforme
+
+```
+ns run ...
 ```
 
 
