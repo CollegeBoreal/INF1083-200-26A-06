@@ -232,6 +232,7 @@ Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi 
 ```bash
 sudo gem list xcodeproj
 ```
+
 <details><summary>🪵 Log</summary>
 
 ```lua
