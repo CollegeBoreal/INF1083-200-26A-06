@@ -3,7 +3,7 @@
 sudo gem install xcodeproj
 ```
 
-<details>
+<details><summary>🪵 Log</summary>
 
 ```lua
 Password:
@@ -44,6 +44,10 @@ Run `gem update --system 4.0.21` to update your installation.
 ```bash
 gem update --system 4.0.21
 ```
+
+<details>
+
+```lua
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 Updating rubygems-update
 Fetching rubygems-update-4.0.21.gem
