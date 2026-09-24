@@ -310,12 +310,32 @@ gem env | grep INSTALLATION
 </details>
 
 
-➜  BonjourMonde git:(main) ✗ ruby -e "require 'xcodeproj'; puts 'OK'"
+```bash
+ruby -e "require 'xcodeproj'; puts 'OK'"
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
+
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- xcodeproj (LoadError)
 	from /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
 	from -e:1:in `<main>'
-➜  BonjourMonde git:(main) ✗ ns doctor
+```
+
+</details>
+
+```bash
+ns doctor
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
+
 ✔ Getting environment information 
 
 TIP: To avoid setting up the necessary environment variables, you can use the Homebrew package manager to install the Android SDK and its dependencies.
@@ -383,7 +403,20 @@ Supported targets vary based on what android runtime you have installed. Current
 Your environment is not configured properly and you will not be able to execute local builds.
 Verify that your environment is configured according to the system requirements described at
 https://docs.nativescript.org/setup/macos.
-➜  BonjourMonde git:(main) ✗ ns run ios
+
+```
+
+</details>
+
+
+```bash
+ns run ios
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
 Searching for devices...
 Preparing project...
 webpack is watching the files...
@@ -427,18 +460,45 @@ xcodebuild: error: Unable to find a destination matching the provided destinatio
 		{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device, error:iOS 26.5 is not installed. Please download and install the platform from Xcode > Settings > Components. }
 Unable to apply changes on device: 152CFCF3-6F60-4929-97EE-39888498C90A. Error is: Command xcodebuild failed with exit code 70.
 ^C
-➜  BonjourMonde git:(main) ✗ xcrun simctl list runtimes
+```
+
+</details>
+
+
+```bash
+xcrun simctl list runtimes
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
+
 == Runtimes ==
 iOS 17.0 (17.0.1 - 21A342) - com.apple.CoreSimulator.SimRuntime.iOS-17-0
 iOS 18.3 (18.3.1 - 22D8075) - com.apple.CoreSimulator.SimRuntime.iOS-18-3
 iOS 18.6 (18.6 - 22G86) - com.apple.CoreSimulator.SimRuntime.iOS-18-6
 iOS 26.2 (26.2 - 23C54) - com.apple.CoreSimulator.SimRuntime.iOS-26-2
-➜  BonjourMonde git:(main) ✗ cd 2.NativeScript                       
-➜  BonjourMonde git:(main) ✗ open -a Simulator
-➜  BonjourMonde git:(main) ✗ open -a Simulator
-➜  BonjourMonde git:(main) ✗ open -a Simulator
-➜  BonjourMonde git:(main) ✗ ruby -e "require 'xcodeproj'; puts 'OK'"
-➜  BonjourMonde git:(main) ✗ ns run ios       
+```
+
+</details>
+
+```
+cd 2.NativeScript
+```
+
+```
+open -a Simulator
+```
+
+```bash
+ns run ios
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+
+
 Searching for devices...
 Preparing project...
 webpack is watching the files...
@@ -484,3 +544,6 @@ Successfully synced application org.nativescript.BonjourMonde on device 2C1C5BC8
   { id: 3, name: "Donal Knuth", nationality: "American", notableAchievements: [ "Author of The Art of Computer Programming", "Created TeX typesetting system" ] }
   Child process terminated with signal 9: Killed
 
+```
+
+</details>
