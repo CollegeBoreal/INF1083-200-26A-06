@@ -13,7 +13,7 @@ J'ai commencé par créer mon dossier étudiant dans le répertoire `Documents`.
 
 J'ai créé le dossier `B300151722`, le fichier `README.md` ainsi que le dossier `images`.
 
-```powershell
+powershell
 cd $HOME\Documents
 mkdir B300151722
 cd B300151722
