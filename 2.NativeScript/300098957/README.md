@@ -197,6 +197,7 @@ which pod
 ```bash
 gem list xcodeproj
 ```
+
 <details><summary>🪵 Log</summary>
 
 ```lua
@@ -204,6 +205,7 @@ gem list xcodeproj
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 
 *** LOCAL GEMS ***
+
 ```
 
 </details>
