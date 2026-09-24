@@ -230,6 +230,10 @@ Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi 
 
 *** LOCAL GEMS ***
 
+```
+
+</details>
+
 
 ```bash
 sudo gem list xcodeproj
