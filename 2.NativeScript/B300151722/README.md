@@ -29,7 +29,7 @@ J'ai ensuite vérifié la structure avec :
 Avant de créer le projet, j'ai installé les outils nécessaires
 Installation de Node.js et Installation de NativeScript
 
-<img width="795" height="397" alt="2" src="https://github.com/user-attachments/assets/21328c67-a4ff-455f-bcb1-a1bf25786297" />
+<img width="795" height="397" alt="2" src="https://github.com/user-attachments/assets/c8b51ac4-a71e-40a3-ba27-9596ce15add7" />
 
 
 ## 3. Création du projet NativeScript
