@@ -245,26 +245,64 @@ xcodeproj (1.28.1)
 </details>
 
 
-➜  BonjourMonde git:(main) ✗ ruby -e "require 'xcodeproj'; puts 'OK'"
+```bash
+ruby -e "require 'xcodeproj'; puts 'OK'"
+```
+
+<details><summary>🪵 Log</summary>
+
+```lua
+
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- xcodeproj (LoadError)
 	from /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require'
 	from -e:1:in `<main>'
-➜  BonjourMonde git:(main) ✗ which ruby
+```
+
+</details>
+
+```bash
+which ruby
+```
+> /usr/bin/ruby
+
+```bash
 which gem
+```
+> /usr/bin/gem
 
+```bash
 sudo gem list xcodeproj
+```
 
-gem env | grep INSTALLATION
-/usr/bin/ruby
-/usr/bin/gem
+<details><summary>🪵 Log</summary>
+
+```lua
+
 
 *** LOCAL GEMS ***
 
 xcodeproj (1.28.1)
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
+```
+
+</details>
+
+```bash
+gem env | grep INSTALLATION
+
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+
+
   - INSTALLATION DIRECTORY: /Library/Ruby/Gems/2.6.0
   - USER INSTALLATION DIRECTORY: /Users/valiha/.gem/ruby/2.6.0
+```
+</details>
+
+
 ➜  BonjourMonde git:(main) ✗ ruby -e "require 'xcodeproj'; puts 'OK'"
 Ignoring ffi-1.16.3 because its extensions are not built. Try: gem pristine ffi --version 1.16.3
 /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb:54:in `require': cannot load such file -- xcodeproj (LoadError)
