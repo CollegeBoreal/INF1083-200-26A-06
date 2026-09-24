@@ -1,4 +1,4 @@
-# Participation au 24-09-2026 15:32
+# Participation au 24-09-2026 15:33
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -37,7 +37,7 @@
 | 18 | [300159437](../300159437/README.md) :point_right: [bob19142005](https://github.com/bob19142005) <image src='https://avatars0.githubusercontent.com/u/203893881?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 19 | [300159463](../300159463/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 20 | [300159672](../300159672/README.md) :point_right: [1999amadou03-star](https://github.com/1999amadou03-star) <image src='https://avatars0.githubusercontent.com/u/233241856?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
-| 21 | [300159693](../300159693/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
+| 21 | [300159693](../300159693/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
 | 22 | [300159887](../300159887/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 23 | [300160006](../300160006/README.md) :point_right: [maimouna247](https://github.com/maimouna247) <image src='https://avatars0.githubusercontent.com/u/261489041?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 24 | [300160424](../300160424/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
