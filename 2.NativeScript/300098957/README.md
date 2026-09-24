@@ -1,4 +1,7 @@
 
+<image src=images/iPhone15-pro.png width=50% height=50% > </image>
+
+
 ```
 sudo gem install xcodeproj
 ```
