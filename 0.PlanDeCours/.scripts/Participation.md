@@ -27,7 +27,7 @@
 | 8 | [300156534](../300156534/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |
 | 9 | [300157250](../300157250/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261491627?s=460&v=4' width=20 height=20></image>](https://github.com/jeanpi-erre01) | :x: | :x: |
 | 10 | [300157307](../300157307/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |
-| 11 | [300157423](../300157423/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |
+| 11 | [300157423](../300157423/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :heavy_check_mark: |
 | 12 | [300157606](../300157606/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |
 | 13 | [300157727](../300157727/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |
 | 14 | [300158085](../300158085/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/258312358?s=460&v=4' width=20 height=20></image>](https://github.com/kevinmayele-ai) | :1st_place_medal: | :x: |
