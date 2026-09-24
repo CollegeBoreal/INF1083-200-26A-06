@@ -52,9 +52,9 @@ can skip this prompt next time using the --template option, or using --ng, --rea
 
 ```lua
 [@nativescript/webpack] Initialized config.
-Project B300098957 was successfully created.
+Project B🆔 was successfully created.
 
-Now you can navigate to your project with cd B300098957 and then:
+Now you can navigate to your project with cd B🆔 and then:
 
 Run the project on multiple devices:
 
