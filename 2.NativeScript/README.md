@@ -10,13 +10,57 @@
 - [ ] Créer un projet :
 
 ```bash
-ns create BonjourMonde
+ns create B🆔
 ```
 
 Se déplacer dans le dossier :
 
 ```bash
-cd BonjourMonde
+cd 🆔
+```
+
+---
+
+```lua
+# Let’s create a NativeScript app!
+
+Answer the following questions to help us build the right app for you. (Note: you
+can skip this prompt next time using the --template option, or using --ng, --react, --solid, --svelte, --vue, --ts, or --js flags.)
+
+? First, which style of NativeScript project would you like to use: › - Use arrow-keys. Return to submit.
+❯   Angular
+    Learn more at https://nativescript.org/angular
+    React
+    Vue.js
+    Solid
+    Svelte
+    Plain TypeScript
+    Plain JavaScript
+
+? Next, which template would you like to start from: › - Use arrow-keys. Return to submit.
+❯   Hello World - A Hello World app
+    SideDrawer
+    Tabs
+    visionOS
+```
+
+```lua
+[@nativescript/webpack] Initialized config.
+Project B300098957 was successfully created.
+
+Now you can navigate to your project with cd B300098957 and then:
+
+Run the project on multiple devices:
+
+  $ ns run ios
+  $ ns run android
+
+Debug the project with Chrome DevTools:
+
+  $ ns debug ios
+  $ ns debug android
+
+For more options consult the docs or run ns --help
 ```
 
 ---
