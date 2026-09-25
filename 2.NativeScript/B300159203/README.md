@@ -8,6 +8,9 @@ Vérification des Prérequis et de l'Environnement
 
 Avant le lancement du projet, plusieurs vérifications de l'environnement de développement ont été effectuées dans l'invite de commande PowerShell :
 <img width="677" height="260" alt="1" src="https://github.com/user-attachments/assets/4b5e5abc-79b5-4349-8eaa-06f8e59a3fff" />
+Accès au dossier : Navigation dans le répertoire du projet avec la commande cd .\2.NativeScript\ puis vérification des fichiers présents avec ls.   Génération de l'application : Lancement de la commande ns create B300159203 pour créer le projet sous mon matricule.   Choix des options : Sélection du framework Angular et du modèle de départ Hello World.   
+<img width="626" height="757" alt="Screenshot 2026-09-24 110241" src="https://github.com/user-attachments/assets/3ad41c9e-7681-4c6a-8f6e-4329e85acc00" />
+
 
 
 <details><summary>🪵 Logs d'exécution et vérification de l'environnement</summary>
