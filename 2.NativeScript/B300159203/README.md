@@ -1,5 +1,13 @@
 # Application NativeScript - Légendes du Football
 <img width="333" height="709" alt="Screenshot 2026-09-25 150203" src="https://github.com/user-attachments/assets/611bfe7b-80e9-403f-b1b2-8767c1457d54" />
+Rapport de Projet : Première Application Mobile NativeScript Angular
+
+Ce projet documente la création, la configuration de l'environnement, la résolution des erreurs de dépendances et le déploiement sur émulateur Android de ma première application mobile développée avec NativeScript et Angular.
+
+Vérification des Prérequis et de l'Environnement
+
+Avant le lancement du projet, plusieurs vérifications de l'environnement de développement ont été effectuées dans l'invite de commande PowerShell :
+<img width="677" height="260" alt="1" src="https://github.com/user-attachments/assets/4b5e5abc-79b5-4349-8eaa-06f8e59a3fff" />
 
 
 <details><summary>🪵 Logs d'exécution et vérification de l'environnement</summary>
