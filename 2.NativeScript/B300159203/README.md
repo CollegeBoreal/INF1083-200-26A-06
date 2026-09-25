@@ -1,6 +1,6 @@
 # Application NativeScript - Légendes du Football
+<img width="333" height="709" alt="Screenshot 2026-09-25 150203" src="https://github.com/user-attachments/assets/611bfe7b-80e9-403f-b1b2-8767c1457d54" />
 
-<image src="images/iPhone15-pro.png" width="50%" height="50%"></image>
 
 <details><summary>🪵 Logs d'exécution et vérification de l'environnement</summary>
 
