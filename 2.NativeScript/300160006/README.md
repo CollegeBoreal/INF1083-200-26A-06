@@ -52,7 +52,7 @@ L’application s’est finalement affichée correctement dans l’émulateur An
 
 ### 5. Personnalisation de l'application
 
-L'application affichait au départ une liste de **Computer Scientists**. J’ai recherché les fichiers responsables de l'affichage et j’ai trouvé le titre dans `person.component.html`.
+L'application affichait au départ une liste de **Computer Scientists**. J’ai recherché les fichiers responsables de l'affichage et j’ai trouvé le titre dans `person.component.html` sur vs.code.
 
 J’ai remplacé :
 
