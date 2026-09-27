@@ -47,7 +47,7 @@ ns run android
 
 L’application s’est finalement affichée correctement dans l’émulateur Android.
 
-![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/a8e2a36e912d003b86ad2f0b3e54e22f69f18696/2.NativeScript/300160006/images/Screenshot%202026-09-27%20154700.png)
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/2b7c067492f37cad9a9d08e9055acfa78930bff3/2.NativeScript/300160006/images/Screenshot%202026-09-27%20141405.png)
 
 
 ### 5. Personnalisation de l'application
