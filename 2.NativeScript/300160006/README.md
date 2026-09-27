@@ -21,7 +21,7 @@ Le premier lancement avec Android a présenté plusieurs erreurs. Le **JDK Java*
 
 J’ai installé **Java JDK 17**, puis les **Android Command-Line Tools**, le **Android SDK Platform 36**, les **Build Tools**, les **Platform Tools** et `adb`. J’ai ensuite configuré les variables `JAVA_HOME` et `ANDROID_HOME`.
 
-![images alt](
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/3fe06841063c46cba4b434dad249f05cbb5b7857/2.NativeScript/300160006/images/Screenshot%202026-09-24%20120223.png)
 
 
 ### 3. Création et configuration de l’émulateur
