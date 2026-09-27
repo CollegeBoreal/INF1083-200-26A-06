@@ -3,6 +3,7 @@
 ### Description du projet NativeScript
 
 Dans le cadre du travail pratique en INF1083, j’ai créé une application mobile avec NativeScript et Angular à partir de mon identifiant étudiant `300160006`. Le projet a été créé avec le modèle **Hello World** et se trouve dans le dossier `B300160006`.
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/25f6bd1e71de39d7fee9f72871d289de12f7012d/2.NativeScript/300160006/images/Screenshot%202026-09-19%20193312.png)
 
 ### 1. Création et lancement du projet
 
