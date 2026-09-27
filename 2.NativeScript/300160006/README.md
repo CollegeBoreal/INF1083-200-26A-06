@@ -3,7 +3,8 @@
 ### Description du projet NativeScript
 
 Dans le cadre du travail pratique en INF1083, j’ai créé une application mobile avec NativeScript et Angular à partir de mon identifiant étudiant `300160006`. Le projet a été créé avec le modèle **Hello World** et se trouve dans le dossier `B300160006`.
-![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/25f6bd1e71de39d7fee9f72871d289de12f7012d/2.NativeScript/300160006/images/Screenshot%202026-09-19%20193312.png)
+
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/138f3799df3b6358983c5c83c2a2c96e39c079c6/2.NativeScript/300160006/images/Screenshot%202026-09-27%20112941.png)
 
 ### 1. Création et lancement du projet
 
@@ -11,11 +12,17 @@ J’ai créé le projet avec NativeScript en choisissant Angular et le modèle H
 
 Le lancement sur iOS n’a pas fonctionné parce que je travaille sur Windows. La compilation locale d’une application iOS nécessite macOS et Xcode. J’ai donc choisi de continuer avec Android.
 
+![images alt](
+
+
 ### 2. Configuration d’Android
 
 Le premier lancement avec Android a présenté plusieurs erreurs. Le **JDK Java**, le **Android SDK**, les **Build Tools**, `adb` et certaines variables d’environnement comme `ANDROID_HOME` n’étaient pas configurés.
 
 J’ai installé **Java JDK 17**, puis les **Android Command-Line Tools**, le **Android SDK Platform 36**, les **Build Tools**, les **Platform Tools** et `adb`. J’ai ensuite configuré les variables `JAVA_HOME` et `ANDROID_HOME`.
+
+![images alt](
+
 
 ### 3. Création et configuration de l’émulateur
 
@@ -29,6 +36,9 @@ Après le redémarrage, l’émulateur fonctionnait correctement. Avec la comman
 emulator-5554    device
 ```
 
+![images alt](
+
+
 ### 4. Lancement de l'application
 
 Une fois l'environnement Android configuré, je me suis placée dans le dossier du projet et j’ai utilisé :
@@ -38,6 +48,9 @@ ns run android
 ```
 
 L’application s’est finalement affichée correctement dans l’émulateur Android.
+
+![images alt](
+
 
 ### 5. Personnalisation de l'application
 
@@ -64,6 +77,9 @@ Chaque personnalité possède un nom, une nationalité et quelques réalisations
 Après avoir redémarré l’ordinateur, l’émulateur était fermé. J’ai dû le redémarrer et vérifier à nouveau sa connexion avec `adb devices` avant de relancer l’application.
 
 J’ai également eu quelques difficultés avec les boutons de navigation de l’émulateur, notamment pour revenir à l’écran d’accueil et fermer l’émulateur.
+
+![images alt](
+
 
 ### Conclusion
 
