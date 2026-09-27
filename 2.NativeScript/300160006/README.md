@@ -12,8 +12,6 @@ J’ai créé le projet avec NativeScript en choisissant Angular et le modèle H
 
 Le lancement sur iOS n’a pas fonctionné parce que je travaille sur Windows. La compilation locale d’une application iOS nécessite macOS et Xcode. J’ai donc choisi de continuer avec Android.
 
-![images alt](
-
 
 ### 2. Configuration d’Android
 
@@ -36,7 +34,7 @@ Après le redémarrage, l’émulateur fonctionnait correctement. Avec la comman
 emulator-5554    device
 ```
 
-![images alt](
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/a8e2a36e912d003b86ad2f0b3e54e22f69f18696/2.NativeScript/300160006/images/Screenshot%202026-09-27%20154700.png)
 
 
 ### 4. Lancement de l'application
@@ -49,7 +47,7 @@ ns run android
 
 L’application s’est finalement affichée correctement dans l’émulateur Android.
 
-![images alt](
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/a8e2a36e912d003b86ad2f0b3e54e22f69f18696/2.NativeScript/300160006/images/Screenshot%202026-09-27%20154700.png)
 
 
 ### 5. Personnalisation de l'application
