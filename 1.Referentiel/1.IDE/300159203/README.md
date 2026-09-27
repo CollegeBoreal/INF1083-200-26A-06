@@ -21,7 +21,8 @@ Une fois le canal SSH opérationnel, les modifications locales comprenant le dos
 
 Confirmation du transfert réussi des objets vers le serveur distant  
 
-<img width="789" height="281" alt="image" src="https://github.com/user-attachments/assets/396e4c19-7ace-4bbe-b96f-4565859e0b2d" />
+<img width="789" height="281" alt="image" src="https://github.com/user-attachments/assets/396e4c19-7ace-4bbe-b96f-4565859e0b2d" />  
+
 Les étapes réalisées ont permis de :  
 
 Maîtriser le workflow Git : Initialisation, gestion de répertoires d'étudiant, staging, commits et synchronisation avec un dépôt collectif.  
