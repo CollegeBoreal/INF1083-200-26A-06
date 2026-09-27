@@ -69,14 +69,13 @@ par :
 Les noms des personnes étaient enregistrés dans le service `PersonService`. J’ai donc remplacé la liste originale des informaticiens par des **personnalités sénégalaises**, avec **Ousmane Sonko en première position**.
 
 Chaque personnalité possède un nom, une nationalité et quelques réalisations ou informations importantes.
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/6dbc36750e7108c874e6c9dd4bba35bcf76a053c/2.NativeScript/300160006/images/Screenshot%202026-09-27%20152854.png)
 
 ### 6. Problèmes rencontrés après le redémarrage
 
 Après avoir redémarré l’ordinateur, l’émulateur était fermé. J’ai dû le redémarrer et vérifier à nouveau sa connexion avec `adb devices` avant de relancer l’application.
 
 J’ai également eu quelques difficultés avec les boutons de navigation de l’émulateur, notamment pour revenir à l’écran d’accueil et fermer l’émulateur.
-
-![images alt](
 
 
 ### Conclusion
