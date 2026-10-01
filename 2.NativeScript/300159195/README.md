@@ -1,202 +1,111 @@
-# B300159195 — Application NativeScript Angular sur Android
+# INF1083 — Introduction à Angular
 
-**Étudiant :** Islem Touadjni  
-**Projet :** B300159195  
-**Environnement :** Windows, VS Code, NativeScript avec Angular, Android Studio et téléphone Samsung connecté en USB.
+*Étudiante :* Islem  
+*Identifiant :* 300159195  
+*Projet :* B300159195
 
 ## Objectif
 
-Créer une application Android NativeScript, remplacer la liste d’exemple par quinze personnes aux noms arabes transcrits en français, associer à chaque personne un pays africain et une profession ou une ville, puis vérifier le résultat sur le téléphone. Ce journal présente les captures dans l’ordre du travail ; le texte placé sous chaque image décrit exactement l’étape correspondante.
+L’objectif de ce laboratoire est de créer une application Angular et de mettre en pratique les composants, la liaison des données entre TypeScript et HTML, l’affichage de listes, les événements et la consommation d’une API REST.
 
-## Réalisation et résolution des problèmes
+## Réalisation
 
-### 01. Installation de Node.js
+### 01. Vérification de Node.js et installation d’Angular CLI
 
-![Installation de Node.js](captures/01-01-1000052746.jpg)
+J’ai commencé par vérifier les versions de Node.js et de npm dans PowerShell :
 
-Installation de Node.js LTS avec Chocolatey sous Windows. Le terminal confirme que le paquet `nodejs-lts` a été installé. Après cette installation, une nouvelle session de terminal permet de prendre en compte les changements du `PATH`.
-
-### 02. Installation de la CLI NativeScript
-
-![Installation de la CLI NativeScript](captures/02-02-1000052747.jpg)
-
-La commande `npm install -g nativescript` installe l’outil de création et d’exécution des projets NativeScript. Le message concernant les scripts npm est un avertissement ; l’installation des paquets s’est terminée.
-
-```powershell
+bash
+node --version
 npm --version
-npm install -g nativescript
-```
 
-### 03. Vérification et diagnostic
 
-![Vérification et diagnostic](captures/03-03-1000052748.jpg)
+Au départ, la commande ng version n’était pas reconnue : Angular CLI n’était pas encore installé. Je l’ai installé globalement, puis j’ai relancé la vérification :
 
-`ns --version` affiche la version 9.1.1. `ns doctor` lance ensuite le contrôle des prérequis ; il demande si l’on accepte l’envoi de statistiques anonymes.
+bash
+npm install -g @angular/cli
+ng version
 
-```powershell
-ns --version
-ns doctor
-```
 
-### 04. Premier diagnostic : prérequis manquants
+Le terminal a ensuite affiché la version d’Angular CLI, ce qui confirme que l’installation a réussi.
 
-![Premier diagnostic : prérequis manquants](captures/04-04-1000052749.jpg)
+<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 06 27 PM" src="https://github.com/user-attachments/assets/8015973c-0783-447f-a9c2-eb5536580fd2" />
 
-Le diagnostic indique qu’`ANDROID_HOME` ne pointe pas encore vers un SDK utilisable, que `adb`, les plateformes et les Build-Tools Android manquent, et que la commande `javac` ne fonctionne pas. Le projet ne peut donc pas encore être compilé pour Android.
+### 02. Création et lancement du projet
 
-### 05. Téléchargement d’Android Studio
+J’ai créé une application Angular nommée B300159195, puis je suis entré dans son dossier pour démarrer le serveur de développement :
 
-![Téléchargement d’Android Studio](captures/05-10-1000052755.jpg)
-
-Ouverture du site de téléchargement d’Android Studio pour installer les outils Android nécessaires au projet : SDK, plateformes et outils de compilation.
-
-### 06. Création du projet Angular
-
-![Création du projet Angular](captures/06-08-1000052753.jpg)
-
-Depuis le dossier de travail sur le Bureau, la commande `ns create B300159195` lance la création du projet. Le modèle **Angular** a été choisi dans le menu interactif.
-
-```cmd
-ns create B300159195
-```
-
-### 07. Confirmation de la création
-
-![Confirmation de la création](captures/07-09-1000052754.jpg)
-
-Le terminal affiche « Project B300159195 was successfully created ». Il propose ensuite `ns run android` pour Android. Ce message confirme seulement la création des fichiers, pas encore le fonctionnement sur un appareil.
-
-### 08. Accès au projet
-
-![Accès au projet](captures/08-10-1000052755.jpg)
-
-Une fois le projet créé, on entre dans son répertoire avant de lancer les commandes NativeScript.
-
-```cmd
+bash
+ng new B300159195
 cd B300159195
-```
+ng serve
 
-### 09. Obstacle : émulateur incompatible
 
-![Obstacle : émulateur incompatible](captures/09-02-1000052768.jpg)
+J’ai choisi le routage et le format CSS lors de la création. Une fois le serveur lancé, j’ai ouvert http://localhost:4200 dans le navigateur pour vérifier que l’application fonctionne.
 
-Dans Android Studio, la création d’un appareil virtuel affiche « Your CPU does not support required features (VT-x or SVM) ». Nous avons donc utilisé un téléphone Android physique pour les essais. Ce message seul ne démontre pas que la virtualisation est désactivée dans Windows.
+### 03. Organisation des fichiers
 
-### 10. Installation et vérification des outils Android
+Le dossier 300159195 contient :
 
-![Installation et vérification des outils Android](captures/10-01-1000052767.jpg)
+- B300159195 : le code de l’application Angular ;
+- images : les captures d’écran du travail ;
+- README.md : la documentation du laboratoire.
 
-`sdkmanager` télécharge et décompresse l’émulateur. Le contrôle `Test-Path` renvoie `True` : le fichier existe, même si l’appareil virtuel demeure inutilisable sur cette machine. La mention « deprecated » de `sdkmanager` est un avertissement.
+Dans le projet Angular, les fichiers src/app/app.ts et src/app/app.html contiennent respectivement la logique TypeScript et l’interface HTML.
 
-```powershell
-Test-Path "$env:ANDROID_HOME\emulator\emulator.exe"
-```
+<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 03 20 PM" src="https://github.com/user-attachments/assets/f2bb34c2-2f74-4dcf-a9de-bcf206feb264" />
 
-### 11. Activation du débogage USB sur le téléphone
+### 04. Création du composant
 
-![Activation du débogage USB sur le téléphone](captures/11-03-1000052769.jpg)
+J’ai généré le composant bienvenue avec Angular CLI :
 
-Dans les options développeur du téléphone Samsung, **Débogage USB** est activé afin que l’ordinateur puisse communiquer avec lui via ADB. Le téléphone est relié au PC par câble USB et l’autorisation de débogage est accordée sur le téléphone.
+bash
+ng generate component bienvenue
 
-### 12. Vérification de la connexion ADB
 
-![Vérification de la connexion ADB](captures/12-04-1000052770.jpg)
+Cette commande a créé les fichiers du composant dans src/app/bienvenue. J’ai intégré ce composant à l’application pour afficher le titre « Bienvenue dans INF1083 ».
 
-La commande ADB affiche un appareil avec l’état `device` (`R3CX20FAHRB`) : le téléphone est prêt à recevoir l’application. Ici `&` est l’opérateur d’exécution de PowerShell pour lancer un programme dont le chemin est entre guillemets.
+### 05. Liaison des données et événements
 
-```powershell
-& "$env:ANDROID_HOME\platform-tools\adb.exe" devices
-```
+Dans app.ts, j’ai défini le nom Islem. Je l’affiche dans app.html avec l’interpolation {{ nom }} pour obtenir un message de bienvenue personnalisé.
 
-### 13. Premier échec de compilation avec Java
+J’ai aussi ajouté un champ de saisie lié à une variable TypeScript avec ngModel. Lorsque la valeur du champ change, la variable est mise à jour. Le bouton *Afficher le message* déclenche une méthode lors du clic et affiche le message prévu.
 
-![Premier échec de compilation avec Java](captures/13-01-image-1790263663785.jpg)
+### 06. Affichage de la liste des étudiants
 
-Le premier lancement Android échoue pendant la compilation Gradle. Le journal mentionne « Unsupported class file major version 69 » : la version de Java alors sélectionnée n’est pas compatible avec cette chaîne de compilation.
+J’ai créé dans TypeScript une liste contenant initialement Alice, Bob et Charlie. Dans le HTML, *ngFor parcourt ce tableau et crée un élément de liste pour chaque étudiant.
 
-```powershell
-ns run android
-```
+J’ai ensuite ajouté un champ *Nom de l’étudiant* et un bouton *Ajouter*. La méthode d’ajout lit le nom saisi, enlève les espaces au début et à la fin, vérifie qu’il n’est pas vide, puis l’ajoute au tableau. Après l’ajout, le champ est vidé. La capture montre l’étudiant HICHEM ajouté à la liste.
 
-### 14. Correction : installation du JDK 21
+<img width="1152" height="1536" alt="WhatsApp4 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/c063c664-83fa-49eb-8f2e-eba21b34d571" />
 
-![Correction : installation du JDK 21](captures/14-05-1000052771.jpg)
+### 07. Suppression d’un étudiant
 
-Installation de **Microsoft Build of OpenJDK 21**, version ARM64 adaptée à la machine. Il faut ensuite faire pointer `JAVA_HOME` vers ce JDK et placer son dossier `bin` dans le `PATH` du terminal. Le chemin exact dépend de l’installation Windows.
+J’ai placé un bouton *Supprimer* à côté de chaque nom. Lorsque je clique sur un bouton, l’index de l’étudiant est transmis à la méthode supprimerEtudiant(). La méthode utilise splice(index, 1) pour retirer uniquement cet étudiant du tableau. La liste affichée se met alors à jour.
 
-### 15. Contrôle de Java et nouvelle exécution
+*Placer ici la photo « Suppression d’un étudiant » déjà présente dans ton README.*
 
-![Contrôle de Java et nouvelle exécution](captures/15-09-1000052775.jpg)
+La capture suivante montre le code TypeScript des méthodes d’ajout et de suppression.
 
-`java -version` confirme Java 21. Une nouvelle commande `ns run android` démarre la recherche du téléphone et prépare le projet. Si PowerShell conserve l’ancienne version, ouvrir un nouveau terminal après avoir configuré `JAVA_HOME`.
+<img width="1152" height="1536" alt="WhatsApp1 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/e25151c9-6e1c-415b-9002-79aa6e611c78" />
 
-```powershell
-java -version
-ns run android
-```
+### 08. Consommation d’une API REST
 
-### 16. Dialogue du pare-feu Windows
+J’ai utilisé HttpClient pour envoyer une requête GET à l’API de démonstration JSONPlaceholder :
 
-![Dialogue du pare-feu Windows](captures/16-07-1000052773.jpg)
+text
+https://jsonplaceholder.typicode.com/users
 
-Au lancement du serveur de développement, Windows affiche une demande d’accès réseau pour Node.js. Cette boîte de dialogue appartient au pare-feu Windows ; elle apparaît pendant l’exécution du projet. La capture ne permet pas de déterminer quel choix a finalement été validé.
 
-### 17. Installation des composants Android et compilation
+La réponse contient des utilisateurs avec leurs informations. J’enregistre ces données dans une variable de l’application, puis j’affiche leurs noms dans une liste HTML. J’ai aussi prévu l’affichage d’une erreur dans la console si la requête échoue.
 
-![Installation des composants Android et compilation](captures/17-06-1000052772.jpg)
+La capture montre les noms reçus de l’API sous le titre « Utilisateurs de l’API REST ».
 
-Webpack compile les fichiers Angular et NativeScript surveille les changements. La console installe automatiquement les Build-Tools 35.0.1 ainsi que les plateformes Android nécessaires ; Gradle construit ensuite l’application.
+<img width="1536" height="1152" alt="WhatsApp2 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/e4f94d08-f9f0-440f-8bf1-12df22d91146" />
 
-### 18. Succès : application installée sur le téléphone
+## Résultat
 
-![Succès : application installée sur le téléphone](captures/18-08-1000052774.jpg)
-
-Le terminal affiche « Project successfully built », puis installe l’APK sur `R3CX20FAHRB` et synchronise `org.nativescript.B300159195`. C’est la preuve de la compilation et de l’exécution sur un vrai appareil.
-
-### 19. État initial de l’application
-
-![État initial de l’application](captures/19-01-1000052716.jpg)
-
-L’application NativeScript créée avec le modèle Angular affiche la liste initiale « Computer Scientists » : Alan Turing, Grace Hopper, etc. Cette capture sert de référence avant notre modification.
-
-### 20. Fichier contenant les données affichées
-
-![Fichier contenant les données affichées](captures/20-01-image-1790265708043.jpg)
-
-Dans VS Code, le fichier `src/app/people/person.service.ts` contient `items = signal<Person[]>(...)`, la liste des objets `Person`, ainsi que `getPerson(id)`. Les champs sont `id`, `name`, `nationality` et `notableAchievements`. La vue de l’application affiche les valeurs de `name`.
-
-### 21. Première modification : noms en caractères arabes
-
-![Première modification : noms en caractères arabes](captures/21-01-1000052731.jpg)
-
-Les quinze personnes de la liste sont remplacées par des personnes et lieux africains ; les métiers sont renseignés dans `notableAchievements`. La première version utilise l’écriture arabe pour plusieurs noms. Le modèle garde le titre « Computer Scientists ».
-
-### 22. Correction de l’écriture des noms
-
-![Correction de l’écriture des noms](captures/22-01-1000052733.jpg)
-
-Les noms sont ensuite écrits en caractères latins selon l’usage français, comme **Islem Touadjni**, **Amina Ben Salah** et **Youssef El Mansouri**. Les quinze entrées restent dans `person.service.ts`. L’enregistrement dans VS Code déclenche la synchronisation du projet déjà lancé : les changements apparaissent sur le téléphone sans ressaisir une commande à chaque modification. Il faut faire défiler la liste pour voir les personnes qui ne tiennent pas sur un seul écran.
-
-### 23. Préparation du dépôt GitHub
-
-![Préparation du dépôt GitHub](captures/23-01-image-1790270259663.jpg)
-
-Dans `2.NativeScript`, la fonction **Add file → Create new file** permet de créer le dossier `B300159195` en saisissant `B300159195/README.md` comme chemin du nouveau fichier. Les captures doivent être placées sous `B300159195/captures/` pour que les liens relatifs de ce document fonctionnent sur GitHub.
-
-### 24. Vérification du rendu publié
-
-![Vérification du rendu publié](captures/24-01-image-1790270743739.jpg)
-
-Le navigateur affiche le dossier personnel `2.NativeScript/B300159195` et la capture de l’application modifiée. Après dépôt du présent README et du dossier `captures`, vérifier que chaque photo s’affiche juste avant le paragraphe qui l’explique.
-
-## Bilan des commandes utilisées
-
-Les commandes `ns create B300159195` et `cd B300159195` ont été exécutées dans le terminal Windows (cmd dans les captures). Les commandes `ns doctor`, `ns run android`, `java -version`, `Test-Path` et `adb devices` ont également été utilisées durant le diagnostic et les essais ; la syntaxe avec `$env:` et `&` est propre à PowerShell. `npm install -g nativescript` installe la CLI. Les lignes « ns run ios », « ns debug android » et les commandes Ruby visibles sur la documentation d’autres étudiants ne sont pas des commandes exécutées pour ce projet Android.
-
-## Résultat final
-
-L’application est compilée et installée sur le téléphone Samsung. La liste initiale de scientifiques a été remplacée par quinze personnes aux noms transcrits en caractères latins. Les valeurs de pays et de profession sont dans le service ; l’écran de liste présente principalement les noms. Le titre « Computer Scientists » provient toujours du modèle initial.
+L’application affiche un message de bienvenue personnalisé, permet d’ajouter et de supprimer des étudiants dans une liste, et présente des utilisateurs récupérés depuis une API REST. J’ai vérifié ces fonctions dans le navigateur à l’adresse http://localhost:4200.
 
 ## Conclusion
 
-Ce travail a permis de créer un projet NativeScript Angular, de configurer les outils Android sur Windows, de contourner l’impossibilité d’utiliser l’émulateur en testant sur un téléphone réel, puis de résoudre une incompatibilité Java grâce au JDK 21. Après modification de `person.service.ts` et enregistrement dans VS Code, la nouvelle liste est apparue sur le téléphone. La compilation, l’installation sur l’appareil et la capture du résultat constituent les preuves de l’exécution réussie.
+Ce laboratoire m’a permis de découvrir la structure d’un projet Angular et d’utiliser Angular CLI pour créer le projet et un composant. J’ai pratiqué la liaison entre TypeScript et HTML avec l’interpolation et ngModel, la gestion des clics et d’une liste dynamique, ainsi que l’utilisation de HttpClient pour afficher des données externes.
