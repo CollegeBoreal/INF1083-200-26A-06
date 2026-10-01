@@ -135,6 +135,8 @@ Après les modifications, j'ai relancé l'application avec :
 ns run android
 
 ## Résultat final
+
+
 <img width="586" height="1031" alt="111" src="https://github.com/user-attachments/assets/c89e907d-8eff-44e8-b35a-3345d5dceda9" />
 
 
