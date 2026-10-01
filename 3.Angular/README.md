@@ -1,5 +1,16 @@
 # 🚀 Introduction à Angular
 
+|  |
+|-|
+| [Participation](.scripts/Participation.md) |
+
+
+## 🚀 Créer votre répertoire
+
+
+- [ ] Créer un répertoire avec son 🆔 et ajouter le fichier README.md et un répertoire `images` 🖼️
+
+
 ## 🎯 Objectif
 
 À la fin de ce laboratoire, vous serez capable de :
@@ -101,8 +112,10 @@ ng version
 
 Créer un projet :
 
+- [ ] Dans votre répertoire 🆔, Créer un projet :
+
 ```bash
-ng new mon-app
+ng new B🆔
 ```
 
 Répondre :
@@ -121,7 +134,7 @@ CSS
 Entrer dans le projet :
 
 ```bash
-cd mon-app
+cd B🆔
 ```
 
 Démarrer le serveur :
