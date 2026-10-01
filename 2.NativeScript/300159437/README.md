@@ -31,3 +31,5 @@ Après avoir enregistré les modifications et exécuté l'application avec :
 
 ```powershell
 ns run android --device emulator-5554
+
+<img src="images/Screenshot%202026-10-01%20133303.png" width="40%">
