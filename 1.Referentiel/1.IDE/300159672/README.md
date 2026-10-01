@@ -41,7 +41,8 @@ La connexion SSH était déjà configurée : mes clés `ma_cle.pk` et `ma_cle.pu
 
 Ma clé publique est bien ajoutée à mon compte GitHub (ajoutée le 17 septembre, utilisée récemment).
 
-![Clé SSH sur GitHub](images/05-github-cle.png)
+<img width="1512" height="982" alt="Capture d’écran 2026-10-01 à 12 53 52" src="https://github.com/user-attachments/assets/2b1ee592-88e7-43df-9fa0-33389b552286" />
+
 
 ### 5. Travail envoyé sur GitHub
 
