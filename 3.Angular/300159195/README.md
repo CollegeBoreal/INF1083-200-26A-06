@@ -42,6 +42,9 @@ ng serve
 
 J’ai choisi le routage et le format CSS lors de la création. Une fois le serveur lancé, j’ai ouvert http://localhost:4200 dans le navigateur pour vérifier que l’application fonctionne.
 
+<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 22 44 PM" src="https://github.com/user-attachments/assets/1e6abe39-5e84-4a9c-94ab-01e45dadadc1" />
+
+
 ### 03. Organisation des fichiers
 
 Le dossier 300159195 contient :
@@ -52,7 +55,7 @@ Le dossier 300159195 contient :
 
 Dans le projet Angular, les fichiers src/app/app.ts et src/app/app.html contiennent respectivement la logique TypeScript et l’interface HTML.
 
-*Placer ici la photo de l’organisation du dossier déjà présente dans ton README.*
+<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 03 20 PM" src="https://github.com/user-attachments/assets/14673059-bdfb-4d18-b6cd-3e5dabbd034e" />
 
 ### 04. Création du composant
 
@@ -76,7 +79,7 @@ J’ai créé dans TypeScript une liste contenant initialement Alice, Bob et Cha
 
 J’ai ensuite ajouté un champ *Nom de l’étudiant* et un bouton *Ajouter*. La méthode d’ajout lit le nom saisi, enlève les espaces au début et à la fin, vérifie qu’il n’est pas vide, puis l’ajoute au tableau. Après l’ajout, le champ est vidé. La capture montre l’étudiant HICHEM ajouté à la liste.
 
-*Placer ici la photo « Ajout d’un étudiant » déjà présente dans ton README.*
+<img width="1152" height="1536" alt="WhatsApp4 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/4ffbdc49-09e3-42b9-8dbb-3edc02beb4f4" />
 
 ### 07. Suppression d’un étudiant
 
@@ -86,7 +89,7 @@ J’ai placé un bouton *Supprimer* à côté de chaque nom. Lorsque je clique s
 
 La capture suivante montre le code TypeScript des méthodes d’ajout et de suppression.
 
-*Placer ici la photo du code app.ts déjà présente dans ton README.*
+<img width="1152" height="1536" alt="WhatsApp1 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/190b2390-f1d2-49d6-8abe-cd8fd449b48d" />
 
 ### 08. Consommation d’une API REST
 
@@ -100,7 +103,7 @@ La réponse contient des utilisateurs avec leurs informations. J’enregistre ce
 
 La capture montre les noms reçus de l’API sous le titre « Utilisateurs de l’API REST ».
 
-*Placer ici la photo du résultat de l’API déjà présente dans ton README.*
+<img width="1536" height="1152" alt="WhatsApp2 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/4ae460c7-540f-48d9-aadc-de4dfbaa6e89" />
 
 ## Résultat
 
