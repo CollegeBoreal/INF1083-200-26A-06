@@ -20,22 +20,21 @@ J'ai créé une application Angular dans le dossier `B300159195` et un composant
 
 Installation d'Angular CLI :
 
-![Installation et vérification d'Angular CLI](images/00-installation-angular-cli.jpg)
+<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 06 27 PM" src="https://github.com/user-attachments/assets/26819601-b292-40bf-a094-365393ea9e57" />
 
 Organisation du dossier avec `README.md` et `images` :
 
-![Structure du dossier](images/01-structure-projet.jpg)
+<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 03 20 PM" src="https://github.com/user-attachments/assets/5f0a6d9e-9022-4f9e-9722-4378cdccd2e8" />
 
 Ajout d'un étudiant :
 
-![Étudiant ajouté à la liste](images/02-ajout-etudiant.jpg)
+<img width="1152" height="1536" alt="WhatsApp1 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/7cf501ec-107e-474b-868a-6dbb54495829" />
 
 Suppression d'un étudiant :
 
-![Boutons de suppression](images/03-boutons-suppression.jpg)
-![Liste après suppression](images/04-suppression-etudiant.jpg)
+<img width="1152" height="1536" alt="WhatsApp Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/48706a45-c530-45a9-8e70-53e278fcac07" />
 
 Préparation de `HttpClient` et résultat de l'API REST :
 
-![Code préparant le client HTTP](images/05-code-api-rest.jpg)
-![Utilisateurs reçus depuis l'API](images/06-resultat-api-rest.jpg)
+<img width="1152" height="1536" alt="WhatsApp3 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/ebb97429-e559-48f7-863a-7db820606e5e" />
+<img width="1536" height="1152" alt="WhatsApp2 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/311c8bce-a580-4717-9263-1cec93da561b" />
