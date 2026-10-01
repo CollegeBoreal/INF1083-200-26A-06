@@ -103,9 +103,39 @@ app-debug.apk
 
 ---
 
-## Résultat final
-
 L'application NativeScript fonctionne correctement sur l'émulateur Android.
 
 <img width="1535" height="1065" alt="4" src="https://github.com/user-attachments/assets/9b0c327a-f041-4e33-94bb-7f2f84d7b324" />
+
+## Modification de l'application
+
+Après avoir testé l'application NativeScript par défaut, j'ai modifié le projet pour créer un **répertoire québécois**.
+
+J'ai remplacé l'application avec le bouton `TAP` par une liste de personnalités québécoises connues avec une petite description pour chaque personne.
+
+J'ai principalement modifié les fichiers :
+
+- `app/main-view-model.ts` : ajout des noms et des descriptions.
+- `app/main-page.xml` : modification de l'affichage de la liste.
+
+Le répertoire contient par exemple :
+
+- Céline Dion — Chanteuse québécoise
+- Denis Villeneuve — Réalisateur québécois
+- Xavier Dolan — Réalisateur et acteur
+- Ginette Reno — Chanteuse et actrice
+- Robert Lepage — Metteur en scène et acteur
+- Kim Thúy — Écrivaine québécoise
+- Marc-André Fleury — Joueur de hockey
+- Guy Laliberté — Fondateur du Cirque du Soleil
+
+Après les modifications, j'ai relancé l'application avec :
+
+```powershell
+ns run android
+```
+## Résultat final
+
+<img width="586" height="1031" alt="111" src="https://github.com/user-attachments/assets/c89e907d-8eff-44e8-b35a-3345d5dceda9" />
+
 
