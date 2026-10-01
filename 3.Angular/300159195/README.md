@@ -1,40 +1,111 @@
 # INF1083 — Introduction à Angular
 
-**Étudiante :** Islem  
-**Identifiant :** 300159195
+*Étudiante :* Islem  
+*Identifiant :* 300159195  
+*Projet :* B300159195
 
-## Projet
+## Objectif
 
-J'ai créé une application Angular dans le dossier `B300159195` et un composant `bienvenue`. Pour lancer le projet, ouvrir un terminal dans `B300159195`, exécuter `npm install` si nécessaire, puis `ng serve`. L'application est accessible sur `http://localhost:4200`.
+L’objectif de ce laboratoire est de créer une application Angular et de mettre en pratique les composants, la liaison des données entre TypeScript et HTML, l’affichage de listes, les événements et la consommation d’une API REST.
 
-## Travail réalisé
+## Réalisation
 
-1. Installation de Node.js et d'Angular CLI, puis création et démarrage du projet.
-2. Création du composant `bienvenue` et affichage du titre « Bienvenue dans INF1083 ».
-3. Liaison des données entre TypeScript et HTML : affichage du nom, saisie d'un nom avec `ngModel` et message affiché après un clic.
-4. Affichage de la liste initiale `Alice`, `Bob`, `Charlie` avec `*ngFor`.
-5. Défi : ajout d'un étudiant depuis le formulaire et suppression d'un étudiant avec son bouton « Supprimer ».
-6. Consommation d'une API REST avec `HttpClient` : requête GET à JSONPlaceholder et affichage des noms des utilisateurs reçus.
+### 01. Vérification de Node.js et installation d’Angular CLI
 
-## Captures d'écran
+J’ai commencé par vérifier les versions de Node.js et de npm dans PowerShell :
 
-Installation d'Angular CLI :
+bash
+node --version
+npm --version
 
-<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 06 27 PM" src="https://github.com/user-attachments/assets/26819601-b292-40bf-a094-365393ea9e57" />
 
-Organisation du dossier avec `README.md` et `images` :
+Au départ, la commande ng version n’était pas reconnue : Angular CLI n’était pas encore installé. Je l’ai installé globalement, puis j’ai relancé la vérification :
 
-<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 03 20 PM" src="https://github.com/user-attachments/assets/5f0a6d9e-9022-4f9e-9722-4378cdccd2e8" />
+bash
+npm install -g @angular/cli
+ng version
 
-Ajout d'un étudiant :
 
-<img width="1152" height="1536" alt="WhatsApp1 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/7cf501ec-107e-474b-868a-6dbb54495829" />
+Le terminal a ensuite affiché la version d’Angular CLI, ce qui confirme que l’installation a réussi.
 
-Suppression d'un étudiant :
+*Placer ici la photo d’installation déjà présente dans ton README.*
 
-<img width="1152" height="1536" alt="WhatsApp Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/48706a45-c530-45a9-8e70-53e278fcac07" />
+### 02. Création et lancement du projet
 
-Préparation de `HttpClient` et résultat de l'API REST :
+J’ai créé une application Angular nommée B300159195, puis je suis entré dans son dossier pour démarrer le serveur de développement :
 
-<img width="1152" height="1536" alt="WhatsApp3 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/ebb97429-e559-48f7-863a-7db820606e5e" />
-<img width="1536" height="1152" alt="WhatsApp2 Image 2026-10-01 at 12 15 00 PM" src="https://github.com/user-attachments/assets/311c8bce-a580-4717-9263-1cec93da561b" />
+bash
+ng new B300159195
+cd B300159195
+ng serve
+
+
+J’ai choisi le routage et le format CSS lors de la création. Une fois le serveur lancé, j’ai ouvert http://localhost:4200 dans le navigateur pour vérifier que l’application fonctionne.
+
+### 03. Organisation des fichiers
+
+Le dossier 300159195 contient :
+
+- B300159195 : le code de l’application Angular ;
+- images : les captures d’écran du travail ;
+- README.md : la documentation du laboratoire.
+
+Dans le projet Angular, les fichiers src/app/app.ts et src/app/app.html contiennent respectivement la logique TypeScript et l’interface HTML.
+
+*Placer ici la photo de l’organisation du dossier déjà présente dans ton README.*
+
+### 04. Création du composant
+
+J’ai généré le composant bienvenue avec Angular CLI :
+
+bash
+ng generate component bienvenue
+
+
+Cette commande a créé les fichiers du composant dans src/app/bienvenue. J’ai intégré ce composant à l’application pour afficher le titre « Bienvenue dans INF1083 ».
+
+### 05. Liaison des données et événements
+
+Dans app.ts, j’ai défini le nom Islem. Je l’affiche dans app.html avec l’interpolation {{ nom }} pour obtenir un message de bienvenue personnalisé.
+
+J’ai aussi ajouté un champ de saisie lié à une variable TypeScript avec ngModel. Lorsque la valeur du champ change, la variable est mise à jour. Le bouton *Afficher le message* déclenche une méthode lors du clic et affiche le message prévu.
+
+### 06. Affichage de la liste des étudiants
+
+J’ai créé dans TypeScript une liste contenant initialement Alice, Bob et Charlie. Dans le HTML, *ngFor parcourt ce tableau et crée un élément de liste pour chaque étudiant.
+
+J’ai ensuite ajouté un champ *Nom de l’étudiant* et un bouton *Ajouter*. La méthode d’ajout lit le nom saisi, enlève les espaces au début et à la fin, vérifie qu’il n’est pas vide, puis l’ajoute au tableau. Après l’ajout, le champ est vidé. La capture montre l’étudiant HICHEM ajouté à la liste.
+
+*Placer ici la photo « Ajout d’un étudiant » déjà présente dans ton README.*
+
+### 07. Suppression d’un étudiant
+
+J’ai placé un bouton *Supprimer* à côté de chaque nom. Lorsque je clique sur un bouton, l’index de l’étudiant est transmis à la méthode supprimerEtudiant(). La méthode utilise splice(index, 1) pour retirer uniquement cet étudiant du tableau. La liste affichée se met alors à jour.
+
+*Placer ici la photo « Suppression d’un étudiant » déjà présente dans ton README.*
+
+La capture suivante montre le code TypeScript des méthodes d’ajout et de suppression.
+
+*Placer ici la photo du code app.ts déjà présente dans ton README.*
+
+### 08. Consommation d’une API REST
+
+J’ai utilisé HttpClient pour envoyer une requête GET à l’API de démonstration JSONPlaceholder :
+
+text
+https://jsonplaceholder.typicode.com/users
+
+
+La réponse contient des utilisateurs avec leurs informations. J’enregistre ces données dans une variable de l’application, puis j’affiche leurs noms dans une liste HTML. J’ai aussi prévu l’affichage d’une erreur dans la console si la requête échoue.
+
+La capture montre les noms reçus de l’API sous le titre « Utilisateurs de l’API REST ».
+
+*Placer ici la photo du résultat de l’API déjà présente dans ton README.*
+
+## Résultat
+
+L’application affiche un message de bienvenue personnalisé, permet d’ajouter et de supprimer des étudiants dans une liste, et présente des utilisateurs récupérés depuis une API REST. J’ai vérifié ces fonctions dans le navigateur à l’adresse http://localhost:4200.
+
+## Conclusion
+
+Ce laboratoire m’a permis de découvrir la structure d’un projet Angular et d’utiliser Angular CLI pour créer le projet et un composant. J’ai pratiqué la liaison entre TypeScript et HTML avec l’interpolation et ngModel, la gestion des clics et d’une liste dynamique, ainsi que l’utilisation de HttpClient pour afficher des données externes.
