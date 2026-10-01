@@ -28,7 +28,7 @@ ng version
 
 Le terminal a ensuite affiché la version d’Angular CLI, ce qui confirme que l’installation a réussi.
 
-*Placer ici la photo d’installation déjà présente dans ton README.*
+<img width="1536" height="1152" alt="WhatsApp Image 2026-10-01 at 1 06 27 PM" src="https://github.com/user-attachments/assets/2ed279a1-8eed-44fb-b582-629aa8349770" />
 
 ### 02. Création et lancement du projet
 
