@@ -42,6 +42,6 @@
 | 24 | [300160006](../300160006/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489041?s=460&v=4' width=20 height=20></image>](https://github.com/maimouna247) | :1st_place_medal: | :heavy_check_mark: |  |  |
 | 25 | [300160424](../300160424/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |  |  |
 | 26 | [300160504](../300160504/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |  |  |
-| 27 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |  |  |
+| 27 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :2nd_place_medal: | :heavy_check_mark: |  |  |
 | 28 | [300160862](../300160862/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: |  |  |
-| :abacus: | \$\frac{8}{28}\$ = 28.57% | \$\displaystyle\sum_{i=1}^{28} s_i\$ = 8 |
+| :abacus: | \$\frac{9}{28}\$ = 32.14% | \$\displaystyle\sum_{i=1}^{28} s_i\$ = 9 |
