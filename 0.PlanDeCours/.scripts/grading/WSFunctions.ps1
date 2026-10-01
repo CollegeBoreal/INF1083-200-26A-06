@@ -47,7 +47,7 @@ function Get-ParticipationGrades {
             # README.md quantity (fail/silver/gold)
             # ---------------------------------
             $readEmoji = ($cols[3]).Trim()
-            $levels = @(365, 366, 367)  # fail, silver, gold
+            $levels = @(557, 558, 559)  # fail, silver, gold
             $readScore = Get-RubricLevelIdFromReadmeEmoji `
                 -Emoji $readEmoji `
                 -Levels $levels
@@ -58,13 +58,13 @@ function Get-ParticipationGrades {
             $imgEmoji = ($cols[4]).Trim()
             $imgScore = Get-RubricLevelIdFromEmoji `
                 -Emoji $imgEmoji `
-                -FailLevelId 368 `
-                -PassLevelId 369
+                -FailLevelId 560 `
+                -PassLevelId 561
 
             # If README.md exceeds expectations,
             # images folder is implicitly considered present
-            if ($readScore -gt 367) {
-                $imgScore = 369
+            if ($readScore -gt 559) {
+                $imgScore = 561
             }
 
             if ($DEBUG) {
@@ -104,8 +104,8 @@ function New-LMSRubricFromEntry {
 
     # Build rubric
     $rubric = @(
-        @{ criterionid = 158;  levelid = $Entry.readme;    remark = "Quantité README.md " }
-        @{ criterionid = 159;  levelid = $Entry.image;     remark = "Présence répertoire images " }
+        @{ criterionid = 230;  levelid = $Entry.readme;    remark = "Quantité README.md " }
+        @{ criterionid = 231;  levelid = $Entry.image;     remark = "Présence répertoire images " }
     )
 
     # Validate level IDs (avoid Moodle crash)
