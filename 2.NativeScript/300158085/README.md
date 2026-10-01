@@ -117,6 +117,16 @@ L’icône de l’application `B300158085` est également visible sur l’écran
 
 ![Application installée sur l’iPhone virtuel](images/06_application_installee.jpg)
 
+## 6. Personnalisation de l’application
+
+J’ai modifié le fichier `person.service.ts` pour remplacer la liste des scientifiques en informatique par une liste de 15 écrivains africains.
+
+Chaque écrivain possède un identifiant, un nom, une nationalité et une liste d’œuvres ou de réalisations.
+
+Voici une capture de l’application après cette modification :
+
+![Liste des écrivains africains](images/07_ecrivains_africains.jpg)
+
 ## Difficultés rencontrées
 
 Pendant ce travail, j’ai rencontré plusieurs difficultés :
