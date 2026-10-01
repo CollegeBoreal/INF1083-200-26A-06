@@ -1,4 +1,4 @@
-# Participation au 01-10-2026 02:49
+# Participation au 01-10-2026 13:51
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -24,12 +24,12 @@
 | 5 | [300153405](../300153405.md) :point_right: [rekaikkhaled](https://github.com/rekaikkhaled) <image src='https://avatars0.githubusercontent.com/u/261492660?s=460&v=4' width=20 height=20></image> | :x: |
 | 6 | [300153416](../300153416.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
 | 7 | [300155462](../300155462.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
-| 8 | [300156534](../300156534.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
+| 8 | [300156534](../300156534.md) :point_right: [salhiwalid540-hue](https://github.com/salhiwalid540-hue) <image src='https://avatars0.githubusercontent.com/u/261489191?s=460&v=4' width=20 height=20></image> | :x: |
 | 9 | [300157250](../300157250.md) :point_right: [jeanpi-erre01](https://github.com/jeanpi-erre01) <image src='https://avatars0.githubusercontent.com/u/261491627?s=460&v=4' width=20 height=20></image> | :x: |
 | 10 | [300157307](../300157307.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
-| 11 | [300157423](../300157423.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
+| 11 | [300157423](../300157423.md) :point_right: [gaya-994](https://github.com/gaya-994) <image src='https://avatars0.githubusercontent.com/u/261497291?s=460&v=4' width=20 height=20></image> | :x: |
 | 12 | [300157606](../300157606.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
-| 13 | [300157727](../300157727.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
+| 13 | [300157727](../300157727.md) :point_right: [rayan23082001](https://github.com/rayan23082001) <image src='https://avatars0.githubusercontent.com/u/262933367?s=460&v=4' width=20 height=20></image> | :x: |
 | 14 | [300158085](../300158085.md) :point_right: [kevinmayele-ai](https://github.com/kevinmayele-ai) <image src='https://avatars0.githubusercontent.com/u/258312358?s=460&v=4' width=20 height=20></image> | :x: |
 | 15 | [300159180](../300159180.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
 | 16 | [300159195](../300159195.md) :point_right: [islemtd3-hue](https://github.com/islemtd3-hue) <image src='https://avatars0.githubusercontent.com/u/261489005?s=460&v=4' width=20 height=20></image> | :x: |
@@ -40,8 +40,8 @@
 | 21 | [300159693](../300159693.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
 | 22 | [300159887](../300159887.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
 | 23 | [300160006](../300160006.md) :point_right: [maimouna247](https://github.com/maimouna247) <image src='https://avatars0.githubusercontent.com/u/261489041?s=460&v=4' width=20 height=20></image> | :x: |
-| 24 | [300160424](../300160424.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
-| 25 | [300160504](../300160504.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
+| 24 | [300160424](../300160424.md) :point_right: [youcef-1994](https://github.com/youcef-1994) <image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image> | :x: |
+| 25 | [300160504](../300160504.md) :point_right: [Mmounir07](https://github.com/Mmounir07) <image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image> | :x: |
 | 26 | [300160733](../300160733.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
 | 27 | [300160862](../300160862.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: |
 | :abacus: | \$\\frac{0}{28}\$ = 0% | \$\displaystyle\sum_{i=1}^{28} s_i\$ = 0 |
