@@ -1,0 +1,12 @@
+<ActionBar title="Best Football Players Ever" class="action-bar"></ActionBar>
+
+<GridLayout>
+  <ListView [items]="items" class="list-group">
+    <ng-template let-item="item">
+      <StackLayout class="list-group-item">
+        <Label [text]="item.name" class="font-weight-bold"></Label>
+        <Label [text]="item.role" class="text-muted"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>
