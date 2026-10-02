@@ -27,7 +27,6 @@ Write-ParticipationHeader
 Write-PresenceHeader -FeedbackLookup $FeedbackLookup
 
 $s = 0
-$i = 0
 
 for ($i = 0; $i -lt $STUDENTS.Count; $i++) {
 
@@ -52,8 +51,6 @@ for ($i = 0; $i -lt $STUDENTS.Count; $i++) {
     if (Test-AllRequiredFilesPresent -Checks $checks) {
         $s++
     }
-
-    $i++
 
 }
 
