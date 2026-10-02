@@ -19,7 +19,7 @@ function Write-LabHeader {
         [hashtable]$FeedbackLookup = @{}
     )
 
-    Write-Output $FeedbackLookup.Count
+    Write-Output "TOTOTOTOTOTOTOTOTOTOTOTOTOTO"
 
     Write-Output ""
     Write-Output "## :a: Présence"
