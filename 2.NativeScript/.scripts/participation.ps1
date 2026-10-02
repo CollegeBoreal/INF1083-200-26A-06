@@ -24,7 +24,7 @@
 $FeedbackLookup = Get-FeedbackLookup -Students $STUDENTS
 
 Write-ParticipationHeader
-Write-LabHeader -FeedbackLookup $FeedbackLookup
+Write-PresenceHeader -FeedbackLookup $FeedbackLookup
 
 $s = 0
 $i = 0
