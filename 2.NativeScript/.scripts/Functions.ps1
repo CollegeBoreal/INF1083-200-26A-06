@@ -19,6 +19,8 @@ function Write-LabHeader {
         [hashtable]$FeedbackLookup = @{}
     )
 
+    Write-Output $FeedbackLookup.Count
+
     Write-Output ""
     Write-Output "## :a: Présence"
     Write-Output ""
@@ -42,8 +44,6 @@ function Write-LabStudentRow {
         [hashtable]$Checks,
         [hashtable]$FeedbackLookup = @{}
     )
-
-    Write-Output $FeedbackLookup.Count
 
     if ($FeedbackLookup.Count -gt 0) {
 
