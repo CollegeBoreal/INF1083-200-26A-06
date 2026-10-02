@@ -23,6 +23,8 @@
 
 $FeedbackLookup = Get-FeedbackLookup -Students $STUDENTS
 
+Write-Output $FeedbackLookup
+
 Write-ParticipationHeader
 Write-LabHeader -FeedbackLookup $FeedbackLookup
 
