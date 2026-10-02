@@ -11,4 +11,9 @@
 |--------------------|-------------------------------|
 | :heavy_check_mark: | Prêt à être corrigé           |
 | :x:                | Fichier inexistant            |
+
+## :a: Présence
+
+|:hash:| Boréal :id: | README.md | images | Appréciation | Commentaires |
+|------|-------------|-----------|--------|--------------|--------------|
 | :abacus: | \$\frac{13}{29}\$ = 44.83% | \$\displaystyle\sum_{i=1}^{29} s_i\$ = 13 |
