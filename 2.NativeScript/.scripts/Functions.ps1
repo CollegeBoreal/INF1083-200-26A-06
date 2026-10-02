@@ -43,6 +43,8 @@ function Write-LabStudentRow {
         [hashtable]$FeedbackLookup = @{}
     )
 
+    Write-Output $FeedbackLookup.Count
+
     if ($FeedbackLookup.Count -gt 0) {
 
         $Feedback = $FeedbackLookup[$StudentID]

@@ -39,8 +39,6 @@ foreach ($entry in $STUDENTS) {
     $checks = Get-StudentChecks -Paths $paths
     $url    = Get-GitHubAvatarLink -GitHubID $GitHubID -AvatarID $AvatarID
 
-    Write-Output $FeedbackLookup.Count
-
     Write-LabStudentRow `
         -Index ($i + 1) `
         -StudentID $StudentID `
