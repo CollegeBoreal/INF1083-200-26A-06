@@ -30,7 +30,8 @@ Avant le lancement du projet, plusieurs vérifications de l'environnement de dé
 Après avoir démarré l'émulateur Android, j'ai lancé la compilation et la synchronisation de l'application avec la commande :
 
 powershell
-ns run android
+ns run android  
+
 Pendant cette étape, une erreur de typage TypeScript est survenue dans person-detail.component.html, que j'ai corrigée dans le composant Angular.     
 L'application a ensuite été compilée avec succès via Gradle :PlaintextProject successfully built.  
 Successfully installed on device with identifier 'emulator-5554'.  
