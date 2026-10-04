@@ -33,3 +33,9 @@ Compilation réussie via Webpack, synchronisation avec l'émulateur Pixel 7 et d
 Observation de l'interface de l'application fonctionnelle (liste des "Computer Scientists") sur l'émulateur.
 
 Préparation de la capture d'écran pour l'enregistrer dans le dossier images afin de compléter le rendu académique.
+<img width="2040" height="1536" alt="AAA" src="https://github.com/user-attachments/assets/c3888d53-9701-4bb1-b468-70b7ba8421ab" />
+<img width="2040" height="1536" alt="AAAA" src="https://github.com/user-attachments/assets/5a6a9b4e-3c5b-4c94-ad99-7df86f84d0a3" />
+<img width="2040" height="1536" alt="WhatsApp Image 2026-10-04 at 10 41 17" src="https://github.com/user-attachments/assets/75eb2ffe-943f-4f08-9633-ba0b31663398" />
+
+
+
