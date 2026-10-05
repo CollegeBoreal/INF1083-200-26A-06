@@ -82,6 +82,11 @@ L'application a été compilée et exécutée avec succès via `ng serve`. L'int
 
 ![Resultat final dans le navigateur sur localhost:4200](images/Screenshot%202026-10-04%20124842.png)
 
+Afin d'améliorer l'expérience utilisateur et l'esthétique générale de l'application, une refonte visuelle a été effectuée à l'aide de styles CSS personnalisés. Les éléments de l'interface (boutons, champs de saisie, listes et typographies) ont été modernisés avec un alignement propre, une palette de couleurs harmonieuse et des effets d'interaction au survol, rendant la navigation plus claire et professionnelle.
+
+<img width="639" height="647" alt="image" src="https://github.com/user-attachments/assets/0f51c7d7-f134-45d9-a3ae-518a1c43b5e7" />
+
+
 
 
 
