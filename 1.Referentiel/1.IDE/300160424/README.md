@@ -4,5 +4,3 @@
 
 Mon premier travail avec Git.
 
-
-
