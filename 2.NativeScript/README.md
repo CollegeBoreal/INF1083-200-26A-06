@@ -1,9 +1,6 @@
 # 📱 NativeScript
 
-|  |
-|-|
-| [Participation](.scripts/Participation.md) |
-
+[:tada: Participation](.scripts/Participation.md)
 
 ## 🚀 Créer votre première application
 
