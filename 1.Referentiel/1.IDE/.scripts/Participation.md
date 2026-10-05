@@ -1,4 +1,4 @@
-# Participation au 02-10-2026 23:19
+# Participation au 05-10-2026 14:52
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -41,8 +41,8 @@
 | 22 | [300159693](../300159693/README.md) :point_right: [mazigh-2000](https://github.com/mazigh-2000) <image src='https://avatars0.githubusercontent.com/u/288084942?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 23 | [300159887](../300159887/README.md) :point_right: [hammichebillal06-dot](https://github.com/hammichebillal06-dot) <image src='https://avatars0.githubusercontent.com/u/261490027?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 24 | [300160006](../300160006/README.md) :point_right: [maimouna247](https://github.com/maimouna247) <image src='https://avatars0.githubusercontent.com/u/261489041?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
-| 25 | [300160424](../300160424/README.md) :point_right: [youcef-1994](https://github.com/youcef-1994) <image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image> | :x: | :x: |
+| 25 | [300160424](../300160424/README.md) :point_right: [youcef-1994](https://github.com/youcef-1994) <image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 26 | [300160504](../300160504/README.md) :point_right: [Mmounir07](https://github.com/Mmounir07) <image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 27 | [300160733](../300160733/README.md) :point_right: [belhadiyanis200-a11y](https://github.com/belhadiyanis200-a11y) <image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 28 | [300160862](../300160862/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| :abacus: | \$\\frac{12}{29}\$ = 41.38% | \$\displaystyle\sum_{i=1}^{29} s_i\$ = 12 |
+| :abacus: | \$\\frac{13}{29}\$ = 44.83% | \$\displaystyle\sum_{i=1}^{29} s_i\$ = 13 |
