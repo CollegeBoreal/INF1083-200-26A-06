@@ -1,6 +1,6 @@
 1. Présentation du Travail
 Ce rapport présente les différentes étapes réalisées pour la mise en place de l&#39;environnement de
-développement, la création de la structure de répertoires personnelle sous l&#39;identifiant 300159463, la
+développement, la création de la structure de répertoires personnelle sous l&#39;mon id 300159463, la
 gestion du suivi de version avec Git ainsi que la résolution des conflits de synchronisation (rebase/push)
 avec le dépôt GitHub du cours.
 
