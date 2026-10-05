@@ -1,0 +1,43 @@
+<Page
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    navigatingTo="navigatingTo">
+
+    <GridLayout rows="auto,*" padding="20">
+
+        <Label
+            row="0"
+            text="Répertoire québécois"
+            fontSize="28"
+            fontWeight="bold"
+            marginBottom="15" />
+
+        <ListView
+            row="1"
+            items="{{ contacts }}">
+
+            <ListView.itemTemplate>
+                <GridLayout
+                    rows="auto,auto"
+                    padding="12">
+
+                    <Label
+                        row="0"
+                        text="{{ name }}"
+                        fontSize="18"
+                        fontWeight="bold" />
+
+                    <Label
+                        row="1"
+                        text="{{ description }}"
+                        fontSize="14"
+                        color="#777777"
+                        marginTop="3" />
+
+                </GridLayout>
+            </ListView.itemTemplate>
+
+        </ListView>
+
+    </GridLayout>
+
+</Page>
