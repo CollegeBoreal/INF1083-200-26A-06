@@ -12,3 +12,5 @@ Lors de la création du projet, j’ai choisi :le routage : Yes, les feuilles de
 Ensuite, je suis entrée dans le répertoire du projet et j’ai lancé l’application avec :ng serve
 L’application était accessible avec :http://localhost:4200/
 Cela m’a permis de vérifier que mon projet Angular fonctionnait correctement.
+
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/6ea6da179cad05d8209ae0f075ca14114b144c5e/3.Angular/300160006/images/Screenshot%202026-10-03%20195003.png)
