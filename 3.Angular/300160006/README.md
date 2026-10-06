@@ -36,9 +36,9 @@ J’ai également découvert le système de routage d’Angular. Dans le fichier
 
 ### Style CSS
 
-Pour améliorer l’apparence de mon application, j’ai utilisé le fichier welcome.css. J’ai modifié le titre pour le mettre en bleu et le centrer, j’ai augmenté la taille du texte et j’ai amélioré l’apparence du bouton avec du padding et un curseur.
+Pour améliorer l’apparence de mon application, j’ai utilisé le fichier welcome.css. J’ai modifié le titre pour le mettre en bleu , j’ai augmenté la taille du texte et j’ai amélioré l’apparence du bouton avec du padding et un curseur.
 
-![images alt](
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/d3f380137e526626b7e38c57586dfda118d5670d/3.Angular/300160006/images/Screenshot%202026-10-05%20194728.png)
 
 
 
