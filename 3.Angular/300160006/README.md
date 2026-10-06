@@ -23,4 +23,4 @@ Angular a créé les fichiers nécessaires pour le composant.J’ai ensuite cré
  Dans welcome.html, j’ai utilisé :<h1>{{ titre }}</h1>
  L’application affiche :Bienvenue INF1083
 Cela m’a permis de comprendre le fonctionnement d'un composant Angular et du Data Binding.
-
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/02877339b7b20c09013dba68a20d7f5eabada3ab/3.Angular/300160006/images/Screenshot%202026-10-03%20211445.png)
