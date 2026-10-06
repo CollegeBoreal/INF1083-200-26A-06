@@ -31,7 +31,7 @@ J’ai ensuite appris à utiliser une API REST avec Angular. J’ai importé Htt
 
 J’ai également découvert le système de routage d’Angular. Dans le fichier app.routes.ts, j’ai associé la route principale au composant Welcome. Cela permet à Angular de savoir quel composant doit être affiché lorsque l’utilisateur accède à la page principale.
 
-![images alt](
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/71a9d6c209d7e0bf262d129ffa0484faa8e76e43/3.Angular/300160006/images/Screenshot%202026-10-05%20202211.png)
 
 
 ### Style CSS
