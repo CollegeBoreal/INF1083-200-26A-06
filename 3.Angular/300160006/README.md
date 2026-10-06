@@ -15,3 +15,11 @@ Cela m’a permis de vérifier que mon projet Angular fonctionnait correctement.
 
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/6ea6da179cad05d8209ae0f075ca14114b144c5e/3.Angular/300160006/images/Screenshot%202026-10-03%20195003.png)
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/0982f7fc023cbc743899db9b830e9b409f268c71/3.Angular/300160006/images/Screenshot%202026-10-03%20200211.png)
+
+### Création du premier composant
+J’ai créé un composant appelé welcome avec la commande :ng g c welcome
+Angular a créé les fichiers nécessaires pour le composant.J’ai ensuite créé une variable dans welcome.ts :titre = 'Bienvenue INF1083';
+ Dans welcome.html, j’ai utilisé :<h1>{{ titre }}</h1>
+ L’application affiche :Bienvenue INF1083
+Cela m’a permis de comprendre le fonctionnement d'un composant Angular et du Data Binding.
+
