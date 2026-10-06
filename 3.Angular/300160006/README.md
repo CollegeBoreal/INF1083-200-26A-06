@@ -25,7 +25,7 @@ J’ai ensuite créé un composant appelé welcome avec la commande ng g c welco
 
 J’ai ensuite appris à utiliser une API REST avec Angular. J’ai importé HttpClient afin de permettre à l’application de communiquer avec une API externe. J’ai utilisé l’API https://jsonplaceholder.typicode.com/users pour récupérer une liste d’utilisateurs. Les données reçues sont enregistrées dans une variable appelée utilisateurs, puis affichées dans la page avec ngFor.
 
-![images alt](
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/2ae9d67f0722f4633a31fed60caff8d44bc96e5c/3.Angular/300160006/images/Screenshot%202026-10-05%20194101.png)
 
 ### Routage
 
