@@ -1,0 +1,42 @@
+<h1>{{ titre }}</h1>
+
+<h2>Liste des étudiants</h2>
+
+<input
+  type="text"
+  [(ngModel)]="nouvelEtudiant"
+  placeholder="Nom de l'étudiant"
+>
+
+<button (click)="ajouterEtudiant()">
+  Ajouter
+</button>
+
+<ul>
+  @for (etudiant of etudiants; track etudiant; let i = $index) {
+    <li>
+      {{ etudiant }}
+      <button (click)="supprimerEtudiant(i)">
+        Supprimer
+      </button>
+    </li>
+  }
+</ul>
+
+<p>{{ message }}</p>
+
+<hr>
+
+<h2>Utilisateurs de l'API REST</h2>
+
+@if (utilisateurs.length > 0) {
+  <ul>
+    @for (utilisateur of utilisateurs; track utilisateur.id) {
+      <li>
+        {{ utilisateur.name }} - {{ utilisateur.email }}
+      </li>
+    }
+  </ul>
+} @else {
+  <p>Chargement des utilisateurs...</p>
+}
