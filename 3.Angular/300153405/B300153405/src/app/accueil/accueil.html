@@ -1,0 +1,17 @@
+<h1>{{ titre }}</h1>
+<p>{{ nom }}</p>
+
+<button (click)="saluer()">
+  Cliquez-moi
+</button>
+<div *ngIf="connecte">
+  Connecté
+</div>
+<ul>
+  <li *ngFor="let nom of noms">
+    {{ nom }}
+  </li>
+</ul>
+<button (click)="chargerUtilisateurs()">
+  Charger les utilisateurs
+</button>

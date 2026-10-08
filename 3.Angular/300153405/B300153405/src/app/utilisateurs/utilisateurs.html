@@ -1,0 +1,36 @@
+<h1>Liste des utilisateurs</h1>
+
+<ul>
+  @for (user of utilisateurs; track user.email; let i = $index) {
+    <li>
+      {{ user.nom }} - {{ user.email }}
+
+      <button (click)="afficherUtilisateur(user.nom)">
+        Afficher
+      </button>
+
+      <button (click)="supprimerUtilisateur(i)">
+        Supprimer
+      </button>
+    </li>
+  }
+</ul>
+
+<h2>Ajouter un utilisateur</h2>
+
+<input
+  type="text"
+  placeholder="Nom"
+  [(ngModel)]="nouveauNom"
+/>
+
+<input
+  type="email"
+  placeholder="Email"
+  [(ngModel)]="nouvelEmail"
+/>
+
+<button (click)="ajouterUtilisateur()">
+  Ajouter
+</button>
+<button type="button" (click)="chargerUtilisateurs()">Charger depuis API</button>
