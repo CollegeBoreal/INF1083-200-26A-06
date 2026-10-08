@@ -1,38 +1,45 @@
-# INF1083 – Référentiel Git et GitHub
+# 📚 Référentiel (Git & GitHub)
 
-## Étudiant
-- Nom : Yanis Belhadi
-- Numéro étudiant : 300160733
-- Cours : INF1083 – Développement d'applications
+Le référentiel est l'endroit où le code source d'un projet est stocké, organisé et suivi dans le temps. Dans le contexte du développement d'applications, il est généralement associé à Git et GitHub. Cette interprétation n'est pas explicitement indiquée dans le plan de cours, mais le terme apparaît comme une activité évaluée (../0.PlanDeCours/Automne-2026-INF-1083-200-06-Développement-d'applications.pdf).
 
-## Description
+## 🎯 Objectifs du référentiel
 
-Ce travail présente l'utilisation d'un référentiel Git et GitHub pour organiser et sauvegarder un projet.
+- 🗂️ Organiser le code d'un projet.
+- 💾 Sauvegarder l'historique des modifications.
+- 👥 Collaborer avec d'autres développeurs.
+- 🔄 Revenir à une version précédente en cas d'erreur.
+- 🚀 Partager et déployer des projets.
 
-Git permet de suivre les modifications effectuées dans un projet, tandis que GitHub permet d'héberger le projet en ligne et de le partager.
+## 🌿 Concepts Git essentiels
 
-## Concepts utilisés
-
-- Repository : dossier contenant le projet.
-- Clone : copier un dépôt existant.
-- Commit : enregistrer les modifications.
-- Push : envoyer les modifications vers GitHub.
-- Pull : récupérer les modifications du dépôt distant.
+- Repository (repo) : dossier contenant le projet et son historique.
+- Clone : copier un projet existant.
+- Commit : enregistrer une série de changements.
+- Push : envoyer les changements vers GitHub.
+- Pull : récupérer les changements du dépôt distant.
 - Branch : créer une version parallèle du projet.
 - Merge : fusionner des branches.
 
-## Travail réalisé
+## ☁️ GitHub
 
-Dans ce laboratoire, j'ai :
+GitHub est une plateforme qui permet de :
 
-- créé et utilisé un dépôt GitHub;
-- ajouté les fichiers demandés;
-- organisé les fichiers du projet;
-- effectué des modifications;
-- enregistré les changements avec des commits;
-- ajouté les captures d'écran du travail;
-- rédigé ce fichier README.
+- Héberger des dépôts Git.
+- Collaborer sur des projets.
+- Gérer les demandes de modification (Pull Requests).
+- Consulter l'historique des changements.
+- Automatiser certaines tâches (GitHub Actions).
 
-## Conclusion
+## 🧪 Ce qu'un quiz/laboratoire pourrait couvrir
 
-Ce laboratoire m'a permis de comprendre les bases de Git et GitHub ainsi que l'utilisation d'un référentiel pour sauvegarder et suivre les modifications d'un projet.
+- Créer un dépôt Git.
+- Cloner un dépôt GitHub.
+- Effectuer des commits.
+- Pousser et récupérer des changements.
+- Résoudre des conflits simples.
+- Rédiger un fichier README.
+- Respecter une structure de projet et des conventions de nommage.
+
+## 🚀 En une phrase
+
+Le référentiel est le système de gestion et de partage du code d'un projet, généralement à l'aide de Git et GitHub, afin d'assurer le suivi des modifications et la collaboration entre développeurs.
