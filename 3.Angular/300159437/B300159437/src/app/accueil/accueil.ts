@@ -7,15 +7,15 @@ import { Component } from '@angular/core';
   styleUrl: './accueil.css'
 })
 export class Accueil {
-  titre = 'Bienvenue INF1083 , un plaisir de vous voir ';
+  titre = 'Bienvenue INF1083';
 
   noms = ['Alice', 'Bob', 'Charlie'];
 
-  saluer() {
-    alert('Bonjour , comment allez vous ? !');
-  }
-
   supprimerUtilisateur(index: number) {
     this.noms.splice(index, 1);
+  }
+
+  saluer() {
+    alert('Bonjour , Je suis le Milieu !');
   }
 }
