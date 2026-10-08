@@ -51,4 +51,8 @@ export class App implements OnInit {
   afficherMessage() {
     this.message = 'Bienvenue ' + this.nom + ' !';
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7c4560a (Correction Angular FormsModule et API REST)
