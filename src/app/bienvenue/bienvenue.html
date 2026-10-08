@@ -1,0 +1,28 @@
+
+<h1>{{ titre }}</h1>
+
+<label for="nom">Nom de l’étudiant :</label>
+
+<input
+  id="nom"
+  type="text"
+  [(ngModel)]="nouvelEtudiant"
+  placeholder="Saisir un nom"
+>
+
+<button (click)="ajouterEtudiant()">Ajouter</button>
+
+<ul>
+  @for (etudiant of etudiants; track $index) {
+    <li>
+      {{ etudiant }}
+      <button (click)="supprimerEtudiant($index)">
+        Supprimer
+      </button>
+    </li>
+  }
+</ul><button (click)="chargerUtilisateurs()">
+  Charger les utilisateurs de l’API
+</button>
+
+<p>{{ message }}</p>
