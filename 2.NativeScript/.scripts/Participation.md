@@ -43,8 +43,8 @@
 | 25 | [300159693](../300159693/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/288084942?s=460&v=4' width=20 height=20></image>](https://github.com/mazigh-2000) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
 | 26 | [300159887](../300159887/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261490027?s=460&v=4' width=20 height=20></image>](https://github.com/hammichebillal06-dot) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
 | 27 | [300160006](../300160006/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489041?s=460&v=4' width=20 height=20></image>](https://github.com/maimouna247) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
-| 28 | [300160424](../300160424/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image>](https://github.com/youcef-1994) | :x: | :x: | :x: | :x: À corriger |
+| 28 | [300160424](../300160424/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image>](https://github.com/youcef-1994) | :2nd_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
 | 29 | [300160504](../300160504/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image>](https://github.com/Mmounir07) | :x: | :x: | :x: | :x: À corriger |
 | 30 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image>](https://github.com/belhadiyanis200-a11y) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
 | 31 | [300160862](../300160862/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: | :x: | :x: À corriger |
-| :abacus: | \$\frac{18}{31}\$ = 58.06% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 18 |
+| :abacus: | \$\frac{19}{31}\$ = 61.29% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 19 |
