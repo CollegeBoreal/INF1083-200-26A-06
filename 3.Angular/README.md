@@ -1,6 +1,6 @@
 # 🚀 Introduction à Angular
 
-[ :tada: Participation](.scripts/Participation.md)
+[ 🎉 Participation](.scripts/Participation.md)
 
 
 ## 🚀 Créer votre répertoire
@@ -253,13 +253,13 @@ Le Data Binding permet de connecter les données TypeScript à l'interface HTML.
 ```
 
 ```typescript
-nom = "Brice";
+nom = "Prof";
 ```
 
 Résultat :
 
 ```text
-Brice
+Prof
 ```
 
 ---
@@ -287,27 +287,29 @@ saluer() {
 ## Afficher une condition
 
 ```html
-<div *ngIf="connecte">
-    Connecté*</div*
+<div ngIf="connecte">
+    Connecté
+</div>
 ```
 
 ```typescript
-*onnecte = true;
+connecte = true;
 ```
 
 ---
 
 ## Affic*er une liste
 
-```html*<ul>
-  <li *ngFor*"let nom of noms">
+```html
+<ul>
+  <li  ngFor "let nom of noms">
     {{ nom }}
-* </*i>
-</*l>
+  </li>
+</ul>
 ```
 
-*``*ypescript
-noms =*[
+```typescript
+noms =[
   "Alice",
   "Bob",
   "Charlie"
@@ -322,38 +324,39 @@ Très utile pour les étudiant* DevOps.
 
 ## Importer HttpClient
 
-*``typescript
-import { HttpClient }*from '@angular/common/http';
+```typescript
+import { HttpClient } from '@angular/common/http';
 ```
 
-*# Utiliser une API
+## Utiliser une API
 
 ```typescript
-*his.http
+this.http
   .get('https://jsonplaceholder.typicode.com/users')
-  .subs*ribe(data => {
-      console.log(d*ta);
+  .subscribe(data => {
+      console.log(data);
   });
 ```
 
 ---
 
-# 🛣️ Routage*
+# 🛣️ Routage
 Le routage permet de naviguer ent*e plusieurs pages.
 
 Exemple :
 
-```*ext
+```text
 /
 ├── Accueil
 ├── Utilisateurs*├── Configuration
 └── Contact
 ```
-*---
+
+---
 
 ## Créer une route
 
-```typesc*ipt
+```typescript
 const routes = [
   {
     path: '',
@@ -366,33 +369,35 @@ const routes = [
 
 # 🎨 Style CSS
 
-*# accueil.component.css
+## accueil.component.css
 
 ```css
-h1*{
+h1 {
     color: blue;
 }
 ```
 
 ---
 
-#*⚡ Pourquoi Angular est populaire ?*
+# *⚡ Pourquoi Angular est populaire ?*
+
 Angular offre :
 
 ✅ TypeScript
 
-✅ *omposants réutilisables
+✅ Composants réutilisables
 
-✅ Routage*intégré
+✅ Routage intégré
 
-✅ Injection de dépendance*
+✅ Injection de dépendances
 
 ✅ Formulaires
 
-✅ HTTP Client*
+✅ HTTP Client
+
 ✅ Outils officiels
 
-✅ Architectur* entreprise
+✅ Architecture d' entreprise
 
 ---
 
@@ -400,120 +405,13 @@ Angular offre :
 
 Angular est souvent utilisé *our :
 
-- Applications*d'entreprise
+- Applications d'entreprise
 - Tableaux de bord
-- *ortails Web
+- portails Web
 - Applications gouvern*mentales
 - Applications bancaires
+
 * Outils d'administration
 
 ---
 
-* 🧪 Exercice 1*
-Créer un projet :
-
-```bash
-ng new*inf1083-angular
-```
-
-Lancer :
-
-*``bash
-ng serve
-```
-
-*--
-
-#*🧪 Exercice 2
-
-Créer un compos*nt :
-
-```bash*ng g c bienvenue*```
-
-Afficher :
-
-```text
-Bienvenue*dans*INF1083
-```
-
----
-
-# 🧪 Exercice 3
-*Créer une liste d'étudiants :
-
-*``typescript*etudiants*= [
-    "Alice",
-    "Bob",
-*   "Charlie"
-];
-```
-
-Afficher la l*ste avec :
-
-*``html
-*ngFor
-```
-
-*--
-
-# 🧪 Exercice 4
-
-*jouter un bouton :
-
-```html*<button>
-*   Ajouter
-</button>
-```
-
-Afficher*un message lorsque l'utilisateur c*ique.
-
-*--
-
-# 🏆 Défi
-
-Créer une applicati*n permettant :
-
-- D'ajouter un étu*iant
-- D'afficher*la liste des étudiants
-- De suppri*er un étudiant
-- De consommer une *PI REST
-
----
-
-# ✅ Résumé
-
-```text*Angular
-*
-├── TypeScript
-├──*HTML*├── CSS
-├── Composants
-├── Service*
-├── Routage
-├──*API REST
-*── Applications Web modernes
-```
-
-*# Command*s importantes
-
-```bash
-ng new mon-*pp
-
-ng serve
-
-ng generate componen* accueil
-
-ng build
-
-ng test
-```
-
-#* Compétences développées
-
-- Dévelo*pement Web moderne
-- TypeScript
-- *rchitecture applicative
-* Consommation d'API REST
--*Com*osants réutilisables
-- Préparation*au développement Full Stack
-- Comp*éhension des interfaces utilisées *ans les environnements DevOps et C*oud modernes
-````*
