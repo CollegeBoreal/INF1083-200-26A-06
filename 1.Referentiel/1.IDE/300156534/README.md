@@ -1,8 +1,8 @@
-1. Objectif du travail
+# 1. Objectif du travail
 
 L’objectif de cette activité était de prendre en main Git et GitHub, de créer un répertoire personnel dans le référentiel du cours INF1083, de créer un fichier README.md, de réaliser un commit et de configurer une clé SSH afin de pouvoir envoyer le travail vers GitHub.
 
-2. Environnement utilisé
+# 2. Environnement utilisé
 
 Système : Windows avec Windows PowerShell
 
@@ -14,9 +14,9 @@ Répertoire personnel : B300159887
 
 Compte GitHub utilisé pour l’authentification SSH : salhiwalid540-hue
 
-3. Déroulement du travail
+# 3. Déroulement du travail
 
-3.1 Vérification de Git et accès au référentiel
+## 3.1 Vérification de Git et accès au référentiel
 
 Git a été vérifié avec la commande « git --version ». Le dossier Developer existait déjà. Le référentiel du cours existait également déjà sur l’ordinateur; il a donc été ouvert directement, puis le dossier 1.Referentiel/1.IDE a été atteint.
 
@@ -24,7 +24,7 @@ Capture d’écran – étape correspondante
 
 
 
-3.2 Création du répertoire étudiant
+## 3.2 Création du répertoire étudiant
 
 Un premier dossier nommé TON_ID a été créé par erreur. Il a ensuite été supprimé et remplacé par le bon identifiant B300159887. Le dossier a été ouvert et son emplacement a été vérifié avec pwd.
 
@@ -132,7 +132,9 @@ Capture 6
 <img width="682" height="724" alt="Screenshot 6 2026-10-07 191856" src="https://github.com/user-attachments/assets/7120ae63-40f6-48c8-bb35-c263e63ecd44" />
 
 
-
+```bash
+ls
+```
 
 INF1083 – Git, GitHub et SSH | B300159887
 
