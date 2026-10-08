@@ -5,5 +5,5 @@ import { PersonDetailComponent } from './people/person-detail.component';
 export const routes: Routes = [
   { path: '', redirectTo: '/items', pathMatch: 'full' },
   { path: 'items', component: PersonComponent },
-  { path: 'item/:id', component: PersonDetailComponent },
+  { path: 'person/:id', component: PersonDetailComponent },
 ];
