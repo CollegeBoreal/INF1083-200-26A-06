@@ -1,4 +1,4 @@
-# Participation au 08-10-2026 22:30
+# Participation au 08-10-2026 22:39
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -46,5 +46,5 @@
 | 27 | [300160424](../300160424/README.md) :point_right: [youcef-1994](https://github.com/youcef-1994) <image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 28 | [300160504](../300160504/README.md) :point_right: [Mmounir07](https://github.com/Mmounir07) <image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 29 | [300160733](../300160733/README.md) :point_right: [belhadiyanis200-a11y](https://github.com/belhadiyanis200-a11y) <image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| 30 | [300160862](../300160862/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
-| :abacus: | \$\\frac{16}{31}\$ = 51.61% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 16 |
+| 30 | [300160862](../300160862/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
+| :abacus: | \$\\frac{17}{31}\$ = 54.84% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 17 |
