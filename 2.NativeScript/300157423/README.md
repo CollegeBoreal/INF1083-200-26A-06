@@ -2,13 +2,19 @@ Dans ce travail, j’ai créé une application mobile avec NativeScript et Andro
 
 
 <img width="237" height="434" alt="Capture d’écran 2026-10-01 235840" src="https://github.com/user-attachments/assets/e0dc3f52-bb3a-4486-94bc-317f5c7a167e" />
+
+
 Cette application présente quelques personnages importants de l’histoire et de la culture amazighes, comme Massinissa, Jugurtha et Dihya. Elle affiche leur nom ainsi qu’un court résumé de leur rôle historique.
 
 
 <img width="947" height="540" alt="Capture d’écran 2026-10-01 235906" src="https://github.com/user-attachments/assets/3418037e-9380-425b-a871-c9d15ac0d41e" />
+
+
 Exécution de l’application NativeScript dans PowerShell. La compilation a été effectuée avec succès et l’application a été synchronisée avec l’émulateur Android Pixel 4.
 
 <img width="588" height="512" alt="Image ChatGPT 2 oct  2026, 13_48_52" src="https://github.com/user-attachments/assets/eb57e559-f7e9-4936-9851-af8c4e7d4659" />
+
+
 Cette capture d’écran montre que le projet NativeScript a été compilé avec succès dans Windows PowerShell. Les fichiers de l’application ont été transférés vers l’émulateur Android, puis l’application a été synchronisée et actualisée correctement sur l’appareil virtuel emulator-5554. Cela confirme que le projet fonctionne sans erreur de compilation.
 
 Conclusion
