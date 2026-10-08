@@ -116,7 +116,7 @@ Le résultat final affiche :
 - Charlie
 - un bouton Ajouter
 
-<img width="676" height="665" alt="3 3 2" src="https://github.com/user-attachments/assets/d00fc6d2-fba7-473b-a620-80942cb7eed7" />
+<img width="592" height="1007" alt="3-1" src="https://github.com/user-attachments/assets/0418a57b-05ef-40a0-992b-46e3d6093f82" />
 
 ---
 
