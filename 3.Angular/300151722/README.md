@@ -59,7 +59,8 @@ Le serveur Angular a démarré sur :
 http://localhost:4200
 ```
 
-<img width="995" height="1048" alt="3 2" src="https://github.com/user-attachments/assets/3d4ea546-953b-47fa-aeb3-664495694bb6" />
+<img width="945" height="1016" alt="3-2" src="https://github.com/user-attachments/assets/a999b5a4-4d07-48b2-8825-231ab724ba22" />
+
 
 
 ---
@@ -114,9 +115,10 @@ Le résultat final affiche :
 - Alice
 - Bob
 - Charlie
+- yamna Bla BLA
 - un bouton Ajouter
 
-<img width="592" height="1007" alt="3-1" src="https://github.com/user-attachments/assets/0418a57b-05ef-40a0-992b-46e3d6093f82" />
+<img width="592" height="1007" alt="3-1" src="https://github.com/user-attachments/assets/d8612178-d0a8-4e92-9cc2-4a80b3bd4043" />
 
 ---
 
