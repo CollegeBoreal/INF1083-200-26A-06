@@ -1,4 +1,4 @@
-# Application NativeScript - Légendes du Football
+# Application NativeScript - best Football players ever
 
 <img width="641" height="710" alt="Screenshot 2026-10-08 154816" src="https://github.com/user-attachments/assets/12aa63ef-76c9-4d29-9b48-bb1ab3c73bc3" />
 
