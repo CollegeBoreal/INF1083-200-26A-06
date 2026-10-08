@@ -48,6 +48,7 @@ ns doctor
 ✔ The Java Development Kit (JDK) is installed and is configured properly.
 ✔ Xcode is installed and is configured properly.
 ✔ CocoaPods are installed.
+
 ns run android
 Searching for devices...
 Preparing project...
@@ -62,4 +63,5 @@ Successfully installed on device.
 Restarting application on device...
  Angular is running in development mode.
  NativeScript debugger has opened inspector socket.
+Successfully synced application on device.
 Successfully synced application on device.
