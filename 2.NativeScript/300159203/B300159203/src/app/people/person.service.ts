@@ -9,7 +9,7 @@ export class PersonService {
     {
       id: 1,
       name: 'Lionel Messi',
-      role: 'Attaquant / Menez de jeu',
+      role: 'Attaquant / Meneur de jeu',
       goals: 838,
       achievements: ['8x Ballon d\'Or', '1x Coupe du Monde (2022)', '4x Ligue des Champions', '10x La Liga'],
       description: 'Considéré comme l\'un des plus grands joueurs de tous les temps, il a marqué l\'histoire du FC Barcelone et de l\'Argentine.'
