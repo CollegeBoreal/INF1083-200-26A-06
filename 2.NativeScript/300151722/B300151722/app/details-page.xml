@@ -1,0 +1,31 @@
+<Page
+    xmlns="http://schemas.nativescript.org/tns.xsd"
+    navigatingTo="navigatingTo">
+
+    <ActionBar title="Détails" />
+
+    <ScrollView>
+        <StackLayout padding="20">
+
+            <Label
+                text="{{ name }}"
+                fontSize="28"
+                fontWeight="bold"
+                marginBottom="20" />
+
+            <Label text="Profession :" fontWeight="bold" fontSize="18" />
+            <Label text="{{ description }}" fontSize="17" marginBottom="15" />
+
+            <Label text="Nationalité :" fontWeight="bold" fontSize="18" />
+            <Label text="{{ nationality }}" fontSize="17" marginBottom="15" />
+
+            <Label text="Téléphone :" fontWeight="bold" fontSize="18" />
+            <Label text="{{ phone }}" fontSize="17" marginBottom="15" />
+
+            <Label text="Description :" fontWeight="bold" fontSize="18" />
+            <Label text="{{ details }}" fontSize="17" textWrap="true" />
+
+        </StackLayout>
+    </ScrollView>
+
+</Page>
