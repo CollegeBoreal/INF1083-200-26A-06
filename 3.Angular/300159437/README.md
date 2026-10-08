@@ -67,7 +67,7 @@ ng version
 
 ### 📸 Capture d'écran — Installation d'Angular
 
-<img src="images/Screenshot%202026-10-08%20100024.png" width="85%" alt="Vérification de Node.js, npm et Angular CLI">
+<img src="images/Screenshot%202026-10-08%20100440.png" width="70%" alt="Capture d'écran du laboratoire Angular">
 
 Cette capture confirme que les outils nécessaires au développement Angular ont été installés et vérifiés avec succès.
 
