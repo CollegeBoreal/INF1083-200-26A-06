@@ -13,4 +13,4 @@ INF 1083-200 Développement d'applications
 | :two:   | 23-sep | [1.IDE](1.Referentiel/1.IDE)                     | [🎉](1.Referentiel/1.IDE/.scripts/Participation.md)            |
 |         | 30-sep | [2.Utilisation](1.Referentiel/2.Utilisation)     | [🎉](1.Referentiel/2.Utilisation/.scripts/Participation.md)    |
 | :three: | 07-oct | [2.Nativescript](2.NativeScript)                 | [🎉](2.NativeScript/.scripts/Participation.md)                 |
-| :three: | 14-oct | [3.Angular](2.Angular)                           | [🎉](3.Angular/.scripts/Participation.md)                      |
+| :three: | 14-oct | [3.Angular](3.Angular)                           | [🎉](3.Angular/.scripts/Participation.md)                      |
