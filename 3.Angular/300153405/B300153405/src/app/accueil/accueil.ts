@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,16 +13,17 @@ export class Accueil {
   nom = "Khaled";
   connecte = true;
   noms = ['Islem', 'Bob', 'Nabila'];
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
     saluer() {
     alert("Bonjour !");
   }
   chargerUtilisateurs() {
     this.http
-      .get('https://jsonplaceholder.typicode.com/users')
+      .get<any[]>('https://jsonplaceholder.typicode.com/users')
       .subscribe(data => {
-        console.log(data);
+        this.noms = data.map((user: any) => user.name);
+        this.cdr.detectChanges();
       });
   }
 }

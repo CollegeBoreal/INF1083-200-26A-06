@@ -3,6 +3,8 @@ INF1083 – Développement d'applications
 Projet : B300156534
 Date : 8 octobre 2026
 
+<img width="1357" height="766" alt="image" src="https://github.com/user-attachments/assets/dbf314a3-f3ec-4503-9155-2411e9fb0831" />
+
 1. Introduction
 
 Dans ce laboratoire, j'ai réalisé une première application avec Angular. L'objectif était de découvrir la création d'un projet Angular, les composants, la liaison de données, les événements, les directives, l'utilisation d'une API REST, le routage et la mise en forme avec CSS.
