@@ -1,39 +1,32 @@
-import { ChangeDetectionStrategy, Component, NO_ERRORS_SCHEMA, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angular';
+import { NativeScriptCommonModule } from '@nativescript/angular';
+
 import { Person } from './person';
 import { PersonService } from './person.service';
 
 @Component({
-  selector: 'ns-person-detail',
+  selector: 'ns-details',
   templateUrl: './person-detail.component.html',
   imports: [NativeScriptCommonModule],
   schemas: [NO_ERRORS_SCHEMA],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonDetailComponent implements OnInit {
-  personService = inject(PersonService);
-routerExtensions = inject(RouterExtensions);
-  route = inject(ActivatedRoute);
-  person = signal<Person>(null);
-  isAndroid = __ANDROID__;
+  person: Person;
+
+  private personService = inject(PersonService);
+  private route = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.params.id;
-    this.person.set(this.personService.getPerson(id));
-
-    // log the person to the console
-    console.log(this.person());
+    const id = +this.route.snapshot.params['id'];
+    this.person = this.personService.getItem(id);
   }
 
-
-  goBack() {
-    this.routerExtensions.back();
+  formatAchievements(achievements: any): string {
+    if (!achievements) return '';
+    if (Array.isArray(achievements)) {
+      return achievements.join(', ');
+    }
+    return achievements;
   }
-
-  formatAchievements(achievements: string[] | undefined | null): string {
-    if (!achievements || !Array.isArray(achievements)) return '';
-    return achievements.map( (a, index) =>  (index + 1) + '. ' + a.trim()).join('\n');
-  }
-
 }

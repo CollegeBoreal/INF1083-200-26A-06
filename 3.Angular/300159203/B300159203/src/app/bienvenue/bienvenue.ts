@@ -7,41 +7,45 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './bienvenue.html',
-  styleUrl: './bienvenue.css'
+  styleUrls: ['./bienvenue.css']
 })
 export class Bienvenue implements OnInit {
-  messageBienvenue: string = "Bienvenue dans INF1083 session A26 SECTION 6";
-  etudiants: string[] = ["Riadh", "Bilel", "Hichem", "Oualid", "Rayan"];
-  nouvelEtudiant: string = "";
-  utilisateursAPI: any[] = [];
+  nouvelEtudiant: string = '';
+  etudiants: string[] = [];
 
-  constructor() {}
+  // Liste des professeurs préchargée
+  professeurs = [
+    { nom: 'Jean Tremblay', email: 'jtremblay@collegeboreal.ca' },
+    { nom: 'Marie Bouchard', email: 'mbouchard@collegeboreal.ca' },
+    { nom: 'Pierre Gagnon', email: 'pgagnon@collegeboreal.ca' },
+    { nom: 'Lucie Roy', email: 'lroy@collegeboreal.ca' }
+  ];
 
   ngOnInit(): void {
-    this.chargerUtilisateurs();
-  }
-
-  saluer(): void {
-    alert("Bonjour ! Vous avez cliqué sur le bouton.");
+    // Récupération des étudiants sauvegardés dans le navigateur
+    const sauvegardes = localStorage.getItem('liste_etudiants');
+    if (sauvegardes) {
+      this.etudiants = JSON.parse(sauvegardes);
+    } else {
+      this.etudiants = ['Riadh', 'Bilel', 'Hichem', 'Oualid', 'Rayan'];
+      this.sauvegarderEtudiants();
+    }
   }
 
   ajouterEtudiant(): void {
-    if (this.nouvelEtudiant.trim() !== "") {
+    if (this.nouvelEtudiant.trim() !== '') {
       this.etudiants.push(this.nouvelEtudiant.trim());
-      this.nouvelEtudiant = "";
+      this.nouvelEtudiant = '';
+      this.sauvegarderEtudiants();
     }
   }
 
   supprimerEtudiant(index: number): void {
     this.etudiants.splice(index, 1);
+    this.sauvegarderEtudiants();
   }
 
-  chargerUtilisateurs(): void {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data => {
-        this.utilisateursAPI = data;
-      })
-      .catch(err => console.error("Erreur API :", err));
+  private sauvegarderEtudiants(): void {
+    localStorage.setItem('liste_etudiants', JSON.stringify(this.etudiants));
   }
 }

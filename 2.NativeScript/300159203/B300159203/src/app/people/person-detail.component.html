@@ -1,39 +1,25 @@
-<ActionBar title="Details">
-  @if (isAndroid) {
-  <StackLayout orientation="horizontal" horizontalAlignment="left">
-    <Label
-      text="< Back"
-      color="#1976d2"
-      (tap)="goBack()"
-      style="font-size: 18; margin-left: 4"
-    ></Label>
-    <Label
-      text="Details"
-      color="#333"
-      style="font-size: 20; font-weight: 600; margin-left: 30"
-    ></Label>
-  </StackLayout>
-  }
-</ActionBar>
+<ActionBar title="Détails du Joueur" showBackButton="true"></ActionBar>
 
-<FlexboxLayout flexDirection="column">
-  <FlexboxLayout class="m-4">
-    <Label class="text-3xl text-gray-400" [text]="person()?.id + '. '"></Label>
-    <Label class="text-3xl" [text]="person()?.name"></Label>
-  </FlexboxLayout>
+<ScrollView>
+  <StackLayout padding="20" *ngIf="person">
+    <Label [text]="person.name" fontSize="26" fontWeight="bold" marginBottom="10" color="#111111"></Label>
+    
+    <StackLayout class="hr-light" marginBottom="15" height="1" backgroundColor="#CCCCCC"></StackLayout>
 
-  <StackLayout class="text-xl m-2 ml-6">
-    <Label class="mb-2" fontWeight="700" text="Nationality:"></Label>
-    <Label textWrap="true" [text]="person()?.nationality"></Label>
-  </StackLayout>
+    <Label [text]="'⚽ Poste : ' + person.role" fontSize="18" marginBottom="10" fontWeight="600"></Label>
 
-  <StackLayout class="text-xl m-2">
-    <Label class="m-2 ml-4" fontWeight="700" text="Notable Achievements:"></Label>
-    <Label
-      class="text-xl m-2 ml-4"
-      [text]="formatAchievements(person()?.notableAchievements)"
-      textWrap="true"
-    >
-    </Label>
+    <StackLayout *ngIf="person.goals" marginBottom="10">
+      <Label [text]="'🎯 Buts en carrière : ' + person.goals" fontSize="16" color="#2E7D32" fontWeight="bold"></Label>
+    </StackLayout>
+
+    <StackLayout *ngIf="person.achievements" marginTop="10" marginBottom="10">
+      <Label text="🏆 Trophées & Palmarès :" fontWeight="bold" fontSize="16" marginBottom="5"></Label>
+      <Label [text]="formatAchievements(person.achievements)" textWrap="true" fontSize="14" color="#444444" lineHeight="4"></Label>
+    </StackLayout>
+
+    <StackLayout *ngIf="person.description" marginTop="10">
+      <Label text="📖 Biographie :" fontWeight="bold" fontSize="16" marginBottom="5"></Label>
+      <Label [text]="person.description" textWrap="true" fontSize="14" color="#555555"></Label>
+    </StackLayout>
   </StackLayout>
-</FlexboxLayout>
+</ScrollView>

@@ -1,39 +1,39 @@
-<div style="padding: 20px; font-family: Arial, sans-serif;">
-  <h1>{{ messageBienvenue }}</h1>
-  <hr>
-
-  <section>
+<div class="container">
+  <!-- Événement Bouton -->
+  <div class="card">
     <h2>Événement Bouton</h2>
-    <button (click)="saluer()">Cliquez-moi</button>
-  </section>
-  <hr>
+    <button class="btn-primary">Cliquez-moi</button>
+  </div>
 
-  <section>
+  <!-- Gestion des Étudiants -->
+  <div class="card">
     <h2>Gestion des Étudiants</h2>
-    <div style="margin-bottom: 10px;">
+    <div class="input-group">
       <input 
         type="text" 
         [(ngModel)]="nouvelEtudiant" 
         placeholder="Nom de l'étudiant"
-      >
-      <button (click)="ajouterEtudiant()">Ajouter</button>
+        (keyup.enter)="ajouterEtudiant()" 
+      />
+      <button class="btn-primary" (click)="ajouterEtudiant()">Ajouter</button>
     </div>
 
-    <ul>
-      <li *ngFor="let etudiant of etudiants; let i = index">
-        {{ etudiant }} 
-        <button (click)="supprimerEtudiant(i)">❌ Supprimer</button>
+    <ul class="list">
+      <li *ngFor="let etudiant of etudiants; let i = index" class="list-item">
+        <span>{{ etudiant }}</span>
+        <button class="btn-danger" (click)="supprimerEtudiant(i)">✕ Supprimer</button>
       </li>
     </ul>
-  </section>
-  <hr>
+  </div>
 
-  <section>
-    <h2>Utilisateurs chargés via API REST</h2>
-    <ul>
-      <li *ngFor="let user of utilisateursAPI">
-        <strong>{{ user.name }}</strong> ({{ user.email }})
+  <!-- Liste des Professeurs -->
+  <div class="card">
+    <h2>Liste des Professeurs</h2>
+    <ul class="list">
+      <li *ngFor="let prof of professeurs" class="list-item">
+        <strong>{{ prof.nom }}</strong>
+        <span class="email">({{ prof.email }})</span>
       </li>
     </ul>
-  </section>
+  </div>
 </div>
