@@ -1,0 +1,26 @@
+h1 {
+  color: #1976d2;
+}
+
+h2 {
+  color: #333;
+}
+
+input {
+  padding: 8px;
+  margin-right: 5px;
+}
+
+button {
+  padding: 7px 12px;
+  margin: 3px;
+  cursor: pointer;
+}
+
+li {
+  margin: 8px 0;
+}
+
+p {
+  font-weight: bold;
+}
