@@ -1,12 +1,54 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('B300151722');
+export class App implements OnInit {
+
+  nom = 'OU_DZ';
+
+  etudiants: string[] = [
+    'Alice',
+    'Bob',
+    'Charlie'
+  ];
+
+  nouveauNom = '';
+  nomSaisi = '';
+  message = '';
+
+  utilisateurs: any[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http
+      .get<any[]>('https://jsonplaceholder.typicode.com/users')
+      .subscribe(data => {
+        this.utilisateurs = data;
+      });
+  }
+
+  ajouterEtudiant() {
+    if (this.nouveauNom.trim() !== '') {
+      this.etudiants.push(this.nouveauNom);
+      this.nomSaisi = this.nouveauNom;
+      this.nouveauNom = '';
+    }
+  }
+
+  supprimerEtudiant(index: number) {
+    this.etudiants.splice(index, 1);
+  }
+
+  afficherMessage() {
+    this.message = 'Bienvenue ' + this.nom + ' !';
+  }
 }
