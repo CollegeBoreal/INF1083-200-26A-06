@@ -1,0 +1,36 @@
+<h1>Bienvenue dans INF1083</h1>
+
+<p>Nom : {{ nom }}</p>
+
+<h2>Bienvenue dans INF1083, {{ nom }} !</h2>
+
+<h2>Liste des étudiants</h2>
+
+<ul>
+  <li *ngFor="let etudiant of etudiants; let i = index">
+    {{ etudiant }}
+    <button (click)="supprimerEtudiant(i)">Supprimer</button>
+  </li>
+</ul>
+
+<input
+  type="text"
+  [(ngModel)]="nouveauNom"
+  placeholder="Nom de l'étudiant"
+/>
+
+<button (click)="ajouterEtudiant()">Ajouter</button>
+
+<p>Nom saisi : {{ nomSaisi }}</p>
+
+<button (click)="afficherMessage()">Afficher le message</button>
+
+<p>{{ message }}</p>
+
+<h2>Utilisateurs de l'API REST</h2>
+
+<ul>
+  <li *ngFor="let utilisateur of utilisateurs">
+    {{ utilisateur.name }}
+  </li>
+</ul>
