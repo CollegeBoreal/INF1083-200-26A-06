@@ -84,7 +84,11 @@ L'application a été compilée et exécutée avec succès via `ng serve`. L'int
 
 Afin d'améliorer l'expérience utilisateur et l'esthétique générale de l'application, une refonte visuelle a été effectuée à l'aide de styles CSS personnalisés. Les éléments de l'interface (boutons, champs de saisie, listes et typographies) ont été modernisés avec un alignement propre, une palette de couleurs harmonieuse et des effets d'interaction au survol, rendant la navigation plus claire et professionnelle.
 
-<img width="639" height="647" alt="image" src="https://github.com/user-attachments/assets/0f51c7d7-f134-45d9-a3ae-518a1c43b5e7" />
+<img width="639" height="647" alt="image" src="https://github.com/user-attachments/assets/0f51c7d7-f134-45d9-a3ae-518a1c43b5e7" />  
+
+j ai encore modifier et le site final a cette forme  
+<img width="644" height="657" alt="image" src="https://github.com/user-attachments/assets/150fa525-65b3-44ba-a990-e3e3cbae55f8" />
+
 
 
 
