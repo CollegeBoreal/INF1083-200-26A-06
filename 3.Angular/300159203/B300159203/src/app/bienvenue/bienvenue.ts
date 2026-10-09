@@ -7,45 +7,46 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './bienvenue.html',
-  styleUrls: ['./bienvenue.css']
+  styleUrl: './bienvenue.css'
 })
-export class Bienvenue implements OnInit {
-  nouvelEtudiant: string = '';
-  etudiants: string[] = [];
+export class BienvenueComponent implements OnInit {
 
-  // Liste des professeurs préchargée
+  etudiants: string[] = [];
+  nouvelEtudiant: string = '';
+
+  // Liste des professeurs avec la mention Mr.
   professeurs = [
-    { nom: 'Jean Tremblay', email: 'jtremblay@collegeboreal.ca' },
-    { nom: 'Marie Bouchard', email: 'mbouchard@collegeboreal.ca' },
-    { nom: 'Pierre Gagnon', email: 'pgagnon@collegeboreal.ca' },
-    { nom: 'Lucie Roy', email: 'lroy@collegeboreal.ca' }
+    { nom: 'Mr. Brice', email: 'brice@collegeboreal.ca' },
+    { nom: 'Mr. Adi', email: 'adi@collegeboreal.ca' },
+    { nom: 'Mr. William', email: 'william@collegeboreal.ca' },
+    { nom: 'Mr. Abid', email: 'abid@collegeboreal.ca' }
   ];
 
-  ngOnInit(): void {
-    // Récupération des étudiants sauvegardés dans le navigateur
-    const sauvegardes = localStorage.getItem('liste_etudiants');
-    if (sauvegardes) {
-      this.etudiants = JSON.parse(sauvegardes);
+  ngOnInit() {
+    // Récupération de la liste sauvegardée dans le navigateur
+    const etudiantsSauvegardes = localStorage.getItem('etudiants');
+    if (etudiantsSauvegardes) {
+      this.etudiants = JSON.parse(etudiantsSauvegardes);
     } else {
-      this.etudiants = ['Riadh', 'Bilel', 'Hichem', 'Oualid', 'Rayan'];
-      this.sauvegarderEtudiants();
+      this.etudiants = ['Riadh', 'Bilel', 'Hichem', 'Oualid', 'Rayan', 'youcef'];
+      this.sauvegarder();
     }
   }
 
-  ajouterEtudiant(): void {
+  ajouterEtudiant() {
     if (this.nouvelEtudiant.trim() !== '') {
-      this.etudiants.push(this.nouvelEtudiant.trim());
+      this.etudiants.push(this.nouvelEtudiant);
       this.nouvelEtudiant = '';
-      this.sauvegarderEtudiants();
+      this.sauvegarder();
     }
   }
 
-  supprimerEtudiant(index: number): void {
+  supprimerEtudiant(index: number) {
     this.etudiants.splice(index, 1);
-    this.sauvegarderEtudiants();
+    this.sauvegarder();
   }
 
-  private sauvegarderEtudiants(): void {
-    localStorage.setItem('liste_etudiants', JSON.stringify(this.etudiants));
+  private sauvegarder() {
+    localStorage.setItem('etudiants', JSON.stringify(this.etudiants));
   }
 }
