@@ -42,6 +42,7 @@ Pour améliorer l’apparence de mon application, j’ai utilisé le fichier wel
 
 L’état final de mon projet est une application Angular permettant de gérer des étudiants, des professeurs, des cours et des utilisateurs. L’utilisateur peut naviguer entre les différentes sections à l’aide d’icônes, ajouter et supprimer des étudiants, rechercher des étudiants, des professeurs, des cours et des utilisateurs. Les utilisateurs sont récupérés à partir d’une API REST. L’application utilise Angular, TypeScript, HTML et CSS et offre une interface simple, fonctionnelle et facile à utiliser.
 
+
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/b9730ad29407552f676fffe0b558dfcb7e5938de/3.Angular/300160006/images/image.png)
 
 
