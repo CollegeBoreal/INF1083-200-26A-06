@@ -1,0 +1,55 @@
+<ActionBar title="Détails">
+  @if (isAndroid) {
+    <StackLayout orientation="horizontal" horizontalAlignment="left">
+      <Label
+        text="< Retour"
+        color="#1976d2"
+        (tap)="goBack()"
+        style="font-size: 18; margin-left: 4"
+      ></Label>
+
+      <Label
+        text="Détails"
+        color="#333"
+        style="font-size: 20; font-weight: 600; margin-left: 30"
+      ></Label>
+    </StackLayout>
+  }
+</ActionBar>
+
+<StackLayout class="m-4">
+  <Label
+    class="text-3xl"
+    [text]="person()?.name"
+  ></Label>
+
+  <Label
+    class="text-xl m-t-20"
+    text="Nationalité :"
+  ></Label>
+
+  <Label
+    class="text-xl"
+    [text]="person()?.nationality"
+  ></Label>
+
+  <Label
+    class="text-xl m-t-20"
+    text="Travail :"
+  ></Label>
+
+  <Label
+    class="text-xl"
+    [text]="person()?.work"
+  ></Label>
+
+  <Label
+    class="text-xl m-t-20"
+    text="Ville :"
+  ></Label>
+
+  <Label
+    class="text-xl"
+    [text]="person()?.city"
+  ></Label>
+</StackLayout>
