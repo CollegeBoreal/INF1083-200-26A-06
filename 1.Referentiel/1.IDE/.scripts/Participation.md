@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Participation au 08-10-2026 15:27
 =======
 # Participation au 15-10-2026 15:21
 >>>>>>> 06478129377249f9b1cc6ae1cc3c060ce430c9cf
+=======
+# Participation au 15-10-2026 15:56
+>>>>>>> 1cc0a3838a45f981aafca57e23358a1208cead20
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -28,7 +32,7 @@
 | 5 | [300151863](../300151863/README.md) :point_right: [Hannibalcarthage](https://github.com/Hannibalcarthage) <image src='https://avatars0.githubusercontent.com/u/205994935?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 6 | [300152004](../300152004/README.md) :point_right: [danielmananga](https://github.com/danielmananga) <image src='https://avatars0.githubusercontent.com/u/218153814?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
 | 7 | [300153405](../300153405/README.md) :point_right: [rekaikkhaled](https://github.com/rekaikkhaled) <image src='https://avatars0.githubusercontent.com/u/261492660?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
-| 8 | [300153416](../300153416/README.md) :point_right: [ouabahkhalil28-crypto](https://github.com/ouabahkhalil28-crypto) <image src='https://avatars0.githubusercontent.com/u/262935334?s=460&v=4' width=20 height=20></image> | :x: | :x: |
+| 8 | [300153416](../300153416/README.md) :point_right: [ouabahkhalil28-crypto](https://github.com/ouabahkhalil28-crypto) <image src='https://avatars0.githubusercontent.com/u/262935334?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 9 | [300155462](../300155462/README.md) :point_right: [zakariamamssi05](https://github.com/zakariamamssi05) <image src='https://avatars0.githubusercontent.com/u/231498971?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 10 | [300156534](../300156534/README.md) :point_right: [salhiwalid540-hue](https://github.com/salhiwalid540-hue) <image src='https://avatars0.githubusercontent.com/u/261489191?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 11 | [300157250](../300157250/README.md) :point_right: [jeanpi-erre01](https://github.com/jeanpi-erre01) <image src='https://avatars0.githubusercontent.com/u/261491627?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
@@ -51,4 +55,4 @@
 | 28 | [300160504](../300160504/README.md) :point_right: [Mmounir07](https://github.com/Mmounir07) <image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 29 | [300160733](../300160733/README.md) :point_right: [belhadiyanis200-a11y](https://github.com/belhadiyanis200-a11y) <image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 30 | [300160862](../300160862/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| :abacus: | \$\\frac{16}{31}\$ = 51.61% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 16 |
+| :abacus: | \$\\frac{17}{31}\$ = 54.84% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 17 |
