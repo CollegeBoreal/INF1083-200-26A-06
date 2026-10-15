@@ -6,7 +6,7 @@
 
 ## Résultat final
 
-![alt text](<4.Capture d’écran 2026-10-15 113623.png-1.jpeg>)
+<img width="945" height="2048" alt="4 Capture d’écran 2026-10-15 113623 png" src="https://github.com/user-attachments/assets/cda2ea40-aaa9-476a-bb48-d6ccd0848257" />
 
 ## Présentation du travail
 
@@ -36,7 +36,7 @@ Dans src/app/home/home.component.html, j'ai créé la structure de la page avec 
 
 Les deux champs TextField utilisent formControlName="email" et formControlName="username" pour être liés au formulaire réactif. Le bouton appelle la méthode onButtonTap() lors d'un appui. Un élément Label permet d'afficher le message de validation ou de confirmation.
 
-![alt text](<1.Capture d’écran 2026-10-15 113623.png>)
+<img width="1920" height="1126" alt="1 Capture d’écran 2026-10-15 113623" src="https://github.com/user-attachments/assets/541dc07f-3603-4404-b931-8fb28ae670d8" />
 
 J'ai défini l'apparence dans src/app/home/home.component.css : couleurs, cartes, espaces, champs de saisie et bouton. Le résultat est une interface plus lisible sur le téléphone.
 
@@ -49,7 +49,7 @@ Validators.required : ils doivent être remplis avant l'envoi.
 J'ai aussi importé ReactiveFormsModule et NativeScriptFormsModule
 pour relier les champs de l'interface au formulaire.
 
-![alt text](<2.Capture d’écran 2026-10-15 113928.png>) 
+<img width="1920" height="852" alt="2 Capture d’écran 2026-10-15 113928" src="https://github.com/user-attachments/assets/b6f00747-a106-449d-ba53-182510948803" />
 
 Dans la méthode onButtonTap() :
 
@@ -59,14 +59,14 @@ Dans la méthode onButtonTap() :
 
 Au démarrage, l'application affiche les deux champs vides et le bouton « Créer mon compte ».
 
-![alt text](<3.Capture d’écran 2026-10-15 113623.png.jpeg>)
+<img width="945" height="2048" alt="3 Capture d’écran 2026-10-15 113623 png" src="https://github.com/user-attachments/assets/b00386de-b922-4e06-ae2d-81608387c24f" />
 
 
 J'ai ensuite rempli les champs et appuyé sur le bouton. Le message « Formulaire envoyé avec succès ! » est apparu, comme le montre la figure 1 au début du README.
 
 Enfin, j'ai vérifié dans PowerShell que les valeurs des champs email et username étaient affichées au format JSON.
 
-![alt text](<5.Capture d’écran 2026-10-15 123053.png>)
+<img width="992" height="70" alt="5 Capture d’écran 2026-10-15 123053" src="https://github.com/user-attachments/assets/786fe890-1c11-4be9-bb29-73093dbb0cbc" />
 
 ## Conclusion
 
