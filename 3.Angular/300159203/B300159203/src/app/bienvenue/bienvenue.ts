@@ -9,39 +9,42 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './bienvenue.html',
   styleUrl: './bienvenue.css'
 })
-export class Bienvenue implements OnInit {
-  messageBienvenue: string = "Bienvenue dans INF1083 session A26 SECTION 6";
-  etudiants: string[] = ["Riadh", "Bilel", "Hichem", "Oualid", "Rayan"];
-  nouvelEtudiant: string = "";
-  utilisateursAPI: any[] = [];
+export class BienvenueComponent implements OnInit {
 
-  constructor() {}
+  etudiants: string[] = [];
+  nouvelEtudiant: string = '';
 
-  ngOnInit(): void {
-    this.chargerUtilisateurs();
-  }
+  professeurs = [
+    { nom: 'Mr. Brice', email: 'brice@collegeboreal.ca' },
+    { nom: 'Mr. Adi', email: 'adi@collegeboreal.ca' },
+    { nom: 'Mr. William', email: 'william@collegeboreal.ca' },
+    { nom: 'Mr. Abid', email: 'abid@collegeboreal.ca' }
+  ];
 
-  saluer(): void {
-    alert("Bonjour ! Vous avez cliqué sur le bouton.");
-  }
-
-  ajouterEtudiant(): void {
-    if (this.nouvelEtudiant.trim() !== "") {
-      this.etudiants.push(this.nouvelEtudiant.trim());
-      this.nouvelEtudiant = "";
+  ngOnInit() {
+    const etudiantsSauvegardes = localStorage.getItem('etudiants');
+    if (etudiantsSauvegardes) {
+      this.etudiants = JSON.parse(etudiantsSauvegardes);
+    } else {
+      this.etudiants = ['Riadh', 'Bilel', 'Hichem', 'Oualid', 'Rayan', 'youcef'];
+      this.sauvegarder();
     }
   }
 
-  supprimerEtudiant(index: number): void {
-    this.etudiants.splice(index, 1);
+  ajouterEtudiant() {
+    if (this.nouvelEtudiant.trim() !== '') {
+      this.etudiants.push(this.nouvelEtudiant);
+      this.nouvelEtudiant = '';
+      this.sauvegarder();
+    }
   }
 
-  chargerUtilisateurs(): void {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data => {
-        this.utilisateursAPI = data;
-      })
-      .catch(err => console.error("Erreur API :", err));
+  supprimerEtudiant(index: number) {
+    this.etudiants.splice(index, 1);
+    this.sauvegarder();
+  }
+
+  private sauvegarder() {
+    localStorage.setItem('etudiants', JSON.stringify(this.etudiants));
   }
 }
