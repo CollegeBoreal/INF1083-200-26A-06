@@ -1,0 +1,176 @@
+<div class="container">
+
+  <h1>{{ titre }}</h1>
+
+  <p>Nom : Maimouna</p>
+
+  <h2>Bienvenue dans votre application Maimouna !</h2>
+
+  <div class="menu">
+
+    <button (click)="section='accueil'">
+      🏠 Accueil
+    </button>
+
+    <button (click)="section='etudiants'">
+      👨‍🎓 Étudiants
+    </button>
+
+    <button (click)="section='profs'">
+      👨‍🏫 Professeurs
+    </button>
+
+    <button (click)="section='cours'">
+      📚 Cours
+    </button>
+
+    <button (click)="section='utilisateurs'">
+      👥 Utilisateurs
+    </button>
+
+  </div>
+
+  <hr>
+
+  <!-- ACCUEIL -->
+
+  <div *ngIf="section === 'accueil'">
+
+    <h2>🏠 Accueil</h2>
+
+    <p>Bienvenue dans le portail universitaire INF1083.</p>
+
+    <ul>
+      <li>👨‍🎓 Étudiants : {{ etudiants.length }}</li>
+      <li>👨‍🏫 Professeurs : {{ professeurs.length }}</li>
+      <li>📚 Cours : {{ cours.length }}</li>
+      <li>👥 Utilisateurs : {{ utilisateurs.length }}</li>
+    </ul>
+
+    <button
+      class="bouton-principal"
+      (click)="saluer()">
+      Afficher le message
+    </button>
+
+  </div>
+
+  <!-- ETUDIANTS -->
+
+  <div *ngIf="section === 'etudiants'">
+
+    <h2>👨‍🎓 Liste des étudiants</h2>
+
+    <ul>
+      <li *ngFor="let etudiant of etudiants; let i = index">
+
+        {{ etudiant }}
+
+        <button
+          class="supprimer"
+          (click)="supprimerEtudiant(i)">
+          Supprimer
+        </button>
+
+      </li>
+    </ul>
+
+    <input
+      type="text"
+      placeholder="Nom de l'étudiant"
+      [(ngModel)]="nouveauEtudiant">
+
+    <button
+      class="bouton-principal"
+      (click)="ajouterEtudiant()">
+      Ajouter
+    </button>
+
+  </div>
+
+  <!-- PROFESSEURS -->
+
+  <div *ngIf="section === 'profs'">
+
+    <h2>👨‍🏫 Liste des professeurs</h2>
+
+    <input
+      type="text"
+      placeholder="Rechercher un professeur"
+      [(ngModel)]="rechercheProf">
+
+    <ul>
+
+      <li *ngFor="let prof of filtrerProfesseurs()">
+
+        <strong>{{ prof.nom }}</strong><br>
+
+        📧 {{ prof.email }}<br>
+
+        Département : {{ prof.departement }}
+
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- COURS -->
+
+  <div *ngIf="section === 'cours'">
+
+    <h2>📚 Liste des cours</h2>
+
+    <input
+      type="text"
+      placeholder="Rechercher un cours"
+      [(ngModel)]="rechercheCours">
+
+    <ul>
+
+      <li *ngFor="let coursItem of filtrerCours()">
+
+        <strong>{{ coursItem.code }}</strong><br>
+
+        {{ coursItem.nom }}<br>
+
+        Professeur : {{ coursItem.professeur }}
+
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- UTILISATEURS -->
+
+  <div *ngIf="section === 'utilisateurs'">
+
+    <h2>👥 Utilisateurs API REST</h2>
+
+    <input
+      type="text"
+      placeholder="Rechercher un utilisateur"
+      [(ngModel)]="rechercheUtilisateur">
+
+    <button
+      class="bouton-principal"
+      (click)="rechercherUtilisateur()">
+      Rechercher
+    </button>
+
+    <ul>
+
+      <li *ngFor="let utilisateur of utilisateursFiltres">
+
+        <strong>{{ utilisateur.name }}</strong><br>
+
+        📧 {{ utilisateur.email }}
+
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>

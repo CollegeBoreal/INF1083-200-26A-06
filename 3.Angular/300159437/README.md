@@ -1,1 +1,2 @@
-
+# INF1083 - Laboratoire Angular
+Ce projet a été réalisé dans le cadre du cours INF1083 afin de mettre en pratique les concepts fondamentaux d'Angular. L'application démontre l'utilisation du Data Binding, de la gestion des événements, des directives conditionnelles et de l'affichage dynamique de listes. L'interface affiche un message de bienvenue (« Bienvenue INF1083 »), une section Data Binding permettant d'afficher des données provenant du composant TypeScript, une section Événements contenant un bouton « Cliquez-moi » qui déclenche une action lors d'un clic, une section Condition affichant l'état « Connecté » grâce à la directive *ngIf, ainsi qu'une liste d'utilisateurs comprenant Alice, Bob et Charlie générée dynamiquement

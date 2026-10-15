@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Bienvenue } from './bienvenue/bienvenue';
+import { BienvenueComponent } from './bienvenue/bienvenue';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Bienvenue],
+  imports: [BienvenueComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class AppComponent {
   title = 'B300159203';
 }
