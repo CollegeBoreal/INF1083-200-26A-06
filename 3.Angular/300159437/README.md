@@ -18,6 +18,11 @@ Cette fonctionnalité utilise le Data Binding pour lier les données TypeScript 
 
 La gestion des événements a été implémentée à l'aide d'un bouton intitulé « Cliquez-moi ». Lors d'un clic, une fonction du composant est exécutée grâce à l'Event Binding avec l'événement (click).
 
+
+<img src="images/Screenshot%202026-10-15%20111328.png" width="40%">
+
+
+
 L'application utilise également une directive conditionnelle *ngIf permettant d'afficher l'état « Connecté » lorsque la condition est vraie. Cette technique est couramment utilisée pour gérer l'affichage dynamique selon l'état d'un utilisateur ou d'une application.
 
 Une liste dynamique d'utilisateurs a été créée à l'aide de la directive *ngFor. La liste affiche les éléments suivants :
