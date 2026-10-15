@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# Participation au 08-10-2026 15:27
-=======
-# Participation au 15-10-2026 15:21
->>>>>>> 06478129377249f9b1cc6ae1cc3c060ce430c9cf
-=======
-# Participation au 15-10-2026 15:56
->>>>>>> 1cc0a3838a45f981aafca57e23358a1208cead20
+# Participation au 15-10-2026 17:43
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|

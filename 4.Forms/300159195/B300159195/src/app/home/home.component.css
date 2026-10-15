@@ -1,0 +1,106 @@
+.app-bar {
+  background-color: #102a43;
+  color: #ffffff;
+}
+
+.page {
+  background-color: #f2f6fa;
+}
+
+.page-content {
+  padding: 20;
+}
+
+.hero {
+  background-color: #102a43;
+  border-radius: 22;
+  padding: 26;
+  margin-bottom: 20;
+}
+
+.hero-caption {
+  color: #73d6c1;
+  font-size: 11;
+  font-weight: bold;
+  letter-spacing: 2;
+  margin-bottom: 18;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: 29;
+  font-weight: bold;
+  margin-bottom: 12;
+}
+
+.hero-description {
+  color: #c6d7e5;
+  font-size: 14;
+  line-height: 5;
+}
+
+.form-card {
+  background-color: #ffffff;
+  border-radius: 22;
+  padding: 22;
+}
+
+.card-title {
+  color: #102a43;
+  font-size: 21;
+  font-weight: bold;
+  margin-bottom: 6;
+}
+
+.card-description {
+  color: #718096;
+  font-size: 13;
+  margin-bottom: 24;
+}
+
+.field-label {
+  color: #40566b;
+  font-size: 11;
+  font-weight: bold;
+  letter-spacing: 1;
+  margin-bottom: 8;
+}
+
+.second-label {
+  margin-top: 18;
+}
+
+.input-field {
+  background-color: #f3f7fa;
+  color: #102a43;
+  placeholder-color: #8999a8;
+  border-width: 1;
+  border-color: #dde7ee;
+  border-radius: 12;
+  padding: 13;
+  font-size: 16;
+}
+
+.submit-button {
+  background-color: #087f70;
+  color: #ffffff;
+  border-radius: 12;
+  height: 54;
+  font-size: 16;
+  font-weight: bold;
+  margin-top: 26;
+}
+
+.status-message {
+  color: #087f70;
+  font-size: 13;
+  text-align: center;
+  margin-top: 14;
+}
+
+.footer-text {
+  color: #8292a0;
+  font-size: 12;
+  text-align: center;
+  margin-top: 24;
+}

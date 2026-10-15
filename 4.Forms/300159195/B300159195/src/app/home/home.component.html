@@ -1,0 +1,60 @@
+<ActionBar title="INF1083 • Forms" class="app-bar"></ActionBar>
+
+<ScrollView class="page">
+  <StackLayout class="page-content">
+
+    <StackLayout class="hero">
+      <Label text="INF1083  /  LABORATOIRE" class="hero-caption"></Label>
+      <Label text="Créer un compte" class="hero-title"></Label>
+      <Label
+        text="Un formulaire simple, réalisé avec Angular Reactive Forms et NativeScript."
+        textWrap="true"
+        class="hero-description"
+      ></Label>
+    </StackLayout>
+
+    <StackLayout class="form-card" [formGroup]="signUpForm">
+      <Label text="Vos informations" class="card-title"></Label>
+      <Label
+        text="Remplissez les deux champs pour continuer."
+        class="card-description"
+      ></Label>
+
+      <Label text="ADRESSE COURRIEL" class="field-label"></Label>
+      <TextField
+        formControlName="email"
+        hint="exemple@courriel.com"
+        keyboardType="email"
+        autocorrect="false"
+        autocapitalizationType="none"
+        class="input-field"
+      ></TextField>
+
+      <Label text="NOM D'UTILISATEUR" class="field-label second-label"></Label>
+      <TextField
+        formControlName="username"
+        hint="Votre nom d'utilisateur"
+        autocorrect="false"
+        class="input-field"
+      ></TextField>
+
+      <Button
+        text="Créer mon compte"
+        (tap)="onButtonTap()"
+        class="submit-button"
+      ></Button>
+
+      <Label
+        [text]="statusMessage"
+        textWrap="true"
+        class="status-message"
+      ></Label>
+    </StackLayout>
+
+    <Label
+      text="Projet Forms • NativeScript + Angular"
+      class="footer-text"
+    ></Label>
+
+  </StackLayout>
+</ScrollView>
