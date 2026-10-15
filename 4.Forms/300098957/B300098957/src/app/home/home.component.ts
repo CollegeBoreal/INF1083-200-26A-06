@@ -20,17 +20,15 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-
     // Init your component properties here.
     this.signUpForm = this.formBuilder.group({
         email: ["", Validators.required],
         username: ["", Validators.required],
     });
-
   }
 
-  onButtonTap(): void {
-        console.log(JSON.stringify(this.signUpForm.value));
+  onButtonTap() {
+    console.log(JSON.stringify(this.signUpForm.value));
   }
 
 }
