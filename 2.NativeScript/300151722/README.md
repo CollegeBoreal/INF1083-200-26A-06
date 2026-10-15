@@ -138,4 +138,7 @@ ns run android
 
 <img width="586" height="1031" alt="111" src="https://github.com/user-attachments/assets/c89e907d-8eff-44e8-b35a-3345d5dceda9" />
 
+<img width="560" height="1060" alt="S2-1" src="https://github.com/user-attachments/assets/cd2aa220-95ae-43f6-b2a9-177b08bb86ea" />
+
+
 

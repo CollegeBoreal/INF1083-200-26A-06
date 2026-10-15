@@ -2,6 +2,7 @@
 **Nom :** Mekaouche Mazigh  
 **Numéro étudiant :** 300159693  
 **Projet :** B300159693
+<img width="288" height="506" alt="Capture d&#39;écran 2026-10-08 112346" src="https://github.com/user-attachments/assets/c9780a48-f030-4f00-928d-592fdfcdeac1" />
 1-Création du projet
 La création du projet NativeScript se termine avec succès. Le projet est nommé B300159693.
 <img width="923" height="411" alt="Capture d&#39;écran 2026-10-01 114953" src="https://github.com/user-attachments/assets/ef1828d8-0d1c-471c-88f3-ab6ad04926c5" />

@@ -9,13 +9,13 @@ import { Component } from '@angular/core';
 export class Accueil {
   titre = 'Bienvenue INF1083';
 
+  nom = 'Prof';
+
+  connecte = true;
+
   noms = ['Alice', 'Bob', 'Charlie'];
 
-  supprimerUtilisateur(index: number) {
-    this.noms.splice(index, 1);
-  }
-
   saluer() {
-    alert('Bonjour , Je suis le Milieu !');
+    alert('Bonjour !');
   }
 }
