@@ -42,6 +42,14 @@ src/
 ├── assets/
 ├── index.html
 └── main.ts
+
+
+<img src="images/Screenshot%202026-10-15%20112739.png" width="40%">
+
+
+
+
+
 Les technologies utilisées dans ce projet sont Angular, TypeScript, HTML, CSS, Node.js et Angular CLI.
 
 Ce laboratoire a permis d'acquérir une compréhension pratique des composantes essentielles d'Angular, notamment les composants réutilisables, le Data Binding, l'Event Binding, les directives structurelles (*ngIf et *ngFor), ainsi que le fonctionnement du serveur de développement Angular. Ces notions constituent la base du développement d'applications web modernes et serviront de fondation pour les futurs projets impliquant le routage, les formulaires et la consommation d'API REST.
