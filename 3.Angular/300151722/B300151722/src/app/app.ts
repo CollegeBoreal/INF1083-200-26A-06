@@ -51,6 +51,4 @@ export class App implements OnInit {
   afficherMessage() {
     this.message = 'Bienvenue ' + this.nom + ' !';
   }
-
-}
 }

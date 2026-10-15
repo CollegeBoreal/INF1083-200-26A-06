@@ -12,9 +12,9 @@
             marginBottom="15" />
 
         <ListView
-            row="1"
-            items="{{ contacts }}">
-
+                row="1"
+                items="{{ contacts }}"
+                itemTap="onItemTap">
             <ListView.itemTemplate>
                 <GridLayout
                     rows="auto,auto"
