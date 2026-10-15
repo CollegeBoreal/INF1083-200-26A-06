@@ -9,7 +9,7 @@ ng new B300159437
 cd B300159437
 ng serve
 Le projet a été exécuté localement à l'adresse :
-
+<img src="images/Screenshot%202026-10-15%20111217.png" width="40%">
 http://localhost:4200
 L'application développée démontre plusieurs fonctionnalités importantes d'Angular. Tout d'abord, un composant affiche un message de bienvenue grâce à l'interpolation :
 
