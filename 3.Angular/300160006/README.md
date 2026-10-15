@@ -44,7 +44,7 @@ L’état final de mon projet est une application Angular permettant de gérer d
 
 
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/b9730ad29407552f676fffe0b558dfcb7e5938de/3.Angular/300160006/images/image.png)
- (Projet Angular 300160006)
+
 
 
 ## Conclusion
