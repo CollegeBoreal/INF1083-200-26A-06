@@ -2,6 +2,7 @@ export interface Person {
   id: number;
   name: string;
   role: string;
-  nationality: string;
+  goals: number;
   notableAchievements: string;
+  bio: string;
 }
