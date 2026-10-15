@@ -3,7 +3,6 @@
 
 Étape 1 – Vérifier Node.js / npm
 <img width="3840" height="2877" alt="225547c6-30d0-4d3c-9def-288f2ce3d170" src="https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/main/2.NativeScript/300152004/images/01-erreur-installation-cli.png?raw=true" />
-
 On vérifie les versions installées (`node -v` → v26.10.0, `npm -v` → 11.19.1), puis on tente d'installer la CLI avec :
 npm install -g @nativescript/cli
 
