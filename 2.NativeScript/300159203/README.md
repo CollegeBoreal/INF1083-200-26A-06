@@ -1,6 +1,7 @@
 # Application NativeScript - Légendes du Football
 
-<img width="333" alt="Screenshot 2026-09-25 150203" src="https://github.com/user-attachments/assets/611bfe7b-80e9-403f-b1b2-8767c1457d54" />
+<img width="641" height="710" alt="Screenshot 2026-10-08 154816" src="https://github.com/user-attachments/assets/362e9c66-ad72-4834-a282-b66a301bc732" />
+
 
 ---
 

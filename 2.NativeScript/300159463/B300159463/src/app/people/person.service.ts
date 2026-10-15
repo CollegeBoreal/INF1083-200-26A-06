@@ -4,22 +4,18 @@ import { Person } from './person';
 @Injectable({providedIn: 'root'})
 export class PersonService {
   items = signal<Person[]>([
-    { id: 1, name: 'Alan Turing', nationality: 'British', notableAchievements: ['WW2 code breaking', 'Father of theoretical computer science and AI' ] },
-    { id: 2, name: 'Grace Hopper', nationality: 'American', notableAchievements: ['COBOL development', 'Navy commander', 'Implementation of computer systems and components testing'] },
-    { id: 3, name: 'Donal Knuth', nationality: 'American', notableAchievements: [ 'Author of The Art of Computer Programming', 'Created TeX typesetting system' ] },
-    { id: 4, name: 'Ada Lovelace', nationality: 'British', notableAchievements: [ 'First computer programmer', 'Worked on Analytical Engine' ]},
-    { id: 5, name: 'John von Neumann', nationality: 'Hungarian/American', notableAchievements: [ 'Von Neumann architecture', 'Game theory', 'Contributed to EDVAC' ] },
-    { id: 6, name: 'Tim Berners-Lee', nationality: 'British', notableAchievements: [ 'Inventor of the World Wide Web' ] },
-    { id: 7, name: 'Edsger Dijkstra', nationality: 'Dutch', notableAchievements: [ 'Shortest path algorithm', 'Structured programming advocate' ] },
-    { id: 8, name: 'Linus Torvalds', nationality: 'Finnish-American', notableAchievements: ['Creator of Linux kernel', 'Creator of Git'] },
-    { id: 9, name: 'John McCarthy', nationality: 'American', notableAchievements: ['Coined term "Artificial Intelligence"', 'Created LISP programming language'] },
-    { id: 10, name: 'Dennis Ritchie', nationality: 'American', notableAchievements: ['Creator of C programming language', 'Co-creator of Unix'] },
-    { id: 11, name: 'Bjarne Stroustrup', nationality: 'Danish', notableAchievements: [ 'Creator of C++ programming language' ] },
-    { id: 12, name: 'Steve Wozniak', nationality: 'American', notableAchievements: ['Co-founder of Apple', 'Designer of Apple I & II', 'Pioneer of personal computing'] },
-    { id: 13, name: 'Tommy Flowers', nationality: 'British', notableAchievements: ['Designer of Colossus', 'Pioneer in electronic computing'] },
-    { id: 14, name: 'John Backus', nationality: 'American', notableAchievements: ['Created FORTRAN', 'Developed Backus-Naur form(BNF) notation'] },
-    { id: 15, name: 'Niklaus Wirth', nationality: 'Swiss', notableAchievements: ['Creator of Pascal, Modula, Oberon languages', 'Software engineering pioneer'] },
-  ]);
+[
+    { id: 1, name: 'Lionel Messi', nationality: 'Argentinian', notableAchievements: ['8 Ballon d\'Or awards', 'World Cup 2022 Champion', 'FC Barcelona legend'] },
+    { id: 2, name: 'Cristiano Ronaldo', nationality: 'Portuguese', notableAchievements: ['5 Ballon d\'Or awards', 'All-time Champions League top scorer', 'Euro 2016 Champion'] },
+    { id: 3, name: 'Kylian Mbappe', nationality: 'French', notableAchievements: ['World Cup 2018 Champion', 'World Cup Final Hat-trick', 'PSG all-time top scorer'] },
+    { id: 4, name: 'Neymar Jr', nationality: 'Brazilian', notableAchievements: ['Champions League 2015 winner', 'Brazil all-time joint top scorer', 'Olympic Gold Medalist'] },
+    { id: 5, name: 'Mohamed Salah', nationality: 'Egyptian', notableAchievements: ['Champions League & Premier League winner', 'Multiple Premier League Golden Boots', 'African Footballer of the Year'] },
+    { id: 6, name: 'Erling Haaland', nationality: 'Norwegian', notableAchievements: ['Treble winner with Manchester City', 'Premier League single-season goal record', 'European Golden Shoe'] },
+    { id: 7, name: 'Kevin De Bruyne', nationality: 'Belgian', notableAchievements: ['Multiple Premier League titles', 'PFA Players\' Player of the Year', 'Manchester City captain'] },
+    { id: 8, name: 'Luka Modric', nationality: 'Croatian', notableAchievements: ['Ballon d\'Or 2018', 'World Cup 2018 finalist', '6-time Champions League winner'] },
+    { id: 9, name: 'Karim Benzema', nationality: 'French', notableAchievements: ['Ballon d\'Or 2022', '5-time Champions League winner', 'Real Madrid 2nd all-time top scorer'] },
+    { id: 10, name: 'Robert Lewandowski', nationality: 'Polish', notableAchievements: ['Best FIFA Men\'s Player 2020 & 2021', 'Bundesliga single-season goal record', 'European Golden Shoe'] },
+  ]
 
   getPerson(id: number): Person {
     return this.items().find((person) => person.id === id);
