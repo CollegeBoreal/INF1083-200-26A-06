@@ -1,7 +1,7 @@
 ﻿# Compte Rendu de Laboratoire : INF1083 – Angular
 
 **Matricule étudiant :** 300159203  
-**Cours :** INF1083 – Développement Web (Session A26 SECTION 6)  
+**Cours :** INF1083  
 **Projet :** B300159203  
 
 ---
