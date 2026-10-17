@@ -1,3 +1,4 @@
+
 import { ChangeDetectionStrategy, Component, NO_ERRORS_SCHEMA, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angular';
@@ -13,7 +14,7 @@ import { PersonService } from './person.service';
 })
 export class PersonDetailComponent implements OnInit {
   personService = inject(PersonService);
-routerExtensions = inject(RouterExtensions);
+  routerExtensions = inject(RouterExtensions);
   route = inject(ActivatedRoute);
   person = signal<Person>(null);
   isAndroid = __ANDROID__;
@@ -21,19 +22,14 @@ routerExtensions = inject(RouterExtensions);
   ngOnInit(): void {
     const id = +this.route.snapshot.params.id;
     this.person.set(this.personService.getPerson(id));
-
-    // log the person to the console
     console.log(this.person());
   }
 
-
-  goBack() {
+  goBack(): void {
     this.routerExtensions.back();
   }
 
-  formatAchievements(achievements: string[] | undefined | null): string {
-    if (!achievements || !Array.isArray(achievements)) return '';
-    return achievements.map( (a, index) =>  (index + 1) + '. ' + a.trim()).join('\n');
+  formatAchievements(achievements: string | undefined | null): string {
+    return achievements ?? '';
   }
-
 }
