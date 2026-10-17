@@ -3,8 +3,8 @@
 
 **Étudiant :** Riadh Sahraoui  
 **Matricule :** 300159203  
-**Cours :** INF1083 — Forms  
-**Projet :** B300159203
+**Cours :** INF1083   
+**Projet :** Forms
 
 ## 1. Objectif
 
