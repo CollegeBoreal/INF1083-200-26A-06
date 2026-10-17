@@ -8,46 +8,59 @@
 
 ## 1. Objectif
 
-L’objectif de ce laboratoire est de comprendre les layouts de NativeScript et d’utiliser les formulaires réactifs d’Angular (ReactiveForms).
+L'objectif de ce laboratoire est de comprendre les layouts de NativeScript et d'utiliser les formulaires réactifs d'Angular (ReactiveForms).
 
-## 2. Technologies utilisées
+## 2. Préparation de l'environnement
 
-- NativeScript
-- Angular
-- TypeScript
-- HTML
-- CSS
-- Angular ReactiveForms
+Avant de commencer, j'ai vérifié les versions des outils nécessaires au développement.
 
-## 3. Fonctionnalités réalisées
+- Node.js : `v24.21.0`
+- npm : `11.19.0`
+- NativeScript CLI : `9.1.1`
 
-- Création d’un formulaire avec les champs Email et Username.
-- Initialisation du formulaire avec `FormBuilder`.
-- Utilisation de `FormGroup` et des validateurs Angular.
-- Vérification des champs obligatoires.
-- Vérification du format de l’adresse courriel avec `Validators.email`.
-- Affichage de messages d’erreur en rouge.
-- Affichage d’un message de confirmation en vert.
-- Affichage des valeurs du formulaire dans la console.
-- Personnalisation de l’interface avec du CSS NativeScript.
+### Capture 1 — Vérification des versions
 
-## 4. Captures d’écran
+<img width="628" height="204" alt="Screenshot 2026-10-16 205557" src="https://github.com/user-attachments/assets/3620f4d4-edbf-41b2-bc5f-56dc68e67412" />
 
-Les captures d’écran sont enregistrées dans le répertoire `images`.
 
-### 4.1 Formulaire
+## 3. Création du projet
 
-![Formulaire](images/formulaire.png)
+J'ai créé le projet NativeScript avec Angular à l'aide de la commande suivante :
 
-### 4.2 Validation du courriel
+```powershell
+ns create B300159203 --ng
+```
 
-![Erreur de validation](images/validation.png)
+Le projet a été créé avec succès après l'installation des dépendances.
 
-### 4.3 Confirmation
+### Capture 2 — Création du projet
 
-![Message de confirmation](images/succes.png)
+<img width="631" height="733" alt="Screenshot 2026-10-16 205702" src="https://github.com/user-attachments/assets/767d1cd0-fc1a-4d70-be48-299685913220" />
 
-## 5. Résultat
+## 4. Formulaire ReactiveForms
 
-Le formulaire fonctionne correctement. Les champs obligatoires sont vérifiés, le format du courriel est validé et les messages appropriés sont affichés dans l’application. Lorsque le formulaire est valide, les valeurs sont également affichées dans la console.
+J'ai créé un formulaire contenant deux champs : Email et Username. Les valeurs saisies sont récupérées avec Angular ReactiveForms et affichées dans la console.
 
+## 5. Personnalisation de l'interface
+
+J'ai amélioré l'apparence du formulaire avec du CSS NativeScript pour obtenir une interface plus claire et mieux organisée.
+
+### Capture 4 — Interface améliorée
+
+<img width="332" height="665" alt="Screenshot 2026-10-16 214045" src="https://github.com/user-attachments/assets/3b254805-70bc-453a-b2a7-901ba1ea388c" />
+
+
+## 6. Validation du formulaire
+
+J'ai ajouté la validation des champs obligatoires et du format de l'adresse courriel. Un message d'erreur rouge ou un message de confirmation vert s'affiche selon le résultat.
+
+### Capture 5 — Validation du formulaire
+
+<img width="329" height="668" alt="Screenshot 2026-10-16 214138" src="https://github.com/user-attachments/assets/86468cfb-b675-4d20-a627-d99eec440b1b" />  
+<img width="334" height="664" alt="Screenshot 2026-10-16 214239" src="https://github.com/user-attachments/assets/e48c3509-096a-4405-a2cb-3dec1acfdb3b" />
+
+
+
+## 7. Résultat
+
+Ce laboratoire m'a permis de pratiquer les formulaires réactifs d'Angular, la validation des données, la gestion des événements et la personnalisation de l'interface NativeScript.
