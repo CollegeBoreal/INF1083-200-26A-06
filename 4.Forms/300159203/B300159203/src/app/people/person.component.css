@@ -1,0 +1,79 @@
+
+.page {
+  background-color: #f4f6fb;
+  padding: 28;
+}
+
+.header {
+  margin-top: 35;
+  margin-bottom: 35;
+}
+
+.welcome {
+  font-size: 32;
+  font-weight: bold;
+  color: #172554;
+  text-align: center;
+  margin-bottom: 8;
+}
+
+.subtitle {
+  font-size: 16;
+  color: #64748b;
+  text-align: center;
+}
+
+.form {
+  background-color: white;
+  padding: 22;
+  border-radius: 14;
+}
+
+.field-label {
+  font-size: 12;
+  font-weight: bold;
+  color: #475569;
+  margin-bottom: 8;
+}
+
+.input {
+  background-color: #f8fafc;
+  border-width: 1;
+  border-color: #dbe3ef;
+  border-radius: 8;
+  padding: 10;
+  margin-bottom: 22;
+  font-size: 16;
+}
+
+.submit-button {
+  background-color: #2563eb;
+  color: white;
+  border-radius: 8;
+  font-size: 16;
+  font-weight: bold;
+  margin-top: 8;
+  padding: 12;
+}
+
+.footer {
+  color: #94a3b8;
+  font-size: 12;
+  text-align: center;
+  margin-top: 18;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 14;
+  text-align: center;
+  margin-top: 12;
+}
+
+.success-message {
+  color: #16a34a;
+  font-size: 14;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 12;
+}
