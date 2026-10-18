@@ -27,7 +27,6 @@
     </Label>
 
     <StackLayout
-      [formGroup]="signUpForm"
       backgroundColor="white"
       borderRadius="20"
       padding="22">
@@ -41,10 +40,10 @@
       </Label>
 
       <TextField
-        formControlName="email"
         hint="Enter your email"
         keyboardType="email"
         autocapitalizationType="none"
+        (textChange)="updateField('email', $event)"
         backgroundColor="#F1F5F9"
         color="#14233D"
         borderRadius="10"
@@ -61,8 +60,8 @@
       </Label>
 
       <TextField
-        formControlName="username"
         hint="Enter your username"
+        (textChange)="updateField('username', $event)"
         backgroundColor="#F1F5F9"
         color="#14233D"
         borderRadius="10"
@@ -82,15 +81,5 @@
       </Button>
 
     </StackLayout>
-
-    <Label
-      text="NativeScript + Angular Reactive Forms"
-      fontSize="12"
-      color="#64748B"
-      textAlignment="center"
-      marginTop="25">
-    </Label>
-
   </StackLayout>
 </ScrollView>
-

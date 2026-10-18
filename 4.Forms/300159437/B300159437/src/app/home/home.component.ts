@@ -38,6 +38,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
+updateField(field: 'email' | 'username', event: any): void {
+  const value = event.object.text || '';
+  this.signUpForm.get(field)?.setValue(value);
+}
+
   onButtonTap(): void {
     if (this.signUpForm.valid) {
       console.log(JSON.stringify(this.signUpForm.value));
