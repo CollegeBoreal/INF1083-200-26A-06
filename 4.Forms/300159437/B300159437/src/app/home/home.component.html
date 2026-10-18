@@ -1,19 +1,102 @@
-<ActionBar title="Reactive Forms"></ActionBar>
 
-<StackLayout [formGroup]="signUpForm" padding="20">
-    <TextField
+<ActionBar title="Sign Up" backgroundColor="#2563EB" color="white"></ActionBar>
+
+<ScrollView backgroundColor="#EAF1FA">
+  <StackLayout padding="24">
+
+    <!-- Welcome section -->
+    <StackLayout marginTop="35" marginBottom="30">
+      <Label
+        text="CREATE YOUR ACCOUNT"
+        fontSize="25"
+        fontWeight="bold"
+        color="#14233D"
+        textAlignment="center">
+      </Label>
+
+      <Label
+        text="Welcome! Enter your details below."
+        fontSize="14"
+        color="#64748B"
+        textAlignment="center"
+        marginTop="12">
+      </Label>
+    </StackLayout>
+
+    <!-- Form card -->
+    <StackLayout
+      [formGroup]="signUpForm"
+      backgroundColor="white"
+      borderRadius="20"
+      padding="22">
+
+      <Label
+        text="Email Address"
+        fontSize="15"
+        fontWeight="bold"
+        color="#334155"
+        marginBottom="8">
+      </Label>
+
+      <TextField
         formControlName="email"
-        hint="Email"
-        keyboardType="email">
-    </TextField>
+        hint="Enter your email"
+        keyboardType="email"
+        autocorrect="false"
+        autocapitalizationType="none"
+        backgroundColor="#F1F5F9"
+        color="#14233D"
+        borderRadius="10"
+        padding="14"
+        marginBottom="22">
+      </TextField>
 
-    <TextField
+      <Label
+        text="Username"
+        fontSize="15"
+        fontWeight="bold"
+        color="#334155"
+        marginBottom="8">
+      </Label>
+
+      <TextField
         formControlName="username"
-        hint="Username">
-    </TextField>
+        hint="Enter your username"
+        backgroundColor="#F1F5F9"
+        color="#14233D"
+        borderRadius="10"
+        padding="14"
+        marginBottom="25">
+      </TextField>
 
-    <Button
-        text="Sign Up"
-        (tap)="onButtonTap()">
-    </Button>
-</StackLayout>
+      <Button
+        text="SIGN UP"
+        (tap)="onButtonTap()"
+        backgroundColor="#2563EB"
+        color="white"
+        fontSize="16"
+        fontWeight="bold"
+        borderRadius="12"
+        height="55">
+      </Button>
+
+      <Label
+        text="Your information is handled securely."
+        fontSize="12"
+        color="#64748B"
+        textAlignment="center"
+        marginTop="18">
+      </Label>
+
+    </StackLayout>
+
+    <Label
+      text="NativeScript + Angular Reactive Forms"
+      fontSize="12"
+      color="#64748B"
+      textAlignment="center"
+      marginTop="25">
+    </Label>
+
+  </StackLayout>
+</ScrollView>
