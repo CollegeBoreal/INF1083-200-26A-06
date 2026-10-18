@@ -1,8 +1,19 @@
-<ActionBar>
-  <Label text="Home"></Label>
-</ActionBar>
+<ActionBar title="Reactive Forms"></ActionBar>
 
-<GridLayout>
-  <!-- Add your page content here -->
-  <Label text="Hello" class="text-lg text-center"></Label>
-</GridLayout>
+<StackLayout [formGroup]="signUpForm" padding="20">
+    <TextField
+        formControlName="email"
+        hint="Email"
+        keyboardType="email">
+    </TextField>
+
+    <TextField
+        formControlName="username"
+        hint="Username">
+    </TextField>
+
+    <Button
+        text="Sign Up"
+        (tap)="onButtonTap()">
+    </Button>
+</StackLayout>
