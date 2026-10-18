@@ -1,8 +1,21 @@
-<ActionBar>
-  <Label text="Home"></Label>
-</ActionBar>
+<StackLayout [formGroup]="signUpForm" padding="20">
 
-<GridLayout>
-  <!-- Add your page content here -->
-  <Label text="Hello" class="text-lg text-center"></Label>
-</GridLayout>
+    <Label text="Sign Up Form" fontSize="24"></Label>
+
+    <TextField
+        formControlName="email"
+        hint="Enter your email"
+        keyboardType="email">
+    </TextField>
+
+    <TextField
+        formControlName="username"
+        hint="Enter your username">
+    </TextField>
+
+    <Button
+        text="Sign Up"
+        (tap)="onButtonTap()">
+    </Button>
+
+</StackLayout>
