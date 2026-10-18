@@ -1,5 +1,6 @@
-<StackLayout [formGroup]="signUpForm">
+<ActionBar title="Reactive Forms"></ActionBar>
 
+<StackLayout [formGroup]="signUpForm" padding="20">
     <TextField
         formControlName="email"
         hint="Email"
@@ -12,8 +13,7 @@
     </TextField>
 
     <Button
-        text="sign up"
+        text="Sign Up"
         (tap)="onButtonTap()">
     </Button>
-
 </StackLayout>
