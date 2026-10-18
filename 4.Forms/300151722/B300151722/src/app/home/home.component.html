@@ -1,0 +1,180 @@
+
+<ActionBar title="Create Account"></ActionBar>
+
+<ScrollView backgroundColor="#F3F5FA">
+  <StackLayout padding="24">
+
+    <!-- En-tête -->
+    <Label
+      text="Welcome"
+      fontSize="28"
+      fontWeight="bold"
+      color="#1E3059"
+      textAlignment="center"
+      marginTop="30">
+    </Label>
+
+    <Label
+      text="Create your account"
+      fontSize="14"
+      color="#71839E"
+      textAlignment="center"
+      marginTop="5"
+      marginBottom="25">
+    </Label>
+
+    <!-- Carte du formulaire -->
+    <StackLayout
+      backgroundColor="#FFFFFF"
+      borderRadius="14"
+      padding="20">
+
+      <!-- Email -->
+      <Label
+        text="EMAIL ADDRESS"
+        class="field-label">
+      </Label>
+
+      <TextField
+        #emailField
+        hint="example@email.com"
+        keyboardType="email"
+        autocorrect="false"
+        autocapitalizationType="none"
+        backgroundColor="#F8FAFC"
+        borderWidth="1"
+        borderColor="#DCE4F0"
+        borderRadius="7"
+        padding="10"
+        marginTop="6"
+        marginBottom="15">
+      </TextField>
+
+      <!-- Username -->
+      <Label
+        text="USERNAME"
+        class="field-label">
+      </Label>
+
+      <TextField
+        #usernameField
+        hint="At least 3 characters"
+        autocorrect="false"
+        backgroundColor="#F8FAFC"
+        borderWidth="1"
+        borderColor="#DCE4F0"
+        borderRadius="7"
+        padding="10"
+        marginTop="6"
+        marginBottom="15">
+      </TextField>
+
+      <!-- Password -->
+      <Label
+        text="PASSWORD"
+        class="field-label">
+      </Label>
+
+      <GridLayout columns="*,auto" marginTop="6" marginBottom="15">
+
+        <TextField
+          #passwordField
+          col="0"
+          hint="At least 6 characters"
+          [secure]="!showPassword"
+          backgroundColor="#F8FAFC"
+          borderWidth="1"
+          borderColor="#DCE4F0"
+          borderRadius="7"
+          padding="10">
+        </TextField>
+
+        <Button
+          col="1"
+          [text]="showPassword ? 'Hide' : 'Show'"
+          (tap)="togglePassword()"
+          backgroundColor="#E8EEFA"
+          color="#1E3059"
+          borderRadius="7"
+          marginLeft="6">
+        </Button>
+
+      </GridLayout>
+
+      <!-- Confirm Password -->
+      <Label
+        text="CONFIRM PASSWORD"
+        class="field-label">
+      </Label>
+
+      <TextField
+        #confirmPasswordField
+        hint="Repeat your password"
+        [secure]="!showPassword"
+        backgroundColor="#F8FAFC"
+        borderWidth="1"
+        borderColor="#DCE4F0"
+        borderRadius="7"
+        padding="10"
+        marginTop="6"
+        marginBottom="20">
+      </TextField>
+
+      <!-- Sign Up -->
+      <Button
+        text="SIGN UP"
+        backgroundColor="#2563EB"
+        color="#FFFFFF"
+        fontWeight="bold"
+        fontSize="15"
+        height="50"
+        borderRadius="7"
+        (tap)="onSignUp(
+          emailField,
+          usernameField,
+          passwordField,
+          confirmPasswordField
+        )">
+      </Button>
+
+      <!-- Reset -->
+      <Button
+        text="RESET"
+        backgroundColor="#E8EEFA"
+        color="#1E3059"
+        fontWeight="bold"
+        height="45"
+        borderRadius="7"
+        marginTop="10"
+        (tap)="onReset(
+          emailField,
+          usernameField,
+          passwordField,
+          confirmPasswordField
+        )">
+      </Button>
+
+      <!-- Message -->
+      <Label
+        [text]="message"
+        [color]="messageColor"
+        fontSize="13"
+        fontWeight="bold"
+        textAlignment="center"
+        textWrap="true"
+        marginTop="15">
+      </Label>
+
+      <Label
+        text="Your email and username will appear in the console."
+        fontSize="11"
+        color="#94A3B8"
+        textAlignment="center"
+        textWrap="true"
+        marginTop="8">
+      </Label>
+
+    </StackLayout>
+
+  </StackLayout>
+</ScrollView>
