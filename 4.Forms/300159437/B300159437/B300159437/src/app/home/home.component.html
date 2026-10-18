@@ -1,21 +1,19 @@
+<ActionBar title="Reactive Forms"></ActionBar>
+
 <StackLayout [formGroup]="signUpForm" padding="20">
-
-    <Label text="Sign Up Form" fontSize="24"></Label>
-
     <TextField
         formControlName="email"
-        hint="Enter your email"
+        hint="Email"
         keyboardType="email">
     </TextField>
 
     <TextField
         formControlName="username"
-        hint="Enter your username">
+        hint="Username">
     </TextField>
 
     <Button
         text="Sign Up"
         (tap)="onButtonTap()">
     </Button>
-
 </StackLayout>
