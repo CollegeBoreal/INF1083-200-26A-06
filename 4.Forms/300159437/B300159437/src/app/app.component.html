@@ -1,3 +1,19 @@
-<GridLayout>
-  <page-router-outlet></page-router-outlet>
-</GridLayout>
+<ActionBar title="Reactive Forms"></ActionBar>
+
+<StackLayout [formGroup]="signUpForm" padding="20">
+    <TextField
+        formControlName="email"
+        hint="Email"
+        keyboardType="email">
+    </TextField>
+
+    <TextField
+        formControlName="username"
+        hint="Username">
+    </TextField>
+
+    <Button
+        text="Sign Up"
+        (tap)="onButtonTap()">
+    </Button>
+</StackLayout>
