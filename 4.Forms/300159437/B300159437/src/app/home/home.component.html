@@ -1,29 +1,31 @@
 
-<ActionBar title="Sign Up" backgroundColor="#2563EB" color="white"></ActionBar>
+<ActionBar
+  title="Reactive Forms"
+  backgroundColor="#2563EB"
+  color="white">
+</ActionBar>
 
 <ScrollView backgroundColor="#EAF1FA">
   <StackLayout padding="24">
 
-    <!-- Welcome section -->
-    <StackLayout marginTop="35" marginBottom="30">
-      <Label
-        text="CREATE YOUR ACCOUNT"
-        fontSize="25"
-        fontWeight="bold"
-        color="#14233D"
-        textAlignment="center">
-      </Label>
+    <Label
+      text="CREATE YOUR ACCOUNT"
+      fontSize="26"
+      fontWeight="bold"
+      color="#14233D"
+      textAlignment="center"
+      marginTop="40"
+      marginBottom="12">
+    </Label>
 
-      <Label
-        text="Welcome! Enter your details below."
-        fontSize="14"
-        color="#64748B"
-        textAlignment="center"
-        marginTop="12">
-      </Label>
-    </StackLayout>
+    <Label
+      text="Welcome! Enter your details below."
+      fontSize="14"
+      color="#64748B"
+      textAlignment="center"
+      marginBottom="30">
+    </Label>
 
-    <!-- Form card -->
     <StackLayout
       [formGroup]="signUpForm"
       backgroundColor="white"
@@ -42,7 +44,6 @@
         formControlName="email"
         hint="Enter your email"
         keyboardType="email"
-        autocorrect="false"
         autocapitalizationType="none"
         backgroundColor="#F1F5F9"
         color="#14233D"
@@ -80,14 +81,6 @@
         height="55">
       </Button>
 
-      <Label
-        text="Your information is handled securely."
-        fontSize="12"
-        color="#64748B"
-        textAlignment="center"
-        marginTop="18">
-      </Label>
-
     </StackLayout>
 
     <Label
@@ -100,3 +93,4 @@
 
   </StackLayout>
 </ScrollView>
+
