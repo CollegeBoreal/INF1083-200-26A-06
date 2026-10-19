@@ -3,7 +3,6 @@
 **Nom :** Youcef  
 **ID :** 300160424  
 **Cours :** INF1083 – Développement d'applications  
-**Date :** 18 octobre 2026
 
 ## 1. Introduction
 
@@ -20,6 +19,8 @@ J'ai utilisé la commande :
 `ns create B300160424`
 
 J'ai choisi Angular et le modèle Hello World.
+
+<img width="488" height="500" alt="Capture d’écran 2026-10-18 192203" src="https://github.com/user-attachments/assets/50e7a7bc-90ed-4646-8e38-73f1145d7a15" />
 
 ## 4. Exécution de l'application
 
