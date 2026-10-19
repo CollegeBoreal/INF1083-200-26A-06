@@ -165,7 +165,7 @@ Pour vérifier le fonctionnement du formulaire, j'ai lancé mon application sur 
 
 ### Étape 1 — Compilation et déploiement
 
-
+<img src="images/Screenshot%202026-10-18%20155653.png" height="50%" width="50%">
 
 La console confirme que les fichiers ont été transférés et que l'application a été synchronisée avec l'émulateur.
 
