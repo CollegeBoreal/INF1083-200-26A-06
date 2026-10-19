@@ -1,0 +1,29 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar title="Histoire et culture amazighes" />
+
+    <ScrollView>
+        <StackLayout>
+
+            <Label text="ⵎⴰⵙⵉⵏⵉⵙⴰ - Massinissa" />
+            <Label text="Roi de Numidie" />
+
+            <Label text="ⵢⵓⴳⵓⵔⵜⵏ - Jugurtha" />
+            <Label text="Roi numide" />
+
+            <Label text="ⴷⵉⵀⵢⴰ - Dihya" />
+            <Label text="Reine et cheffe militaire amazighe" />
+
+            <Label text="Tacfarinas" />
+            <Label text="Chef militaire numide" />
+
+            <Label text="Juba II" />
+            <Label text="Roi de Maurétanie" />
+
+            <Label text="Apulée" />
+            <Label text="Écrivain et philosophe" />
+
+        </StackLayout>
+    </ScrollView>
+
+</Page>
