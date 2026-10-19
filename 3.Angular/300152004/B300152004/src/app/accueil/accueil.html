@@ -1,0 +1,25 @@
+<h1>{{ titre }}</h1>
+
+<p>Étudiant : {{ nom }}</p>
+
+<button (click)="saluer()">
+  Cliquez-moi
+</button>
+
+@if (connecte) {
+  <p>Utilisateur connecté ✅</p>
+}
+<h2>Liste des étudiants</h2>
+
+<ul>
+  @for (etudiant of etudiants; track etudiant) {
+    <li>{{ etudiant }}</li>
+  }
+</ul>
+<h2>Utilisateurs de l'API</h2>
+
+<ul>
+  @for (user of utilisateurs; track user.id) {
+    <li>{{ user.name }}</li>
+  }
+</ul>
