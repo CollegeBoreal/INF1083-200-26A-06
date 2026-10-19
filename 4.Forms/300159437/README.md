@@ -179,7 +179,7 @@ Le système de Hot Module Replacement permet d'appliquer certaines modifications
 
 ### Étape 2 — Saisie des informations
 
-
+<img src="images/Screenshot%202026-10-18%20173832.png" height="50%" width="50%">
 
 J'ai saisi une adresse électronique et un nom d'utilisateur dans les champs correspondants.
 
