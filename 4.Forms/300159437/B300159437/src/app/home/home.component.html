@@ -1,0 +1,85 @@
+
+<ActionBar
+  title="Reactive Forms"
+  backgroundColor="#2563EB"
+  color="white">
+</ActionBar>
+
+<ScrollView backgroundColor="#EAF1FA">
+  <StackLayout padding="24">
+
+    <Label
+      text="CREATE YOUR ACCOUNT"
+      fontSize="26"
+      fontWeight="bold"
+      color="#14233D"
+      textAlignment="center"
+      marginTop="40"
+      marginBottom="12">
+    </Label>
+
+    <Label
+      text="Welcome! Enter your details below."
+      fontSize="14"
+      color="#64748B"
+      textAlignment="center"
+      marginBottom="30">
+    </Label>
+
+    <StackLayout
+      backgroundColor="white"
+      borderRadius="20"
+      padding="22">
+
+      <Label
+        text="Email Address"
+        fontSize="15"
+        fontWeight="bold"
+        color="#334155"
+        marginBottom="8">
+      </Label>
+
+      <TextField
+        hint="Enter your email"
+        keyboardType="email"
+        autocapitalizationType="none"
+        (textChange)="updateField('email', $event)"
+        backgroundColor="#F1F5F9"
+        color="#14233D"
+        borderRadius="10"
+        padding="14"
+        marginBottom="22">
+      </TextField>
+
+      <Label
+        text="Username"
+        fontSize="15"
+        fontWeight="bold"
+        color="#334155"
+        marginBottom="8">
+      </Label>
+
+      <TextField
+        hint="Enter your username"
+        (textChange)="updateField('username', $event)"
+        backgroundColor="#F1F5F9"
+        color="#14233D"
+        borderRadius="10"
+        padding="14"
+        marginBottom="25">
+      </TextField>
+
+      <Button
+        text="SIGN UP"
+        (tap)="onButtonTap()"
+        backgroundColor="#2563EB"
+        color="white"
+        fontSize="16"
+        fontWeight="bold"
+        borderRadius="12"
+        height="55">
+      </Button>
+
+    </StackLayout>
+  </StackLayout>
+</ScrollView>

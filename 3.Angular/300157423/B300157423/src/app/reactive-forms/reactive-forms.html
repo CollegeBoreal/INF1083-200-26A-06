@@ -1,0 +1,11 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <label for="username">Nom d'utilisateur :</label>
+
+  <input
+    id="username"
+    type="text"
+    formControlName="username"
+  >
+
+  <button type="submit">Envoyer</button>
+</form>

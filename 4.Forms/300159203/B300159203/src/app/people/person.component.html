@@ -1,0 +1,45 @@
+
+<ActionBar title="Create Account"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="page">
+    <StackLayout class="header">
+      <Label text="Welcome" class="welcome"></Label>
+      <Label text="Create your account" class="subtitle"></Label>
+    </StackLayout>
+
+    <StackLayout [formGroup]="signUpForm" class="form">
+      <Label text="EMAIL ADDRESS" class="field-label"></Label>
+      <TextField
+        formControlName="email"
+        hint="example@email.com"
+        keyboardType="email"
+        class="input">
+      </TextField>
+
+      <Label text="USERNAME" class="field-label"></Label>
+      <TextField
+        formControlName="username"
+        hint="Choose a username"
+        class="input">
+      </TextField>
+
+      <Button
+        text="SIGN UP"
+        class="submit-button"
+        (tap)="onButtonTap()">
+      </Button>
+<Label
+  [text]="message"
+  [class.error-message]="message !== '' && message !== 'Account created successfully!'"
+  [class.success-message]="message === 'Account created successfully!'"
+  textWrap="true">
+</Label>
+
+      <Label
+        text="Your information will appear in the console."
+        class="footer">
+      </Label>
+    </StackLayout>
+  </StackLayout>
+</ScrollView>
