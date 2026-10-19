@@ -185,6 +185,7 @@ J'ai saisi une adresse électronique et un nom d'utilisateur dans les champs cor
 
 ### Étape 3 — Validation de l'inscription
 
+<img src="images/Screenshot%202026-10-18%20173846.png" height="50%" width="50%">
 
 Après avoir appuyé sur le bouton **SIGN UP**, une fenêtre de confirmation apparaît avec le message :
 
