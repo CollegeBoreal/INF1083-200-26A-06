@@ -1,0 +1,34 @@
+﻿<h1>{{ titre }}</h1>
+
+<p>{{ nom }}</p>
+
+<button (click)="saluer()">
+  Cliquez-moi
+</button>
+
+<h2>Directives Angular</h2>
+
+<div *ngIf="connecte">
+  Connecté
+</div>
+
+<h2>Liste des utilisateurs</h2>
+
+<ul>
+  <li *ngFor="let nom of noms">
+    {{ nom }}
+  </li>
+</ul>
+
+<h2>Utilisateurs API REST</h2>
+
+<p *ngIf="utilisateurs.length === 0">
+  Chargement des utilisateurs...
+</p>
+
+<ul>
+  <li *ngFor="let utilisateur of utilisateurs">
+    {{ utilisateur.name }} - {{ utilisateur.email }}
+  </li>
+</ul>
+
