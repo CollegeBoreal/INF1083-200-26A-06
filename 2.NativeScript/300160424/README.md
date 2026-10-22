@@ -40,6 +40,39 @@ Mon application affiche une liste de scientifiques en informatique sur l'émulat
 
 ![Application NativeScript](images/application.png)
 
-## 6. Conclusion
+## 6. Personnalisation de l'application
 
-Ce travail m'a permis d'apprendre à créer une application avec NativeScript et Angular. J'ai aussi appris à utiliser PowerShell et un émulateur Android pour tester mon application.
+J'ai personnalisé mon application NativeScript en remplaçant la liste des scientifiques en informatique par une liste de personnalités algériennes.
+
+Pour cela, j'ai ouvert mon projet dans Visual Studio Code et modifié deux fichiers :
+
+- **person.component.html** : j'ai remplacé le titre « Computer Scientists » par « Personnalités algériennes ».
+- **person.service.ts** : j'ai remplacé les 15 scientifiques par 10 personnalités algériennes, avec leurs nationalités et leurs réalisations.
+
+J'ai ensuite enregistré les modifications et utilisé la commande suivante dans PowerShell :
+
+`ns run android`
+
+L'application s'est lancée sur mon émulateur Android et la nouvelle liste s'affiche correctement.
+
+<img width="841" height="521" alt="Capture d’écran 2026-10-21 233337" src="https://github.com/user-attachments/assets/8c5c2b05-5c20-4368-8ad3-756d8902eb4f" />
+
+## 7. Vérification de la page de détails
+
+Après avoir personnalisé mon application, j'ai testé l'affichage des informations des personnalités.
+
+J'ai cliqué sur le nom de Lounès Matoub dans la liste. Une nouvelle page s'est ouverte avec son nom, sa nationalité et ses réalisations.
+
+J'ai aussi vérifié que le bouton Back permet de revenir à la liste principale.
+
+<img width="482" height="506" alt="Capture d’écran 2026-10-21 233948" src="https://github.com/user-attachments/assets/c02000b9-3f95-4f0e-a565-8d0342f74217" />
+
+## 8. Conclusion
+
+Ce travail m'a permis d'apprendre à créer et à personnaliser une application mobile avec NativeScript et Angular.
+
+J'ai utilisé PowerShell, Visual Studio Code et Android Studio. J'ai modifié le titre de l'application et remplacé les scientifiques par des personnalités algériennes.
+
+J'ai finalement réussi à lancer l'application sur l'émulateur Android et à afficher les détails d'une personnalité.
+
+
