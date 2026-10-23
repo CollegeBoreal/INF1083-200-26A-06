@@ -39,11 +39,11 @@ J'ai modifié l'apparence du formulaire avec CSS pour obtenir une interface plus
 ![Interface améliorée](images/7.png)
 
 ## 6. Validation du formulaire
-![Validation du formulaire](images/9.png)
+
 J'ai ajouté la validation des champs obligatoires et du format de l'adresse courriel.
 
 ### Capture 5 — Validation du formulaire
-
+![Validation du formulaire](images/9.png)
 ## 7. Résultat
 
 Ce laboratoire m'a permis de pratiquer les formulaires réactifs d'Angular, la validation des données et la personnalisation de l'interface NativeScript.
