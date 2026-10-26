@@ -57,8 +57,8 @@ Exemple de résultat attendu :
 
 ## 6. Captures d'écran
 
-
-
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/ff41bc7f2b0987185203c9b7906b60834901ba5d/4.Forms/300160006/images/Screenshot%202026-10-26%20110227.png)
+![images alt](
 
 
 ## 7. Conclusion
