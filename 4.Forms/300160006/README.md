@@ -30,6 +30,7 @@ Les éléments utilisés sont :
 Ensuite, j'ai modifié le fichier `home.component.ts` pour configurer le formulaire avec `FormBuilder`, `FormGroup` et `Validators.required`.
 
 J'ai également ajouté la méthode `onButtonTap()` pour afficher les valeurs du formulaire dans la console avec `console.log()` et `JSON.stringify()`.
+![images qlt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/8ea2fa2367656526b61003210c28321e53425e25/4.Forms/300160006/images/Screenshot%202026-10-26%20110442.png)
 
 ## 4. Fonctionnement des Reactive Forms
 
@@ -55,13 +56,9 @@ Exemple de résultat attendu :
 
 ## 6. Captures d'écran
 
-### Formulaire dans l'émulateur Android
 
-![Formulaire dans l'émulateur](images/formulaire.png)
 
-### Résultat dans la console
 
-![Résultat dans la console](images/console.png)
 
 ## 7. Conclusion
 
