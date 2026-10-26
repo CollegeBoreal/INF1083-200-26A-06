@@ -30,8 +30,7 @@ Les éléments utilisés sont :
 Ensuite, j'ai modifié le fichier `home.component.ts` pour configurer le formulaire avec `FormBuilder`, `FormGroup` et `Validators.required`.
 
 J'ai également ajouté la méthode `onButtonTap()` pour afficher les valeurs du formulaire dans la console avec `console.log()` et `JSON.stringify()`.
-
-
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/a3d7de390fd04be74db4b55306d75cf5e22638b4/4.Forms/300160006/images/Screenshot%202026-10-26%20110422.png)
 ## 4. Fonctionnement des Reactive Forms
 
 Les Reactive Forms permettent de gérer les champs et les valeurs d'un formulaire dans le fichier TypeScript.
