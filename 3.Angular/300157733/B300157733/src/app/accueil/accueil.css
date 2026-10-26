@@ -1,3 +1,50 @@
+.container {
+    width: 80%;
+    margin: 30px auto;
+    font-family: Arial, sans-serif;
+}
+
 h1 {
-    color: blue;
+    color: black;
+    margin-bottom: 25px;
+}
+
+.menu {
+    margin-bottom: 20px;
+}
+
+.menu button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: #1d4ed8;
+}
+
+.carte {
+    background: #eef2f7;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.btn-message {
+    margin-top: 25px;
+    background: green;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-message:hover {
+    background: darkgreen;
 }

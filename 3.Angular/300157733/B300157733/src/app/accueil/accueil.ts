@@ -9,17 +9,14 @@ import { CommonModule } from '@angular/common';
 })
 export class Accueil {
 
-  titre = 'Bienvenue INF1083';
+  nom = 'Mouhamad';
 
-  connecte = true;
+  etudiants = 4;
+  professeurs = 3;
+  cours = 3;
+  utilisateurs = 10;
 
-  noms = [
-    'Alice',
-    'Bob',
-    'Charlie'
-  ];
-
-  saluer() {
-    alert('Bonjour INF1083!');
+  afficherMessage() {
+    alert('Bienvenue dans INF1083 !');
   }
 }

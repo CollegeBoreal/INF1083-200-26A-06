@@ -1,15 +1,42 @@
-<h1>{{ titre }}</h1>
+<div class="container">
 
-<button (click)="saluer()">
-  Cliquez-moi
-</button>
+  <p>Nom : {{ nom }}</p>
 
-<div *ngIf="connecte">
-  Connecté
+  <h1>Bienvenue dans votre application {{ nom }} !</h1>
+
+  <div class="menu">
+    <button>🏠 Accueil</button>
+    <button>👨‍🎓 Étudiants</button>
+    <button>👨‍🏫 Professeurs</button>
+    <button>📚 Cours</button>
+    <button>👥 Utilisateurs</button>
+  </div>
+
+  <hr>
+
+  <h2>🏠 Accueil</h2>
+
+  <p>Bienvenue dans le portail universitaire INF1083.</p>
+
+  <div class="carte">
+    👨‍🎓 Étudiants : {{ etudiants }}
+  </div>
+
+  <div class="carte">
+    👨‍🏫 Professeurs : {{ professeurs }}
+  </div>
+
+  <div class="carte">
+    📚 Cours : {{ cours }}
+  </div>
+
+  <div class="carte">
+    👥 Utilisateurs : {{ utilisateurs }}
+  </div>
+
+  <button class="btn-message"
+          (click)="afficherMessage()">
+      Afficher le message
+  </button>
+
 </div>
-
-<ul>
-  <li *ngFor="let nom of noms">
-    {{ nom }}
-  </li>
-</ul>
