@@ -60,6 +60,41 @@ Exemple de résultat attendu :
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/ff41bc7f2b0987185203c9b7906b60834901ba5d/4.Forms/300160006/images/Screenshot%202026-10-26%20110227.png)
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/80f0dc7423fe3bf769526d1f6c566faa2f3dda49/4.Forms/300160006/images/Screenshot%202026-10-26%20110340.png)
 
+## Amélioration de l'apparence
+
+Après avoir fait fonctionner le formulaire, j'ai amélioré son apparence pour qu'il soit plus clair et plus agréable à utiliser, sans changer sa logique (le composant `home.component.ts` reste identique).
+
+### Modifications dans `home.component.html`
+
+- Une barre de titre **Inscription** colorée (`ActionBar`).
+- Un titre « Créer un compte » et un sous-titre qui expliquent le but de la page.
+- Une étiquette au-dessus de chaque champ (« Courriel » et « Nom d'utilisateur »), à la place des seuls textes d'indication.
+- Des textes d'aide plus parlants : `nom@exemple.com` pour le courriel.
+- `autocorrect="false"` et `autocapitalizationType="none"` sur les champs, pour éviter que le clavier corrige ou mette des majuscules dans un courriel ou un nom d'utilisateur.
+- Un bouton **S'inscrire** désactivé tant que le formulaire est invalide (`[isEnabled]="signUpForm.valid"`), avec un style grisé (`[class.su-btn-disabled]`).
+- Un message rouge « Les deux champs sont obligatoires », visible seulement quand le formulaire est invalide (`[visibility]`).
+
+### Modifications dans `app.css`
+
+J'ai ajouté des classes CSS **préfixées `su-`** (pour *sign up*) afin d'éviter les conflits avec les classes du thème NativeScript, qui utilise déjà des noms comme `.btn`, `.input` ou `.title`.
+
+| Classe | Rôle |
+|---|---|
+| `.su-header` | Barre de titre bleue avec texte blanc |
+| `.su-page` | Marges intérieures et fond gris clair |
+| `.su-title` / `.su-subtitle` | Titre en gras et sous-titre gris |
+| `.su-label` | Étiquette des champs |
+| `.su-input` | Champ avec bordure fine, coins arrondis et fond blanc |
+| `.su-btn` / `.su-btn-disabled` | Bouton bleu arrondi, et sa version pâle quand il est désactivé |
+| `.su-hint` | Message d'erreur rouge centré |
+
+Les propriétés `placeholder-color` et `horizontal-alignment` sont propres à NativeScript : VS Code les souligne comme inconnues, mais elles fonctionnent dans l'application.
+
+### Résultat
+
+Le formulaire affiche maintenant un titre, deux champs bien identifiés et un bouton qui ne s'active que lorsque les deux champs sont remplis. Le comportement demandé par l'exercice est inchangé : en appuyant sur le bouton, le courriel et le nom d'utilisateur s'affichent dans la console.
+
+![images alt](
 
 ## 7. Conclusion
 
