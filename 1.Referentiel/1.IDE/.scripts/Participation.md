@@ -1,4 +1,4 @@
-# Participation au 27-10-2026 11:37
+# Participation au 27-10-2026 18:12
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -22,7 +22,7 @@
 | 3 | [300150398](../300150398/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 4 | [300151722](../300151722/README.md) :point_right: [islamoustani5-collab](https://github.com/islamoustani5-collab) <image src='https://avatars0.githubusercontent.com/u/261488966?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 5 | [300151863](../300151863/README.md) :point_right: [Hannibalcarthage](https://github.com/Hannibalcarthage) <image src='https://avatars0.githubusercontent.com/u/205994935?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| 6 | [300152004](../300152004/README.md) :point_right: [danielmananga](https://github.com/danielmananga) <image src='https://avatars0.githubusercontent.com/u/218153814?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
+| 6 | [300152004](../300152004/README.md) :point_right: [danielmananga](https://github.com/danielmananga) <image src='https://avatars0.githubusercontent.com/u/218153814?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 7 | [300153405](../300153405/README.md) :point_right: [rekaikkhaled](https://github.com/rekaikkhaled) <image src='https://avatars0.githubusercontent.com/u/261492660?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
 | 8 | [300153416](../300153416/README.md) :point_right: [ouabahkhalil28-crypto](https://github.com/ouabahkhalil28-crypto) <image src='https://avatars0.githubusercontent.com/u/262935334?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 9 | [300155462](../300155462/README.md) :point_right: [zakariamamssi05](https://github.com/zakariamamssi05) <image src='https://avatars0.githubusercontent.com/u/231498971?s=460&v=4' width=20 height=20></image> | :x: | :x: |
@@ -47,4 +47,4 @@
 | 28 | [300160504](../300160504/README.md) :point_right: [Mmounir07](https://github.com/Mmounir07) <image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 29 | [300160733](../300160733/README.md) :point_right: [belhadiyanis200-a11y](https://github.com/belhadiyanis200-a11y) <image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 30 | [300160862](../300160862/README.md) :point_right: [octocat](https://github.com/octocat) <image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| :abacus: | \$\\frac{17}{31}\$ = 54.84% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 17 |
+| :abacus: | \$\\frac{18}{31}\$ = 58.06% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 18 |
