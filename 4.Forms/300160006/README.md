@@ -94,7 +94,7 @@ Les propriétés `placeholder-color` et `horizontal-alignment` sont propres à N
 
 Le formulaire affiche maintenant un titre, deux champs bien identifiés et un bouton qui ne s'active que lorsque les deux champs sont remplis. Le comportement demandé par l'exercice est inchangé : en appuyant sur le bouton, le courriel et le nom d'utilisateur s'affichent dans la console.
 
-![images alt](
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/0495653e948e0845cae5a93d28807d0c57e025a2/4.Forms/300160006/images/Screenshot%202026-10-27%20171229.png)
 
 ## 7. Conclusion
 
