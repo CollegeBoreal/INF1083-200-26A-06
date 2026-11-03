@@ -4,7 +4,8 @@
 
 Dans le cadre du travail pratique en INF1083, j'ai créé une application mobile avec NativeScript et Angular à partir de mon identifiant étudiant `300159672`. Le projet a été créé avec le modèle **Hello World** et se trouve dans le dossier `B300159672`. Comme je travaille sur un MacBook Pro, je l'ai lancé sur le simulateur **iOS**, puis je l'ai personnalisé en remplaçant la liste des informaticiens par une liste de **personnalités influentes**.
 
-![Application personnalisée](images/08-app-personnalisee.png)
+<img width="1512" height="982" alt="1" src="https://github.com/user-attachments/assets/c402af4a-3c7d-4bd3-8bec-1c4cb3ac8108" />
+
 
 ### 1. Création du projet
 
@@ -18,7 +19,8 @@ ns create B300159672
 
 J'ai choisi **Angular** comme style de projet, puis le modèle **Hello World**. Le message `Project B300159672 was successfully created.` confirme que le projet a bien été créé.
 
-![Création du projet](images/04-creation-projet.png)
+<img width="1512" height="982" alt="1" src="https://github.com/user-attachments/assets/8e4a7b2d-ada1-425c-be24-42b11a15b2c6" />
+
 
 ### 2. Vérification de l'environnement iOS
 
@@ -31,7 +33,8 @@ ns doctor ios
 
 Le résultat indique `No issues were detected`. Xcode, CocoaPods et les composants NativeScript (`nativescript` 9.1.2, `@nativescript/core` 9.1.3 et `@nativescript/ios` 9.1.0) sont installés et à jour. Contrairement à Windows, où la compilation iOS n'est pas possible, mon Mac n'a demandé aucune configuration supplémentaire.
 
-![Vérification iOS](images/03-verification-ios.png)
+<img width="1512" height="982" alt="2" src="https://github.com/user-attachments/assets/1d43fc41-6e2b-451e-bbc7-052ba263e71c" />
+
 
 ### 3. Lancement de l'application
 
@@ -43,8 +46,8 @@ ns run ios
 ```
 
 Le premier lancement prend du temps, car NativeScript prépare le projet avec webpack, résout les dépendances Swift et compile avec Xcode. Le terminal affiche ensuite `Successfully synced application org.nativescript.B300159672`, et l'application s'affiche dans le simulateur iPhone 17 avec la liste d'origine, **Computer Scientists**. Grâce à `HMR Enabled`, chaque fichier enregistré met à jour l'application automatiquement, sans relancer la commande.
+<img width="1512" height="982" alt="2" src="https://github.com/user-attachments/assets/683b59bf-8d28-4386-8cd9-8c00bcf36ca6" />
 
-![Application d'origine](images/06-app-originale.png)
 
 ### 4. Personnalisation de l'application
 
@@ -70,7 +73,7 @@ J'ai donc remplacé la liste originale par 10 **personnalités influentes**, en 
 
 Les autres personnalités sont Marie Curie, Albert Einstein, Martin Luther King Jr., Malala Yousafzai, Wangari Maathai, Tim Berners-Lee, Mahatma Gandhi, Rosa Parks et Ada Lovelace. Chacune possède un nom, une nationalité et quelques réalisations importantes.
 
-![Code modifié](images/07-code-modifie.png)
+<img width="1512" height="982" alt="3" src="https://github.com/user-attachments/assets/9ce925b8-a4f4-41f3-8848-38c7853cf22c" />
 
 ### 5. Problèmes rencontrés
 
