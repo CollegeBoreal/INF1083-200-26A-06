@@ -1,100 +1,72 @@
 
-<GridLayout rows="*" backgroundColor="#EDF4FF">
-  <ScrollView>
-    <StackLayout padding="20">
+<StackLayout backgroundColor="#EDF4FF" padding="20">
 
-      <StackLayout
-        backgroundColor="#DBEAFE"
-        borderRadius="18"
-        padding="22"
-        marginBottom="24">
-
-        <Label
-          text="🌍 World Explorer"
-          fontSize="27"
-          fontWeight="bold"
-          color="#173B73" />
-
-        <Label
-          text="Discover countries and their capitals"
-          fontSize="15"
-          color="#475569"
-          textWrap="true"
-          marginTop="10" />
-      </StackLayout>
-
-      <Label
-        text="Country name"
-        fontSize="17"
+    <Label
+        text="WORLD EXPLORER"
+        fontSize="28"
         fontWeight="bold"
-        color="#334155"
-        marginBottom="10" />
+        color="#173B73"
+        textAlignment="center">
+    </Label>
 
-      <TextField
-        hint="Example: Canada"
+    <Label
+        text="Find the capital of any country"
+        fontSize="16"
+        color="#475569"
+        textAlignment="center"
+        marginTop="15">
+    </Label>
+
+    <TextField
+        hint="Enter a country (e.g. Canada)"
         [(ngModel)]="name"
         backgroundColor="white"
-        color="#172B4D"
-        borderRadius="12"
+        color="black"
         padding="15"
-        fontSize="17" />
+        marginTop="30">
+    </TextField>
 
-      <Button
+    <Button
         text="FIND CAPITAL"
         (tap)="searchCapital()"
         backgroundColor="#2563EB"
         color="white"
-        borderRadius="12"
-        fontSize="16"
-        marginTop="15" />
+        marginTop="15">
+    </Button>
 
-      <ActivityIndicator
+    <ActivityIndicator
         [busy]="loading"
-        color="#2563EB"
-        marginTop="15" />
+        color="#2563EB">
+    </ActivityIndicator>
 
-      <Label
+    <Label
         [text]="message"
-        color="#DC2626"
+        color="red"
         textWrap="true"
-        marginTop="12" />
+        marginTop="15">
+    </Label>
 
-      <Label
-        text="Search Results"
-        fontSize="22"
-        fontWeight="bold"
-        color="#173B73"
-        marginTop="25"
-        marginBottom="12" />
-
-      <StackLayout
+    <StackLayout
         *ngFor="let country of countries"
         backgroundColor="white"
-        borderRadius="15"
         padding="20"
-        marginBottom="12">
+        marginTop="15"
+        borderRadius="12">
 
         <Label
-          [text]="country.name"
-          fontSize="23"
-          fontWeight="bold"
-          color="#173B73" />
+            [text]="country.name"
+            fontSize="22"
+            fontWeight="bold"
+            color="#173B73">
+        </Label>
 
         <Label
-          text="Capital city"
-          fontSize="14"
-          color="#64748B"
-          marginTop="15" />
-
-        <Label
-          [text]="country.capital"
-          fontSize="25"
-          fontWeight="bold"
-          color="#2563EB"
-          marginTop="5" />
-
-      </StackLayout>
+            [text]="country.capital"
+            fontSize="20"
+            color="#2563EB"
+            marginTop="10">
+        </Label>
 
     </StackLayout>
-  </ScrollView>
-</GridLayout>
+
+</StackLayout>
