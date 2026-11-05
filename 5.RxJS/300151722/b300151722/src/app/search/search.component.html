@@ -1,0 +1,102 @@
+
+<GridLayout rows="auto, *" backgroundColor="#F3F6FC">
+
+    <StackLayout row="0" padding="24">
+
+        <Label
+            text="🌍 Capital Explorer"
+            fontSize="28"
+            fontWeight="bold"
+            color="#20345C"
+            marginBottom="8">
+        </Label>
+
+        <Label
+            text="Discover countries by their capitals"
+            fontSize="14"
+            color="#7183A0"
+            marginBottom="25">
+        </Label>
+
+        <StackLayout
+            backgroundColor="#FFFFFF"
+            padding="18"
+            borderRadius="12">
+
+            <Label
+                text="ENTER A CAPITAL"
+                fontSize="12"
+                fontWeight="bold"
+                color="#344767"
+                marginBottom="8">
+            </Label>
+
+            <TextField
+                hint="Ottawa, Paris, Tokyo..."
+                [(ngModel)]="name"
+                fontSize="16"
+                color="#20345C"
+                backgroundColor="#F8FAFC"
+                padding="12"
+                borderRadius="8"
+                marginBottom="15">
+            </TextField>
+
+            <Button
+                text="SEARCH CAPITAL"
+                (tap)="searchCapital()"
+                backgroundColor="#2563EB"
+                color="#FFFFFF"
+                fontSize="15"
+                fontWeight="bold"
+                borderRadius="8"
+                height="52">
+            </Button>
+
+        </StackLayout>
+
+        <Label
+            text="SEARCH RESULTS"
+            fontSize="13"
+            fontWeight="bold"
+            color="#344767"
+            marginTop="25">
+        </Label>
+
+    </StackLayout>
+
+    <ListView
+        row="1"
+        [items]="countries"
+        backgroundColor="#F3F6FC"
+        separatorColor="transparent">
+
+        <ng-template let-item="item">
+
+            <StackLayout
+                backgroundColor="#FFFFFF"
+                borderRadius="12"
+                margin="8 24"
+                padding="18">
+
+                <Label
+                    [text]="item.name"
+                    fontSize="22"
+                    fontWeight="bold"
+                    color="#20345C">
+                </Label>
+
+                <Label
+                    [text]="item.capital"
+                    fontSize="16"
+                    color="#64748B"
+                    marginTop="6">
+                </Label>
+
+            </StackLayout>
+
+        </ng-template>
+
+    </ListView>
+
+</GridLayout>
