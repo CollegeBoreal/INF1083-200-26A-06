@@ -63,7 +63,7 @@ Les améliorations apportées sont :
 - Présentation des résultats avec le nom du pays et sa capitale.
 
 Cette amélioration a été réalisée directement dans le fichier HTML NativeScript, sans utiliser de CSS, car cette partie sera étudiée dans un prochain cours.
-![images alt ](
+![images alt ](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/ae3699d68968edef21a7a2e8fbeff1af380c9c69/5.RxJS/300160006/images/Screenshot%202026-11-05%20123301.png)
 ## 5. Difficultés rencontrées
 
 Pendant la réalisation du TP, nous avons rencontré plusieurs difficultés :
