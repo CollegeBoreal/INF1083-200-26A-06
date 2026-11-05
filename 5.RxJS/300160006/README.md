@@ -51,6 +51,19 @@ L'application effectue les opérations suivantes :
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/dbb218afc36a22737f24bed6e913ee7b0927ae6c/5.RxJS/300160006/images/Screenshot%202026-11-05%20115546.png)
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/0e19a1d975841d9e0f80915f8baeae0e63b80394/5.RxJS/300160006/images/Screenshot%202026-11-05%20115622.png)
 
+## Amélioration de l'interface Search
+
+L'interface de recherche a été améliorée afin de la rendre plus claire et agréable à utiliser.
+
+Les améliorations apportées sont :
+- Ajout d'un titre et d'une courte description en français.
+- Ajout d'icônes pour faciliter la compréhension.
+- Amélioration du champ de saisie de la capitale.
+- Ajout d'un bouton « Rechercher ».
+- Présentation des résultats avec le nom du pays et sa capitale.
+
+Cette amélioration a été réalisée directement dans le fichier HTML NativeScript, sans utiliser de CSS, car cette partie sera étudiée dans un prochain cours.
+![images alt ](
 ## 5. Difficultés rencontrées
 
 Pendant la réalisation du TP, nous avons rencontré plusieurs difficultés :
