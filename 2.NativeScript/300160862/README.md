@@ -25,6 +25,8 @@ ns run android
 
 ### Liste des personnalités
 
-![Liste des personnalités](images/liste.png)
+<img width="525" height="1070" alt="liste" src="https://github.com/user-attachments/assets/cde2e95a-14b6-410b-bdae-40e74e532c33" />
+
 ### Fiche d’Alan Turing
-![Fiche d’Alan Turing](images/details.png)
+<img width="466" height="1006" alt="details" src="https://github.com/user-attachments/assets/d5324b1c-05bc-4dcc-b61a-1c9b30c68a11" />
+
