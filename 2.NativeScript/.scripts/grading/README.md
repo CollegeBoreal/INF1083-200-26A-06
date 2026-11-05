@@ -2,19 +2,19 @@
 
 ## :zero: Class - INF1102-201-26H-03 - Programmation de systèmes
 
-- [ ] courseids[0]=3
+- [ ] courseids[0]=8
 
 ```
-https://${LMS_URL}/course/view.php?id=3
+https://${LMS_URL}/course/view.php?id=8
 ```
 
-## :one: LMS Assignment ID = 44
+## :one: LMS Assignment ID = 66
 
 ```json
 {
-  "id": 44,
-  "cmid": 49,
-  "name": "7.IPconfig"
+  "id": 66,
+  "cmid": 76,
+  "name": "2.NativeScript"
 }
 ```
 
@@ -25,7 +25,7 @@ curl -X POST "https://${LMS_URL}/webservice/rest/server.php" \
 -d "wstoken=${API_SYNC_TOKEN}" \
 -d "wsfunction=core_grading_get_definitions" \
 -d "moodlewsrestformat=json" \
--d "cmids[0]=49" \
+-d "cmids[0]=76" \
 -d "areaname=submissions" | jq .
 ```
 ```
@@ -39,47 +39,47 @@ curl -X POST "https://${LMS_URL}/webservice/rest/server.php" \
 {
   "areas": [
     {
-      "cmid": 49,
-      "contextid": 616,
+      "cmid": 76,
+      "contextid": 783,
       "component": "mod_assign",
       "areaname": "submissions",
       "activemethod": "rubric",
       "definitions": [
         {
-          "id": 43,
+          "id": 65,
           "method": "rubric",
           "name": "Participation",
-          "description": "7.IPconfig",
+          "description": "2.NativeScript",
           "descriptionformat": 1,
           "status": 20,
           "copiedfromid": null,
-          "timecreated": 1786452796,
+          "timecreated": 1793887270,
           "usercreated": 3,
-          "timemodified": 1786453155,
+          "timemodified": 1793887439,
           "usermodified": 3,
           "timecopied": 0,
           "rubric": {
             "rubric_criteria": [
               {
-                "id": 208,
+                "id": 268,
                 "sortorder": 1,
                 "description": "README.md",
                 "descriptionformat": 1,
                 "levels": [
                   {
-                    "id": 492,
+                    "id": 677,
                     "score": 0,
                     "definition": "❌",
                     "definitionformat": 1
                   },
                   {
-                    "id": 493,
+                    "id": 678,
                     "score": 1,
                     "definition": "🥈",
                     "definitionformat": 1
                   },
                   {
-                    "id": 494,
+                    "id": 679,
                     "score": 2,
                     "definition": "🥇",
                     "definitionformat": 1
@@ -87,19 +87,19 @@ curl -X POST "https://${LMS_URL}/webservice/rest/server.php" \
                 ]
               },
               {
-                "id": 209,
+                "id": 269,
                 "sortorder": 2,
                 "description": "images",
                 "descriptionformat": 1,
                 "levels": [
                   {
-                    "id": 495,
+                    "id": 680,
                     "score": 0,
                     "definition": "❌",
                     "definitionformat": 1
                   },
                   {
-                    "id": 496,
+                    "id": 681,
                     "score": 1,
                     "definition": "✔️",
                     "definitionformat": 1
@@ -107,37 +107,37 @@ curl -X POST "https://${LMS_URL}/webservice/rest/server.php" \
                 ]
               },
               {
-                "id": 210,
+                "id": 270,
                 "sortorder": 3,
                 "description": "Appréciation",
                 "descriptionformat": 1,
                 "levels": [
                   {
-                    "id": 497,
+                    "id": 682,
                     "score": 0,
                     "definition": "❌",
                     "definitionformat": 1
                   },
                   {
-                    "id": 498,
+                    "id": 683,
                     "score": 1,
                     "definition": "🥉",
                     "definitionformat": 1
                   },
                   {
-                    "id": 499,
+                    "id": 684,
                     "score": 2,
                     "definition": "🥈",
                     "definitionformat": 1
                   },
                   {
-                    "id": 500,
+                    "id": 685,
                     "score": 3,
                     "definition": "🥇",
                     "definitionformat": 1
                   },
                   {
-                    "id": 501,
+                    "id": 686,
                     "score": 4,
                     "definition": "🏆",
                     "definitionformat": 1
@@ -152,6 +152,7 @@ curl -X POST "https://${LMS_URL}/webservice/rest/server.php" \
   ],
   "warnings": []
 }
+
 
 ```
 
