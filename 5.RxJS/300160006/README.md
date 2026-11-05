@@ -62,7 +62,8 @@ Les améliorations apportées sont :
 - Ajout d'un bouton « Rechercher ».
 - Présentation des résultats avec le nom du pays et sa capitale.
 
-Cette amélioration a été réalisée directement dans le fichier HTML NativeScript, sans utiliser de CSS, car cette partie sera étudiée dans un prochain cours.
+Cette amélioration a été réalisée directement dans le fichier HTML NativeScript.
+
 ![images alt ](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/ae3699d68968edef21a7a2e8fbeff1af380c9c69/5.RxJS/300160006/images/Screenshot%202026-11-05%20123301.png)
 ![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/ffcff7537189c99c80c2a53ae26ac73378281079/5.RxJS/300160006/images/Screenshot%202026-11-05%20124112.png)
 ## 5. Difficultés rencontrées
