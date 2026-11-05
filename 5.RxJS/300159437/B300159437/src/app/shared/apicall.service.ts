@@ -6,29 +6,28 @@ import { catchError, map } from 'rxjs/operators';
 import { Country } from './country';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ApicallService {
 
-  constructor(private httpClient: HttpClient) {}
+    constructor(private httpClient: HttpClient) {}
 
-  searchCountryByName(name: string): Observable<Country[]> {
-
-    const url =
-      'https://restcountries.com/v3.1/name/' +
-      encodeURIComponent(name.trim()) +
-      '?fullText=true&fields=name,capital';
-
-    return this.httpClient.get<any[]>(url).pipe(
-      map(data => data.map((c, i) => ({
-        id: i,
-        name: c.name.common,
-        capital: c.capital?.join(', ') || 'Not available'
-      } as Country))),
-
-      catchError(() =>
-        throwError(() => new Error('Country not found'))
-      )
-    );
-  }
+    searchCountryByName(name: string): Observable<Country[]> {
+        return this.httpClient
+            .get<any[]>(
+                'https://countries.nexperts.nl/capital/' +
+                encodeURIComponent(name.trim())
+            )
+            .pipe(
+                map((data: any[]) => data.map((c, i) => ({
+                    id: i,
+                    name: c.name.common,
+                    capital: c.capital ? c.capital[0] : ''
+                } as Country))),
+                catchError(error => {
+                    console.error(error);
+                    return throwError(() => new Error('Capital not found!'));
+                })
+            );
+    }
 }

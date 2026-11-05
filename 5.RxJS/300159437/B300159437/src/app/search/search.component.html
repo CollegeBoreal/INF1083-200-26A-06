@@ -1,72 +1,45 @@
 
-<StackLayout backgroundColor="#EDF4FF" padding="20">
+<StackLayout class="form" padding="20">
 
     <Label
-        text="WORLD EXPLORER"
-        fontSize="28"
-        fontWeight="bold"
+        text="Search Country by Capital"
+        fontSize="24"
         color="#173B73"
         textAlignment="center">
     </Label>
 
-    <Label
-        text="Find the capital of any country"
-        fontSize="16"
-        color="#475569"
-        textAlignment="center"
-        marginTop="15">
-    </Label>
-
     <TextField
-        hint="Enter a country (e.g. Canada)"
-        [(ngModel)]="name"
-        backgroundColor="white"
-        color="black"
-        padding="15"
-        marginTop="30">
+        class="input"
+        hint="Enter a capital (e.g. Ottawa)"
+        [(ngModel)]="name">
     </TextField>
 
     <Button
-        text="FIND CAPITAL"
-        (tap)="searchCapital()"
-        backgroundColor="#2563EB"
-        color="white"
-        marginTop="15">
+        text="Search"
+        class="btn btn-primary"
+        (tap)="searchCapital()">
     </Button>
 
-    <ActivityIndicator
-        [busy]="loading"
-        color="#2563EB">
-    </ActivityIndicator>
+    <ListView
+        [items]="countries"
+        height="450">
 
-    <Label
-        [text]="message"
-        color="red"
-        textWrap="true"
-        marginTop="15">
-    </Label>
+        <ng-template let-item="item">
+            <StackLayout padding="15">
 
-    <StackLayout
-        *ngFor="let country of countries"
-        backgroundColor="white"
-        padding="20"
-        marginTop="15"
-        borderRadius="12">
+                <Label
+                    [text]="item.name"
+                    fontSize="20">
+                </Label>
 
-        <Label
-            [text]="country.name"
-            fontSize="22"
-            fontWeight="bold"
-            color="#173B73">
-        </Label>
+                <Label
+                    [text]="item.capital"
+                    fontSize="16">
+                </Label>
 
-        <Label
-            [text]="country.capital"
-            fontSize="20"
-            color="#2563EB"
-            marginTop="10">
-        </Label>
+            </StackLayout>
+        </ng-template>
 
-    </StackLayout>
+    </ListView>
 
 </StackLayout>
