@@ -1,7 +1,11 @@
 RAPPORT DE LABORATOIRE
+
 Introduction à Angular
+
 Cours : INF1083 – Développement d’applications
+
 Étudiant : Youcef Laziz
+
 Numéro étudiant : 300160424
 
 Introduction
