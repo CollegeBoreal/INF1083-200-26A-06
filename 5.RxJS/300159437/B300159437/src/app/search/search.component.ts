@@ -1,36 +1,43 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApicallService } from '../shared/apicall.service';
 import { Country } from '../shared/country';
 
 @Component({
-    standalone: false,
-    selector: 'Search',
-    templateUrl: './search.component.html'
+  standalone: false,
+  selector: 'Search',
+  templateUrl: './search.component.html'
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
-    name: string = '';
-    countries: Array<Country> = [];
+  name: string = '';
+  countries: Country[] = [];
+  message: string = '';
+  loading: boolean = false;
 
-    constructor(
-        private apiService: ApicallService
-    ) {}
+  constructor(private apiService: ApicallService) {}
 
-    ngOnInit(): void {}
-
-    searchCapital() {
-        this.apiService
-            .searchCountryByName(this.name)
-            .subscribe({
-                next: (data: Country[]) => {
-                    console.log(data);
-                    this.countries = data;
-                },
-                error: (error) => {
-                    console.error(error);
-                    this.countries = [];
-                }
-            });
+  searchCapital(): void {
+    if (!this.name.trim()) {
+      this.message = 'Please enter a country name.';
+      this.countries = [];
+      return;
     }
+
+    this.loading = true;
+    this.message = '';
+    this.countries = [];
+
+    this.apiService.searchCountryByName(this.name)
+      .subscribe({
+        next: (data) => {
+          this.countries = data;
+          this.loading = false;
+        },
+        error: () => {
+          this.message = 'Country not found. Try again.';
+          this.loading = false;
+        }
+      });
+  }
 }
