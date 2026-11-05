@@ -48,6 +48,9 @@ L'application effectue les opérations suivantes :
 | HttpClient | Communication avec l'API |
 | API REST | Récupération des informations sur les pays |
 
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/dbb218afc36a22737f24bed6e913ee7b0927ae6c/5.RxJS/300160006/images/Screenshot%202026-11-05%20115546.png)
+![images alt](
+
 ## 5. Difficultés rencontrées
 
 Pendant la réalisation du TP, nous avons rencontré plusieurs difficultés :
