@@ -4,6 +4,7 @@ import { ApicallService } from '../shared/apicall.service';
 import { Country } from '../shared/country';
 
 @Component({
+    standalone: false,
     selector: 'Search',
     templateUrl: './search.component.html'
 })
