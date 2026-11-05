@@ -1,0 +1,79 @@
+<ScrollView>
+    <StackLayout class="form" padding="15">
+
+        <!-- Titre de la page -->
+        <Label
+            text="🌍 Découvrir les pays"
+            fontSize="24"
+            fontWeight="bold"
+            color="#173B70"
+            textAlignment="center"
+            marginTop="20">
+        </Label>
+
+        <Label
+            text="Recherchez un pays à partir de sa capitale"
+            fontSize="14"
+            color="#777777"
+            textAlignment="center"
+            margin="10">
+        </Label>
+
+        <!-- Zone de recherche -->
+        <Label
+            text="🔎 Nom de la capitale"
+            fontSize="16"
+            fontWeight="bold"
+            marginTop="20">
+        </Label>
+
+        <TextField
+            hint="Exemple : Dakar"
+            [(ngModel)]="name">
+        </TextField>
+
+        <Button
+            text="🔍 Rechercher"
+            class="btn btn-primary"
+            (tap)="searchCapital()">
+        </Button>
+
+        <!-- Résultats -->
+        <Label
+            text="📋 Résultats de la recherche"
+            fontSize="20"
+            fontWeight="bold"
+            color="#173B70"
+            marginTop="25"
+            marginBottom="10">
+        </Label>
+
+        <ListView [items]="countries" height="500">
+            <ng-template let-item="item">
+
+                <StackLayout
+                    padding="12"
+                    margin="5"
+                    backgroundColor="#F4F7FC">
+
+                    <Label
+                        [text]="'🌎 Pays : ' + item.name"
+                        fontSize="17"
+                        fontWeight="bold"
+                        color="#173B70">
+                    </Label>
+
+                    <Label
+                        [text]="'📍 Capitale : ' + item.capital"
+                        fontSize="15"
+                        color="#555555"
+                        marginTop="5">
+                    </Label>
+
+                </StackLayout>
+
+            </ng-template>
+        </ListView>
+
+    </StackLayout>
+</ScrollView>
