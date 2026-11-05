@@ -1,11 +1,12 @@
 
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core'
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   NativeScriptCommonModule,
   NativeScriptFormsModule
-} from '@nativescript/angular'
-import { SearchRoutingModule } from './search-routing.module'
-import { SearchComponent } from './search.component'
+} from '@nativescript/angular';
+
+import { SearchRoutingModule } from './search-routing.module';
+import { SearchComponent } from './search.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,11 @@ import { SearchComponent } from './search.component'
     NativeScriptFormsModule,
     SearchRoutingModule
   ],
-  declarations: [SearchComponent],
-  schemas: [NO_ERRORS_SCHEMA],
+  declarations: [
+    SearchComponent
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class SearchModule {}
