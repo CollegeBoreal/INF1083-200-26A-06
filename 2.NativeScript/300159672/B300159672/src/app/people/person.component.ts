@@ -1,14 +1,31 @@
-import { ChangeDetectionStrategy, Component, NO_ERRORS_SCHEMA, inject } from '@angular/core'
-import { NativeScriptCommonModule, NativeScriptRouterModule } from '@nativescript/angular'
-import { PersonService } from './person.service'
+ 
+import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+    NativeScriptCommonModule,
+    NativeScriptRouterModule,
+} from '@nativescript/angular';
 
 @Component({
-  selector: 'ns-person',
-  templateUrl: './person.component.html',
-  imports: [NativeScriptCommonModule, NativeScriptRouterModule],
-  schemas: [NO_ERRORS_SCHEMA],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'Home',
+    templateUrl: './person.component.html',
+    imports: [NativeScriptCommonModule, NativeScriptRouterModule],
+    schemas: [NO_ERRORS_SCHEMA],
 })
-export class PersonComponent {
-  personService = inject(PersonService);
+export class PersonComponent implements OnInit {
+    signUpForm: FormGroup;
+
+    constructor(private formBuilder: FormBuilder) {}
+
+    ngOnInit(): void {
+        this.signUpForm = this.formBuilder.group({
+            email: ['', Validators.required],
+            username: ['', Validators.required],
+        });
+    }
+
+    onButtonTap(): void {
+        console.log(JSON.stringify(this.signUpForm.value));
+    }
 }
+
