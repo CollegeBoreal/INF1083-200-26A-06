@@ -1,0 +1,85 @@
+<ActionBar title="Bibliothèque" backgroundColor="#17324D" color="white"></ActionBar>
+
+<GridLayout rows="auto, *" backgroundColor="#F4F7FB">
+
+    <StackLayout row="0" padding="20">
+        <Label text="Trouvez votre prochain livre"
+               fontSize="24"
+               fontWeight="bold"
+               textWrap="true"
+               color="#17324D"
+               textTransform="none"></Label>
+
+        <Label text="Recherchez par titre, auteur ou année"
+               fontSize="14"
+               color="#60748A"
+               marginTop="6"
+               marginBottom="20"
+               textTransform="none"></Label>
+
+        <TextField hint="Titre, auteur ou année"
+                   [(ngModel)]="titreRecherche"
+                   color="#17324D"
+                   hintColor="#8292A3"
+                   backgroundColor="white"
+                   borderRadius="12"
+                   padding="14"
+                   fontSize="16"></TextField>
+
+        <Button text="Rechercher"
+                (tap)="rechercher()"
+                backgroundColor="#176B91"
+                color="white"
+                borderRadius="12"
+                height="52"
+                marginTop="14"
+                fontSize="16"
+                fontWeight="bold"
+                textTransform="none"></Button>
+
+        <Label [text]="resultatRecherche"
+               color="#60748A"
+               fontSize="14"
+               marginTop="18"
+               textWrap="true"
+               textTransform="none"></Label>
+    </StackLayout>
+
+    <ListView row="1"
+              [items]="livres"
+              backgroundColor="#F4F7FB"
+              marginLeft="20"
+              marginRight="20"
+              separatorColor="transparent">
+
+        <ng-template let-livre="item">
+            <StackLayout backgroundColor="white"
+                         borderRadius="12"
+                         padding="16"
+                         marginBottom="10">
+
+                <Label [text]="livre.title"
+                       fontSize="18"
+                       fontWeight="bold"
+                       color="#17324D"
+                       textWrap="true"
+                       textTransform="none"></Label>
+
+                <Label [text]="livre.author_name?.join(', ') || 'Auteur inconnu'"
+                       fontSize="14"
+                       color="#42566B"
+                       marginTop="8"
+                       textWrap="true"
+                       textTransform="none"></Label>
+
+                <Label [text]="livre.first_publish_year || 'Année inconnue'"
+                       fontSize="13"
+                       color="#176B91"
+                       marginTop="6"
+                       textTransform="none"></Label>
+
+            </StackLayout>
+        </ng-template>
+    </ListView>
+
+</GridLayout>
