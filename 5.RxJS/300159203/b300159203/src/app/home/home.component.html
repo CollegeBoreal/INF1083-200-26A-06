@@ -1,0 +1,55 @@
+<ActionBar title="Accueil"></ActionBar>
+
+<GridLayout rows="auto, *" class="p-4">
+
+  <Label
+    row="0"
+    *ngIf="!selected"
+    text="Explorer par genre"
+    class="font-bold"
+    fontSize="22"
+    marginBottom="12">
+  </Label>
+
+  <ScrollView row="1" *ngIf="!selected">
+    <FlexboxLayout flexWrap="wrap" justifyContent="space-between">
+      <GridLayout
+        *ngFor="let g of genres"
+        width="48%"
+        height="110"
+        margin="0 0 12 0"
+        borderRadius="14"
+        [backgroundColor]="g.color"
+        (tap)="openGenre(g)">
+        <Label [text]="g.name" color="white" class="font-bold" fontSize="20" margin="12" verticalAlignment="top"></Label>
+        <Label [text]="g.emoji" fontSize="38" horizontalAlignment="right" verticalAlignment="bottom" margin="8"></Label>
+      </GridLayout>
+    </FlexboxLayout>
+  </ScrollView>
+
+  <GridLayout row="0" rowSpan="2" rows="auto, *" *ngIf="selected">
+
+    <GridLayout row="0" columns="auto, *" marginBottom="12">
+      <Button col="0" text="« Genres" class="btn" (tap)="backToGenres()"></Button>
+      <Label col="1" [text]="selected.name" class="font-bold" fontSize="22" verticalAlignment="center" marginLeft="12"></Label>
+    </GridLayout>
+
+    <ActivityIndicator row="1" *ngIf="loading" busy="true" width="50" height="50" verticalAlignment="top" marginTop="30"></ActivityIndicator>
+
+    <Label row="1" *ngIf="message" [text]="message" textWrap="true" class="text-center" verticalAlignment="top" marginTop="30"></Label>
+
+    <ListView row="1" *ngIf="songs.length > 0" [items]="songs" separatorColor="transparent">
+      <ng-template let-song="item">
+        <GridLayout columns="72, *" class="p-2" (tap)="openSong(song)">
+          <Image col="0" [src]="song.artwork" width="64" height="64" stretch="aspectFill" borderRadius="8" verticalAlignment="center"></Image>
+          <StackLayout col="1" verticalAlignment="center" marginLeft="12">
+            <Label [text]="song.title" class="font-bold" fontSize="16" textWrap="true"></Label>
+            <Label [text]="song.artist" opacity="0.8"></Label>
+          </StackLayout>
+        </GridLayout>
+      </ng-template>
+    </ListView>
+
+  </GridLayout>
+
+</GridLayout>

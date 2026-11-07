@@ -1,0 +1,40 @@
+<ActionBar title="Détail"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4" horizontalAlignment="center">
+
+    <Button
+      text="← Retour"
+      class="btn"
+      horizontalAlignment="left"
+      (tap)="goBack()">
+    </Button>
+
+    <Image
+      [src]="bigArtwork"
+      width="280"
+      height="280"
+      stretch="aspectFill"
+      borderRadius="16"
+      marginTop="8">
+    </Image>
+    <Label [text]="song?.title" class="font-bold text-center" fontSize="22" textWrap="true" marginTop="20"></Label>
+    <Label [text]="song?.artist" class="text-center" fontSize="18" opacity="0.8" textWrap="true"></Label>
+    <Label [text]="song?.album" class="text-center" fontSize="14" opacity="0.5" textWrap="true" marginTop="8"></Label>
+
+    <Button
+      [text]="isFav ? '❤ Retirer des favoris' : '♡ Ajouter aux favoris'"
+      class="btn btn-primary"
+      marginTop="16"
+      (tap)="toggleFav()">
+    </Button>
+
+    <Label text="Paroles" class="font-bold" fontSize="18" marginTop="28" horizontalAlignment="left"></Label>
+
+    <ActivityIndicator *ngIf="loadingLyrics" busy="true" width="40" height="40" marginTop="12"></ActivityIndicator>
+
+    <Label *ngIf="lyricsMessage" [text]="lyricsMessage" opacity="0.6" marginTop="12" textWrap="true"></Label>
+
+    <Label *ngIf="lyrics" [text]="lyrics" textWrap="true" fontSize="15" lineHeight="6" marginTop="12" horizontalAlignment="left"></Label>
+  </StackLayout>
+</ScrollView>
