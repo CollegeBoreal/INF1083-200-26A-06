@@ -1,3 +1,12 @@
+# 📚 Travail 5 – RxJS : Bibliothèque
+
+*Nom et prénom :* Touadjni Islem  
+*Numéro d’étudiant :* 300159195  
+*Cours :* INF1083 – Développement d’applications  
+*Projet :* b300159195  
+*Technologies :* NativeScript, Angular, TypeScript, RxJS et HttpClient
+
+
 # Bibliothèque — Recherche de livres
 
 ![Résultat final](images/imagesrecherche_livre_resultats.png.jpeg)
