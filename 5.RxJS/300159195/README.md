@@ -1,6 +1,7 @@
 # Bibliothèque — Recherche de livres
 
-![alt text](imagesrecherche_livre_resultats.png.jpeg)
+![Résultat final](images/imagesrecherche_livre_resultats.png.jpeg)
+
 ## Présentation du projet
 
 Bibliothèque est une application mobile Android développée avec NativeScript et Angular. Elle permet de rechercher des livres en saisissant un titre, un auteur ou une année, puis de consulter les résultats dans une liste.
@@ -32,17 +33,13 @@ Les informations sur les livres sont obtenues depuis l’API publique Open Libra
 
 Si l’utilisateur appuie sur *Rechercher* sans écrire de titre, d’auteur ou d’année, l’application lui demande de remplir le champ. Aucune recherche n’est envoyée dans ce cas.
 
-![Message affiché lorsque le champ est vide]
-
-![alt text](recherche-vide.png.jpeg)
+![Recherche sans saisie](images/recherche-vide.png.jpeg) 
 
 ### 2. Recherche en cours
 
 Après la saisie d’un mot-clé, l’application affiche *« Recherche en cours... »* pendant qu’elle attend la réponse de l’API.
 
-![Recherche en cours]
-
-![alt text](recherche-en-cours.png.jpeg)
+![Recherche en cours](images/recherche-en-cours.png.jpeg) 
 
 ### 3. Affichage des résultats
 
@@ -52,7 +49,7 @@ La recherche *« Le petit prince »* a permis de vérifier l’affichage des ré
 
 ![Liste des livres trouvés]
 
-![alt text](imagesrecherche_livre_resultats.png-1.jpeg) 
+![Liste des livres trouvés](images/imagesrecherche_livre_resultats.png.jpeg) 
 
 ## Utilisation de l’API et de RxJS
 
