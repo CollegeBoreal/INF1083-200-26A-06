@@ -18,9 +18,11 @@ L’objectif de ce travail était :
 •	D’envoyer son travail sur GitHub via git push
 •	De comprendre les étapes essentielles du workflow Git
 Ce rapport présente les étapes réalisées, accompagnées des captures d’écran.
+
 2. Ouverture du terminal
 
 J’ai ouvert l’invite de commande Windows en mode Administrateur pour exécuter les commandes Git.
+
 3. Création du répertoire Developer et clonage du dépôt
 
 J’ai créé mon espace de travail :
