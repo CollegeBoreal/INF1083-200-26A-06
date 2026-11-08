@@ -1,4 +1,4 @@
-# Participation au 05-11-2026 17:18
+# Participation au 07-11-2026 20:48
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -35,7 +35,7 @@
 | 16 | [300157733](../300157733/README.md) :point_right: [albachiralmouhamad](https://github.com/albachiralmouhamad) <image src='https://avatars0.githubusercontent.com/u/261491303?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 17 | [300158085](../300158085/README.md) :point_right: [kevinmayele-ai](https://github.com/kevinmayele-ai) <image src='https://avatars0.githubusercontent.com/u/258312358?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 18 | [300159180](../300159180/README.md) :point_right: [abdenourzourane-cpu](https://github.com/abdenourzourane-cpu) <image src='https://avatars0.githubusercontent.com/u/261489848?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :x: |
-| 19 | [300159195](../300159195/README.md) :point_right: [islemtd3-hue](https://github.com/islemtd3-hue) <image src='https://avatars0.githubusercontent.com/u/261489005?s=460&v=4' width=20 height=20></image> | :x: | :x: |
+| 19 | [300159195](../300159195/README.md) :point_right: [islemtd3-hue](https://github.com/islemtd3-hue) <image src='https://avatars0.githubusercontent.com/u/261489005?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 20 | [300159203](../300159203/README.md) :point_right: [riadhsahraoui](https://github.com/riadhsahraoui) <image src='https://avatars0.githubusercontent.com/u/261489597?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 21 | [300159437](../300159437/README.md) :point_right: [bob19142005](https://github.com/bob19142005) <image src='https://avatars0.githubusercontent.com/u/203893881?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
 | 22 | [300159463](../300159463/README.md) :point_right: [hammahichem99](https://github.com/hammahichem99) <image src='https://avatars0.githubusercontent.com/u/261489495?s=460&v=4' width=20 height=20></image> | :heavy_check_mark: | :heavy_check_mark: |
@@ -47,4 +47,4 @@
 | 28 | [300160504](../300160504/README.md) :point_right: [Mmounir07](https://github.com/Mmounir07) <image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 29 | [300160733](../300160733/README.md) :point_right: [belhadiyanis200-a11y](https://github.com/belhadiyanis200-a11y) <image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image> | :x: | :x: |
 | 30 | [300160862](../300160862/README.md) :point_right: [cherifyamna](https://github.com/cherifyamna) <image src='https://avatars0.githubusercontent.com/u/261494322?s=460&v=4' width=20 height=20></image> | :x: | :x: |
-| :abacus: | \$\\frac{18}{31}\$ = 58.06% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 18 |
+| :abacus: | \$\\frac{19}{31}\$ = 61.29% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 19 |

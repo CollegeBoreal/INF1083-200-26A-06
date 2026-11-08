@@ -47,4 +47,3 @@ J'ai ajouté la validation des champs obligatoires et du format de l'adresse cou
 ## 7. Résultat
 
 Ce laboratoire m'a permis de pratiquer les formulaires réactifs d'Angular, la validation des données et la personnalisation de l'interface NativeScript.
-

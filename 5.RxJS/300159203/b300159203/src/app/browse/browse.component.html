@@ -1,0 +1,56 @@
+<ActionBar title="Favoris"></ActionBar>
+
+<GridLayout rows="auto, *" class="p-4" (loaded)="refresh()">
+
+  <Button
+    row="0"
+    text="Actualiser"
+    class="btn"
+    (tap)="refresh()">
+  </Button>
+
+  <Label
+    row="1"
+    *ngIf="favorites.length === 0"
+    text="Aucun favori pour l'instant. Ouvre une chanson depuis Search et appuie sur ♡."
+    textWrap="true"
+    class="text-center"
+    opacity="0.6"
+    verticalAlignment="top"
+    marginTop="30">
+  </Label>
+
+  <ListView
+    row="1"
+    *ngIf="favorites.length > 0"
+    [items]="favorites"
+    separatorColor="transparent">
+    <ng-template let-song="item">
+      <GridLayout columns="72, *, auto" class="p-2">
+        <Image
+          col="0"
+          [src]="song.artwork"
+          width="64"
+          height="64"
+          stretch="aspectFill"
+          borderRadius="8"
+          verticalAlignment="center">
+        </Image>
+        <StackLayout col="1" verticalAlignment="center" marginLeft="12">
+          <Label [text]="song.title" class="font-bold" fontSize="16" textWrap="true"></Label>
+          <Label [text]="song.artist" opacity="0.8"></Label>
+        </StackLayout>
+        <Label
+          col="2"
+          text="❤"
+          fontSize="26"
+          color="#e8115b"
+          verticalAlignment="center"
+          padding="8"
+          (tap)="remove(song)">
+        </Label>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+
+</GridLayout>

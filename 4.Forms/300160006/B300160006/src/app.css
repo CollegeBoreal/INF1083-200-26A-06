@@ -1,0 +1,41 @@
+.bg-header { background-color: #3b5bdb; color: white; }
+
+.page { padding: 24; background-color: #f4f6fb; }
+
+.title { font-size: 28; font-weight: bold; color: #1f2a44; margin-bottom: 4; }
+.subtitle { font-size: 14; color: #6b7280; margin-bottom: 24; }
+
+.label { font-size: 14; font-weight: bold; color: #374151; margin-bottom: 6; margin-top: 12; }
+
+.input {
+    font-size: 16;
+    color: #111827;
+    background-color: white;
+    border-width: 1;
+    border-color: #d1d5db;
+    border-radius: 10;
+    padding: 12;
+    placeholder-color: #9ca3af;
+}
+
+.btn {
+    margin-top: 28;
+    padding: 14;
+    font-size: 16;
+    font-weight: bold;
+    color: white;
+    background-color: #3b5bdb;
+    border-radius: 10;
+}
+.btn-disabled { background-color: #a5b4fc; }
+
+.hint { margin-top: 12; font-size: 12; color: #ef4444; horizontal-alignment: center; }
+.su-header { background-color: #3b5bdb; color: white; }
+.su-page { padding: 24; background-color: #f4f6fb; }
+.su-title { font-size: 28; font-weight: bold; color: #1f2a44; margin-bottom: 4; }
+.su-subtitle { font-size: 14; color: #6b7280; margin-bottom: 24; }
+.su-label { font-size: 14; font-weight: bold; color: #374151; margin-bottom: 6; margin-top: 12; }
+.su-input { font-size: 16; color: #111827; background-color: white; border-width: 1; border-color: #d1d5db; border-radius: 10; padding: 12; placeholder-color: #9ca3af; }
+.su-btn { margin-top: 28; padding: 14; font-size: 16; font-weight: bold; color: white; background-color: #3b5bdb; border-radius: 10; }
+.su-btn-disabled { background-color: #a5b4fc; }
+.su-error { margin-top: 4; font-size: 12; color: #ef4444; }

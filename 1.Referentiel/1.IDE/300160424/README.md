@@ -1,11 +1,16 @@
-\# Youcef 300160424
+
 Mon premier travail avec Git.
 
 Rapport – Premiers pas avec Git et SSH
+
 Nom : Youcef Laziz
+
  ID étudiant : 300160424 
-Cours : INF1083 – Collège Boréal 
+ 
+Cours : INF1083 – Collège Boréal
+
 1. Objectif du travail
+
 L’objectif de ce travail était :
 •	D’apprendre à utiliser Git et GitHub
 •	De créer un répertoire personnel dans le dépôt du cours
@@ -13,9 +18,13 @@ L’objectif de ce travail était :
 •	D’envoyer son travail sur GitHub via git push
 •	De comprendre les étapes essentielles du workflow Git
 Ce rapport présente les étapes réalisées, accompagnées des captures d’écran.
+
 2. Ouverture du terminal
+
 J’ai ouvert l’invite de commande Windows en mode Administrateur pour exécuter les commandes Git.
+
 3. Création du répertoire Developer et clonage du dépôt
+
 J’ai créé mon espace de travail :
 Code
 mkdir Developer
@@ -90,6 +99,7 @@ Code
 type ma_cle.pub
 Puis je l’ai ajoutée dans :
 GitHub → Settings → SSH and GPG key
+
 12. Passage du dépôt en mode SSH
 J’ai modifié l’URL du dépôt :
 Code
@@ -98,11 +108,13 @@ Vérification :
 Code
 git remote --verbose
 13. Envoi du travail sur GitHub
+
 J’ai envoyé mon travail :
 Code
 git push
 <img width="975" height="1058" alt="image" src="https://github.com/user-attachments/assets/25cadbd4-bc0f-4c53-a179-0f8eeb0ccb61" />
 Conclusion
+
 Ce travail m’a permis de :
 ✔️ utiliser Git et GitHub ✔️ créer un dossier personnel dans un dépôt partagé ✔️ créer et modifier un fichier README ✔️ faire des commits et synchroniser un dépôt ✔️ générer et configurer une clé SSH ✔️ sécuriser la connexion avec GitHub ✔️ envoyer mon travail avec git push
 Je maîtrise maintenant les bases essentielles pour travailler avec Git dans mes futurs projets.

@@ -1,0 +1,32 @@
+﻿<ActionBar title="Inscription" class="su-header"></ActionBar>
+
+<ScrollView>
+<StackLayout [formGroup]="signUpForm" class="su-page">
+    <Label text="Créer un compte" class="su-title"></Label>
+    <Label text="Remplis les champs ci-dessous" class="su-subtitle"></Label>
+
+    <Label text="Courriel" class="su-label"></Label>
+    <TextField formControlName="email" hint="nom@exemple.com" keyboardType="email"
+               autocorrect="false" autocapitalizationType="none" class="su-input"></TextField>
+    <Label *ngIf="email.value && email.invalid" text="Courriel invalide" class="su-error"></Label>
+
+    <Label text="Nom d'utilisateur" class="su-label"></Label>
+    <TextField formControlName="username" hint="Ton nom d'utilisateur"
+               autocorrect="false" autocapitalizationType="none" class="su-input"></TextField>
+
+    <Label text="Mot de passe" class="su-label"></Label>
+    <TextField formControlName="password" hint="Au moins 6 caractères" secure="true"
+               autocorrect="false" autocapitalizationType="none" class="su-input"></TextField>
+    <Label *ngIf="password.value && password.invalid" text="Minimum 6 caractères" class="su-error"></Label>
+
+    <Label text="Confirmer le mot de passe" class="su-label"></Label>
+    <TextField formControlName="confirmPassword" hint="Répète le mot de passe" secure="true"
+               autocorrect="false" autocapitalizationType="none" class="su-input"></TextField>
+    <Label *ngIf="signUpForm.get('confirmPassword').value && signUpForm.hasError('mismatch')"
+           text="Les mots de passe ne correspondent pas" class="su-error"></Label>
+
+    <Button text="S'inscrire" (tap)="onButtonTap()"
+            [isEnabled]="signUpForm.valid"
+            [class.su-btn-disabled]="!signUpForm.valid" class="su-btn"></Button>
+</StackLayout>
+</ScrollView>

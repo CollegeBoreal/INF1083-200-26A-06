@@ -62,4 +62,5 @@ L’application affiche une liste de dix utilisateurs avec leurs noms et leurs c
 Capture 7 – Affichage des utilisateurs de l’API REST
  
 Conclusion
+
 Ce laboratoire m’a permis de découvrir les bases d’Angular. J’ai réussi à lancer mon application et à afficher les éléments demandés dans le navigateur. J’ai aussi appris à présenter une liste d’utilisateurs venant d’une API REST.
