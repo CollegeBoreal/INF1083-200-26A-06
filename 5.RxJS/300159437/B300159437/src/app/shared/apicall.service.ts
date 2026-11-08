@@ -15,8 +15,7 @@ export class ApicallService {
     searchCountryByName(name: string): Observable<Country[]> {
         return this.httpClient
             .get<any[]>(
-                'https://countries.nexperts.nl/capital/' +
-                encodeURIComponent(name.trim())
+                'https://countries.nexperts.nl/capital/' + name
             )
             .pipe(
                 map((data: any[]) => data.map((c, i) => ({
@@ -25,8 +24,9 @@ export class ApicallService {
                     capital: c.capital ? c.capital[0] : ''
                 } as Country))),
                 catchError(error => {
-                    console.error(error);
-                    return throwError(() => new Error('Capital not found!'));
+                    return throwError(
+                        () => 'Capital not found!'
+                    );
                 })
             );
     }

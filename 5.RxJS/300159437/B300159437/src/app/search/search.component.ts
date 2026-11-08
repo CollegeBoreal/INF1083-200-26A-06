@@ -4,35 +4,40 @@ import { ApicallService } from '../shared/apicall.service';
 import { Country } from '../shared/country';
 
 @Component({
-    standalone: false,
     selector: 'Search',
-    templateUrl: './search.component.html'
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
 
     name: string = '';
     countries: Country[] = [];
+    loading: boolean = false;
+    errorMessage: string = '';
 
     constructor(private apiService: ApicallService) {}
 
     ngOnInit(): void {}
 
-    searchCapital(): void {
+    searchCapital() {
         if (!this.name.trim()) {
-            this.countries = [];
+            this.errorMessage = 'Please enter a country name.';
             return;
         }
 
-        this.apiService
-            .searchCountryByName(this.name)
+        this.loading = true;
+        this.errorMessage = '';
+        this.countries = [];
+
+        this.apiService.searchCountryByName(this.name.trim())
             .subscribe({
                 next: (data: Country[]) => {
-                    console.log(data);
                     this.countries = data;
+                    this.loading = false;
                 },
-                error: (error) => {
-                    console.error(error);
-                    this.countries = [];
+                error: () => {
+                    this.errorMessage = 'Country not found. Try again.';
+                    this.loading = false;
                 }
             });
     }

@@ -1,45 +1,73 @@
 
-<StackLayout class="form" padding="20">
+<GridLayout rows="*" class="page">
+    <ScrollView row="0">
+        <StackLayout class="container">
 
-    <Label
-        text="Search Country by Capital"
-        fontSize="24"
-        color="#173B73"
-        textAlignment="center">
-    </Label>
+            <Label text="🌍" class="globe"></Label>
 
-    <TextField
-        class="input"
-        hint="Enter a capital (e.g. Ottawa)"
-        [(ngModel)]="name">
-    </TextField>
+            <Label text="World Capitals"
+                   class="title"></Label>
 
-    <Button
-        text="Search"
-        class="btn btn-primary"
-        (tap)="searchCapital()">
-    </Button>
+            <Label text="Explore the world, one country at a time"
+                   class="subtitle"
+                   textWrap="true"></Label>
 
-    <ListView
-        [items]="countries"
-        height="450">
+            <StackLayout class="search-card">
+                <Label text="COUNTRY NAME"
+                       class="field-label"></Label>
 
-        <ng-template let-item="item">
-            <StackLayout padding="15">
+                <TextField
+                    hint="Enter a country..."
+                    [(ngModel)]="name"
+                    class="country-input">
+                </TextField>
 
-                <Label
-                    [text]="item.name"
-                    fontSize="20">
-                </Label>
+                <Button
+                    text="Find Capital"
+                    class="search-button"
+                    (tap)="searchCapital()">
+                </Button>
+            </StackLayout>
 
-                <Label
-                    [text]="item.capital"
-                    fontSize="16">
-                </Label>
+            <ActivityIndicator
+                [busy]="loading"
+                color="#60A5FA">
+            </ActivityIndicator>
+
+            <Label
+                *ngIf="errorMessage"
+                [text]="errorMessage"
+                class="error-message"
+                textWrap="true">
+            </Label>
+
+            <StackLayout
+                *ngFor="let country of countries"
+                class="result-card">
+
+                <Label text="SEARCH RESULT"
+                       class="result-label"></Label>
+
+                <Label [text]="country.name"
+                       class="country-name"></Label>
+
+                <Label text="📍"
+                       class="pin-icon"></Label>
+
+                <Label text="CAPITAL CITY"
+                       class="result-label"></Label>
+
+                <Label [text]="country.capital"
+                       class="capital-name"></Label>
 
             </StackLayout>
-        </ng-template>
 
-    </ListView>
+            <Label
+                text="Discover countries and their capitals worldwide"
+                class="footer"
+                textWrap="true">
+            </Label>
 
-</StackLayout>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>
