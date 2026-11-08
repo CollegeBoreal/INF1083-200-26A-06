@@ -12,3 +12,5 @@ runNativeScriptAngularApp({
     appModuleBootstrap: () =>
         platformNativeScript().bootstrapModule(AppModule),
 });
+
+
