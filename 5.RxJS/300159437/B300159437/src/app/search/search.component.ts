@@ -1,26 +1,27 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApicallService } from '../shared/apicall.service';
 import { Country } from '../shared/country';
 
 @Component({
     selector: 'Search',
+    standalone: false,
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 
-    name: string = '';
+    name = '';
     countries: Country[] = [];
-    loading: boolean = false;
-    errorMessage: string = '';
+    loading = false;
+    errorMessage = '';
 
     constructor(private apiService: ApicallService) {}
 
-    ngOnInit(): void {}
+    searchCapital(): void {
+        const countryName = this.name.trim();
 
-    searchCapital() {
-        if (!this.name.trim()) {
+        if (!countryName) {
             this.errorMessage = 'Please enter a country name.';
             return;
         }
@@ -29,14 +30,14 @@ export class SearchComponent implements OnInit {
         this.errorMessage = '';
         this.countries = [];
 
-        this.apiService.searchCountryByName(this.name.trim())
+        this.apiService.searchCountryByName(countryName)
             .subscribe({
-                next: (data: Country[]) => {
+                next: (data) => {
                     this.countries = data;
                     this.loading = false;
                 },
                 error: () => {
-                    this.errorMessage = 'Country not found. Try again.';
+                    this.errorMessage = 'Country not found.';
                     this.loading = false;
                 }
             });

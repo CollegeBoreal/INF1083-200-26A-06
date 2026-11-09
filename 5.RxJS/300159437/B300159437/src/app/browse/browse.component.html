@@ -1,8 +1,88 @@
-<ActionBar>
-  <Label text="Browse"></Label>
+
+<ActionBar title="Explore Countries"
+           backgroundColor="#101C36"
+           color="white">
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon far" text="&#xf1ea;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView backgroundColor="#101C36">
+    <StackLayout padding="24">
+
+        <Label text="🌎"
+               fontSize="55"
+               textAlignment="center"
+               marginTop="30">
+        </Label>
+
+        <Label text="Explore the World"
+               color="white"
+               fontSize="28"
+               fontWeight="bold"
+               textAlignment="center"
+               marginTop="15">
+        </Label>
+
+        <Label
+            text="Discover countries and their beautiful capital cities."
+            color="#A8B8D2"
+            fontSize="16"
+            textAlignment="center"
+            textWrap="true"
+            marginTop="15">
+        </Label>
+
+        <StackLayout
+            backgroundColor="#223454"
+            borderRadius="18"
+            padding="20"
+            marginTop="35">
+
+            <Label text="🇨🇦 Canada"
+                   color="white"
+                   fontSize="22">
+            </Label>
+
+            <Label text="Capital: Ottawa"
+                   color="#60A5FA"
+                   fontSize="17"
+                   marginTop="10">
+            </Label>
+        </StackLayout>
+
+        <StackLayout
+            backgroundColor="#223454"
+            borderRadius="18"
+            padding="20"
+            marginTop="15">
+
+            <Label text="🇭🇹 Haiti"
+                   color="white"
+                   fontSize="22">
+            </Label>
+
+            <Label text="Capital: Port-au-Prince"
+                   color="#60A5FA"
+                   fontSize="17"
+                   marginTop="10">
+            </Label>
+        </StackLayout>
+
+        <StackLayout
+            backgroundColor="#223454"
+            borderRadius="18"
+            padding="20"
+            marginTop="15">
+
+            <Label text="🇫🇷 France"
+                   color="white"
+                   fontSize="22">
+            </Label>
+
+            <Label text="Capital: Paris"
+                   color="#60A5FA"
+                   fontSize="17"
+                   marginTop="10">
+            </Label>
+        </StackLayout>
+
+    </StackLayout>
+</ScrollView>

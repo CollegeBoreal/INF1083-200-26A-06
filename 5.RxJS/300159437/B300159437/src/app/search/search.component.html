@@ -1,26 +1,113 @@
 
-<StackLayout backgroundColor="#101C36" padding="20">
+<ActionBar title="World Capitals"
+           backgroundColor="#101C36"
+           color="white">
+</ActionBar>
 
-    <Label
-        text="WORLD CAPITALS"
-        color="white"
-        fontSize="28"
-        textAlignment="center">
-    </Label>
+<GridLayout rows="*" backgroundColor="#101C36">
 
-    <Label
-        text="Welcome to my application!"
-        color="white"
-        fontSize="18"
-        textAlignment="center"
-        marginTop="20">
-    </Label>
+    <StackLayout row="0" padding="20">
 
-    <Button
-        text="TEST BUTTON"
-        backgroundColor="#2563EB"
-        color="white"
-        marginTop="30">
-    </Button>
+        <Label
+            text="🌍 World Capitals"
+            color="white"
+            fontSize="28"
+            fontWeight="bold"
+            textAlignment="center"
+            marginTop="25">
+        </Label>
 
-</StackLayout>
+        <Label
+            text="Enter a country to discover its capital"
+            color="#A8B8D2"
+            fontSize="15"
+            textAlignment="center"
+            textWrap="true"
+            marginTop="15"
+            marginBottom="30">
+        </Label>
+
+        <TextField
+            hint="Enter a country (e.g. Canada)"
+            [(ngModel)]="name"
+            backgroundColor="white"
+            color="#17243E"
+            borderRadius="10"
+            padding="15"
+            fontSize="16">
+        </TextField>
+
+        <Button
+            text="Find Capital"
+            (tap)="searchCapital()"
+            backgroundColor="#2563EB"
+            color="white"
+            borderRadius="10"
+            fontSize="16"
+            marginTop="20">
+        </Button>
+
+        <ActivityIndicator
+            [busy]="loading"
+            color="#60A5FA">
+        </ActivityIndicator>
+
+        <Label
+            *ngIf="errorMessage"
+            [text]="errorMessage"
+            color="#FCA5A5"
+            textAlignment="center"
+            textWrap="true"
+            marginTop="15">
+        </Label>
+
+        <ListView
+            [items]="countries"
+            height="350"
+            marginTop="25"
+            backgroundColor="#101C36">
+
+            <ng-template let-item="item">
+
+                <StackLayout
+                    backgroundColor="#223454"
+                    padding="20"
+                    margin="8"
+                    borderRadius="15">
+
+                    <Label
+                        text="COUNTRY"
+                        color="#A8B8D2"
+                        fontSize="12">
+                    </Label>
+
+                    <Label
+                        [text]="item.name"
+                        color="white"
+                        fontSize="24"
+                        fontWeight="bold">
+                    </Label>
+
+                    <Label
+                        text="CAPITAL CITY"
+                        color="#A8B8D2"
+                        fontSize="12"
+                        marginTop="20">
+                    </Label>
+
+                    <Label
+                        [text]="item.capital"
+                        color="#60A5FA"
+                        fontSize="28"
+                        fontWeight="bold">
+                    </Label>
+
+                </StackLayout>
+
+            </ng-template>
+
+        </ListView>
+
+    </StackLayout>
+
+</GridLayout>

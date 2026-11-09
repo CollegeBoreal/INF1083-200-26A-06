@@ -1,6 +1,6 @@
 
 export class Country {
-    id: number;
-    name: string;
-    capital: string;
+    id: number = 0;
+    name: string = '';
+    capital: string = '';
 }

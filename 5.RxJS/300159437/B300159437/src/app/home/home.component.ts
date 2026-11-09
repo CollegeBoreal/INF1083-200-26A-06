@@ -1,46 +1,26 @@
 
 import { Component } from '@angular/core';
-import { ApicallService } from '../shared/apicall.service';
-import { Country } from '../shared/country';
 
 @Component({
-  standalone: true,
-  selector: 'Home',
-  templateUrl: './home.component.html'
+    selector: 'Home',
+    standalone: false,
+    template: `
+        <StackLayout backgroundColor="#101C36" padding="25">
+            <Label text="World Capitals"
+                   color="white"
+                   fontSize="30"
+                   fontWeight="bold"
+                   textAlignment="center">
+            </Label>
+
+            <Label text="Welcome! Discover capitals around the world."
+                   color="#A8B8D2"
+                   fontSize="16"
+                   textWrap="true"
+                   textAlignment="center"
+                   marginTop="25">
+            </Label>
+        </StackLayout>
+    `
 })
-export class SearchComponent {
-
-  name: string = '';
-  countries: Country[] = [];
-  message: string = '';
-  loading: boolean = false;
-
-  constructor(private apiService: ApicallService) {}
-
-  searchCapital(): void {
-
-    if (!this.name.trim()) {
-      this.message = 'Please enter a country name.';
-      this.countries = [];
-      return;
-    }
-
-    this.loading = true;
-    this.message = '';
-    this.countries = [];
-
-    this.apiService.searchCountryByName(this.name)
-      .subscribe({
-        next: (data: Country[]) => {
-          this.countries = data;
-          this.loading = false;
-        },
-        error: (error) => {
-          console.error(error);
-          this.message = 'Country not found or network error.';
-          this.loading = false;
-        }
-      });
-  }
-}
-
+export class HomeComponent {}

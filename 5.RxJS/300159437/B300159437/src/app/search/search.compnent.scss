@@ -1,39 +1,24 @@
 
-.page {
-    background-color: #101c36;
-}
-
-.container {
-    padding: 24;
-}
-
-.globe {
-    font-size: 52;
-    text-align: center;
-    margin-top: 35;
-}
-
 .title {
     color: #ffffff;
     font-size: 30;
     font-weight: bold;
     text-align: center;
-    margin-top: 12;
+    margin-top: 15;
 }
 
 .subtitle {
     color: #a8b8d2;
-    font-size: 14;
+    font-size: 15;
     text-align: center;
-    margin-top: 8;
-    margin-bottom: 32;
+    margin-top: 10;
+    margin-bottom: 30;
 }
 
 .search-card {
     background-color: #1c2b49;
     border-radius: 18;
     padding: 20;
-    margin-bottom: 20;
 }
 
 .field-label {
@@ -46,33 +31,31 @@
 .country-input {
     background-color: #ffffff;
     color: #17243e;
-    placeholder-color: #8492a6;
     border-radius: 10;
     padding: 14;
     font-size: 16;
-    margin-bottom: 16;
+    margin-bottom: 15;
 }
 
 .search-button {
     background-color: #2563eb;
     color: #ffffff;
     border-radius: 10;
+    height: 54;
     font-size: 16;
     font-weight: bold;
-    height: 54;
 }
 
 .result-card {
     background-color: #223454;
     border-radius: 20;
-    padding: 26;
-    margin-top: 16;
+    padding: 25;
+    margin-top: 20;
 }
 
 .result-label {
     color: #a9c4e8;
     font-size: 12;
-    font-weight: bold;
     text-align: center;
 }
 
@@ -84,16 +67,9 @@
     margin-top: 12;
 }
 
-.pin-icon {
-    font-size: 32;
-    text-align: center;
-    margin-top: 20;
-    margin-bottom: 20;
-}
-
 .capital-name {
-    color: #ffffff;
-    font-size: 30;
+    color: #60a5fa;
+    font-size: 32;
     font-weight: bold;
     text-align: center;
     margin-top: 12;
@@ -103,12 +79,5 @@
     color: #fca5a5;
     font-size: 14;
     text-align: center;
-    margin-top: 12;
-}
-
-.footer {
-    color: #a8b8d2;
-    font-size: 12;
-    text-align: center;
-    margin-top: 35;
+    margin-top: 15;
 }
