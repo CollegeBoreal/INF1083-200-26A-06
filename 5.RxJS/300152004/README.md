@@ -2,7 +2,7 @@
 # 300152004
 
 Étape 1 Création du projet
-<img width="3840" height="2877" alt="225547c6-30d0-4d3c-9def-288f2ce3d170" src="https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/main/5.RxJS/300152004/images/01-creation-projet.png?raw=true" />
+<img width="3500" height="2500" alt="225547c6-30d0-4d3c-9def-288f2ce3d170" src="https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/main/5.RxJS/300152004/images/01-creation-projet.png?raw=true" />
 Je me place dans mon dossier `300152004` et je crée le projet avec la commande `ns create b300152004 --template @nativescript/template-tab-navigation-ng`. Les nombreux avertissements `npm warn deprecated` ne bloquent rien : ils concernent seulement des paquets du modèle qui sont devenus obsolètes.
 
 Étape 2 Ouverture dans VS Code
