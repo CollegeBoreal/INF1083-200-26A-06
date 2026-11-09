@@ -1,73 +1,26 @@
 
-<GridLayout rows="*" class="page">
-    <ScrollView row="0">
-        <StackLayout class="container">
+<StackLayout backgroundColor="#101C36" padding="20">
 
-            <Label text="🌍" class="globe"></Label>
+    <Label
+        text="WORLD CAPITALS"
+        color="white"
+        fontSize="28"
+        textAlignment="center">
+    </Label>
 
-            <Label text="World Capitals"
-                   class="title"></Label>
+    <Label
+        text="Welcome to my application!"
+        color="white"
+        fontSize="18"
+        textAlignment="center"
+        marginTop="20">
+    </Label>
 
-            <Label text="Explore the world, one country at a time"
-                   class="subtitle"
-                   textWrap="true"></Label>
+    <Button
+        text="TEST BUTTON"
+        backgroundColor="#2563EB"
+        color="white"
+        marginTop="30">
+    </Button>
 
-            <StackLayout class="search-card">
-                <Label text="COUNTRY NAME"
-                       class="field-label"></Label>
-
-                <TextField
-                    hint="Enter a country..."
-                    [(ngModel)]="name"
-                    class="country-input">
-                </TextField>
-
-                <Button
-                    text="Find Capital"
-                    class="search-button"
-                    (tap)="searchCapital()">
-                </Button>
-            </StackLayout>
-
-            <ActivityIndicator
-                [busy]="loading"
-                color="#60A5FA">
-            </ActivityIndicator>
-
-            <Label
-                *ngIf="errorMessage"
-                [text]="errorMessage"
-                class="error-message"
-                textWrap="true">
-            </Label>
-
-            <StackLayout
-                *ngFor="let country of countries"
-                class="result-card">
-
-                <Label text="SEARCH RESULT"
-                       class="result-label"></Label>
-
-                <Label [text]="country.name"
-                       class="country-name"></Label>
-
-                <Label text="📍"
-                       class="pin-icon"></Label>
-
-                <Label text="CAPITAL CITY"
-                       class="result-label"></Label>
-
-                <Label [text]="country.capital"
-                       class="capital-name"></Label>
-
-            </StackLayout>
-
-            <Label
-                text="Discover countries and their capitals worldwide"
-                class="footer"
-                textWrap="true">
-            </Label>
-
-        </StackLayout>
-    </ScrollView>
-</GridLayout>
+</StackLayout>
