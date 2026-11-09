@@ -5,7 +5,8 @@ import { Country } from '../shared/country';
 
 @Component({
     selector: 'Search',
-    templateUrl: './search.component.html'
+    templateUrl: './search.component.html',
+    standalone: false
 })
 export class SearchComponent implements OnInit {
 
