@@ -1,47 +1,31 @@
 
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError, timeout } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { Country } from './country';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, timeout } from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class ApicallService {
 
-    constructor(private httpClient: HttpClient) {}
+  private apiUrl =
+    'https://api.restcountries.com/countries/v5';
 
-    searchCountryByName(name: string): Observable<Country[]> {
+  constructor(private httpClient: HttpClient) {}
 
-        const url =
-            'https://restcountries.com/v3.1/name/' +
-            encodeURIComponent(name.trim()) +
-            '?fullText=true&fields=name,capital';
+  getCapital(country: string) {
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer rc_live_demo'
+    });
 
-        return this.httpClient.get<any[]>(url).pipe(
+    const url = `${this.apiUrl}/names.common/${encodeURIComponent(country)}`;
 
-            timeout(10000),
-
-            map((data: any[]) =>
-                data.map((c, i) => ({
-                    id: i,
-                    name: c.name.common,
-                    capital: c.capital?.[0] || 'No capital'
-                } as Country))
-            ),
-
-            catchError(error => {
-                console.error('API Error:', error);
-
-                return throwError(() =>
-                    new Error(
-                        error.name === 'TimeoutError'
-                            ? 'Connection timed out.'
-                            : 'Country not found or network error.'
-                    )
-                );
-            })
-        );
-    }
+    return this.httpClient.get<any>(url, { headers }).pipe(
+      timeout(10000),
+      map(response => {
+        const item = response.data?.objects?.[0];
+        return item?.capitals?.[0] || 'Capital not found';
+      })
+    );
+  }
 }
