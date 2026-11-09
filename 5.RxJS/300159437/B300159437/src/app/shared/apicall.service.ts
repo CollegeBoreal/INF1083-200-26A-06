@@ -13,34 +13,49 @@ export class ApicallService {
     private apiUrl =
         'https://countries-cities.p.rapidapi.com/location/country/';
 
-    private apiKey =
-        '7c9f34ba7emsh69fb5300e18593dp125782jsn4e324db79df0';
+    private apiKey = '7c9f34ba7emsh69fb5300e18593dp125782jsn4e324db79df0';
 
     constructor(private httpClient: HttpClient) {}
 
     searchCountryByName(name: string): Observable<Country[]> {
 
-        const countryCodes: Record<string, string> = {
+        const codes: Record<string, string> = {
             canada: 'CA',
             france: 'FR',
             haiti: 'HT',
+            haïti: 'HT',
             germany: 'DE',
+            allemagne: 'DE',
             japan: 'JP',
+            japon: 'JP',
             brazil: 'BR',
-            'united states': 'US',
+            bresil: 'BR',
+            brésil: 'BR',
             usa: 'US',
-            'united kingdom': 'GB',
+            'united states': 'US',
+            'états-unis': 'US',
             uk: 'GB',
+            'united kingdom': 'GB',
             italy: 'IT',
+            italie: 'IT',
             spain: 'ES',
+            espagne: 'ES',
             mexico: 'MX',
+            mexique: 'MX',
             india: 'IN',
+            inde: 'IN',
             china: 'CN',
-            australia: 'AU'
+            chine: 'CN',
+            australia: 'AU',
+            australie: 'AU'
         };
 
-        const countryName = name.trim().toLowerCase();
-        const code = countryCodes[countryName];
+        const search = name.trim().toLowerCase();
+        const code = codes[search] || (
+            /^[a-z]{2}$/i.test(search)
+                ? search.toUpperCase()
+                : ''
+        );
 
         if (!code) {
             return throwError(
@@ -63,22 +78,41 @@ export class ApicallService {
             timeout(10000),
 
             map((response: any): Country[] => {
+
+                console.log(
+                    'API RESPONSE:',
+                    JSON.stringify(response)
+                );
+
                 const data = response.data ?? response;
+                const item = data.country ?? data;
 
-                const country: Country = {
+                const capitalValue = item.capital;
+
+                const capital = Array.isArray(capitalValue)
+                    ? capitalValue[0]
+                    : capitalValue;
+
+                if (!capital) {
+                    throw new Error(
+                        'Capital missing from API response'
+                    );
+                }
+
+                return [{
                     id: 0,
-                    name: data.name ?? name,
-                    capital: data.capital ?? ''
-                };
-
-                return [country];
+                    name: item.name?.common
+                        ?? item.name
+                        ?? name,
+                    capital: String(capital)
+                } as Country];
             }),
 
             catchError(error => {
                 console.log('API ERROR:', error);
 
                 return throwError(
-                    () => new Error('Unable to retrieve country')
+                    () => error
                 );
             })
         );
