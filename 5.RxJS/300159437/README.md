@@ -105,7 +105,7 @@ Les résultats sont affichés dans un `ListView`.
 
 ### 8.1 Interface principale
 
-![Interface World Capitals](images/accueil.png)
+<img src="images/Screenshot%202026-11-08%20193958.png" width="40%">
 
 *Figure 1 – Interface principale de l'application.*
 
