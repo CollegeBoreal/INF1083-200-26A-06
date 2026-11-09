@@ -1,44 +1,62 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApicallService } from '../shared/apicall.service';
 import { Country } from '../shared/country';
 
 @Component({
     selector: 'Search',
-    standalone: false,
-    templateUrl: './search.component.html',
-    styleUrls: ['./search.component.scss']
+    templateUrl: './search.component.html'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
 
-    name = '';
+    name: string = '';
     countries: Country[] = [];
-    loading = false;
-    errorMessage = '';
+    isLoading: boolean = false;
+    errorMessage: string = '';
 
-    constructor(private apiService: ApicallService) {}
+    constructor(
+        private apiService: ApicallService
+    ) {}
 
-    searchCapital(): void {
-        const countryName = this.name.trim();
+    ngOnInit(): void {}
 
-        if (!countryName) {
-            this.errorMessage = 'Please enter a country name.';
+    searchCapital() {
+
+        this.countries = [];
+        this.errorMessage = '';
+
+        if (!this.name.trim()) {
+            this.errorMessage = 'Enter a country';
             return;
         }
 
-        this.loading = true;
-        this.errorMessage = '';
-        this.countries = [];
+        this.isLoading = true;
 
-        this.apiService.searchCountryByName(countryName)
+        console.log('Searching:', this.name);
+
+        this.apiService
+            .searchCountryByName(this.name)
             .subscribe({
-                next: (data) => {
+                next: (data: Country[]) => {
+
+                    console.log(
+                        'SUCCESS:',
+                        JSON.stringify(data)
+                    );
+
                     this.countries = data;
-                    this.loading = false;
+                    this.isLoading = false;
                 },
-                error: () => {
-                    this.errorMessage = 'Country not found.';
-                    this.loading = false;
+
+                error: (error) => {
+
+                    console.log('API ERROR:', error);
+
+                    this.errorMessage =
+                        'Unable to find capital: ' +
+                        (error.message || String(error));
+
+                    this.isLoading = false;
                 }
             });
     }
