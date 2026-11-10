@@ -1,8 +1,5 @@
-
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
-
-import { NativeScriptModule } from '@nativescript/angular';
+import { NativeScriptModule, NativeScriptHttpClientModule } from '@nativescript/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,10 +10,8 @@ import { AppComponent } from './app.component';
     ],
     imports: [
         NativeScriptModule,
+        NativeScriptHttpClientModule,
         AppRoutingModule
-    ],
-    providers: [
-        provideHttpClient()
     ],
     bootstrap: [
         AppComponent

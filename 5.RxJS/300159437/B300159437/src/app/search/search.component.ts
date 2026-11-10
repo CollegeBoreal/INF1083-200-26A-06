@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { ApicallService } from '../shared/apicall.service';
 import { Country } from '../shared/country';
@@ -26,8 +25,8 @@ export class SearchComponent implements OnInit {
         this.countries = [];
         this.errorMessage = '';
 
-        if (!this.name.trim()) {
-            this.errorMessage = 'Enter a country';
+        if (!this.name || !this.name.trim()) {
+            this.errorMessage = 'Enter a capital';
             return;
         }
 
@@ -39,24 +38,20 @@ export class SearchComponent implements OnInit {
             .searchCountryByName(this.name)
             .subscribe({
                 next: (data: Country[]) => {
-
-                    console.log(
-                        'SUCCESS:',
-                        JSON.stringify(data)
-                    );
+                    console.log('SUCCESS:', JSON.stringify(data));
 
                     this.countries = data;
                     this.isLoading = false;
+
+                    if (!data.length) {
+                        this.errorMessage = 'No country found for this capital';
+                    }
                 },
 
                 error: (error) => {
-
                     console.log('API ERROR:', error);
 
-                    this.errorMessage =
-                        'Unable to find capital: ' +
-                        (error.message || String(error));
-
+                    this.errorMessage = 'No country found for "' + this.name.trim() + '"';
                     this.isLoading = false;
                 }
             });

@@ -18,7 +18,7 @@
         </Label>
 
         <Label
-            text="Enter a country to discover its capital"
+            text="Enter a capital to discover its country"
             color="#A8B8D2"
             fontSize="15"
             textAlignment="center"
@@ -28,17 +28,19 @@
         </Label>
 
         <TextField
-            hint="Enter a country (e.g. Canada)"
+            hint="Enter a capital (e.g. Ottawa)"
             [(ngModel)]="name"
             backgroundColor="white"
             color="#17243E"
             borderRadius="10"
             padding="15"
-            fontSize="16">
+            fontSize="16"
+            returnKeyType="search"
+            (returnPress)="searchCapital()">
         </TextField>
 
         <Button
-            text="Find Capital"
+            text="Find Country"
             (tap)="searchCapital()"
             backgroundColor="#2563EB"
             color="white"
@@ -48,7 +50,7 @@
         </Button>
 
         <ActivityIndicator
-            [busy]="loading"
+            [busy]="isLoading"
             color="#60A5FA">
         </ActivityIndicator>
 

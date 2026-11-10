@@ -4,6 +4,12 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Country } from './country';
 
+// Laisse vide pour utiliser restcountries.com (sans clé).
+// Pour passer par RapidAPI : mets le host d'une API REST Countries de RapidAPI
+// qui a un endpoint /capital/{nom}, ex. 'restcountries-v1.p.rapidapi.com'
+const RAPIDAPI_HOST = '';
+const RAPIDAPI_KEY = '7c9f34ba7emsh69fb5300e18593dp125782jsn4e324db79df0';
+
 @Injectable({
     providedIn: 'root'
 })
@@ -11,37 +17,44 @@ export class ApicallService {
 
     constructor(private httpClient: HttpClient) {}
 
+    // L'utilisateur entre une capitale -> on retourne le(s) pays correspondant(s)
     searchCountryByName(name: string): Observable<Country[]> {
-        const headers = new HttpHeaders({
-            'x-rapidapi-key': '7c9f34ba7emsh69fb5300e18593dp125782jsn4e324db79df0',
-            'x-rapidapi-host': 'countries-cities.p.rapidapi.com'
-        });
+        const capital = encodeURIComponent((name || '').trim());
+
+        let url: string;
+        let headers = new HttpHeaders();
+
+        if (RAPIDAPI_HOST) {
+            url = 'https://' + RAPIDAPI_HOST + '/capital/' + capital;
+            headers = headers
+                .set('x-rapidapi-key', RAPIDAPI_KEY)
+                .set('x-rapidapi-host', RAPIDAPI_HOST);
+        } else {
+            url = 'https://restcountries.com/v3.1/capital/' + capital + '?fields=name,capital';
+        }
 
         return this.httpClient
-            .get<any>('https://countries-cities.p.rapidapi.com/location/country/list',
-                      { headers, params: { format: 'json' } })
+            .get(url, { headers, observe: 'response', responseType: 'text' })
             .pipe(
-                map((data: any) => {
-                    console.log('RAW:', JSON.stringify(data).substring(0, 400));
+                map(res => {
+                    console.log('STATUS:', res.status);
+                    console.log('BODY:', (res.body || '').substring(0, 300));
 
-                    const src = data?.countries ?? data ?? {};
-                    const list: { code: string, name: string }[] = Array.isArray(src)
-                        ? src.map((c: any) => ({ code: c.code, name: c.name }))
-                        : Object.keys(src).map(code => ({ code, name: src[code] }));
+                    const data = res.body ? JSON.parse(res.body) : [];
+                    if (!Array.isArray(data)) {
+                        return [];
+                    }
 
-                    const q = (name || '').trim().toLowerCase();
-                    return list
-                        .filter(c => String(c.name).toLowerCase().includes(q))
-                        .map((c, i) => ({
-                            id: i,
-                            name: c.name,
-                            capital: c.code
-                        } as Country));
+                    return data.map((c: any, i: number) => ({
+                        id: i,
+                        name: typeof c?.name === 'string' ? c.name : (c?.name?.common ?? ''),
+                        capital: Array.isArray(c?.capital) ? c.capital[0] : (c?.capital ?? '')
+                    } as Country));
                 }),
                 catchError(error => {
                     console.log('HTTP STATUS:', error?.status);
                     console.log('HTTP MESSAGE:', error?.message);
-                    return throwError(() => 'Country not found!');
+                    return throwError(() => 'Capital not found!');
                 })
             );
     }
