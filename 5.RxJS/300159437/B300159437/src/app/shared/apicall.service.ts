@@ -23,10 +23,15 @@ export class ApicallService {
                     capital: c.capital ? c.capital[0] : ''
                 } as Country))),
                 catchError(error => {
-                    return throwError(
-                        () => 'Capital not found!'
-                    );
-                })
+    console.log('HTTP STATUS:', error.status);
+    console.log('HTTP MESSAGE:', error.message);
+    console.log(
+        'HTTP RESPONSE:',
+        JSON.stringify(error.error)
+    );
+
+    return throwError(() => error);
+})
             );
     }
 }
