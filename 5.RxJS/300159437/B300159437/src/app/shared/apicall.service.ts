@@ -1,7 +1,8 @@
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, timeout } from 'rxjs/operators';
 import { Country } from './country';
 
 @Injectable({
@@ -12,26 +13,32 @@ export class ApicallService {
     constructor(private httpClient: HttpClient) {}
 
     searchCountryByName(name: string): Observable<Country[]> {
-        return this.httpClient
-            .get<any[]>(
-                'https://countries.nexperts.nl/capital/' + name
-            )
-            .pipe(
-                map((data: any[]) => data.map((c, i) => ({
+
+        const country = encodeURIComponent(name.trim());
+
+        const url =
+            'https://restcountries.com/v3.1/name/' +
+            country +
+            '?fields=name,capital';
+
+        return this.httpClient.get<any[]>(url).pipe(
+
+            timeout(10000),
+
+            map((data: any[]) =>
+                data.map((c, i) => ({
                     id: i,
                     name: c.name.common,
                     capital: c.capital ? c.capital[0] : ''
-                } as Country))),
-                catchError(error => {
-    console.log('HTTP STATUS:', error.status);
-    console.log('HTTP MESSAGE:', error.message);
-    console.log(
-        'HTTP RESPONSE:',
-        JSON.stringify(error.error)
-    );
+                } as Country))
+            ),
 
-    return throwError(() => error);
-})
-            );
+            catchError(error => {
+                console.log('HTTP STATUS:', error.status);
+                console.log('HTTP MESSAGE:', error.message);
+
+                return throwError(() => error);
+            })
+        );
     }
 }
