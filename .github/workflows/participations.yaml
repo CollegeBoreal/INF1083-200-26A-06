@@ -50,6 +50,9 @@ jobs:
         run: |
           $chapters = @(
             "0.PlanDeCours"
+            "2.NativeScript"
+            "3.Angular"
+            "4.Forms"
           )
 
           foreach ($chapter in $chapters) {
