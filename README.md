@@ -14,3 +14,4 @@ INF 1083-200 Développement d'applications
 | :three: | 07-oct | [2.Nativescript](2.NativeScript)                 | [🎉](2.NativeScript/.scripts/Participation.md)                 |
 | :four:  | 13-oct | [4.Forms](4.Forms)                               | [🎉](4.Forms/.scripts/Participation.md)                      |
 | :five:  | 03-nov | [5.RxJS](5.RxJS)                                 | [🎉](5.RxJS/.scripts/Participation.md)                      |
+| :six:   | 12-nov | [6.Animations](6.Animations)                     | [🎉](6.Animations/.scripts/Participation.md)                   |
