@@ -37,6 +37,21 @@ curl -X POST "https://${LMS_URL}/webservice/rest/server.php" \
   "cmid": 76,
   "name": "2.NativeScript"
 }
+{
+  "id": 71,
+  "cmid": 81,
+  "name": "3.Angular"
+}
+{
+  "id": 72,
+  "cmid": 82,
+  "name": "4.Forms"
+}
+{
+  "id": 73,
+  "cmid": 83,
+  "name": "5.RxJS"
+}
 
 ```
 
