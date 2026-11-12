@@ -1,0 +1,56 @@
+
+<ActionBar class="action-bar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+
+    <GridLayout columns="50, *">
+        <Label
+            col="0"
+            text="☰"
+            fontSize="26"
+            textAlignment="center"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+
+        <Label
+            col="1"
+            text="Animations TypeScript"
+            class="action-bar-title">
+        </Label>
+    </GridLayout>
+</ActionBar>
+<StackLayout class="page__content">
+
+    <Label
+        text="Animation Imperative"
+        fontSize="24"
+        fontWeight="bold"
+        textAlignment="center"
+        marginTop="30"
+        marginBottom="25">
+    </Label>
+
+    <AbsoluteLayout
+        width="300"
+        height="300"
+        backgroundColor="#29B6F6"
+        borderRadius="20"
+        horizontalAlignment="center">
+
+        <Label
+            #cible
+            text="🚀"
+            fontSize="65"
+            left="110"
+            top="100">
+        </Label>
+
+    </AbsoluteLayout>
+
+    <Button
+        text="Animate"
+        (tap)="animate()"
+        class="btn btn-primary"
+        marginTop="30">
+    </Button>
+
+</StackLayout>

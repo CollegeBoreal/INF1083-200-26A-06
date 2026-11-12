@@ -1,0 +1,21 @@
+
+@keyframes bgAnimation {
+    from {
+        background-color: red;
+    }
+
+    to {
+        background-color: green;
+    }
+}
+
+.background {
+    color: white;
+    font-size: 32;
+    font-weight: bold;
+    border-radius: 20;
+
+    animation-name: bgAnimation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
