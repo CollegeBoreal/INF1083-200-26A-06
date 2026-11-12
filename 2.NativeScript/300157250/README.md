@@ -83,17 +83,17 @@ tsconfig.json
 
 L'application s'est exécutée correctement dans le simulateur iOS et l'écran Hello World s'est affiché.
 
-## Captures d'écran
 
 ### Vérification de l'installation de NativeScript
 
-
+<img src="images/installation-nativescript.png" width="700">
 ### Création du projet
 
-!
+<img src="images/creation-projet.png" width="700">
 
 ### Application en exécution
-
+<img src="images/application-ios1.png" width="700">
+<img src="images/application-ios2.png" width="700">
 
 ## Références
 

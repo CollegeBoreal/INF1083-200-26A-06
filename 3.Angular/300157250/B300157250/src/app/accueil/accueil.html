@@ -1,0 +1,41 @@
+<h1>{{ titre }}</h1>
+
+<p>Professeur : {{ nom }}</p>
+
+<button (click)="saluer()">
+  Cliquez-moi
+</button>
+
+<div *ngIf="connecte">
+  ✅ Connecté
+</div>
+
+<br>
+
+<input
+  type="text"
+  placeholder="Ajouter un nom..."
+  [(ngModel)]="nouveauNom"
+/>
+
+<button (click)="ajouterNom()">
+  Ajouter
+</button>
+br><br>
+
+<input
+  type="text"
+  placeholder="Rechercher un nom..."
+  [(ngModel)]="recherche"
+/>
+
+<ul>
+  <li *ngFor="let nom of nomsFiltres; let i = index">
+
+    <button class="supprimer" (click)="supprimerNom(i)">
+      🗑️
+    </button>
+
+    👤 {{ nom }}
+
+  </li>
