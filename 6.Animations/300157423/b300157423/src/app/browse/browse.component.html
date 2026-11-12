@@ -1,0 +1,19 @@
+
+<ActionBar class="action-bar">
+    <NavigationButton visibility="hidden"></NavigationButton>
+    <GridLayout columns="50, *">
+        <Label class="action-bar-title" text="Browse" colSpan="2"></Label>
+        <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+    </GridLayout>
+</ActionBar>
+
+<GridLayout class="page__content">
+    <StackLayout>
+      
+<AbsoluteLayout width="300" height="300" backgroundColor="#29B6F6" borderRadius="20">
+  <Label #cible text="N" color="white" fontSize="70" fontWeight="bold" width="150" height="150" left="75" top="75" textAlignment="center" verticalAlignment="middle"></Label>
+</AbsoluteLayout>
+  
+     <Button text="Animate" (tap)="animate()" class="btn btn-primary btn-active"></Button> 
+    </StackLayout>
+</GridLayout>
