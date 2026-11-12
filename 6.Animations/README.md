@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit {
 
 ### :b: Imperative Animation
 
-Dans cet exercice, il sera question [Gestures](https://docs.nativescript.org/angular/ui/ng-components/gestures)
+Dans cet exercice, il sera question [Gestures](https://v7.docs.nativescript.org/angular/ui/ng-components/gestures)
 
 :one: Composant `Browse`
 

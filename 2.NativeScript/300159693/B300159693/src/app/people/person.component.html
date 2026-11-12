@@ -1,0 +1,21 @@
+ <ActionBar title="Inscription"></ActionBar>
+
+<StackLayout class="p-4" [formGroup]="signUpForm">
+  <Label text="Email"></Label>
+  <TextField
+    hint="Entrez votre email"
+    keyboardType="email"
+    formControlName="email">
+  </TextField>
+
+  <Label text="Username"></Label>
+  <TextField
+    hint="Entrez votre nom d'utilisateur"
+    formControlName="username">
+  </TextField>
+
+  <Button
+    text="Sign Up"
+    (tap)="onButtonTap()">
+  </Button>
+</StackLayout>
