@@ -31,9 +31,10 @@ Capture 2 – Service apicall.service.ts
    
 J’ai lancé le projet avec la commande ns run android. Dans l’onglet Search, j’ai écrit Paris puis j’ai appuyé sur le bouton Search. L’application a affiché France et Paris.
 
-<img width="855" height="577" alt="image" src="https://github.com/user-attachments/assets/7d2897f8-c207-4710-8f9d-3c1661b42152" />
+<img width="555" height="510" alt="image" src="https://github.com/user-attachments/assets/7aa65832-2e15-40dd-a07a-35f4218836e8" />
 
 Capture 3 – Résultat : France et Pari
+
 5. Conclusion
 
 Dans ce travail, j’ai appris à utiliser RxJS avec Angular et NativeScript pour rechercher un pays à partir de sa capitale. J’ai créé les fichiers nécessaires et testé mon application sur l’émulateur Android. La recherche de Paris a bien affiché France. Ce travail m’a permis de mieux comprendre l’utilisation des observables et la récupération des données avec une API.
