@@ -1,0 +1,52 @@
+
+<ActionBar class="action-bar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+
+    <GridLayout columns="50,*">
+        <Label
+            col="0"
+            text="☰"
+            fontSize="24"
+            textAlignment="center"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+
+        <Label
+            col="1"
+            text="Animations CSS"
+            class="action-bar-title">
+        </Label>
+    </GridLayout>
+</ActionBar>
+
+<GridLayout class="page__content">
+
+    <StackLayout
+        verticalAlignment="center"
+        horizontalAlignment="center">
+
+        <Label
+            text="Animation Declarative"
+            fontSize="24"
+            fontWeight="bold"
+            textAlignment="center"
+            marginBottom="25">
+        </Label>
+
+        <Label
+            text="Rouge vers Vert en 2 secondes"
+            fontSize="16"
+            textAlignment="center"
+            marginBottom="20">
+        </Label>
+
+        <Button
+            text="{N}"
+            class="background"
+            width="180"
+            height="180">
+        </Button>
+
+    </StackLayout>
+
+</GridLayout>
