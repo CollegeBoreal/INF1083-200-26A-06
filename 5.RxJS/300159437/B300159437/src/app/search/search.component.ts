@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApicallService } from '../shared/apicall.service';
 import { Country } from '../shared/country';
 
@@ -15,7 +15,8 @@ export class SearchComponent implements OnInit {
     errorMessage: string = '';
 
     constructor(
-        private apiService: ApicallService
+        private apiService: ApicallService,
+        private cdr: ChangeDetectorRef
     ) {}
 
     ngOnInit(): void {}
@@ -46,6 +47,9 @@ export class SearchComponent implements OnInit {
                     if (!data.length) {
                         this.errorMessage = 'No country found for this capital';
                     }
+
+                    // force la mise à jour de l'écran après la réponse HTTP
+                    this.cdr.detectChanges();
                 },
 
                 error: (error) => {
@@ -53,6 +57,7 @@ export class SearchComponent implements OnInit {
 
                     this.errorMessage = 'No country found for "' + this.name.trim() + '"';
                     this.isLoading = false;
+                    this.cdr.detectChanges();
                 }
             });
     }

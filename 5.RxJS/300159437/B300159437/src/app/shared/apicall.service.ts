@@ -4,10 +4,10 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Country } from './country';
 
-// REST Countries v5 — clé API obligatoire.
-// Crée un compte gratuit sur https://restcountries.com/sign-up
-// puis remplace 'rc_live_demo' (clé de démo) par TA clé.
-const RESTCOUNTRIES_KEY = 'rc_live_demo';
+// RapidAPI — API "Countries Data" (https://rapidapi.com/TekBunny/api/countries-data)
+// ⚠️ Ne pousse pas ta clé sur un dépôt GitHub public.
+const RAPIDAPI_KEY = '7c9f34ba7emsh69fb5300e18593dp125782jsn4e324db79df0';
+const RAPIDAPI_HOST = 'countries-data.p.rapidapi.com';
 
 @Injectable({
     providedIn: 'root'
@@ -19,41 +19,27 @@ export class ApicallService {
     // L'utilisateur entre une capitale -> on retourne le(s) pays correspondant(s)
     searchCountryByName(name: string): Observable<Country[]> {
         const query = (name || '').trim();
-        const url = 'https://api.restcountries.com/countries/v5?q='
-            + encodeURIComponent(query)
-            + '&response_fields=names.common,capitals';
+        const url = 'https://' + RAPIDAPI_HOST + '/api/v1/capital/' + encodeURIComponent(query);
 
         const headers = new HttpHeaders({
-            'Authorization': 'Bearer ' + RESTCOUNTRIES_KEY
+            'x-rapidapi-key': RAPIDAPI_KEY,
+            'x-rapidapi-host': RAPIDAPI_HOST
         });
 
         return this.httpClient
-            .get(url, { headers, observe: 'response', responseType: 'text' })
+            .get<any>(url, { headers })
             .pipe(
-                map(res => {
-                    console.log('STATUS:', res.status);
-                    console.log('BODY:', (res.body || '').substring(0, 400));
+                map((data: any) => {
+                    console.log('BODY:', JSON.stringify(data).substring(0, 400));
 
-                    const json = res.body ? JSON.parse(res.body) : null;
-                    const objects: any[] = json?.data?.objects ?? [];
+                    // Réponse : [ { "Name": "France", "CapitalCity": "Paris", ... } ]
+                    const list: any[] = Array.isArray(data) ? data : (data ? [data] : []);
 
-                    const q = query.toLowerCase();
-
-                    return objects
-                        .map((c: any) => {
-                            const caps: any[] = Array.isArray(c?.capitals) ? c.capitals : [];
-                            const capNames = caps.map(cap => typeof cap === 'string' ? cap : (cap?.name ?? ''));
-                            // garde la capitale qui correspond à la recherche, sinon la première
-                            const capital = capNames.find(n => n.toLowerCase().includes(q)) ?? capNames[0] ?? '';
-                            return { name: c?.names?.common ?? '', capital, match: capNames.some(n => n.toLowerCase().includes(q)) };
-                        })
-                        // ne garde que les pays dont la CAPITALE correspond
-                        .filter(c => c.match)
-                        .map((c, i) => ({
-                            id: i,
-                            name: c.name,
-                            capital: c.capital
-                        } as Country));
+                    return list.map((c: any, i: number) => ({
+                        id: i,
+                        name: c?.Name ?? '',
+                        capital: c?.CapitalCity ?? ''
+                    } as Country));
                 }),
                 catchError(error => {
                     console.log('HTTP STATUS:', error?.status);
