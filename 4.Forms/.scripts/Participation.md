@@ -1,4 +1,4 @@
-# Participation au 20-12-2020 07:46
+# Participation
 
 | Table des matières            | Description                                             |
 |-------------------------------|---------------------------------------------------------|
@@ -10,22 +10,41 @@
 | Signe              | Signification                 |
 |--------------------|-------------------------------|
 | :heavy_check_mark: | Prêt à être corrigé           |
-| :x:                | Projet inexistant             |
+| :x:                | Fichier inexistant            |
 
 ## :a: Présence
 
-|:hash:| Boréal :id:                | Fait               | Éxécution  |
-|------|----------------------------|--------------------|------------|
-| 0 | [b300111441](../b300111441) - <image src='https://avatars0.githubusercontent.com/u/55207099?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300111441) |
-| 1 | [b300115065](../b300115065) - <image src='https://avatars0.githubusercontent.com/u/54910778?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300115065) |
-| 2 | [b300115140](../b300115140) - <image src='https://avatars0.githubusercontent.com/u/54910329?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300115140) |
-| 3 | [b300116670](../b300116670) - <image src='https://avatars0.githubusercontent.com/u/55238107?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300116670) |
-| 4 | [b300116685](../b300116685) - <image src='https://avatars0.githubusercontent.com/u/54910751?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300116685) |
-| 5 | [b300116973](../b300116973) - <image src='https://avatars0.githubusercontent.com/u/54910252?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300116973) |
-| 6 | [b300117178](../b300117178) - <image src='https://avatars0.githubusercontent.com/u/54910937?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300117178) |
-| 7 | [b300117314](../b300117314) - <image src='https://avatars0.githubusercontent.com/u/54910700?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300117314) |
-| 8 | [b300117444](../b300117444) - <image src='https://avatars0.githubusercontent.com/u/54910261?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300117444) |
-| 9 | [b300117782](../b300117782) - <image src='https://avatars0.githubusercontent.com/u/56364697?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300117782) |
-| 10 | [b300117784](../b300117784) - <image src='https://avatars0.githubusercontent.com/u/54910102?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300117784) |
-| 11 | [b300117806](../b300117806) - <image src='https://avatars0.githubusercontent.com/u/54910103?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300117806) |
-| 12 | [b300118524](../b300118524) - <image src='https://avatars0.githubusercontent.com/u/56364857?s=460&v=4' width=20 height=20></image> | [:heavy_check_mark:] | [:octocat: Actions](https://github.com/CollegeBoreal/INF1083-200-20A-01/actions?query=workflow:b300118524) |
+|:hash:| Boréal :id: | README.md | images | Appréciation | Commentaires |
+|------|-------------|-----------|--------|--------------|--------------|
+| 1 | [300147253](../300147253/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/232965506?s=460&v=4' width=20 height=20></image>](https://github.com/azzed98) | :x: | :x: | :x: | :x: À corriger |
+| 2 | [300147866](../300147866/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/205994850?s=460&v=4' width=20 height=20></image>](https://github.com/sofianehadjadj389) | :x: | :x: | :x: | :x: À corriger |
+| 3 | [300147891](../300147891/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261496046?s=460&v=4' width=20 height=20></image>](https://github.com/amadbarry96) | :x: | :x: | :x: | :x: À corriger |
+| 4 | [300150398](../300150398/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/583231?s=460&v=4' width=20 height=20></image>](https://github.com/octocat) | :x: | :x: | :x: | :x: À corriger |
+| 5 | [300151722](../300151722/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261488966?s=460&v=4' width=20 height=20></image>](https://github.com/islamoustani5-collab) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 6 | [300151863](../300151863/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/205994935?s=460&v=4' width=20 height=20></image>](https://github.com/Hannibalcarthage) | :x: | :x: | :x: | :x: À corriger |
+| 7 | [300152004](../300152004/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/218153814?s=460&v=4' width=20 height=20></image>](https://github.com/danielmananga) | :x: | :x: | :x: | :x: À corriger |
+| 8 | [300153405](../300153405/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261492660?s=460&v=4' width=20 height=20></image>](https://github.com/rekaikkhaled) | :x: | :x: | :x: | :x: À corriger |
+| 9 | [300153416](../300153416/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/262935334?s=460&v=4' width=20 height=20></image>](https://github.com/ouabahkhalil28-crypto) | :x: | :x: | :x: | :x: À corriger |
+| 10 | [300155462](../300155462/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/231498971?s=460&v=4' width=20 height=20></image>](https://github.com/zakariamamssi05) | :x: | :x: | :x: | :x: À corriger |
+| 11 | [300156534](../300156534/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489191?s=460&v=4' width=20 height=20></image>](https://github.com/salhiwalid540-hue) | :x: | :x: | :x: | :x: À corriger |
+| 12 | [300157250](../300157250/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261491627?s=460&v=4' width=20 height=20></image>](https://github.com/jeanpi-erre01) | :x: | :x: | :x: | :x: À corriger |
+| 13 | [300157307](../300157307/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494517?s=460&v=4' width=20 height=20></image>](https://github.com/amaradjida7-hub) | :x: | :x: | :x: | :x: À corriger |
+| 14 | [300157423](../300157423/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261497291?s=460&v=4' width=20 height=20></image>](https://github.com/gaya-994) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 15 | [300157606](../300157606/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261497731?s=460&v=4' width=20 height=20></image>](https://github.com/ouahiba1994) | :x: | :heavy_check_mark: | :x: | :x: À corriger |
+| 16 | [300157727](../300157727/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/262933367?s=460&v=4' width=20 height=20></image>](https://github.com/rayan23082001) | :x: | :x: | :x: | :x: À corriger |
+| 17 | [300157733](../300157733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261491303?s=460&v=4' width=20 height=20></image>](https://github.com/albachiralmouhamad) | :x: | :x: | :x: | :x: À corriger |
+| 18 | [300158085](../300158085/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/258312358?s=460&v=4' width=20 height=20></image>](https://github.com/kevinmayele-ai) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 19 | [300159180](../300159180/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489848?s=460&v=4' width=20 height=20></image>](https://github.com/abdenourzourane-cpu) | :x: | :x: | :x: | :x: À corriger |
+| 20 | [300159195](../300159195/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489005?s=460&v=4' width=20 height=20></image>](https://github.com/islemtd3-hue) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 21 | [300159203](../300159203/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489597?s=460&v=4' width=20 height=20></image>](https://github.com/riadhsahraoui) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 22 | [300159437](../300159437/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/203893881?s=460&v=4' width=20 height=20></image>](https://github.com/bob19142005) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 23 | [300159463](../300159463/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489495?s=460&v=4' width=20 height=20></image>](https://github.com/hammahichem99) | :x: | :x: | :x: | :x: À corriger |
+| 24 | [300159672](../300159672/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/233241856?s=460&v=4' width=20 height=20></image>](https://github.com/1999amadou03-star) | :x: | :x: | :x: | :x: À corriger |
+| 25 | [300159693](../300159693/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/288084942?s=460&v=4' width=20 height=20></image>](https://github.com/mazigh-2000) | :2nd_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 26 | [300159887](../300159887/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261490027?s=460&v=4' width=20 height=20></image>](https://github.com/hammichebillal06-dot) | :2nd_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 27 | [300160006](../300160006/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489041?s=460&v=4' width=20 height=20></image>](https://github.com/maimouna247) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 28 | [300160424](../300160424/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image>](https://github.com/youcef-1994) | :1st_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
+| 29 | [300160504](../300160504/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image>](https://github.com/Mmounir07) | :x: | :x: | :x: | :x: À corriger |
+| 30 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image>](https://github.com/belhadiyanis200-a11y) | :x: | :x: | :x: | :x: À corriger |
+| 31 | [300160862](../300160862/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494322?s=460&v=4' width=20 height=20></image>](https://github.com/cherifyamna) | :x: | :x: | :x: | :x: À corriger |
+| :abacus: | \$\frac{10}{31}\$ = 32.26% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 10 |
