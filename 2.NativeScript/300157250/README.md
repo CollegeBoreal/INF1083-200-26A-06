@@ -83,7 +83,6 @@ tsconfig.json
 
 L'application s'est exécutée correctement dans le simulateur iOS et l'écran Hello World s'est affiché.
 
-## Captures d'écran
 
 ### Vérification de l'installation de NativeScript
 
