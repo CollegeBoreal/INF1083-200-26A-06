@@ -111,7 +111,7 @@ Les résultats sont affichés dans un `ListView`.
 
 ### 8.2 Recherche d'un pays
 
-<img src="images/Screenshot%202026-11-09%20004700.png" width="40%">
+<img src="images/Screenshot%202026-11-12%20031738.png" width="40%">
 
 *Figure 2 – Recherche du pays Canada.*
 
