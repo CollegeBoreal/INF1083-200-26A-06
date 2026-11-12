@@ -32,7 +32,7 @@
 | 11 | [300156534](../300156534/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489191?s=460&v=4' width=20 height=20></image>](https://github.com/salhiwalid540-hue) | :x: | :x: | :x: | :x: À corriger |
 | 12 | [300157250](../300157250/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261491627?s=460&v=4' width=20 height=20></image>](https://github.com/jeanpi-erre01) | :x: | :x: | :x: | :x: À corriger |
 | 13 | [300157307](../300157307/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494517?s=460&v=4' width=20 height=20></image>](https://github.com/amaradjida7-hub) | :x: | :x: | :x: | :x: À corriger |
-| 14 | [300157423](../300157423/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261497291?s=460&v=4' width=20 height=20></image>](https://github.com/gaya-994) | :x: | :x: | :x: | :x: À corriger |
+| 14 | [300157423](../300157423/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261497291?s=460&v=4' width=20 height=20></image>](https://github.com/gaya-994) | :2nd_place_medal: | :heavy_check_mark: | :x: | :x: À corriger |
 | 15 | [300157606](../300157606/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261497731?s=460&v=4' width=20 height=20></image>](https://github.com/ouahiba1994) | :x: | :x: | :x: | :x: À corriger |
 | 16 | [300157727](../300157727/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/262933367?s=460&v=4' width=20 height=20></image>](https://github.com/rayan23082001) | :x: | :x: | :x: | :x: À corriger |
 | 17 | [300157733](../300157733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261491303?s=460&v=4' width=20 height=20></image>](https://github.com/albachiralmouhamad) | :x: | :x: | :x: | :x: À corriger |
@@ -50,4 +50,4 @@
 | 29 | [300160504](../300160504/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image>](https://github.com/Mmounir07) | :x: | :x: | :x: | :x: À corriger |
 | 30 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image>](https://github.com/belhadiyanis200-a11y) | :x: | :x: | :x: | :x: À corriger |
 | 31 | [300160862](../300160862/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494322?s=460&v=4' width=20 height=20></image>](https://github.com/cherifyamna) | :x: | :x: | :x: | :x: À corriger |
-| :abacus: | \$\frac{3}{31}\$ = 9.68% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 3 |
+| :abacus: | \$\frac{4}{31}\$ = 12.9% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 4 |
