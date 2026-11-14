@@ -41,4 +41,4 @@ Figure 3 — Écran Browse : étoile bleue et bouton Animate.
 
 . Conclusion
 
-Les deux approches d’animation ont été mises en œuvre et testées sur Android. L’animation CSS fonctionne dans Home et l’animation impérative est exécutée dans Browse. Le projet est publié sur GitHub. Pour finaliser la remise selon la consigne initiale, il reste à ajouter les captures dans le dossier images et, si nécessaire, à rétablir un élément Image avec une ressource valide.
+Les deux approches d’animation ont été mises en œuvre et testées sur Android. L’animation CSS fonctionne dans Home et l’animation impérative est exécutée dans Browse. Le projet est publié sur GitHub. Pour finaliser la remise selon la consigne initiale
