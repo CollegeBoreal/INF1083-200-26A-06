@@ -65,4 +65,4 @@ Figure 6 — Résultat réel sur l’émulateur : recherche Madrid, pays Spain.
 
 8. Bilan et conclusion
 
-Le laboratoire a permis de mettre en pratique les composants Angular, la liaison ngModel, l’injection de services, les requêtes HTTP et le traitement asynchrone avec RxJS. Le test Madrid → Spain / Madrid est concluant. Pour finaliser la remise, vérifier la publication sur GitHub et conserver les captures de preuve dans images/.
+Le laboratoire a permis de mettre en pratique les composants Angular, la liaison ngModel, l’injection de services, les requêtes HTTP et le traitement asynchrone avec RxJS. Le test Madrid → Spain / Madrid est concluant.
