@@ -57,4 +57,4 @@
 | 29 | [300160504](../300160504/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image>](https://github.com/Mmounir07) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
 | 30 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image>](https://github.com/belhadiyanis200-a11y) | :1st_place_medal: | :heavy_check_mark: | 🥉 | 1️⃣ Où est le code à exécuter? |
 | 31 | [300160862](../300160862/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494322?s=460&v=4' width=20 height=20></image>](https://github.com/cherifyamna) | :1st_place_medal: | :heavy_check_mark: | 🥉 | 1️⃣ Où est le code à exécuter? |
-| :abacus: | \$\frac{23}{31}\$ = 74.19% | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 23 |
+| :abacus: | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 23 📈 74.19% |
