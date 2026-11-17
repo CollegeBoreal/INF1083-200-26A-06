@@ -5,33 +5,35 @@
   <h1>Bienvenue dans votre application {{ nom }} !</h1>
 
   <div class="menu">
-    <button>🏠 Accueil</button>
-    <button>👨‍🎓 Étudiants</button>
-    <button>👨‍🏫 Professeurs</button>
-    <button>📚 Cours</button>
-    <button>👥 Utilisateurs</button>
+    <button (click)="changerSection('Accueil')">🏠 Accueil</button>
+    <button (click)="changerSection('Étudiants')">👨‍🎓 Étudiants</button>
+    <button (click)="changerSection('Professeurs')">👨‍🏫 Professeurs</button>
+    <button (click)="changerSection('Cours')">📚 Cours</button>
+    <button (click)="changerSection('Utilisateurs')">👥 Utilisateurs</button>
   </div>
 
   <hr>
 
-  <h2>🏠 Accueil</h2>
+  <h2>{{ section }}</h2>
 
-  <p>Bienvenue dans le portail universitaire INF1083.</p>
-
-  <div class="carte">
+  <div *ngIf="section === 'Étudiants'" class="carte">
     👨‍🎓 Étudiants : {{ etudiants }}
   </div>
 
-  <div class="carte">
+  <div *ngIf="section === 'Professeurs'" class="carte">
     👨‍🏫 Professeurs : {{ professeurs }}
   </div>
 
-  <div class="carte">
+  <div *ngIf="section === 'Cours'" class="carte">
     📚 Cours : {{ cours }}
   </div>
 
-  <div class="carte">
+  <div *ngIf="section === 'Utilisateurs'" class="carte">
     👥 Utilisateurs : {{ utilisateurs }}
+  </div>
+
+  <div *ngIf="section === 'Accueil'" class="carte">
+    Bienvenue dans le portail universitaire INF1083.
   </div>
 
   <button class="btn-message"
