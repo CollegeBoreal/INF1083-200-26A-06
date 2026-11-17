@@ -1,14 +1,13 @@
-<StackLayout [formGroup]="signUpForm">
+<StackLayout>
 
     <TextField
-        formControlName="email"
         hint="Email"
-        keyboardType="email">
+        (textChange)="setEmail($event)">
     </TextField>
 
     <TextField
-        formControlName="username"
-        hint="Username">
+        hint="Username"
+        (textChange)="setUsername($event)">
     </TextField>
 
     <Button
