@@ -1,6 +1,6 @@
 # 🎬 Animations avec NativeScript + Angular
 
-> **Étudiant :** _Ton nom_ — **🆔 :** 300159437
+> **Étudiant :** _Bob Adly Pierre_ — **300159437 :** 300159437
 > **Projet :** `b300159437` — template `@nativescript/template-drawer-navigation-ng` (Tiroirs, Angular et SaSS)
 
 Cet exercice présente les deux grands types d'animations dans NativeScript :
