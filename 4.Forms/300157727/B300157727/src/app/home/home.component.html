@@ -1,0 +1,31 @@
+<ActionBar title="Reactive Forms"></ActionBar>
+
+<StackLayout class="p-4">
+
+  <Label
+    text="Formulaire d'inscription"
+    class="text-xl text-center m-4">
+  </Label>
+
+  <StackLayout [formGroup]="signUpForm">
+
+    <TextField
+      hint="Email"
+      keyboardType="email"
+      formControlName="email">
+    </TextField>
+
+    <TextField
+      hint="Username"
+      formControlName="username">
+    </TextField>
+
+    <Button
+      text="Envoyer"
+      [isEnabled]="signUpForm.valid" (tap)="onButtonTap()">
+    </Button>
+
+  </StackLayout>
+
+</StackLayout>
+

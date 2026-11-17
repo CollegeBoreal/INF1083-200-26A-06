@@ -1,0 +1,42 @@
+import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
+
+import {
+  NativeScriptCommonModule,
+  NativeScriptRouterModule,
+  NativeScriptFormsModule,
+} from '@nativescript/angular';
+
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule
+} from '@angular/forms';
+
+@Component({
+  selector: 'Home',
+  templateUrl: './home.component.html',
+  imports: [
+    NativeScriptCommonModule,
+    NativeScriptRouterModule,
+    NativeScriptFormsModule,
+    ReactiveFormsModule
+  ],
+  schemas: [NO_ERRORS_SCHEMA],
+})
+export class HomeComponent implements OnInit {
+  signUpForm!: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.signUpForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      username: ['', Validators.required]
+    });
+  }
+
+  onButtonTap(): void {
+    console.log(JSON.stringify(this.signUpForm.value));
+  }
+}
