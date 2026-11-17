@@ -1,52 +1,71 @@
-﻿# Laboratoire 5 – RxJS
+# RAPPORT FINAL – LABORATOIRE 5 : RxJS
 
-**Nom :** Mekaouche Mazigh  
+**Cours :** INF1083 – Développement  
+**Nom et prénom :** Mekaouche Mazigh  
 **Numéro étudiant :** 300159693  
-**Cours :** INF1083  
-**Projet :** B300159693
+**Projet :** B300159693  
+**Laboratoire :** 5.RxJS  
+**Date :** 17 novembre 2026
 
-## Objectif
+---
 
-Ce laboratoire permet de comprendre les flux de données asynchrones avec RxJS et les Observables dans une application NativeScript Angular.
+## 1. Introduction
 
-## Technologies utilisées
+Dans ce laboratoire, j'ai réalisé une application mobile avec NativeScript et Angular afin de comprendre le fonctionnement de RxJS et des Observables.
 
-- NativeScript
-- Angular 22
-- RxJS 7.8.2
-- TypeScript
-- HttpClient
-- Template Driven Forms (ngModel)
+L'objectif principal était de développer une fonctionnalité permettant de rechercher un pays à partir de sa capitale, de récupérer les informations depuis une API et d'afficher les résultats dans une liste.
 
-## Fonctionnalités réalisées
+## 2. Création du projet
 
-- Recherche d'un pays par sa capitale.
-- Récupération des données avec HttpClient.
-- Utilisation des Observables.
-- Transformation des données avec map.
-- Gestion des erreurs avec catchError.
-- Affichage des résultats avec ListView.
+J'ai commencé par récupérer le dépôt GitHub du cours INF1083-200-26A-06.
 
-## Exemple de test
+Ensuite, j'ai créé mon répertoire personnel avec mon numéro étudiant 300159693 dans le dossier 5.RxJS.
 
-**Recherche :** Paris
+J'ai créé le projet NativeScript Angular nommé :
 
-**Résultat :**
-- Pays : France
-- Capitale : Paris
-- Nombre de résultats : 1
+`B300159693`
 
-## Captures d'écran
+J'ai utilisé le modèle Tab Navigation afin de disposer de plusieurs onglets dans l'application.
 
-### Écran Home
-![Home](images/01-home.png)
+## 3. Technologies utilisées
 
-### Écran Search
-![Search](images/02-search.png)
+Les technologies utilisées dans ce laboratoire sont :
 
-### Résultat de recherche
-![Résultat Paris](images/03-resultat-paris.png)
+- NativeScript 9.
+- Angular 22.
+- RxJS 7.8.2.
+- TypeScript.
+- HttpClient.
+- Template Driven Forms.
+- Visual Studio Code.
+- Android Emulator.
 
-## Conclusion
+## 4. Création du modèle Country
+<img width="956" height="509" alt="Capture d&#39;écran 2026-11-17 183436" src="https://github.com/user-attachments/assets/7e3d9e90-1d10-4563-a82d-f1b7b7af4234" />
 
-Ce laboratoire m'a permis de pratiquer RxJS, les Observables, les requêtes HTTP et les formulaires Angular avec NativeScript.
+
+J'ai créé le fichier `country.ts` dans le dossier `src/app/shared`.
+
+Ce modèle contient trois propriétés :
+
+- `id` : identifiant du pays.
+- `name` : nom du pays.
+- `capital` : capitale du pays.
+
+Ce modèle permet d'organiser les données récupérées depuis l'API.
+
+## 5. Création du service API
+<img width="295" height="503" alt="Capture d&#39;écran 2026-11-17 183949" src="https://github.com/user-attachments/assets/6948c892-25c0-44e3-9ea5-88dc36cd7038" />
+
+
+J'ai créé le fichier `apicall.service.ts`.
+
+Ce service utilise HttpClient pour envoyer une requête HTTP vers l'API :
+
+`https://countries.nexperts.nl/capital/`
+
+J'ai utilisé plusieurs fonctionnalités de RxJS :
+
+- **Observable :** permet de recevoir les données de manière asynchrone.
+- **map :** permet de transformer les données reçues.
+- **catchError :** permet de gérer les erreurs de communication avec l
