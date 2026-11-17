@@ -124,7 +124,7 @@ animate(view: View) {
 
 ✅ **Résultat :** chaque tap sur **Animate** joue la séquence complète sur l'icône.
 
-![Browse - animation impérative](images/browse.png)
+<img src="images/Screenshot%202026-11-16%20205358.png" width="40%">
 
 ---
 
