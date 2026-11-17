@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -50,9 +51,5 @@ export class App implements OnInit {
 
   afficherMessage() {
     this.message = 'Bienvenue ' + this.nom + ' !';
-<<<<<<< HEAD
-}
-=======
   }
->>>>>>> 1cc0a3838a45f981aafca57e23358a1208cead20
 }
