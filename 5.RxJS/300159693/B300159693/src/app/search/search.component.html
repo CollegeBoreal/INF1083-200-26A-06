@@ -1,0 +1,72 @@
+
+<ActionBar title="Search Countries"></ActionBar>
+
+<StackLayout class="form" padding="15">
+
+  <!-- Titre -->
+  <Label
+    text="Search a Country By Capital"
+    class="h2"
+    marginBottom="15">
+  </Label>
+
+  <!-- Champ de recherche -->
+  <TextField
+    class="input input-border"
+    hint="Enter a capital (e.g. Paris)"
+    [(ngModel)]="name">
+  </TextField>
+
+  <!-- Bouton Search -->
+  <Button
+    text="Search"
+    class="btn btn-primary"
+    (tap)="searchCapital()"
+    marginTop="15">
+  </Button>
+
+  <!-- Message d'erreur -->
+  <Label
+    *ngIf="errorMessage"
+    [text]="errorMessage"
+    color="red"
+    marginTop="10">
+  </Label>
+
+  <!-- Nombre de résultats -->
+  <Label
+    [text]="'Number of results: ' + countries.length"
+    color="green"
+    marginTop="15"
+    marginBottom="10">
+  </Label>
+
+  <!-- Liste des pays -->
+  <ListView
+    [items]="countries"
+    height="550">
+
+    <ng-template let-item="item">
+
+      <StackLayout
+        padding="15"
+        borderBottomWidth="1"
+        borderBottomColor="#cccccc">
+
+        <Label
+          [text]="'Country: ' + item.name"
+          class="h3">
+        </Label>
+
+        <Label
+          [text]="'Capital: ' + item.capital"
+          fontSize="16">
+        </Label>
+
+      </StackLayout>
+
+    </ng-template>
+
+  </ListView>
+
+</StackLayout>
