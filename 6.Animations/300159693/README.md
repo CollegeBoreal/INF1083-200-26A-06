@@ -1,118 +1,62 @@
-\# TP Animations — NativeScript
+# Rapport final – TP Animations
 
+**Cours :** INF1083 – Développement  
+**Travail :** TP 6 – Animations  
+**Étudiant :** 300159693  
+**Projet :** NativeScript avec Angular  
+**Dépôt GitHub :** INF1083-200-26A-06
 
+## 1. Introduction
 
-\*\*Étudiant :\*\* Mekaouche Mazigh  
+Dans ce travail pratique, j’ai réalisé un projet avec NativeScript et Angular afin de mettre en place et de tester différentes animations dans une application mobile.
 
-\*\*ID :\*\* 300159693  
+L’objectif était de comprendre comment appliquer des animations à des éléments de l’interface et de vérifier leur fonctionnement dans un émulateur Android.
 
-\*\*Cours :\*\* INF1083
+## 2. Réalisation du projet
 
+J’ai créé un projet NativeScript avec Angular en utilisant le modèle Drawer Navigation.
 
+J’ai ensuite travaillé sur les différentes pages de l’application.
 
-\## Objectif
+### 2.1 Animation déclarative
 
+Dans la page Home, j’ai réalisé une animation qui permet de modifier progressivement la couleur d’arrière-plan d’un bouton.
 
+- Couleur de départ : rouge.
+- Couleur d’arrivée : vert.
+- Durée : 2 secondes.
+- L’animation conserve son état final.
 
-Réaliser deux types d'animations avec NativeScript et Angular :
+### 2.2 Animation impérative
 
+Dans la page Browse, j’ai ajouté une animation à une image.
 
+J’ai utilisé plusieurs propriétés :
 
-\- Animation déclarative avec CSS/SCSS.
+- Opacité.
+- Translation.
+- Agrandissement et réduction (scale).
+- Rotation.
 
-\- Animation impérative avec TypeScript.
+L’animation est déclenchée en appuyant sur un bouton.
 
+## 3. Tests et vérification
+<img width="479" height="158" alt="Capture d&#39;écran 2026-11-17 194310" src="https://github.com/user-attachments/assets/7341894d-06e5-474a-bbd3-f9dd0067a485" />
 
 
-\## 1. Animation déclarative — Home
+J’ai lancé le projet dans l’émulateur Android afin de vérifier le fonctionnement des animations.
 
+J’ai également vérifié que l’animation de l’image se terminait correctement. Le message « Animation finished » apparaissait dans la console.
+<img width="290" height="505" alt="Capture d&#39;écran 2026-11-17 194232" src="https://github.com/user-attachments/assets/2cfe746a-c1ae-4270-9502-455aa65de22c" />
 
 
-Dans le composant Home, un bouton utilise la classe `background`.
+## 4. Organisation des fichiers
 
+J’ai organisé le travail dans le dépôt GitHub selon la structure suivante :
 
+- `6.Animations/`
+  - `300159693/`
+    - `README.md`
+    - `b300159693/` : fichiers du projet NativeScript.
 
-Le fichier `home.component.scss` définit une animation appelée `bgAnimation`.
-
-
-
-Le bouton change progressivement de couleur du rouge au vert en 2 secondes.
-
-
-
-\## 2. Animation impérative — Browse
-
-
-
-Dans le composant Browse, un bouton `Animate` déclenche une animation sur une image.
-
-
-
-Les effets réalisés sont :
-
-
-
-\- Disparition et réapparition.
-
-\- Déplacement.
-
-\- Agrandissement et retour à la taille normale.
-
-\- Rotation de 180 degrés et retour à la position initiale.
-
-
-
-La méthode `animate(view: View)` utilise les animations NativeScript et des promesses pour enchaîner les effets.
-
-
-
-\## 3. Technologies utilisées
-
-
-
-\- NativeScript
-
-\- Angular
-
-\- TypeScript
-
-\- SCSS
-
-\- Android Emulator
-
-
-
-\## 4. Captures d'écran
-
-
-
-\### Home — Animation déclarative
-
-
-
-!\[Home](images/01-home.png)
-
-
-
-\### Browse — Interface
-
-
-
-!\[Browse](images/02-browse.png)
-
-
-
-\### Animation impérative
-
-
-
-!\[Animation](images/03-animation.png)
-
-
-
-\## Conclusion
-
-
-
-Ce TP m'a permis de découvrir deux méthodes d'animation avec NativeScript : les animations déclaratives avec SCSS et les animations impératives avec TypeScript.
 
