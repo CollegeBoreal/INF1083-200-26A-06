@@ -34,7 +34,7 @@
 | 13 | [300157307](../300157307/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494517?s=460&v=4' width=20 height=20></image>](https://github.com/amaradjida7-hub) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
 | 14 | [300157423](../300157423/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261497291?s=460&v=4' width=20 height=20></image>](https://github.com/gaya-994) | :1st_place_medal: | :heavy_check_mark: | :x: | 1️⃣ 🛑 - Malheureusement le programme ne fonctionne pas |
 | 15 | [300157606](../300157606/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261497731?s=460&v=4' width=20 height=20></image>](https://github.com/ouahiba1994) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
-| 16 | [300157727](../300157727/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/262933367?s=460&v=4' width=20 height=20></image>](https://github.com/rayan23082001) | :2nd_place_medal: | :x: | :x: | 1️⃣ Rien À corriger |
+| 16 | [300157727](../300157727/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/262933367?s=460&v=4' width=20 height=20></image>](https://github.com/rayan23082001) | :2nd_place_medal: | :heavy_check_mark: | :x: | 1️⃣ Rien À corriger |
 | 17 | [300157733](../300157733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261491303?s=460&v=4' width=20 height=20></image>](https://github.com/albachiralmouhamad) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
 | 18 | [300158085](../300158085/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/258312358?s=460&v=4' width=20 height=20></image>](https://github.com/kevinmayele-ai) | :1st_place_medal: | :heavy_check_mark: | :x: | 1️⃣ 🚧 - Où est le code à exécuter? |
 | 19 | [300159180](../300159180/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489848?s=460&v=4' width=20 height=20></image>](https://github.com/abdenourzourane-cpu) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
@@ -50,4 +50,4 @@
 | 29 | [300160504](../300160504/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image>](https://github.com/Mmounir07) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
 | 30 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image>](https://github.com/belhadiyanis200-a11y) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
 | 31 | [300160862](../300160862/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494322?s=460&v=4' width=20 height=20></image>](https://github.com/cherifyamna) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
-| :abacus: | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 11 📈 35.48% |
+| :abacus: | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 12 📈 38.71% |
