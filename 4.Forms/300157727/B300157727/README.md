@@ -45,3 +45,11 @@ If you have found an issue with this template, please report the problem in the 
 ## Contributing
 
 We love PRs, and accept them gladly. Feel free to propose changes and new ideas. We will review and discuss, so that they can be accepted and better integrated.
+<img width="1029" height="715" alt="Capture d&#39;écran 2026-11-11 004104" src="https://github.com/user-attachments/assets/f8b150de-45fb-428e-b216-75fb5ee83340" />
+Édition du template de la page d'accueil dans Visual Studio Code, intégrant les balises StackLayout, les champs de texte (TextField) avec les liaisons formControlName pour l'e-mail et le nom d'utilisateur, ainsi que le bouton de soumission lié à l'événement
+<img width="651" height="703" alt="Capture d&#39;écran 2026-11-17 114723" src="https://github.com/user-attachments/assets/372944f3-b881-47b9-b321-f679262b6b95" />
+Affichage de l'interface utilisateur sur l'appareil virtuel montrant le formulaire d'inscription en cours de test, avec la saisie des données dans les champs respectifs et le clavier virtuel actif
+<img width="675" height="629" alt="Capture d&#39;écran 2026-11-17 114820" src="https://github.com/user-attachments/assets/784ca8ea-6e76-4597-bfcd-1f64d14c6244" />
+Sortie dans le terminal PowerShell montrant la récupération réussie et l'affichage au format JSON des valeurs du formulaire ({"email":"...","username":"..."}) suite à l'appui sur le bouton d'envoi
+
+
