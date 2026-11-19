@@ -227,7 +227,6 @@ Après avoir appuyé sur le bouton START ANIMATION, l'étoile change d'opacité,
 <img width="338" height="721" alt="Screenshot 2026-11-19 110133" src="https://github.com/user-attachments/assets/dba9bd9b-194d-4665-a976-27231840f856" />
 
 
-**Capture — Code TypeScript de l'animation impérative**
 
 
 # 7. Exécution de l'application
