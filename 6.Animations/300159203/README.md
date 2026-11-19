@@ -223,7 +223,8 @@ Après avoir appuyé sur le bouton START ANIMATION, l'étoile change d'opacité,
 
 **Capture — Étoile pendant l'animation**
 
-<img width="338" height="721" alt="Screenshot 2026-11-19 110133" src="https://github.com/user-attachments/assets/dba9bd9b-194d-4665-a976-27231840f856" />
+<img width="668" height="1448" alt="ScreenRecording2026-11-19111939-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/de5f3102-2d79-4251-bff2-7dd0bebfe537" />
+
 
 
 
