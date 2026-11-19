@@ -344,3 +344,43 @@ Pour arrêter le serveur, j’utilise `Ctrl + C` dans le terminal.
 Ce travail m’a permis de pratiquer les composants Angular, la liaison de données, les événements, les directives, le routage, les styles CSS et le client HTTP.
 
 Le projet réalisé est `B300158085`. La compilation a réussi. Les fichiers de test ont été générés, mais je ne présente pas de résultat d’exécution de tests automatisés.
+
+## 18. Ajout du code source et mise à jour du README
+
+### 18.1 Publication du code source
+
+J'ai ajouté le dossier `B300158085` à mon répertoire GitHub afin de rendre le code de mon application Angular accessible.
+
+Ce dossier contient les fichiers sources (`src`), les ressources (`public`) ainsi que les fichiers de configuration Angular et TypeScript nécessaires au fonctionnement du projet.
+
+J'ai conservé la structure des dossiers et exclu les fichiers générés automatiquement, notamment `node_modules`, `dist` et `.angular`.
+
+[Consulter le code source B300158085](B300158085/)
+
+### 18.2 Traduction du README
+
+J'ai également traduit en français le fichier `README.md` du projet, initialement rédigé en anglais.
+
+J'ai conservé son contenu et ses commandes d'origine afin de faciliter la compréhension des étapes d'exécution, de compilation et de test de l'application.
+
+### 18.3 Exécution du projet
+
+Pour lancer l'application, il faut se placer dans le dossier `B300158085` et exécuter les commandes suivantes :
+
+```bash
+cd B300158085
+npm install
+npx ng serve
+```
+
+L'application est accessible à l'adresse `http://localhost:4200/`.
+
+Pour compiler le projet :
+
+```bash
+npx ng build
+```
+
+### 18.4 Résultat
+
+Le code source et sa documentation sont désormais disponibles sur GitHub. Le projet peut être téléchargé et exécuté localement en suivant les instructions fournies.

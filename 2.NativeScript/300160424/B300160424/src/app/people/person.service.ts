@@ -7,138 +7,92 @@ export class PersonService {
   items = signal<Person[]>([
     {
       id: 1,
-      name: 'Alan Turing',
-      nationality: 'British',
+      name: 'Lounès Matoub',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'WW2 code breaking',
-        'Father of theoretical computer science and AI'
+        'Chanteur et poète kabyle',
+        'Défenseur de la culture amazighe'
       ]
     },
     {
       id: 2,
-      name: 'Grace Hopper',
-      nationality: 'American',
+      name: 'Idir',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'COBOL development',
-        'Navy commander',
-        'Implementation of computer systems and components testing'
+        'Chanteur kabyle',
+        'Connu pour la chanson A Vava Inouva'
       ]
     },
     {
       id: 3,
-      name: 'Donal Knuth',
-      nationality: 'American',
+      name: 'Mouloud Mammeri',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'Author of The Art of Computer Programming',
-        'Created TeX typesetting system'
+        'Écrivain et chercheur',
+        'Travaux sur la langue amazighe'
       ]
     },
     {
       id: 4,
-      name: 'Ada Lovelace',
-      nationality: 'British',
+      name: 'Kateb Yacine',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'First computer programmer',
-        'Worked on Analytical Engine'
+        'Écrivain et dramaturge',
+        'Auteur du roman Nedjma'
       ]
     },
     {
       id: 5,
-      name: 'John von Neumann',
-      nationality: 'Hungarian/American',
+      name: 'Assia Djebar',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'Von Neumann architecture',
-        'Game theory',
-        'Contributed to EDVAC'
+        'Écrivaine et réalisatrice',
+        'Membre de l’Académie française'
       ]
     },
     {
       id: 6,
-      name: 'Tim Berners-Lee',
-      nationality: 'British',
+      name: 'Mohamed Dib',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'Inventor of the World Wide Web'
+        'Écrivain et poète',
+        'Auteur de La Grande Maison'
       ]
     },
     {
       id: 7,
-      name: 'Edsger Dijkstra',
-      nationality: 'Dutch',
+      name: 'Rabah Madjer',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'Shortest path algorithm',
-        'Structured programming advocate'
+        'Ancien footballeur international',
+        'Vainqueur de la Coupe d’Europe en 1987'
       ]
     },
     {
       id: 8,
-      name: 'Linus Torvalds',
-      nationality: 'Finnish-American',
+      name: 'Djamel Belmadi',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'Creator of Linux kernel',
-        'Creator of Git'
+        'Ancien footballeur et entraîneur',
+        'Vainqueur de la CAN 2019 avec l’Algérie'
       ]
     },
     {
       id: 9,
-      name: 'John McCarthy',
-      nationality: 'American',
+      name: 'Cheb Khaled',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'Coined term "Artificial Intelligence"',
-        'Created LISP programming language'
+        'Chanteur de raï',
+        'Connu pour la chanson Didi'
       ]
     },
     {
       id: 10,
-      name: 'Dennis Ritchie',
-      nationality: 'American',
+      name: 'Warda Al-Jazairia',
+      nationality: 'Algérienne',
       notableAchievements: [
-        'Creator of C programming language',
-        'Co-creator of Unix'
-      ]
-    },
-    {
-      id: 11,
-      name: 'Bjarne Stroustrup',
-      nationality: 'Danish',
-      notableAchievements: [
-        'Creator of C++ programming language'
-      ]
-    },
-    {
-      id: 12,
-      name: 'Steve Wozniak',
-      nationality: 'American',
-      notableAchievements: [
-        'Co-founder of Apple',
-        'Designer of Apple I & II',
-        'Pioneer of personal computing'
-      ]
-    },
-    {
-      id: 13,
-      name: 'Tommy Flowers',
-      nationality: 'British',
-      notableAchievements: [
-        'Designer of Colossus',
-        'Pioneer in electronic computing'
-      ]
-    },
-    {
-      id: 14,
-      name: 'John Backus',
-      nationality: 'American',
-      notableAchievements: [
-        'Created FORTRAN',
-        'Developed Backus-Naur form (BNF) notation'
-      ]
-    },
-    {
-      id: 15,
-      name: 'Niklaus Wirth',
-      nationality: 'Swiss',
-      notableAchievements: [
-        'Creator of Pascal, Modula, Oberon languages',
-        'Software engineering pioneer'
+        'Chanteuse algérienne',
+        'Grande figure de la chanson arabe'
       ]
     }
   ]);
@@ -147,4 +101,3 @@ export class PersonService {
     return this.items().find(person => person.id === id);
   }
 }
-

@@ -55,7 +55,12 @@ J'ai ensuite enregistré les modifications et utilisé la commande suivante dans
 
 L'application s'est lancée sur mon émulateur Android et la nouvelle liste s'affiche correctement.
 
-<img width="841" height="521" alt="Capture d’écran 2026-10-21 233337" src="https://github.com/user-attachments/assets/8c5c2b05-5c20-4368-8ad3-756d8902eb4f" />
+<img width="825" height="880" alt="image" src="https://github.com/user-attachments/assets/04c231c6-c175-40af-8781-906b992611fd" />
+
+<img width="825" height="544" alt="image" src="https://github.com/user-attachments/assets/9ce35ac9-754d-4127-bbc6-bf41074c57c9" />
+
+<img width="900" height="791" alt="image" src="https://github.com/user-attachments/assets/b238c948-1c52-4040-9fd5-2ce440eeb64a" />
+
 
 ## 7. Vérification de la page de détails
 

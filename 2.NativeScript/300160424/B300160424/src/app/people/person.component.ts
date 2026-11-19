@@ -10,5 +10,6 @@ import { PersonService } from './person.service'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PersonComponent {
-  personService = inject(PersonService);
+    personService = inject(PersonService);
+
 }

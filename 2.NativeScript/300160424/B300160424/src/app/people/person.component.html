@@ -1,19 +1,14 @@
- <ActionBar title="Sign Up"></ActionBar>
 
-<StackLayout [formGroup]="signUpForm">
-    <TextField
-        formControlName="email"
-        hint="Email"
-        keyboardType="email">
-    </TextField>
+<ActionBar title="Personnalités algériennes"></ActionBar>
 
-    <TextField
-        formControlName="username"
-        hint="Username">
-    </TextField>
-
-    <Button
-        text="Sign up"
-        (tap)="onButtonTap()">
-    </Button>
+<StackLayout>
+  <ListView [items]="personService.items()">
+    <ng-template let-person="item">
+      <Label
+        [text]="person.name"
+        class="p-15"
+        [nsRouterLink]="['/item', person.id]">
+      </Label>
+    </ng-template>
+  </ListView>
 </StackLayout>

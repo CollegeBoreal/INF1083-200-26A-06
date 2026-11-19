@@ -147,3 +147,26 @@ J’ai créé mon compte RapidAPI avec GitHub et accédé à la clé de l’appl
 ![Clé disponible dans le compte RapidAPI](images/09-compte-rapidapi.jpg)
 
 Le service fourni dans les consignes appelle directement `countries.nexperts.nl` et ne transmet pas de clé RapidAPI. Je n’ai donc pas ajouté cette clé au code du projet.
+
+
+## Ajout du code source sur GitHub
+
+J'ai ajouté le dossier `b300158085` à mon répertoire GitHub afin de rendre le code de mon application RxJS accessible.
+
+Ce dossier contient le projet NativeScript Angular, notamment le modèle `Country`, le service `ApicallService`, les composants de l'application et les fichiers de configuration nécessaires à son exécution.
+
+J'ai conservé la structure du projet et exclu les dossiers générés automatiquement, comme `node_modules`, `platforms` et `hooks`.
+
+[Consulter le code source b300158085](b300158085/)
+
+### Exécution du projet
+
+Pour lancer l'application sur iOS à partir du dossier `5.RxJS/300158085`, j'utilise les commandes suivantes :
+
+```bash
+cd b300158085
+npm install
+ns run ios --device 41BC1B09-7BDA-4503-BA23-951242A9C0DB
+```
+
+L'identifiant correspond au simulateur iPhone 18 Pro utilisé pour mes tests. Sur un autre Mac, il faut utiliser l'identifiant du simulateur disponible.
