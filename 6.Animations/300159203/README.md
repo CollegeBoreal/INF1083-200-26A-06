@@ -120,7 +120,8 @@ La navigation entre les pages est gérée à l'aide d'Angular et des modules de 
 
 
 
-<img width="333" height="725" alt="Screenshot 2026-11-19 110042" src="https://github.com/user-attachments/assets/333cd5bd-08c5-4891-b1eb-e6c5999db2bb" />
+<img width="662" height="1436" alt="ScreenRecording2026-11-19111210-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/40334c4b-8b7b-4291-8e0d-be53c5bd7d91" />
+
 
 
 # 5. Première partie — Animation déclarative (Home)
