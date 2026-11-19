@@ -7,7 +7,7 @@
  * Ce qui protège les données, ce sont les règles RLS du fichier supabase/schema.sql.
  * Ne mets JAMAIS la clé "service_role" dans l'app.
  */
-export const SUPABASE_URL = 'https://TON-PROJET.supabase.co';
+export const SUPABASE_URL = 'https://edqqmzmffpvlxnljmysm.supabase.co';
 export const SUPABASE_ANON_KEY = 'COLLE_ICI_TA_CLE_ANON';
 
 export function supabaseConfigure(): boolean {

@@ -6,7 +6,7 @@
 create table if not exists public.progression (
   user_id    uuid primary key references auth.users (id) on delete cascade,
   profil     jsonb,
-  faites     text[] not null default '{}',
+  faites     jsonb not null default '[]'::jsonb,
   mis_a_jour timestamptz not null default now()
 );
 

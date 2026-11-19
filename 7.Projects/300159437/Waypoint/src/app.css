@@ -162,3 +162,17 @@ Page, .r { font-family: "Inter", "Inter-Regular"; color: #141414; }
 .nav-txt { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 11; color: #8C8C87; text-align: center; margin-top: 2; }
 .nav-actif { color: #C8361E; }
 .video-cadre-yt { height: 120; background-color: #3A2A2A; }
+
+/* ---------- Vidéo de l'accueil ---------- */
+.carte-video { background-color: #FFFFFF; border-radius: 22; margin-top: 18; box-shadow: 0 4 16 rgba(20, 20, 20, 0.08); }
+.video-vignette { height: 190; background-color: #141414; border-top-left-radius: 22; border-top-right-radius: 22; }
+.video-img { border-top-left-radius: 22; border-top-right-radius: 22; }
+.video-duree { background-color: rgba(0, 0, 0, 0.72); color: #FFFFFF; font-size: 12; font-weight: bold; padding: 3 8; border-radius: 8; margin: 10; }
+.video-infos { padding: 14 16 16 16; }
+
+/* ---------- Vidéo de présentation (en tête de Mon parcours) ---------- */
+.hero { border-radius: 22; background-color: #141414; box-shadow: 0 10 28 rgba(20, 20, 20, 0.22); }
+.hero-web { background-color: transparent; }
+.hero-pastille { margin: 12; padding: 6 12; border-radius: 14; background-color: rgba(20, 20, 20, 0.6); }
+.hero-point { width: 8; height: 8; border-radius: 4; background-color: #FF6B4F; margin-right: 7; }
+.hero-pastille-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 11; color: #FFFFFF; letter-spacing: 0.08; }

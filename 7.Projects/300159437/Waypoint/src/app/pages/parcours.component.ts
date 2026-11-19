@@ -1,12 +1,13 @@
 import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angular';
-import { Page } from '@nativescript/core';
+import { EventData, isAndroid, Page, Screen, Utils, WebView } from '@nativescript/core';
 import { Etape } from '../models';
 import { BarreNavComponent } from '../shared/barre-nav.component';
 import { LogoComponent } from '../shared/logo.component';
 import { preparerPage, segments } from '../shared/ui';
 import { ParcoursService } from '../services/parcours.service';
 import { ProfilService } from '../services/profil.service';
+import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
 
 @Component({
   selector: 'parcours',
@@ -22,6 +23,15 @@ import { ProfilService } from '../services/profil.service';
             <GridLayout col="1" class="rond-btn" (tap)="ouvrirCompte()">
               <Label class="ico rond-ico" text="&#xe7fd;"></Label>
             </GridLayout>
+
+          <!-- Vidéo de présentation en tête -->
+          <GridLayout class="hero entree" [height]="heroHauteur" marginTop="16">
+            <WebView src="~/assets/intro.html" class="hero-web" (loaded)="configurerVideo($event)"></WebView>
+            <StackLayout class="hero-pastille" orientation="horizontal" horizontalAlignment="left" verticalAlignment="top" isUserInteractionEnabled="false">
+              <StackLayout class="hero-point" verticalAlignment="center"></StackLayout>
+              <Label class="hero-pastille-txt" text="DÉCOUVRE WAYPOINT"></Label>
+            </StackLayout>
+          </GridLayout>
           </GridLayout>
 
           <StackLayout class="entree" marginTop="20">
@@ -58,6 +68,24 @@ import { ProfilService } from '../services/profil.service';
             </StackLayout>
           }
 
+          <!-- Vidéo à regarder -->
+          <StackLayout class="carte-video entree-3" (tap)="voirVideo()">
+            <GridLayout class="video-vignette">
+              <Image class="video-img" [src]="video.vignette" stretch="aspectFill"></Image>
+              <GridLayout class="video-play" horizontalAlignment="center" verticalAlignment="center">
+                <Label class="ico" fontSize="30" color="#141414" textAlignment="center" verticalAlignment="center" text="&#xe037;"></Label>
+              </GridLayout>
+              @if (video.duree) {
+                <Label class="video-duree" [text]="video.duree" horizontalAlignment="right" verticalAlignment="bottom"></Label>
+              }
+            </GridLayout>
+            <StackLayout class="video-infos">
+              <Label class="oeil" text="À REGARDER"></Label>
+              <Label class="ligne-txt" [text]="video.titre" textWrap="true"></Label>
+              <Label class="petit" [text]="video.auteur"></Label>
+            </StackLayout>
+          </StackLayout>
+
           <Label class="etiquette entree-3" text="TOUTES TES ÉTAPES"></Label>
           <StackLayout class="liste entree-3">
             @for (e of etapes; track e.id; let dernier = $last) {
@@ -84,6 +112,10 @@ export class ParcoursComponent {
   prog = { faites: 0, total: 0, pourcent: 0 };
   segs: { plein: boolean }[] = [];
   jour = 1;
+  video = { titre: '', auteur: '', duree: '', url: '', vignette: '' };
+  /** Hauteur de la vidéo 16:9 selon la largeur de l'écran (marges de 20 de chaque côté). */
+  heroHauteur = Math.round(((Screen.mainScreen.widthDIPs || 390) - 40) * 9 / 16);
+  private videoPrete = false;
   ville = '';
 
   constructor(
@@ -105,6 +137,7 @@ export class ParcoursComponent {
     this.segs = segments(this.prog.faites, this.prog.total);
     this.jour = this.profil.jour();
     this.ville = this.profil.get()?.ville ?? '';
+    this.choisirVideo();
     this.cdr.markForCheck();
   }
 
@@ -118,5 +151,41 @@ export class ParcoursComponent {
 
   ouvrirCompte(): void {
     this.router.navigate(['/compte'], { transition: { name: 'slideLeft', duration: 250 } });
+  }
+
+  /** Vidéo YouTube de la prochaine étape si elle existe, sinon la vidéo d'accueil. */
+  private choisirVideo(): void {
+    const v = this.prochaine?.videos.find((x) => x.plateforme === 'youtube' && idYouTube(x.url));
+    const id = v ? idYouTube(v.url)! : VIDEO_ACCUEIL.youtubeId;
+    this.video = {
+      titre: v ? v.titre : VIDEO_ACCUEIL.titre,
+      auteur: v ? v.auteur : VIDEO_ACCUEIL.auteur,
+      duree: v ? '' : VIDEO_ACCUEIL.duree,
+      url: `https://www.youtube.com/watch?v=${id}`,
+      vignette: `https://img.youtube.com/vi/${id}/hqdefault.jpg`,
+    };
+  }
+
+  voirVideo(): void {
+    Utils.openUrl(this.video.url);
+  }
+
+  /** Permet la lecture automatique (sans le son) et un fond transparent pour les coins arrondis. */
+  configurerVideo(args: EventData): void {
+    const wv = args.object as WebView;
+    if (isAndroid && wv.android) {
+      const reglages = wv.android.getSettings();
+      reglages.setMediaPlaybackRequiresUserGesture(false);
+      reglages.setAllowFileAccess(true);
+      wv.android.setBackgroundColor(0); // transparent
+      if (!this.videoPrete) {
+        this.videoPrete = true;
+        wv.reload(); // recharge avec les nouveaux réglages pour lancer la vidéo
+      }
+    } else if (wv.ios) {
+      wv.ios.opaque = false;
+      wv.ios.backgroundColor = UIColor.clearColor;
+      wv.ios.scrollView.scrollEnabled = false;
+    }
   }
 }
