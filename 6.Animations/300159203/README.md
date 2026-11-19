@@ -120,7 +120,7 @@ La navigation entre les pages est gérée à l'aide d'Angular et des modules de 
 
 
 
-<img width="662" height="1436" alt="ScreenRecording2026-11-19111210-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/40334c4b-8b7b-4291-8e0d-be53c5bd7d91" />
+<img width="662" height="1436" alt="ScreenRecording2026-11-19111210-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/88b62bc4-0944-48ee-ab71-c6f1a0207a64" />
 
 
 
