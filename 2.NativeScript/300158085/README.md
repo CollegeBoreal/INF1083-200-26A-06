@@ -125,7 +125,33 @@ Chaque écrivain possède un identifiant, un nom, une nationalité et une liste 
 
 Voici une capture de l’application après cette modification :
 
-![Liste des écrivains africains](images/07_ecrivains_africains.jpg)
+![Liste des écrivains africains](images/07_ecrivains_africains.jpg) 
+
+
+## 7. Affichage d'une nouvelle liste
+
+À la suite du commentaire de mon professeur, j'ai remplacé la liste des écrivains africains par une liste de 15 scientifiques et innovateurs africains.
+
+### 7.1 Nouvelle liste des scientifiques
+
+J'ai modifié les fichiers `person.service.ts` et `person.component.html` pour afficher le nom et la nationalité de chaque scientifique.
+
+Voici le résultat sur mon simulateur iPhone 18 Pro sous iOS 27.0.
+
+![Liste des scientifiques africains](images/08_scientifiques_africains.jpg)
+
+### 7.2 Vérification de la page de détails
+
+J'ai sélectionné Jean-Jacques Muyembe pour vérifier la navigation.
+
+La page affiche son nom, sa nationalité et ses principales réalisations.
+
+![Détails de Jean-Jacques Muyembe](images/09_details_scientifique.jpg)
+
+### 7.3 Résultat final
+
+La compilation, l'installation et la synchronisation ont réussi. La nouvelle liste s'affiche et la navigation vers les détails fonctionne correctement.
+
 
 ## Difficultés rencontrées
 
