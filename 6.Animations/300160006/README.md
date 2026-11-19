@@ -17,7 +17,7 @@ L'animation est faite dans le code TypeScript. Quand on appuie sur le bouton **A
 
 Fichiers modifiés : `browse.component.html` et `browse.component.ts` (nouvelle méthode `animate`).
 
-![images alt]()
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/445d989a931dbcce6c76e36cb149a87e132dc73b/6.Animations/300160006/images/Screenshot%202026-11-19%20100137.png)
 
 ## Problème rencontré
 
