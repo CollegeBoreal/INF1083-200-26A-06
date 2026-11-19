@@ -192,7 +192,8 @@ git push origin main
 ## Création du composant accueil
 
 ```html
-<img src="images/ng-serve.png" width="800">
+<img src="images/application-angular.png" width="800">
+
 ```
 
 ---
@@ -209,7 +210,7 @@ git push origin main
 ## Application Angular
 
 ```html
-<img src="images/application-angular.png" width="800">
+<img src="images/ng-serve.png" width="800">
 ```
 
 ---
