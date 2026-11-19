@@ -1,0 +1,64 @@
+
+.home-container {
+    background-color: #10172A;
+    padding: 25;
+}
+
+.home-content {
+    text-align: center;
+}
+
+.subtitle {
+    color: #A78BFA;
+    font-size: 13;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.main-title {
+    color: #FFFFFF;
+    font-size: 38;
+    font-weight: bold;
+    text-align: center;
+}
+
+.accent {
+    color: #A78BFA;
+    margin-bottom: 20;
+}
+
+.description {
+    color: #B8C2D9;
+    font-size: 16;
+    text-align: center;
+    margin: 10 15 35 15;
+}
+
+.background {
+    background-color: #7C3AED;
+    color: #FFFFFF;
+    border-radius: 15;
+    height: 55;
+    font-size: 17;
+    font-weight: bold;
+    margin: 10 15;
+    animation-name: bgAnimation;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.footer-text {
+    color: #8B9BBF;
+    font-size: 11;
+    text-align: center;
+    margin-top: 20;
+}
+
+@keyframes bgAnimation {
+    from {
+        background-color: #7C3AED;
+    }
+    to {
+        background-color: #2563EB;
+    }
+}

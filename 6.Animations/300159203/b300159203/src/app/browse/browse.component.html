@@ -1,0 +1,54 @@
+
+<ActionBar class="action-bar">
+  <NavigationButton visibility="hidden"></NavigationButton>
+  <GridLayout columns="50, *">
+    <Label class="action-bar-title" text="Imperative Animation" colSpan="2"></Label>
+    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+  </GridLayout>
+</ActionBar>
+
+<GridLayout class="home-container">
+  <StackLayout class="home-content" verticalAlignment="center">
+
+    <Label text="INTERACTIVE" class="subtitle"></Label>
+
+    <Label text="ANIMATE" class="main-title"></Label>
+    <Label text="YOUR OBJECT" class="main-title accent"></Label>
+
+    <Label
+      text="Tap the button and watch the magic happen!"
+      class="description"
+      textWrap="true">
+    </Label>
+
+    <AbsoluteLayout
+      width="250"
+      height="250"
+      class="animation-box">
+
+      <Label
+        #cible
+        text="★"
+        color="#A78BFA"
+        fontSize="100"
+        width="250"
+        height="250"
+        textAlignment="center"
+        verticalAlignment="center">
+      </Label>
+
+    </AbsoluteLayout>
+
+    <Button
+      text="START ANIMATION"
+      (tap)="animate($any(cible))"
+      class="background">
+    </Button>
+
+    <Label
+      text="IMPERATIVE ANIMATION"
+      class="footer-text">
+    </Label>
+
+  </StackLayout>
+</GridLayout>

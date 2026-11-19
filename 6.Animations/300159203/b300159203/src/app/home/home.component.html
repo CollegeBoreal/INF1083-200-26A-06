@@ -1,0 +1,35 @@
+
+<ActionBar class="action-bar">
+  <NavigationButton visibility="hidden"></NavigationButton>
+  <GridLayout columns="50, *">
+    <Label class="action-bar-title" text="Animation Studio" colSpan="2"></Label>
+    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+  </GridLayout>
+</ActionBar>
+
+<GridLayout class="home-container">
+  <StackLayout class="home-content" verticalAlignment="center">
+
+    <Label text="WELCOME TO" class="subtitle"></Label>
+
+    <Label text="ANIMATION" class="main-title"></Label>
+    <Label text="STUDIO" class="main-title accent"></Label>
+
+    <Label
+      text="Explore the world of mobile animations"
+      class="description"
+      textWrap="true">
+    </Label>
+
+    <Button
+      text="300159203"
+      class="background">
+    </Button>
+
+    <Label
+      text="CSS ANIMATION"
+      class="footer-text">
+    </Label>
+
+  </StackLayout>
+</GridLayout>
