@@ -118,7 +118,7 @@ Le bouton de menu est associé à une méthode TypeScript permettant d'ouvrir le
 
 La navigation entre les pages est gérée à l'aide d'Angular et des modules de routage du projet.
 
-### Capture d'écran — Navigation
+
 
 <img width="333" height="725" alt="Screenshot 2026-11-19 110042" src="https://github.com/user-attachments/assets/333cd5bd-08c5-4891-b1eb-e6c5999db2bb" />
 
@@ -160,9 +160,6 @@ Le bouton utilise directement cette animation dans son style SCSS.
 
 Lors de l'affichage de la page Home, le bouton passe progressivement du violet au bleu.
 
-### Captures d'écran
-
-**Capture — Page Home**
 
 <img width="332" height="717" alt="Screenshot 2026-11-19 110028" src="https://github.com/user-attachments/assets/77b98006-f5a6-4382-b3ad-e36b4f66e1da" />
 
