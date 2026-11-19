@@ -1,0 +1,32 @@
+<h1>{{titre}}</h1>
+<p>nom : {{ nom }}</p>
+<h2>Liste des etudiants</h2>
+
+<ul>
+    @for (etudiant of etudiants; track $index) {
+        <li>
+            {{ etudiant }}
+        <button (click)='supprimerEtudiant($index)'>
+            supprimer
+        </button>
+    </li>
+}
+</ul>
+<h3> Ajouter un etudiant</h3>
+<input #nouveauNom type="text" placeholder="Nom de l'etudiant">
+<button (click)="ajouterEtudiant(nouveauNom.value); nouveauNom.value = '' ">
+    Ajouter
+</button>
+<button (click)="afficherMessage()">
+    Afficher le message
+</button>
+<P>{{message}}</P>
+<h2>Utilisateurs de l'API REST</h2>
+<button (click)="chargerUtilisateurs()">
+    Charger les utilisateurs
+</button>
+<ul>
+    @for (utilisateur of utilisateurs; track utilisateur.id) {
+        <li> {{ utilisateur.name }}</li>
+    }
+</ul>
