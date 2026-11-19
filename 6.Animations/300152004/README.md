@@ -15,4 +15,4 @@ Dans `home.component.html`, je remplace le libellé par défaut par un bouton `<
 Au lancement de la page Home, le bouton `{N}` est vert, c'est-à-dire la couleur de départ de l'animation.
 
 <img width="3840" height="2877" alt="225547c6-30d0-4d3c-9def-288f2ce3d170" src="https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/main/6.Animations/300152004/images/03-animation-css-debut.png?raw=true" />
-Après 2 secondes, le bouton est devenu vert et le reste, ce qui confirme que l'animation déclarative fonctionne.
+Après 2 secondes, le bouton est devenu rouge et le reste, ce qui confirme que l'animation déclarative fonctionne.
