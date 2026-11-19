@@ -1,0 +1,94 @@
+
+<ActionBar title="BarberShop - Réservation">
+</ActionBar>
+
+<ScrollView>
+    <StackLayout backgroundColor="#F5F5F5">
+
+        <StackLayout backgroundColor="#1E293B" padding="25">
+
+            <Label
+                text="RÉSERVATION"
+                fontSize="26"
+                fontWeight="bold"
+                color="white"
+                textAlignment="center">
+            </Label>
+
+            <Label
+                text="Réservez votre prochain rendez-vous"
+                fontSize="15"
+                color="#FBBF24"
+                textAlignment="center"
+                marginTop="10">
+            </Label>
+
+        </StackLayout>
+
+        <StackLayout padding="20">
+
+            <Label text="Nom complet" fontSize="17"></Label>
+
+            <TextField
+                hint="Entrez votre nom"
+                [(ngModel)]="nom"
+                backgroundColor="white"
+                marginBottom="15">
+            </TextField>
+
+            <Label text="Téléphone" fontSize="17"></Label>
+
+            <TextField
+                hint="Entrez votre téléphone"
+                keyboardType="phone"
+                [(ngModel)]="telephone"
+                backgroundColor="white"
+                marginBottom="15">
+            </TextField>
+
+            <Label text="Service souhaité" fontSize="17"></Label>
+
+            <TextField
+                hint="Ex : Coupe homme"
+                [(ngModel)]="service"
+                backgroundColor="white"
+                marginBottom="15">
+            </TextField>
+
+            <Label text="Date souhaitée" fontSize="17"></Label>
+
+            <TextField
+                hint="Ex : 25/11/2026"
+                [(ngModel)]="date"
+                backgroundColor="white"
+                marginBottom="20">
+            </TextField>
+
+            <Button
+                text="Réserver maintenant"
+                backgroundColor="#1E293B"
+                color="white"
+                (tap)="reserver()">
+            </Button>
+
+            <Label
+                [text]="message"
+                textWrap="true"
+                color="#16A34A"
+                fontSize="16"
+                textAlignment="center"
+                marginTop="20">
+            </Label>
+
+        </StackLayout>
+
+        <Label
+            text="BarberShop - 300159887"
+            fontSize="13"
+            color="gray"
+            textAlignment="center"
+            marginTop="20">
+        </Label>
+
+    </StackLayout>
+</ScrollView>
