@@ -113,3 +113,4 @@ Dans `nativescript.config.ts`, remplacer `org.nativescript.etape` par un identif
 - Les deux stores demandent une **politique de confidentialité** (page web) : expliquer que les documents restent sur le téléphone et que seule la progression est sauvegardée en ligne.
 - Vérifier que le nom « Waypoint » est libre dans les deux stores.
 
+Merci !!
