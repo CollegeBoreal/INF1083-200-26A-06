@@ -10,6 +10,9 @@ mkdir 300160006
 cd 300160006
 mkdir images
 New-Item README.md
+ns create b300160006 --template @nativescript/template-drawer-navigation-ng
+cd b300160006
+code .
 ```
 
 L'animation est faite en CSS. Le bouton `{N}` passe du rouge au vert en 2 secondes.
