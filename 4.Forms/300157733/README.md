@@ -27,6 +27,9 @@ Conclusion
 
 Ce laboratoire m'a permis de comprendre la création d'interfaces avec les conteneurs de mise en page NativeScript ainsi que la gestion des formulaires Angular. J'ai réussi à créer un formulaire fonctionnel et à récupérer les données saisies par l'utilisateur.
 
+
+<img width="1531" height="862" alt="image" src="https://github.com/user-attachments/assets/0e01f4f1-1e7b-4b65-ae95-a80148431c84" />
+
 <img width="1522" height="850" alt="image" src="https://github.com/user-attachments/assets/915df177-889a-4dc5-85ac-3532739d54d5" />
 
 
