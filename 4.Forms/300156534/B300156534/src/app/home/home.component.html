@@ -1,0 +1,35 @@
+
+<ActionBar title="Formulaire ReactiveForms"></ActionBar>
+
+<StackLayout class="form-container"
+             [formGroup]="signUpForm">
+
+    <Label text="Inscription" class="titre"></Label>
+
+    <Label text="Adresse courriel" class="label"></Label>
+
+    <TextField formControlName="email"
+               hint="Entrez votre courriel"
+               keyboardType="email"
+               class="champ">
+    </TextField>
+
+    <Label text="Nom d'utilisateur" class="label"></Label>
+
+    <TextField formControlName="username"
+               hint="Entrez votre nom"
+               class="champ">
+    </TextField>
+
+    <Button text="Sign up"
+            (tap)="onButtonTap()"
+            class="bouton">
+    </Button>
+
+    <Label [text]="message"
+           [color]="estValide ? 'green' : 'red'"
+           textWrap="true"
+           class="message">
+    </Label>
+
+</StackLayout>
