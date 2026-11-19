@@ -9,7 +9,7 @@ L'animation est faite en CSS. Le bouton `{N}` passe du rouge au vert en 2 second
 
 Fichiers modifiés : `home.component.html`, `home.component.scss` (nouveau) et `home.component.ts` (ajout de `styleUrls`).
 
-![images alt]()
+![images alt](https://github.com/CollegeBoreal/INF1083-200-26A-06/blob/7e61092de00448adbce8cf8c29b24163c6e6e9f0/6.Animations/300160006/images/Screenshot%202026-11-19%20100204.png)
 
 ## Animation impérative (Browse)
 
