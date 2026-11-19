@@ -1,0 +1,76 @@
+
+<ActionBar class="action-bar">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+
+    <GridLayout columns="50,*">
+        <Label
+            col="0"
+            text="☰"
+            fontSize="25"
+            textAlignment="center"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+
+        <Label
+            col="1"
+            text="DZIS TV Player"
+            class="action-bar-title">
+        </Label>
+    </GridLayout>
+</ActionBar>
+
+<ScrollView class="page">
+    <StackLayout class="container">
+
+        <Label
+            text="DZIS TV Player"
+            class="app-title">
+        </Label>
+
+        <Label
+            text="Votre univers de divertissement"
+            class="subtitle">
+        </Label>
+
+        <Label
+            text="Bienvenue !"
+            class="section-title">
+        </Label>
+
+        <Label
+            text="Découvrez vos chaînes et vos contenus préférés."
+            class="description"
+            textWrap="true">
+        </Label>
+
+        <GridLayout columns="*,*" rows="150,150" class="cards">
+
+            <StackLayout row="0" col="0" class="card tv-card">
+                <Label text="📺" class="card-icon"></Label>
+                <Label text="TV en direct" class="card-title"></Label>
+            </StackLayout>
+
+            <StackLayout row="0" col="1" class="card film-card">
+                <Label text="🎬" class="card-icon"></Label>
+                <Label text="Films" class="card-title"></Label>
+            </StackLayout>
+
+            <StackLayout row="1" col="0" class="card serie-card">
+                <Label text="🍿" class="card-icon"></Label>
+                <Label text="Séries" class="card-title"></Label>
+            </StackLayout>
+
+            <StackLayout row="1" col="1" class="card playlist-card">
+                <Label text="📋" class="card-icon"></Label>
+                <Label text="Playlists" class="card-title"></Label>
+            </StackLayout>
+
+        </GridLayout>
+
+        <Label
+            text="M3U • Xtream Codes • Streaming"
+            class="footer">
+        </Label>
+
+    </StackLayout>
+</ScrollView>
