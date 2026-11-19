@@ -59,7 +59,8 @@ L'application s'est lancée sur mon émulateur Android et la nouvelle liste s'af
 
 <img width="825" height="544" alt="image" src="https://github.com/user-attachments/assets/9ce35ac9-754d-4127-bbc6-bf41074c57c9" />
 
-<img width="743" height="403" alt="image" src="https://github.com/user-attachments/assets/eb67240a-6aac-4a9f-9149-62caf7f60fed" />
+<img width="900" height="791" alt="image" src="https://github.com/user-attachments/assets/b238c948-1c52-4040-9fd5-2ce440eeb64a" />
+
 
 ## 7. Vérification de la page de détails
 
