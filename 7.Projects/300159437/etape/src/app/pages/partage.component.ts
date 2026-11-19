@@ -42,7 +42,7 @@ import { preparerPage, segments } from '../shared/ui';
               <StackLayout class="seg seg-sombre" flexGrow="1" [class.seg-plein]="s.plein"></StackLayout>
             }
           </FlexboxLayout>
-          <Label class="gris-clair" fontSize="13" marginTop="16" text="#NouvelArrivant #étape"></Label>
+          <Label class="gris-clair" fontSize="13" marginTop="16" text="#NouvelArrivant #Waypoint"></Label>
         </StackLayout>
       </StackLayout>
 
@@ -78,6 +78,6 @@ export class PartageComponent {
       Dialogs.alert({ message: "Impossible de créer l'image. Réessaie.", okButtonText: 'OK' });
       return;
     }
-    shareImage(image, 'Ma progression sur Étape');
+    shareImage(image, 'Ma progression sur Waypoint');
   }
 }

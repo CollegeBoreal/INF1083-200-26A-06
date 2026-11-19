@@ -29,6 +29,15 @@ export class ParcoursService {
     return JSON.parse(ApplicationSettings.getString(CLE_FAITES, '[]'));
   }
 
+  /** Pour la synchronisation en ligne. */
+  faitesListe(): string[] {
+    return this.faites();
+  }
+
+  remplacerFaites(ids: string[]): void {
+    ApplicationSettings.setString(CLE_FAITES, JSON.stringify(ids));
+  }
+
   estFaite(id: string): boolean {
     return this.faites().includes(id);
   }

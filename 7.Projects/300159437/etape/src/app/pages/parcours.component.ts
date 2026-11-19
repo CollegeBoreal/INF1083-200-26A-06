@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angular';
-import { Dialogs, Page } from '@nativescript/core';
+import { Page } from '@nativescript/core';
 import { Etape } from '../models';
 import { BarreNavComponent } from '../shared/barre-nav.component';
 import { LogoComponent } from '../shared/logo.component';
@@ -19,7 +19,7 @@ import { ProfilService } from '../services/profil.service';
         <StackLayout class="page">
           <GridLayout columns="*, auto" class="entree" marginTop="4">
             <StackLayout col="0" horizontalAlignment="left"><logo-etape [avecNom]="false"></logo-etape></StackLayout>
-            <GridLayout col="1" class="rond-btn" (tap)="changerProfil()">
+            <GridLayout col="1" class="rond-btn" (tap)="ouvrirCompte()">
               <Label class="ico rond-ico" text="&#xe7fd;"></Label>
             </GridLayout>
           </GridLayout>
@@ -116,16 +116,7 @@ export class ParcoursComponent {
     this.router.navigate(['/etape', e.id], { transition: { name: 'slideLeft', duration: 250 } });
   }
 
-  async changerProfil(): Promise<void> {
-    const ok = await Dialogs.confirm({
-      title: 'Recommencer ?',
-      message: 'Tu vas répondre de nouveau aux 3 questions. Tes documents restent dans ton coffre.',
-      okButtonText: 'Recommencer',
-      cancelButtonText: 'Annuler',
-    });
-    if (ok) {
-      this.profil.effacer();
-      this.router.navigate(['/bienvenue'], { clearHistory: true });
-    }
+  ouvrirCompte(): void {
+    this.router.navigate(['/compte'], { transition: { name: 'slideLeft', duration: 250 } });
   }
 }

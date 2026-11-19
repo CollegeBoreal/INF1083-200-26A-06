@@ -1,7 +1,7 @@
 import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptCommonModule } from '@nativescript/angular';
 
-/** Logo Étape : trois marches + un point, et le mot « étape ». */
+/** Logo Waypoint : trois marches + un point de repère, et le mot « waypoint ». */
 @Component({
   selector: 'logo-etape',
   standalone: true,
@@ -22,8 +22,8 @@ import { NativeScriptCommonModule } from '@nativescript/angular';
       @if (avecNom) {
         <Label class="logo-nom" [class.logo-nom-clair]="!clair" verticalAlignment="center">
           <FormattedString>
-            <Span text="é" class="accent-texte"></Span>
-            <Span text="tape"></Span>
+            <Span text="way"></Span>
+            <Span text="point" class="accent-texte"></Span>
           </FormattedString>
         </Label>
       }

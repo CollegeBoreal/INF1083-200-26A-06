@@ -25,7 +25,7 @@ import { preparerPage } from '../shared/ui';
               <Label class="oeil" text="EN VIDÉO"></Label>
               <Label class="titre-moyen" [text]="etape.titre" textWrap="true"></Label>
               <Label class="texte" marginTop="8" textWrap="true"
-                     text="Des nouveaux arrivants qui l'ont déjà fait. Vidéos choisies et vérifiées par Étape."></Label>
+                     text="Des nouveaux arrivants qui l'ont déjà fait. Vidéos choisies et vérifiées par Waypoint."></Label>
             </StackLayout>
 
             <!-- Onglets TikTok / YouTube -->

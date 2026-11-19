@@ -4,6 +4,7 @@ import { Dialogs, Page } from '@nativescript/core';
 import { NOMS_STATUTS, Province, Statut } from '../models';
 import { ProfilService } from '../services/profil.service';
 import { ParcoursService } from '../services/parcours.service';
+import { SyncService } from '../services/sync.service';
 import { LogoComponent } from '../shared/logo.component';
 import { preparerPage } from '../shared/ui';
 
@@ -83,7 +84,8 @@ export class BienvenueComponent {
     page: Page,
     private profil: ProfilService,
     private parcours: ParcoursService,
-    private router: RouterExtensions
+    private router: RouterExtensions,
+    private sync: SyncService
   ) {
     preparerPage(page);
   }
@@ -101,6 +103,7 @@ export class BienvenueComponent {
       statut: this.statut,
       arrivee: new Date().toISOString(),
     });
+    this.sync.envoyer();
     this.router.navigate(['/parcours'], { clearHistory: true, transition: { name: 'slideLeft', duration: 250 } });
   }
 }

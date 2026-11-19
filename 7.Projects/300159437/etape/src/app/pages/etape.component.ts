@@ -6,6 +6,7 @@ import { Etape, NOMS_DOCS, TypeDoc } from '../models';
 import { CoffreService } from '../services/coffre.service';
 import { ParcoursService } from '../services/parcours.service';
 import { ProfilService } from '../services/profil.service';
+import { SyncService } from '../services/sync.service';
 import { ouvrirCarte } from '../shared/outils';
 import { preparerPage } from '../shared/ui';
 
@@ -115,7 +116,8 @@ export class EtapeComponent {
     public router: RouterExtensions,
     private parcours: ParcoursService,
     private coffre: CoffreService,
-    private profil: ProfilService
+    private profil: ProfilService,
+    private sync: SyncService
   ) {
     preparerPage(page, '#FFFFFF');
     const id = route.snapshot.params['id'];
@@ -137,6 +139,7 @@ export class EtapeComponent {
   basculer(): void {
     if (!this.etape) return;
     this.parcours.basculer(this.etape.id);
+    this.sync.envoyer(); // sauvegarde en ligne (si connecté), sans attendre
     this.router.back();
   }
 

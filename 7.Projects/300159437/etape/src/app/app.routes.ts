@@ -7,9 +7,13 @@ import { CoffreComponent } from './pages/coffre.component';
 import { PresDeMoiComponent } from './pages/pres-de-moi.component';
 import { VideosComponent } from './pages/videos.component';
 import { PartageComponent } from './pages/partage.component';
+import { ConnexionComponent } from './pages/connexion.component';
+import { CompteComponent } from './pages/compte.component';
 
 export const routes: Routes = [
   { path: '', component: DemarrageComponent },
+  { path: 'connexion', component: ConnexionComponent },
+  { path: 'compte', component: CompteComponent },
   { path: 'bienvenue', component: BienvenueComponent },
   { path: 'parcours', component: ParcoursComponent },
   { path: 'etape/:id', component: EtapeComponent },
