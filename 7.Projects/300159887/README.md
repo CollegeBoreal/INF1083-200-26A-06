@@ -115,6 +115,6 @@ Le TP 7 a permis de concevoir une application mobile NativeScript/Angular compor
 
 
 
-il ou
+
 
 
