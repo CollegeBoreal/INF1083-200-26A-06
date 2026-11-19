@@ -1,5 +1,5 @@
 {
-  "name": "etape",
+  "name": "waypoint",
   "main": "./src/main.ts",
   "version": "1.0.0",
   "private": true,
