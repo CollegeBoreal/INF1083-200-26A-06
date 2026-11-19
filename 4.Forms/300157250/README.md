@@ -59,3 +59,38 @@ onButtonTap(email: string, username: string) {
 }
 ```
 
+
+## Résultat obtenu
+
+Après avoir saisi les informations suivantes :
+
+- Email : Jeanpierre225@gmail.com
+- Username : Emmanuel
+
+La console affiche :
+
+```json
+{
+  "email": "Jeanpierre225@gmail.com",
+  "username": "Emmanuel"
+}
+```
+
+---
+
+## Captures d'écran
+
+### Formulaire
+
+<img width="564" height="810" alt="forme 1" src="https://github.com/user-attachments/assets/6a5277c6-e181-4c3d-9fb1-b89d64f8a2a2" />
+
+### Résultat dans la console
+<img width="500" height="16" alt="forme 2 " src="https://github.com/user-attachments/assets/2f1f4b43-90df-442b-b720-ffaf54d60f2b" />
+
+
+---
+
+## Conclusion
+
+Ce laboratoire m'a permis de comprendre comment créer un formulaire simple avec Angular et NativeScript, récupérer les données saisies par l'utilisateur et afficher les résultats dans la console.
+
