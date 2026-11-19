@@ -5,6 +5,10 @@
 
 ## Animation déclarative (Home)
 
+mkdir 300160006
+cd 300160006
+mkdir images
+New-Item README.md
 L'animation est faite en CSS. Le bouton `{N}` passe du rouge au vert en 2 secondes.
 
 Fichiers modifiés : `home.component.html`, `home.component.scss` (nouveau) et `home.component.ts` (ajout de `styleUrls`).
