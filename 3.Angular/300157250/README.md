@@ -176,7 +176,8 @@ git push origin main
 ## Angular CLI
 
 ```html
-<img src="images/angular-cli.png" width="800">
+<img width="809" height="471" alt="angular-cli" src="https://github.com/user-attachments/assets/ba7db092-b6f6-4d1b-a183-ffaf313e4ca7" />
+
 ```
 
 ---
@@ -184,23 +185,19 @@ git push origin main
 ## Création du projet Angular
 
 ```html
-<img src="images/creation-projet-angular.png" width="800">
-```
+<img width="824" height="83" alt="creation-projet-angular" src="https://github.com/user-attachments/assets/e3db09c4-183e-43b3-8fa6-82ca37fd7570" />
+
 
 ---
 
-## Création du composant accueil
-
-```html
-<img src="images/ng-serve.png" width="800">
-```
 
 ---
 
 ## Exécution avec ng serve
 
 ```html
-<<img src="images/ng-serve.png" width="800">
+<img width="868" height="196" alt="ng-serve" src="https://github.com/user-attachments/assets/cd9fd96f-3e93-4f7e-9005-9ebef07ba7ce" />
+
 
 ```
 
@@ -209,39 +206,14 @@ git push origin main
 ## Application Angular
 
 ```html
-<img src="images/application-angular.png" width="800">
+<img width="1470" height="956" alt="application-angular" src="https://github.com/user-attachments/assets/f390b22b-024c-47fb-a94f-8007e5f388cb" />
+
 ```
 
 ---
 
-## Ajout d'un nom
 
-```html
-<img src="images/ajout-nom.png" width="800">
-```
 
----
-
-## Recherche d'un nom
-
-```html
-<img src="images/recherche-nom.png" width="800">
-```
-
----
-
-## Suppression d'un nom
-
-```html
-<img src="images/suppression-nom.png" width="800">
-```
-
----
-
-## Bouton Bonjour
-
-```html
-<img src="images/bonjour.png" width="800">
 ```
 
 ---

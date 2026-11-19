@@ -1,0 +1,84 @@
+
+<ScrollView>
+  <StackLayout [formGroup]="signUpForm" padding="20" backgroundColor="white">
+
+    <Label
+      text="Welcome"
+      fontSize="28"
+      fontWeight="bold"
+      textAlignment="center"
+      marginTop="30">
+    </Label>
+
+    <Label
+      text="Create your account"
+      fontSize="15"
+      color="gray"
+      textAlignment="center"
+      marginBottom="30">
+    </Label>
+
+    <!-- Email -->
+    <Label text="EMAIL ADDRESS"></Label>
+    <TextField
+      formControlName="email"
+      hint="Enter your email"
+      keyboardType="email">
+    </TextField>
+
+    <!-- Username -->
+    <Label text="USERNAME" marginTop="15"></Label>
+    <TextField
+      formControlName="username"
+      hint="Enter your username">
+    </TextField>
+
+    <!-- Password -->
+    <Label text="PASSWORD" marginTop="15"></Label>
+    <TextField
+      formControlName="password"
+      hint="Enter your password"
+      [secure]="!showPassword">
+    </TextField>
+
+    <Button
+      [text]="showPassword ? 'Hide' : 'Show'"
+      (tap)="togglePassword()">
+    </Button>
+
+    <!-- Confirm Password -->
+    <Label text="CONFIRM PASSWORD" marginTop="15"></Label>
+    <TextField
+      formControlName="confirmPassword"
+      hint="Confirm your password"
+      secure="true">
+    </TextField>
+
+    <!-- Sign Up -->
+    <Button
+      text="SIGN UP"
+      backgroundColor="#2563EB"
+      color="white"
+      marginTop="25"
+      (tap)="onButtonTap()">
+    </Button>
+
+    <!-- Reset -->
+    <Button
+      text="RESET"
+      marginTop="10"
+      (tap)="resetForm()">
+    </Button>
+
+    <!-- Message -->
+    <Label
+      [text]="message"
+      [color]="messageColor"
+      textAlignment="center"
+      textWrap="true"
+      marginTop="15">
+    </Label>
+
+  </StackLayout>
+</ScrollView>
+

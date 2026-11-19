@@ -1,0 +1,48 @@
+<ActionBar class="action-bar">
+    <NavigationButton visibility="hidden"></NavigationButton>
+    <GridLayout columns="50, *">
+        <Label class="action-bar-title" text="Browse" colSpan="2"></Label>
+        <Label
+            class="fas"
+            text="&#xf0c9;"
+            color="#FFFFFF"
+            fontSize="22"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+    </GridLayout>
+</ActionBar>
+
+<GridLayout class="page__content">
+    <StackLayout>
+        <Label
+            text="algerie"
+            color="#FFFFFF"
+            fontSize="24"
+            textAlignment="center"
+            marginBottom="20">
+        </Label>
+
+        <AbsoluteLayout
+            width="300"
+            height="300"
+            class="bg-primary m-15"
+            borderRadius="20">
+            <Label
+                #cible
+                text="🇩🇿"
+                fontSize="110"
+                textAlignment="center"
+                verticalAlignment="middle"
+                width="300"
+                height="300">
+            </Label>
+        </AbsoluteLayout>
+
+        <Button
+            text="Animate"
+            (tap)="animate($any(cible))"
+            class="btn btn-primary btn-active"
+            color="#FFFFFF">
+        </Button>
+    </StackLayout>
+</GridLayout>
