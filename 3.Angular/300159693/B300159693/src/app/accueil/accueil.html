@@ -1,0 +1,16 @@
+ 
+<h1>Bienvenue dans INF1083</h1>
+
+<h2>Liste des étudiants</h2>
+
+<ul>
+  @for (etudiant of etudiants; track etudiant) {
+    <li>{{ etudiant }}</li>
+  }
+</ul>
+
+<button (click)="afficherMessage()">Afficher le message</button>
+
+<p>{{ message }}</p>
+
+ 
