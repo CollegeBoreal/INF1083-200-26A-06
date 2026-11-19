@@ -161,7 +161,7 @@ Le bouton utilise directement cette animation dans son style SCSS.
 Lors de l'affichage de la page Home, le bouton passe progressivement du violet au bleu.
 
 
-<img width="332" height="717" alt="Screenshot 2026-11-19 110028" src="https://github.com/user-attachments/assets/77b98006-f5a6-4382-b3ad-e36b4f66e1da" />
+<img width="662" height="1436" alt="ScreenRecording2026-11-19111210-ezgif com-video-to-gif-converter" src="https://github.com/user-attachments/assets/b080dd9c-4960-44c1-b412-3f7bfc9f99c1" /> 
 
 **Capture — Code de l'animation déclarative**
 
