@@ -5,12 +5,12 @@
 
 ## Animation déclarative (Home)
 
-`` powershell
+```powershell
 mkdir 300160006
 cd 300160006
 mkdir images
 New-Item README.md
-``
+```
 
 L'animation est faite en CSS. Le bouton `{N}` passe du rouge au vert en 2 secondes.
 
