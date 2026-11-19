@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ================================================================
+   Étape — design
+   Encre #141414 · Accent #C8361E · Fond #F4F4F2 · Blanc #FFFFFF
+   Polices : Inter (src/fonts/Inter-*.ttf) et Material Icons
+   (src/fonts/MaterialIcons-Regular.ttf). Voir README.
+   ================================================================ */
+
+Page, .r { font-family: "Inter", "Inter-Regular"; color: #141414; }
+.sb { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; }
+.b  { font-family: "Inter", "Inter-Bold"; font-weight: bold; }
+.xb { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; }
+
+.ico { font-family: "Material Icons", "MaterialIcons-Regular"; font-size: 22; }
+
+/* ---------- Animations d'entrée ---------- */
+@keyframes entree {
+  from { opacity: 0; transform: translate(0, 18); }
+  to   { opacity: 1; transform: translate(0, 0); }
+}
+.entree   { animation-name: entree; animation-duration: 420; animation-timing-function: ease-out; animation-fill-mode: forwards; }
+.entree-2 { animation-name: entree; animation-duration: 420; animation-delay: 80;  animation-timing-function: ease-out; animation-fill-mode: forwards; opacity: 0; }
+.entree-3 { animation-name: entree; animation-duration: 420; animation-delay: 160; animation-timing-function: ease-out; animation-fill-mode: forwards; opacity: 0; }
+
+/* ---------- Mise en page ---------- */
+.fond { background-color: #F4F4F2; }
+.fond-blanc { background-color: #FFFFFF; }
+.page { padding: 16 20 28 20; }
+.pied { padding: 12 20 24 20; background-color: #F4F4F2; }
+.pied-blanc { padding: 12 20 24 20; background-color: #FFFFFF; }
+
+/* ---------- Texte ---------- */
+.titre { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; font-size: 32; color: #141414; letter-spacing: -0.02; line-height: 2; }
+.titre-moyen { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; font-size: 28; color: #141414; letter-spacing: -0.02; }
+.sur-titre { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 15; color: #5F6368; margin-bottom: 2; }
+.texte { font-size: 16; color: #5F6368; line-height: 4; }
+.petit { font-size: 13; color: #5F6368; }
+.etiquette { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 12; color: #5F6368; letter-spacing: 0.06; margin: 24 0 10 4; }
+.oeil { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 12; color: #C8361E; letter-spacing: 0.08; margin-bottom: 6; }
+.oeil-clair { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 12; color: #FFB4A6; letter-spacing: 0.08; }
+.accent-texte { color: #C8361E; }
+.blanc { color: #FFFFFF; }
+.gris-clair { color: #BDBDB8; }
+.centre { text-align: center; }
+
+/* ---------- Logo ---------- */
+.logo-tuile { width: 48; height: 48; border-radius: 13; background-color: #141414; }
+.logo-tuile-clair { background-color: #FFFFFF; }
+.marche { width: 7; border-radius: 2; background-color: #FFFFFF; margin: 0 1.5; }
+.marche-sombre { background-color: #141414; }
+.marche-1 { height: 9; }
+.marche-2 { height: 16; }
+.marche-3 { height: 21; }
+.point { width: 6; height: 6; border-radius: 3; background-color: #C8361E; margin-bottom: 2; }
+.logo-nom { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; font-size: 26; color: #FFFFFF; margin-left: 10; letter-spacing: -0.03; }
+.logo-nom-clair { color: #141414; }
+
+/* ---------- Boutons (zone tactile ≥ 48) ---------- */
+.btn { height: 56; border-radius: 16; padding: 0 18; }
+.btn-accent { background-color: #C8361E; }
+.btn-noir { background-color: #141414; }
+.btn-gris { background-color: #EAEAE6; }
+.btn-blanc { background-color: #FFFFFF; border-width: 1; border-color: #DADAD6; }
+.btn-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 16; color: #FFFFFF; }
+.btn-txt-noir { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 16; color: #141414; }
+.btn-ico { font-size: 20; color: #FFFFFF; margin-right: 8; }
+.btn-ico-noir { font-size: 20; color: #141414; margin-right: 8; }
+
+.rond-btn { width: 44; height: 44; border-radius: 22; background-color: #FFFFFF; }
+.rond-btn-gris { width: 44; height: 44; border-radius: 22; background-color: #F4F4F2; }
+.rond-btn-noir { width: 48; height: 48; border-radius: 24; background-color: #141414; }
+.rond-ico { font-size: 24; color: #141414; text-align: center; vertical-align: center; }
+.rond-ico-blanc { font-size: 26; color: #FFFFFF; text-align: center; vertical-align: center; }
+
+/* ---------- Champs & pastilles ---------- */
+.question { background-color: #FFFFFF; border-radius: 20; padding: 18; margin-bottom: 12; }
+.q-num { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 12; color: #C8361E; letter-spacing: 0.06; }
+.q-titre { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 18; color: #141414; margin: 4 0 12 0; }
+.champ {
+  height: 52; padding: 0 16; font-size: 17; color: #141414;
+  background-color: #F4F4F2; border-radius: 14; border-width: 0; placeholder-color: #8C8C87;
+}
+.champ-espace { margin-top: 8; }
+.pastille { height: 44; border-radius: 22; padding: 0 16; background-color: #F4F4F2; margin: 0 8 8 0; }
+.pastille-active { background-color: #141414; }
+.pastille-txt { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 15; color: #141414; vertical-align: center; }
+.pastille-txt-actif { color: #FFFFFF; }
+
+/* ---------- Progression en segments ---------- */
+.segments { margin: 14 0 4 0; }
+.seg { height: 6; border-radius: 3; background-color: #DADAD6; margin-right: 4; }
+.seg-plein { background-color: #C8361E; }
+.seg-sombre { background-color: #3A3A3A; }
+
+/* ---------- Cartes ---------- */
+.carte { background-color: #FFFFFF; border-radius: 20; padding: 18; box-shadow: 0 2 12 rgba(20, 20, 20, 0.06); }
+.carte-noire { background-color: #141414; border-radius: 24; padding: 22; margin-top: 18; box-shadow: 0 8 24 rgba(20, 20, 20, 0.18); }
+.carte-gris { background-color: #F4F4F2; border-radius: 18; padding: 16; }
+.carte-alerte { background-color: #FFFFFF; border-radius: 20; padding: 16; margin-top: 16; border-width: 2; border-color: #C8361E; }
+.carte-titre { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; font-size: 23; color: #FFFFFF; margin: 8 0 10 0; letter-spacing: -0.02; }
+.meta { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 14; color: #D6D6D2; vertical-align: center; }
+.meta-ico { font-size: 17; color: #D6D6D2; margin-right: 5; vertical-align: center; }
+
+.puce { height: 32; border-radius: 16; padding: 0 12; background-color: #F4F4F2; margin-right: 8; }
+.puce-ico { font-size: 16; color: #141414; margin-right: 5; vertical-align: center; }
+.puce-txt { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 13; color: #141414; vertical-align: center; }
+
+/* ---------- Listes ---------- */
+.liste { background-color: #FFFFFF; border-radius: 20; padding: 2 16; box-shadow: 0 2 12 rgba(20, 20, 20, 0.05); }
+.liste-bordee { border-width: 1; border-color: #E8E8E4; border-radius: 20; padding: 2 16; }
+.ligne { min-height: 60; padding: 12 0; border-bottom-width: 1; border-bottom-color: #F0F0EC; }
+.ligne-derniere { border-bottom-width: 0; }
+.ligne-txt { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 16; color: #141414; vertical-align: center; }
+.ligne-txt-fait { color: #8C8C87; text-decoration: line-through; }
+.chevron { font-size: 22; color: #BDBDB8; vertical-align: center; }
+
+.coche { width: 28; height: 28; border-radius: 14; border-width: 2; border-color: #CFCFCA; margin-right: 14; vertical-align: center; }
+.coche-faite { background-color: #141414; border-color: #141414; }
+.coche-ico { font-size: 17; color: #FFFFFF; text-align: center; vertical-align: center; }
+
+.tuile-ico { width: 44; height: 44; border-radius: 13; background-color: #F4F4F2; margin-right: 14; vertical-align: center; }
+.tuile-ico-noire { background-color: #141414; }
+.tuile-ico-rouge { background-color: #FBE3DE; }
+.tuile-ico-txt { font-size: 22; color: #141414; text-align: center; vertical-align: center; }
+
+.badge { height: 26; border-radius: 13; padding: 0 10; background-color: #EDEDEA; vertical-align: center; }
+.badge-manquant { background-color: #FBE3DE; }
+.badge-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 12; color: #141414; vertical-align: center; }
+.badge-txt-manquant { color: #8F2414; }
+
+.numero { width: 28; height: 28; border-radius: 14; background-color: #141414; margin-right: 14; vertical-align: top; }
+.numero-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 13; color: #FFFFFF; text-align: center; vertical-align: center; }
+.etape-txt { font-size: 16; color: #141414; line-height: 4; }
+.etape-ligne { margin-bottom: 14; }
+
+/* ---------- Coffre ---------- */
+.doc { width: 48%; background-color: #FFFFFF; border-radius: 20; padding: 16; margin-bottom: 12; box-shadow: 0 2 12 rgba(20, 20, 20, 0.05); }
+.doc-image { width: 44; height: 44; border-radius: 12; }
+.doc-nom { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 15; color: #141414; margin-top: 22; }
+.doc-meta { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 12; color: #5F6368; margin-top: 2; }
+.doc-meta-rouge { color: #8F2414; }
+.vide-ico { font-size: 56; color: #BDBDB8; text-align: center; margin-top: 40; }
+
+/* ---------- Vidéos ---------- */
+.video { width: 48%; margin-bottom: 14; }
+.video-cadre { height: 230; border-radius: 18; background-color: #2A2A2A; }
+.video-play { width: 52; height: 52; border-radius: 26; background-color: rgba(255, 255, 255, 0.92); }
+.video-titre { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 14; color: #141414; margin-top: 8; }
+
+/* ---------- Partage ---------- */
+.carte-partage { width: 270; height: 480; background-color: #141414; border-radius: 28; padding: 28 24; box-shadow: 0 16 40 rgba(20, 20, 20, 0.25); }
+.gros-chiffre { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; font-size: 76; color: #FFFFFF; letter-spacing: -0.04; }
+.partage-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 20; color: #FFFFFF; }
+
+/* ---------- Barre de navigation ---------- */
+.nav { background-color: #FFFFFF; border-top-width: 1; border-top-color: #EAEAE6; padding: 8 0 18 0; }
+.nav-item { padding-top: 2; }
+.nav-ico { font-size: 25; color: #8C8C87; text-align: center; }
+.nav-txt { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 11; color: #8C8C87; text-align: center; margin-top: 2; }
+.nav-actif { color: #C8361E; }
+.video-cadre-yt { height: 120; background-color: #3A2A2A; }
