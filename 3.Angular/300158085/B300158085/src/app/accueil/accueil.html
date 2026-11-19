@@ -1,0 +1,52 @@
+<h1>{{ titre }}</h1>
+
+<p>{{ nom }}</p>
+
+<app-bienvenue></app-bienvenue>
+
+<div *ngIf="connecte">
+  Connecté
+</div>
+
+<p>
+  <button type="button" (click)="saluer()">
+    Cliquez-moi
+  </button>
+</p>
+
+<h2>Liste des étudiants</h2>
+
+<label for="nom-etudiant">Nom de l’étudiant :</label>
+<input
+  id="nom-etudiant"
+  type="text"
+  #nouveauNom
+  placeholder="Écrire un nom"
+>
+
+<button type="button" (click)="ajouter(nouveauNom)">
+  Ajouter
+</button>
+
+<ul>
+  <li *ngFor="let etudiant of etudiants(); let i = index">
+    {{ etudiant }}
+    <button type="button" (click)="supprimer(i)">
+      Supprimer
+    </button>
+  </li>
+</ul>
+
+<h2>Utilisateurs de l’API REST</h2>
+
+<button type="button" (click)="chargerUtilisateurs()">
+  Charger les utilisateurs
+</button>
+
+<p>{{ messageApi() }}</p>
+
+<ul>
+  <li *ngFor="let utilisateur of utilisateurs()">
+    {{ utilisateur.name }} — {{ utilisateur.email }}
+  </li>
+</ul>
