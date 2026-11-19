@@ -1,0 +1,89 @@
+
+<ActionBar class="action-bar">
+    <NavigationButton visibility="hidden"></NavigationButton>
+    <GridLayout columns="50, *">
+        <Label
+            class="action-bar-title"
+            text="Browse"
+            colSpan="2">
+        </Label>
+
+        <Label
+            class="fas"
+            text="&#xf0c9;"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+    </GridLayout>
+</ActionBar>
+
+<ScrollView>
+    <StackLayout
+        backgroundColor="#080F1F"
+        padding="20">
+
+        <Label
+            text="ANIMATION LAB"
+            color="#38BDF8"
+            fontSize="14"
+            fontWeight="bold"
+            textAlignment="center"
+            marginTop="25">
+        </Label>
+
+        <Label
+            text="Imperative Animation"
+            color="#FFFFFF"
+            fontSize="24"
+            fontWeight="bold"
+            textAlignment="center"
+            marginTop="10"
+            marginBottom="25">
+        </Label>
+
+        <AbsoluteLayout
+            width="300"
+            height="300"
+            backgroundColor="#101D35"
+            borderRadius="20">
+
+            <Label
+                #cible
+                text="&lt;/&gt;"
+                width="80"
+                height="80"
+                left="110"
+                top="110"
+                color="#38BDF8"
+                backgroundColor="#172B4D"
+                borderRadius="16"
+                fontSize="28"
+                fontWeight="bold"
+                textAlignment="center"
+                verticalAlignment="middle">
+            </Label>
+
+        </AbsoluteLayout>
+
+        <Button
+            text="Animate"
+            (tap)="animate($any(cible))"
+            backgroundColor="#0066FF"
+            color="#FFFFFF"
+            fontSize="17"
+            fontWeight="bold"
+            borderRadius="12"
+            height="56"
+            marginTop="30">
+        </Button>
+
+        <Label
+            text="Opacity - Translation - Scale - Rotation"
+            color="#94A3B8"
+            fontSize="12"
+            textAlignment="center"
+            textWrap="true"
+            marginTop="20">
+        </Label>
+
+    </StackLayout>
+</ScrollView>
