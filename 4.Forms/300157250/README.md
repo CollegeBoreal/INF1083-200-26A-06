@@ -1,99 +1,96 @@
-🚀 Créer votre répertoire
- Créer un répertoire avec son 🆔 et ajouter le fichier README.md et un répertoire images 🖼️
-🎯 Objectif
-À la fin de ce laboratoire, vous serez capable de :
+# Laboratoire 8 - Forms
 
-Comprendre le 'layout'
-Comprendre les 'forms' d'Angular
-🖼️ layout-containers
-Mastering NativeScript Layouts - Brad Martin
+## Étudiant
 
-🧮 Forms
-2 examples de Forms en Angular:
+- Nom : Emmanuel N'Goran
+- Numéro étudiant : 300157250
 
- ReactiveForms - ce module
+---
 
- Template Driven Forms - le module RxJS
+## Objectif
 
-ReactiveForms
-https://nativescript.org/blog/angular-10-support/
+L'objectif de ce laboratoire est de comprendre le fonctionnement des formulaires avec Angular et NativeScript.
 
-tns v7.0.1	Patrons
-ns create B🆔 --template @nativescript/template-blank-ng	Hello World
-0️⃣ Naviguer vers votre projet et pour l'éditer avec ⌨️ vsc, taper:
+---
 
-code .
-1️⃣ ReactiveForms
+## Réalisation
 
-Open up home component template home.component.html replace <GridLayout> by the following :
+Dans ce laboratoire, j'ai créé une application contenant :
 
-⌨️ Dans vsc Ouvrir un fichier -> Ctrl p 💻 Windows ou ⌘ p 🍎 MacOS
+- Un champ Email
+- Un champ Username
+- Un bouton Sign Up
 
-<StackLayout [formGroup]="signUpForm">
-    <TextField formControlName="email" hint="Email" keyboardType="email"></TextField>
-    <TextField formControlName="username" hint="Username"></TextField>
-    <Button text="sign up" (tap)="onButtonTap()"></Button>
+Lorsque l'utilisateur remplit le formulaire et clique sur le bouton **Sign Up**, les informations saisies sont récupérées et affichées dans la console au format JSON.
+
+---
+
+## Code utilisé
+
+### home.component.html
+
+```html
+<ActionBar>
+    <Label text="Home"></Label>
+</ActionBar>
+
+<StackLayout>
+    <TextField #email hint="Email"></TextField>
+
+    <TextField #username hint="Username"></TextField>
+
+    <Button
+        text="sign up"
+        (tap)="onButtonTap(email.text, username.text)">
+    </Button>
 </StackLayout>
-💡 Angular Event Binding
+```
 
+### home.component.ts
 
-
-Add the formBuilder variable to the home component constructor
-    constructor(private formBuilder: FormBuilder) {
-        // Use the component constructor to inject providers.
-    }
-⌨️ Dans vsc Quick Fix -> Ctrl . 💻 Windows ou ⌘ . 🍎 MacOS
-
-Add the signUpForm: FormGroup; attribute to the home component
-   signUpForm: FormGroup;
-Add the signUpForm initialization in ngOnInit method
-        // Init your component properties here.
-        this.signUpForm = this.formBuilder.group({
-            email: ["", Validators.required],
-            username: ["", Validators.required],
-        });
-Add the onButtonTap method
-    onButtonTap() {
-        console.log(JSON.stringify(this.signUpForm.value));
-    }
-💡 Final Result
-
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  NativeScriptCommonModule,
-  NativeScriptRouterModule,
-} from '@nativescript/angular';
-
-@Component({
-  selector: 'Home',
-  templateUrl: './home.component.html',
-  imports: [NativeScriptCommonModule, NativeScriptRouterModule],
-  schemas: [NO_ERRORS_SCHEMA],
-})
-export class HomeComponent {
-
-    signUpForm: FormGroup;
-
-    constructor(private formBuilder: FormBuilder) {
-        // Use the component constructor to inject providers.
-    }
-
-    ngOnInit(): void {
-              // Init your component properties here.
-        this.signUpForm = this.formBuilder.group({
-            email: ["", Validators.required],
-            username: ["", Validators.required],
-        });
-    }
-
-    onButtonTap() {
-       console.log(JSON.stringify(this.signUpForm.value));
-    }
-
+```ts
+onButtonTap(email: string, username: string) {
+    console.log(
+        JSON.stringify({
+            email: email,
+            username: username,
+        })
+    );
 }
-🫵 Résultat:
-L'exercice est d'afficher le courriel et l'utilisateur dans la console.
+```
 
-📚 References
-[] NativeScript Application Templates
+
+## Résultat obtenu
+
+Après avoir saisi les informations suivantes :
+
+- Email : Jeanpierre225@gmail.com
+- Username : Emmanuel
+
+La console affiche :
+
+```json
+{
+  "email": "Jeanpierre225@gmail.com",
+  "username": "Emmanuel"
+}
+```
+
+---
+
+## Captures d'écran
+
+### Formulaire
+
+<img width="564" height="810" alt="forme 1" src="https://github.com/user-attachments/assets/6a5277c6-e181-4c3d-9fb1-b89d64f8a2a2" />
+
+### Résultat dans la console
+<img width="500" height="16" alt="forme 2 " src="https://github.com/user-attachments/assets/2f1f4b43-90df-442b-b720-ffaf54d60f2b" />
+
+
+---
+
+## Conclusion
+
+Ce laboratoire m'a permis de comprendre comment créer un formulaire simple avec Angular et NativeScript, récupérer les données saisies par l'utilisateur et afficher les résultats dans la console.
+

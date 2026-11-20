@@ -170,3 +170,93 @@ ns run ios --device 41BC1B09-7BDA-4503-BA23-951242A9C0DB
 ```
 
 L'identifiant correspond au simulateur iPhone 18 Pro utilisé pour mes tests. Sur un autre Mac, il faut utiliser l'identifiant du simulateur disponible.
+
+## Amélioration de mon application World Explorer
+
+Après avoir terminé la première partie du laboratoire, j'ai repris mon application pour y apporter quelques améliorations. La recherche par capitale fonctionnait déjà, mais l'interface était encore assez simple et certaines pages contenaient les éléments du modèle NativeScript.
+
+J'ai donc retravaillé l'application, que j'ai appelée **World Explorer**, pour afficher davantage d'informations sur les pays et permettre à l'utilisateur de conserver ses favoris.
+
+### Page d'accueil
+
+J'ai commencé par modifier l'onglet Home. Au départ, il affichait simplement les éléments « Item 1, Item 2, Item 3… » du modèle NativeScript.
+
+Je les ai remplacés par une page d'accueil présentant cinq pays : la RD Congo, le Canada, la France, le Japon et le Sénégal. Pour chacun, j'ai indiqué le drapeau et la capitale.
+
+J'ai aussi modifié les couleurs, ajouté un message de bienvenue et organisé les informations dans des cartes pour rendre la page plus agréable à consulter.
+
+Les trois onglets portent maintenant les noms **Accueil, Favoris et Recherche**.
+
+![Page d'accueil de World Explorer](images/10_accueil_world_explorer.jpg)
+
+### Recherche des pays
+
+J'ai conservé le principe de mon laboratoire : rechercher un pays à partir du nom de sa capitale.
+
+Le service `ApicallService` utilise toujours cette API :
+
+```text
+https://countries.nexperts.nl/capital/
+```
+
+Au début, l'application affichait uniquement le nom du pays et sa capitale. J'ai ensuite modifié le modèle `Country` et le service pour récupérer aussi le drapeau, la région, la population et les langues.
+
+La recherche passe toujours par `HttpClient` et RxJS. J'ai gardé l'utilisation de `map` pour traiter les données reçues et ajouté une gestion du chargement et des erreurs.
+
+Pendant les essais, j'ai rencontré un problème : les informations arrivaient bien dans le terminal, mais rien ne s'affichait sur l'iPhone.
+
+Après plusieurs vérifications, j'ai remplacé le `ListView` par un `ScrollView` avec `*ngFor`. Les résultats se sont alors affichés correctement.
+
+### Test avec Kinshasa
+
+Pour vérifier les changements, j'ai recherché **Kinshasa** sur le simulateur iPhone 18 Pro.
+
+L'application a affiché la **RD Congo**, avec son drapeau et les informations retournées par l'API.
+
+Dans le terminal, j'ai obtenu :
+
+```text
+Résultats : [ { id: 0, name: "DR Congo", capital: "Kinshasa" } ]
+```
+
+J'ai également vérifié que le résultat restait visible après une nouvelle recherche.
+
+![Recherche de Kinshasa dans World Explorer](images/11_recherche_world_explorer.jpg)
+
+### Enregistrement des favoris
+
+J'ai ensuite travaillé sur l'onglet Browse, qui était vide dans le projet de départ.
+
+J'ai créé le fichier `favorites.service.ts` pour gérer l'enregistrement des pays. J'ai utilisé `ApplicationSettings` de NativeScript afin de conserver les informations localement.
+
+Depuis la page Recherche, il est maintenant possible d'ajouter un pays aux favoris.
+
+Dans l'onglet Favoris, les pays enregistrés apparaissent avec leurs informations et un bouton permettant de les retirer.
+
+J'ai fait le test avec la RD Congo. J'ai pu l'ajouter, retrouver ses informations dans la liste, puis la supprimer.
+
+![RD Congo dans la liste des favoris](images/12_favoris_world_explorer.jpg)
+
+### Exécution et vérification
+
+J'ai effectué mes essais sur le simulateur iPhone 18 Pro avec cette commande :
+
+```bash
+ns run ios --device 41BC1B09-7BDA-4503-BA23-951242A9C0DB
+```
+
+La compilation et la synchronisation de l'application ont réussi.
+
+Pendant l'exécution, quelques avertissements Sass liés à `@nativescript/theme` sont apparus. Ils n'ont pas empêché l'application de fonctionner.
+
+J'ai vérifié les trois pages principales : l'accueil, la recherche et les favoris. J'ai également ajusté l'espacement de l'interface pour éviter que certaines informations soient cachées par la barre de navigation.
+
+### Conclusion
+
+Cette deuxième partie du travail m'a permis d'améliorer l'application que j'avais créée pour le laboratoire.
+
+J'ai pu réutiliser les notions de RxJS vues en cours, travailler davantage avec les données d'une API et découvrir comment enregistrer des informations dans une application NativeScript.
+
+J'ai aussi appris à corriger certains problèmes d'affichage rencontrés sur le simulateur iOS.
+
+L'application est maintenant plus complète : elle permet de rechercher un pays, de consulter ses informations et de l'ajouter à ses favoris.
