@@ -1,0 +1,13 @@
+<TabView androidTabsPosition="bottom">
+  <GridLayout *tabItem="{ title: 'Accueil' }">
+    <page-router-outlet name="homeTab"></page-router-outlet>
+  </GridLayout>
+
+  <GridLayout *tabItem="{ title: 'Favoris' }">
+    <page-router-outlet name="browseTab"></page-router-outlet>
+  </GridLayout>
+
+  <GridLayout *tabItem="{ title: 'Recherche' }">
+    <page-router-outlet name="searchTab"></page-router-outlet>
+  </GridLayout>
+</TabView>
