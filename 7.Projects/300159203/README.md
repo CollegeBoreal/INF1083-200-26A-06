@@ -21,7 +21,7 @@ Les chansons, les pochettes et les extraits audio viennent de l'API iTunes Searc
 viennent de l'API LRCLIB. Les deux sont gratuites et sans clé.
 
 Cette application est une évolution du TP RxJS : le service qui appelle les API est le même, et
-j'y ai ajouté les genres, les paroles, l'extrait audio, les favoris et les animations.
+j'y ai ajouté l'extrait audio et les animations.
 
 ## 🏷️ Nom de l'application
 
