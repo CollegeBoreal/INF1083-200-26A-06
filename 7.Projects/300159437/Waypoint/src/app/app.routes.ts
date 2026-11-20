@@ -9,9 +9,11 @@ import { VideosComponent } from './pages/videos.component';
 import { PartageComponent } from './pages/partage.component';
 import { ConnexionComponent } from './pages/connexion.component';
 import { CompteComponent } from './pages/compte.component';
+import { IntroComponent } from './pages/intro.component';
 
 export const routes: Routes = [
   { path: '', component: DemarrageComponent },
+  { path: 'intro', component: IntroComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'compte', component: CompteComponent },
   { path: 'bienvenue', component: BienvenueComponent },

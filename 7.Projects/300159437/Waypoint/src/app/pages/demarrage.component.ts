@@ -6,7 +6,7 @@ import { ProfilService } from '../services/profil.service';
 import { SyncService } from '../services/sync.service';
 import { preparerPage } from '../shared/ui';
 
-/** Écran de départ : envoie vers Connexion, Bienvenue ou Mon parcours. */
+/** Écran de départ : envoie vers la vidéo d'intro, Bienvenue ou Mon parcours. */
 @Component({
   selector: 'demarrage',
   standalone: true,
@@ -28,7 +28,8 @@ export class DemarrageComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     let cible: string;
     if (!this.auth.connecte && !this.auth.invite) {
-      cible = '/connexion';
+      // Première ouverture : la vidéo d'abord, pas le formulaire de connexion.
+      cible = '/intro';
     } else {
       if (this.auth.connecte) {
         // Récupère la dernière version en ligne, sans bloquer plus de 3 secondes.
