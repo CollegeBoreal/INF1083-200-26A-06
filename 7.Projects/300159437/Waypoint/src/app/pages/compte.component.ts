@@ -3,6 +3,7 @@ import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angula
 import { Dialogs, Page } from '@nativescript/core';
 import { NOMS_STATUTS } from '../models';
 import { AuthService } from '../services/auth.service';
+import { LangueService } from '../services/langue.service';
 import { ProfilService } from '../services/profil.service';
 import { SyncService } from '../services/sync.service';
 import { preparerPage } from '../shared/ui';
@@ -56,6 +57,24 @@ import { preparerPage } from '../shared/ui';
 
         <Label class="etiquette entree-3" text="OPTIONS"></Label>
         <StackLayout class="liste entree-3">
+          <GridLayout columns="auto, *, auto" class="ligne" (tap)="changerLangue()">
+            <GridLayout col="0" class="tuile-ico"><Label class="ico tuile-ico-txt" text="&#xe894;"></Label></GridLayout>
+            <StackLayout col="1" verticalAlignment="center">
+              <Label class="ligne-txt" text="Langue"></Label>
+              <Label class="petit" [text]="nomLangue"></Label>
+            </StackLayout>
+            <Label col="2" class="ico chevron" text="&#xe5cc;"></Label>
+          </GridLayout>
+          <GridLayout columns="auto, *, auto" class="ligne" (tap)="basculerVoix()">
+            <GridLayout col="0" class="tuile-ico">
+              @if (voix) { <Label class="ico tuile-ico-txt" text="&#xe050;"></Label> } @else { <Label class="ico tuile-ico-txt" text="&#xe04f;"></Label> }
+            </GridLayout>
+            <StackLayout col="1" verticalAlignment="center">
+              <Label class="ligne-txt" text="Voix de l'assistant"></Label>
+              <Label class="petit" [text]="voix ? 'Elle te parle quand tu ouvres l’app' : 'Désactivée'"></Label>
+            </StackLayout>
+            <Switch col="2" [checked]="voix" isUserInteractionEnabled="false" class="interrupteur"></Switch>
+          </GridLayout>
           <GridLayout columns="auto, *, auto" class="ligne" [class.ligne-derniere]="!auth.connecte" (tap)="recommencer()">
             <GridLayout col="0" class="tuile-ico"><Label class="ico tuile-ico-txt" text="&#xe042;"></Label></GridLayout>
             <Label col="1" class="ligne-txt" text="Refaire les 3 questions"></Label>
@@ -79,6 +98,8 @@ import { preparerPage } from '../shared/ui';
 export class CompteComponent {
   enCours = false;
   profilTxt = '';
+  nomLangue = '';
+  voix = true;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -86,6 +107,7 @@ export class CompteComponent {
     public auth: AuthService,
     private sync: SyncService,
     private profil: ProfilService,
+    private langue: LangueService,
     public router: RouterExtensions
   ) {
     preparerPage(page);
@@ -103,6 +125,8 @@ export class CompteComponent {
   charger(): void {
     const p = this.profil.get();
     this.profilTxt = p ? `${p.origine} → ${p.ville} · ${NOMS_STATUTS[p.statut]}` : '';
+    this.nomLangue = this.langue.langue().nom;
+    this.voix = this.langue.voixActive;
     this.cdr.markForCheck();
   }
 
@@ -114,6 +138,16 @@ export class CompteComponent {
     this.enCours = false;
     this.cdr.markForCheck();
     if (!ok) Dialogs.alert({ message: 'Impossible de synchroniser. Vérifie ta connexion Internet.', okButtonText: 'OK' });
+  }
+
+  changerLangue(): void {
+    this.router.navigate(['/langue'], { queryParams: { retour: '1' }, transition: { name: 'slideLeft', duration: 250 } });
+  }
+
+  basculerVoix(): void {
+    this.langue.voixActive = !this.langue.voixActive;
+    this.voix = this.langue.voixActive;
+    this.cdr.markForCheck();
   }
 
   seConnecter(): void {

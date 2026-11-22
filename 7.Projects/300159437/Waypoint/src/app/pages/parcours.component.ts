@@ -7,6 +7,8 @@ import { LogoComponent } from '../shared/logo.component';
 import { preparerPage, segments } from '../shared/ui';
 import { ParcoursService } from '../services/parcours.service';
 import { ProfilService } from '../services/profil.service';
+import { LangueService } from '../services/langue.service';
+import { arreterVoix, dureeParole } from '../shared/voix';
 import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
 
 @Component({
@@ -23,6 +25,27 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
             <GridLayout col="1" class="rond-btn" (tap)="ouvrirCompte()">
               <Label class="ico rond-ico" text="&#xe7fd;"></Label>
             </GridLayout>
+          </GridLayout>
+
+          <!-- L'assistant salue à l'ouverture de l'app -->
+          @if (salut) {
+            <GridLayout columns="auto, *, auto" class="carte-voix entree" marginTop="16" (tap)="ouvrirAssistant()">
+              <GridLayout col="0" class="chat-avatar">
+                <Label class="ico chat-avatar-ico" text="&#xe39f;"></Label>
+              </GridLayout>
+              <StackLayout col="1">
+                <FlexboxLayout class="ondes" alignItems="center">
+                  @for (b of barres; track $index) {
+                    <StackLayout class="onde" [class.onde-active]="parle" [height]="b"></StackLayout>
+                  }
+                </FlexboxLayout>
+                <Label class="voix-txt" [text]="salut" textWrap="true" [textAlignment]="rtl ? 'right' : 'left'"></Label>
+              </StackLayout>
+              <GridLayout col="2" class="voix-fermer" verticalAlignment="top" (tap)="fermerSalut()">
+                <Label class="ico voix-rejouer" text="&#xe5cd;"></Label>
+              </GridLayout>
+            </GridLayout>
+          }
 
           <!-- Vidéo de présentation en tête -->
           <GridLayout class="hero entree" [height]="heroHauteur" marginTop="16">
@@ -31,7 +54,6 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
               <StackLayout class="hero-point" verticalAlignment="center"></StackLayout>
               <Label class="hero-pastille-txt" text="DÉCOUVRE WAYPOINT"></Label>
             </StackLayout>
-          </GridLayout>
           </GridLayout>
 
           <StackLayout class="entree" marginTop="20">
@@ -67,6 +89,18 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
               <Label class="meta" text="Bienvenue chez toi." textWrap="true"></Label>
             </StackLayout>
           }
+
+          <!-- Assistant IA -->
+          <GridLayout columns="auto, *, auto" class="carte-ia entree-3" (tap)="ouvrirAssistant()">
+            <GridLayout col="0" class="carte-ia-tuile">
+              <Label class="ico carte-ia-ico" text="&#xe39f;"></Label>
+            </GridLayout>
+            <StackLayout col="1" verticalAlignment="center">
+              <Label class="ligne-txt" text="Une question ?"></Label>
+              <Label class="petit" text="Demande à l'assistant Waypoint" textWrap="true"></Label>
+            </StackLayout>
+            <Label col="2" class="ico chevron" text="&#xe5cc;"></Label>
+          </GridLayout>
 
           <!-- Vidéo à regarder -->
           <StackLayout class="carte-video entree-3" (tap)="voirVideo()">
@@ -117,12 +151,17 @@ export class ParcoursComponent {
   heroHauteur = Math.round(((Screen.mainScreen.widthDIPs || 390) - 40) * 9 / 16);
   private videoPrete = false;
   ville = '';
+  salut = '';
+  rtl = false;
+  parle = false;
+  barres = [14, 24, 32, 20, 28, 16, 26, 12];
 
   constructor(
     private cdr: ChangeDetectorRef,
     page: Page,
     private parcours: ParcoursService,
     private profil: ProfilService,
+    private langue: LangueService,
     private router: RouterExtensions
   ) {
     preparerPage(page);
@@ -138,6 +177,28 @@ export class ParcoursComponent {
     this.jour = this.profil.jour();
     this.ville = this.profil.get()?.ville ?? '';
     this.choisirVideo();
+    this.saluer();
+    this.cdr.markForCheck();
+  }
+
+  /** Une fois par ouverture de l'app, l'assistant salue à voix haute dans la langue choisie. */
+  private saluer(): void {
+    if (this.langue.dejaSalue) return;
+    this.langue.dejaSalue = true;
+    const l = this.langue.langue();
+    this.salut = l.retour(this.prog.total - this.prog.faites);
+    this.rtl = !!l.rtl;
+    this.parle = this.langue.voixActive;
+    setTimeout(() => this.langue.dire(this.salut), 600); // laisse la page s'afficher
+    setTimeout(() => {
+      this.parle = false;
+      this.cdr.markForCheck();
+    }, 600 + dureeParole(this.salut));
+  }
+
+  fermerSalut(): void {
+    arreterVoix();
+    this.salut = '';
     this.cdr.markForCheck();
   }
 
@@ -147,6 +208,11 @@ export class ParcoursComponent {
 
   ouvrir(e: Etape): void {
     this.router.navigate(['/etape', e.id], { transition: { name: 'slideLeft', duration: 250 } });
+  }
+
+  ouvrirAssistant(): void {
+    arreterVoix();
+    this.router.navigate(['/assistant'], { clearHistory: true, transition: { name: 'fade', duration: 180 } });
   }
 
   ouvrirCompte(): void {

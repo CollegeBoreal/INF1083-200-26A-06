@@ -2,11 +2,12 @@ import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angular';
 import { Page } from '@nativescript/core';
 import { AuthService } from '../services/auth.service';
+import { LangueService } from '../services/langue.service';
 import { ProfilService } from '../services/profil.service';
 import { SyncService } from '../services/sync.service';
 import { preparerPage } from '../shared/ui';
 
-/** Écran de départ : envoie vers la vidéo d'intro, Bienvenue ou Mon parcours. */
+/** Écran de départ : envoie vers le choix de langue, la vidéo d'intro, Bienvenue ou Mon parcours. */
 @Component({
   selector: 'demarrage',
   standalone: true,
@@ -18,6 +19,7 @@ export class DemarrageComponent implements OnInit {
   constructor(
     page: Page,
     private auth: AuthService,
+    private langue: LangueService,
     private sync: SyncService,
     private profil: ProfilService,
     private router: RouterExtensions
@@ -27,7 +29,10 @@ export class DemarrageComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     let cible: string;
-    if (!this.auth.connecte && !this.auth.invite) {
+    if (!this.langue.choisie) {
+      // Toute première ouverture : choisir sa langue.
+      cible = '/langue';
+    } else if (!this.auth.connecte && !this.auth.invite) {
       // Première ouverture : la vidéo d'abord, pas le formulaire de connexion.
       cible = '/intro';
     } else {

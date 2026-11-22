@@ -10,9 +10,12 @@ import { PartageComponent } from './pages/partage.component';
 import { ConnexionComponent } from './pages/connexion.component';
 import { CompteComponent } from './pages/compte.component';
 import { IntroComponent } from './pages/intro.component';
+import { AssistantComponent } from './pages/assistant.component';
+import { LangueComponent } from './pages/langue.component';
 
 export const routes: Routes = [
   { path: '', component: DemarrageComponent },
+  { path: 'langue', component: LangueComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'compte', component: CompteComponent },
@@ -23,4 +26,5 @@ export const routes: Routes = [
   { path: 'pres', component: PresDeMoiComponent },
   { path: 'videos/:id', component: VideosComponent },
   { path: 'partage', component: PartageComponent },
+  { path: 'assistant', component: AssistantComponent },
 ];

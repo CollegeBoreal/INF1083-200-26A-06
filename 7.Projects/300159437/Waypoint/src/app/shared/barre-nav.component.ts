@@ -7,7 +7,7 @@ import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angula
   imports: [NativeScriptCommonModule],
   schemas: [NO_ERRORS_SCHEMA],
   template: `
-    <GridLayout columns="*, *, *" class="nav">
+    <GridLayout columns="*, *, *, *" class="nav">
       <StackLayout col="0" class="nav-item" (tap)="aller('parcours')">
         <Label class="ico nav-ico" [class.nav-actif]="actif === 'parcours'" text="&#xe153;"></Label>
         <Label class="nav-txt" [class.nav-actif]="actif === 'parcours'" text="Parcours"></Label>
@@ -16,7 +16,11 @@ import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angula
         <Label class="ico nav-ico" [class.nav-actif]="actif === 'coffre'" text="&#xe897;"></Label>
         <Label class="nav-txt" [class.nav-actif]="actif === 'coffre'" text="Coffre"></Label>
       </StackLayout>
-      <StackLayout col="2" class="nav-item" (tap)="aller('pres')">
+      <StackLayout col="2" class="nav-item" (tap)="aller('assistant')">
+        <Label class="ico nav-ico" [class.nav-actif]="actif === 'assistant'" text="&#xe39f;"></Label>
+        <Label class="nav-txt" [class.nav-actif]="actif === 'assistant'" text="Assistant"></Label>
+      </StackLayout>
+      <StackLayout col="3" class="nav-item" (tap)="aller('pres')">
         <Label class="ico nav-ico" [class.nav-actif]="actif === 'pres'" text="&#xe55f;"></Label>
         <Label class="nav-txt" [class.nav-actif]="actif === 'pres'" text="Près de moi"></Label>
       </StackLayout>
@@ -24,7 +28,7 @@ import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angula
   `,
 })
 export class BarreNavComponent {
-  @Input() actif: 'parcours' | 'coffre' | 'pres' = 'parcours';
+  @Input() actif: 'parcours' | 'coffre' | 'assistant' | 'pres' = 'parcours';
 
   constructor(private router: RouterExtensions) {}
 

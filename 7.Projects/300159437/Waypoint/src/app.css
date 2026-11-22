@@ -176,3 +176,53 @@ Page, .r { font-family: "Inter", "Inter-Regular"; color: #141414; }
 .hero-pastille { margin: 12; padding: 6 12; border-radius: 14; background-color: rgba(20, 20, 20, 0.6); }
 .hero-point { width: 8; height: 8; border-radius: 4; background-color: #FF6B4F; margin-right: 7; }
 .hero-pastille-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 11; color: #FFFFFF; letter-spacing: 0.08; }
+
+/* ---------- Assistant IA ---------- */
+.carte-ia { background-color: #FFFFFF; border-radius: 20; padding: 14 16; margin-top: 18; box-shadow: 0 2 12 rgba(20, 20, 20, 0.06); }
+.carte-ia-tuile { width: 44; height: 44; border-radius: 13; background-color: #FBE3DE; margin-right: 14; vertical-align: center; }
+.carte-ia-ico { font-size: 22; color: #C8361E; text-align: center; vertical-align: center; }
+
+.chat-entete { padding: 14 20 12 20; background-color: #F4F4F2; border-bottom-width: 1; border-bottom-color: #EAEAE6; }
+.chat-avatar { width: 44; height: 44; border-radius: 22; background-color: #141414; margin-right: 12; }
+.chat-avatar-ico { font-size: 22; color: #FFFFFF; text-align: center; vertical-align: center; }
+.chat-nom { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; font-size: 18; color: #141414; }
+.chat-point { width: 7; height: 7; border-radius: 4; background-color: #2E9E5B; margin-right: 6; }
+.chat-fil { padding: 18 20 24 20; }
+.chat-suggestion { background-color: #FFFFFF; border-radius: 16; padding: 14 16; margin-bottom: 8; box-shadow: 0 2 10 rgba(20, 20, 20, 0.05); }
+
+.bulle { border-radius: 20; padding: 12 16; margin-bottom: 10; max-width: 300; }
+.bulle-moi { background-color: #141414; border-bottom-right-radius: 6; margin-left: 48; }
+.bulle-ia { background-color: #FFFFFF; border-bottom-left-radius: 6; margin-right: 32; box-shadow: 0 2 10 rgba(20, 20, 20, 0.05); }
+.bulle-txt { font-size: 16; color: #141414; line-height: 4; }
+.bulle-txt-moi { color: #FFFFFF; }
+.bulle-attente { color: #8C8C87; font-style: italic; }
+
+.chat-saisie { padding: 10 16 10 16; background-color: #FFFFFF; border-top-width: 1; border-top-color: #EAEAE6; }
+.chat-champ { height: 48; padding: 0 16; font-size: 16; color: #141414; background-color: #F4F4F2; border-radius: 24; border-width: 0; placeholder-color: #8C8C87; margin-right: 10; }
+.chat-envoyer { width: 48; height: 48; border-radius: 24; background-color: #C8361E; }
+.chat-envoyer-off { background-color: #DADAD6; }
+
+/* ---------- Choix de la langue & voix de l'assistant ---------- */
+.langue { width: 48.5%; height: 76; background-color: #FFFFFF; border-radius: 18; padding: 14 16; margin-bottom: 10; box-shadow: 0 2 10 rgba(20, 20, 20, 0.05); }
+.langue-active { background-color: #141414; }
+.langue-nom { font-family: "Inter", "Inter-ExtraBold"; font-weight: 800; font-size: 19; color: #141414; }
+.langue-sous { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 12; color: #8C8C87; margin-top: 2; }
+
+.carte-voix { background-color: #141414; border-radius: 22; padding: 16; margin-top: 18; box-shadow: 0 8 24 rgba(20, 20, 20, 0.18); }
+.carte-voix .chat-avatar { background-color: #C8361E; }
+.voix-txt { font-family: "Inter", "Inter-SemiBold"; font-weight: 600; font-size: 15; color: #FFFFFF; line-height: 4; margin-top: 8; }
+.voix-rejouer { font-size: 20; color: #BDBDB8; text-align: center; vertical-align: center; }
+.voix-fermer { width: 32; height: 32; }
+.ondes { height: 34; }
+.onde { width: 4; border-radius: 2; background-color: #FF6B4F; margin-right: 4; opacity: 0.5; }
+@keyframes onde {
+  0%   { transform: scale(1, 0.35); }
+  50%  { transform: scale(1, 1); }
+  100% { transform: scale(1, 0.35); }
+}
+.onde-active { opacity: 1; animation-name: onde; animation-duration: 700; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+
+.bulle-ecouter { margin-top: 8; }
+.bulle-ecouter-ico { font-size: 16; color: #C8361E; vertical-align: center; margin-right: 4; }
+.bulle-ecouter-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 13; color: #C8361E; vertical-align: center; }
+.interrupteur { color: #C8361E; background-color: #C8361E; }
