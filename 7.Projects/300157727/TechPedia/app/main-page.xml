@@ -1,0 +1,46 @@
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="onNavigatingTo">
+    <ActionBar title="TechPedia" />
+
+    <ScrollView>
+        <StackLayout padding="20" backgroundColor="#F2F6FC">
+
+            <Label text="Bienvenue sur TechPedia"
+                   fontSize="26"
+                   fontWeight="bold"
+                   color="#173B70"
+                   textWrap="true"
+                   marginBottom="15" />
+
+            <Label text="Découvrez l'histoire de l'informatique et les personnes qui ont marqué son évolution."
+                   fontSize="17"
+                   textWrap="true"
+                   marginBottom="25" />
+
+            <Label text="Que souhaitez-vous découvrir ?"
+                   fontSize="20"
+                   fontWeight="bold"
+                   marginBottom="15" />
+
+            <Button text="Découvrir les pionniers"
+                    backgroundColor="#2563EB"
+                    color="white"
+                    marginBottom="15"
+                    tap="openPionniers" />
+
+            <Button text="Tester mes connaissances"
+                    backgroundColor="#16845B"
+                    color="white"
+                    marginBottom="15"
+                    tap="openQuiz" />
+
+            <Label text="TechPedia - Apprendre autrement"
+                   fontSize="14"
+                   color="#64748B"
+                   textAlignment="center"
+                   marginTop="30" />
+
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -1,0 +1,55 @@
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="onNavigatingTo">
+    <ActionBar title="Les pionniers">
+        <NavigationButton text="Retour" />
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout padding="15" backgroundColor="#F2F6FC">
+<Button text="Retour à l'accueil"
+        backgroundColor="#2563EB"
+        color="white"
+        marginBottom="20"
+        tap="retourAccueil" />
+
+            <Label text="Les grandes personnalités de l'informatique"
+                   fontSize="23"
+                   fontWeight="bold"
+                   color="#173B70"
+                   textWrap="true"
+                   marginBottom="20" />
+
+            <StackLayout backgroundColor="white" padding="12" marginBottom="10">
+                <Label text="Ada Lovelace" fontSize="19" fontWeight="bold" />
+                <Label text="Considérée comme la première programmeuse de l'histoire." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout backgroundColor="white" padding="12" marginBottom="10">
+                <Label text="Alan Turing" fontSize="19" fontWeight="bold" />
+                <Label text="A contribué au développement de l'informatique moderne." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout backgroundColor="white" padding="12" marginBottom="10">
+                <Label text="Grace Hopper" fontSize="19" fontWeight="bold" />
+                <Label text="A participé au développement des premiers langages de programmation." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout backgroundColor="white" padding="12" marginBottom="10">
+                <Label text="Tim Berners-Lee" fontSize="19" fontWeight="bold" />
+                <Label text="Inventeur du World Wide Web." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout backgroundColor="white" padding="12" marginBottom="10">
+                <Label text="Dennis Ritchie" fontSize="19" fontWeight="bold" />
+                <Label text="Créateur du langage de programmation C." textWrap="true" />
+            </StackLayout>
+
+            <StackLayout backgroundColor="white" padding="12" marginBottom="10">
+                <Label text="Linus Torvalds" fontSize="19" fontWeight="bold" />
+                <Label text="Créateur du noyau Linux." textWrap="true" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -1,0 +1,58 @@
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="onNavigatingTo">
+    <ActionBar title="Quiz TechPedia">
+        <NavigationButton text="Retour" />
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout padding="20" backgroundColor="#F2F6FC">
+<Button text="Retour à l'accueil"
+        backgroundColor="#2563EB"
+        color="white"
+        marginBottom="20"
+        tap="retourAccueil" />
+
+            <Label text="Testez vos connaissances !"
+                   fontSize="23"
+                   fontWeight="bold"
+                   color="#173B70"
+                   textWrap="true"
+                   marginBottom="20" />
+
+            <Label text="1. Qui est considérée comme la première programmeuse ?"
+                   fontSize="18"
+                   fontWeight="bold"
+                   textWrap="true"
+                   marginBottom="15" />
+
+            <Button text="Ada Lovelace" tap="answerCorrect" />
+            <Button text="Grace Hopper" tap="answerWrong" />
+            <Button text="Marie Curie" tap="answerWrong" />
+
+            <Label id="result1"
+                   text=""
+                   fontSize="17"
+                   fontWeight="bold"
+                   marginTop="15"
+                   marginBottom="25" />
+
+            <Label text="2. Qui a inventé le World Wide Web ?"
+                   fontSize="18"
+                   fontWeight="bold"
+                   textWrap="true"
+                   marginBottom="15" />
+
+            <Button text="Bill Gates" tap="answerWrong2" />
+            <Button text="Tim Berners-Lee" tap="answerCorrect2" />
+            <Button text="Alan Turing" tap="answerWrong2" />
+
+            <Label id="result2"
+                   text=""
+                   fontSize="17"
+                   fontWeight="bold"
+                   marginTop="15" />
+
+        </StackLayout>
+    </ScrollView>
+</Page>
