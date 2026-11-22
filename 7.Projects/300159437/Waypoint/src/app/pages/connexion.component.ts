@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NativeScriptCommonModule, NativeScriptFormsModule, RouterExtensions } from '@nativescript/angular';
 import { Page } from '@nativescript/core';
 import { supabaseConfigure } from '../config';
@@ -7,6 +8,7 @@ import { ProfilService } from '../services/profil.service';
 import { SyncService } from '../services/sync.service';
 import { LogoComponent } from '../shared/logo.component';
 import { preparerPage } from '../shared/ui';
+import { tr } from '../i18n/i18n';
 
 @Component({
   selector: 'connexion',
@@ -20,16 +22,16 @@ import { preparerPage } from '../shared/ui';
           <StackLayout class="entree" marginTop="8"><logo-etape></logo-etape></StackLayout>
 
           <StackLayout class="entree-2" marginTop="28" marginBottom="20">
-            <Label class="titre" [text]="modeInscription ? 'Crée ton compte.' : 'Content de te revoir.'" textWrap="true"></Label>
-            <Label class="texte" textWrap="true" text="Ton parcours est sauvegardé en ligne. Tu le retrouves sur n'importe quel téléphone."></Label>
+            <Label class="titre" [text]="modeInscription ? t('Crée ton compte.') : t('Content de te revoir.')" textWrap="true"></Label>
+            <Label class="texte" textWrap="true" [text]="t('Ton parcours est sauvegardé en ligne. Tu le retrouves sur n\\'importe quel téléphone.')"></Label>
           </StackLayout>
 
           <StackLayout class="question entree-3">
-            <Label class="q-titre" text="Courriel"></Label>
+            <Label class="q-titre" [text]="t('Courriel')"></Label>
             <TextField class="champ r" hint="toi@exemple.com" keyboardType="email" autocapitalizationType="none"
                        autocorrect="false" [(ngModel)]="email"></TextField>
-            <Label class="q-titre" marginTop="16" text="Mot de passe"></Label>
-            <TextField class="champ r" hint="6 caractères minimum" secure="true" [(ngModel)]="motDePasse"></TextField>
+            <Label class="q-titre" marginTop="16" [text]="t('Mot de passe')"></Label>
+            <TextField class="champ r" [hint]="t('6 caractères minimum')" secure="true" [(ngModel)]="motDePasse"></TextField>
           </StackLayout>
 
           @if (erreur) {
@@ -45,20 +47,20 @@ import { preparerPage } from '../shared/ui';
           }
 
           <Label class="b accent-texte centre" fontSize="15" marginTop="20"
-                 [text]="modeInscription ? 'J\\'ai déjà un compte' : 'Créer un compte'" (tap)="basculerMode()"></Label>
+                 [text]="modeInscription ? t('J\\'ai déjà un compte') : t('Créer un compte')" (tap)="basculerMode()"></Label>
         </StackLayout>
       </ScrollView>
 
       <StackLayout row="1" class="pied">
         <FlexboxLayout class="btn btn-accent" [opacity]="chargement ? 0.6 : 1" justifyContent="center" alignItems="center" (tap)="valider()">
-          <Label class="btn-txt" [text]="chargement ? 'Un instant…' : (modeInscription ? 'Créer mon compte' : 'Se connecter')"></Label>
+          <Label class="btn-txt" [text]="chargement ? t('Un instant…') : (modeInscription ? t('Créer mon compte') : t('Se connecter'))"></Label>
         </FlexboxLayout>
-        <Label class="sb centre" fontSize="14" color="#5F6368" marginTop="14" text="Continuer sans compte" (tap)="sansCompte()"></Label>
       </StackLayout>
     </GridLayout>
   `,
 })
 export class ConnexionComponent {
+  t = tr;
   email = '';
   motDePasse = '';
   modeInscription = false;
@@ -72,11 +74,13 @@ export class ConnexionComponent {
     private auth: AuthService,
     private sync: SyncService,
     private profil: ProfilService,
-    private router: RouterExtensions
+    private router: RouterExtensions,
+    route: ActivatedRoute
   ) {
     preparerPage(page);
+    this.modeInscription = route.snapshot.queryParamMap.get('inscription') === '1';
     if (!supabaseConfigure()) {
-      this.erreur = 'Le serveur n\'est pas encore configuré (fichier src/app/config.ts).';
+      this.erreur = tr('Le serveur n\'est pas encore configuré (fichier src/app/config.ts).');
     }
   }
 
@@ -92,7 +96,7 @@ export class ConnexionComponent {
     this.info = '';
     const email = this.email.trim().toLowerCase();
     if (!email || this.motDePasse.length < 6) {
-      this.erreur = 'Entre ton courriel et un mot de passe de 6 caractères minimum.';
+      this.erreur = tr('Entre ton courriel et un mot de passe de 6 caractères minimum.');
       return;
     }
     this.chargement = true;
@@ -101,7 +105,7 @@ export class ConnexionComponent {
       if (this.modeInscription) {
         const ok = await this.auth.inscrire(email, this.motDePasse);
         if (!ok) {
-          this.info = 'Compte créé. Ouvre le lien reçu par courriel pour le confirmer, puis connecte-toi.';
+          this.info = tr('Compte créé. Ouvre le lien reçu par courriel pour le confirmer, puis connecte-toi.');
           this.modeInscription = false;
           return;
         }
@@ -111,16 +115,11 @@ export class ConnexionComponent {
       await this.sync.apresConnexion();
       this.suite();
     } catch (e: any) {
-      this.erreur = e?.message ?? 'Une erreur est survenue.';
+      this.erreur = tr(e?.message ?? 'Une erreur est survenue.');
     } finally {
       this.chargement = false;
       this.cdr.markForCheck();
     }
-  }
-
-  sansCompte(): void {
-    this.auth.continuerSansCompte();
-    this.suite();
   }
 
   private suite(): void {

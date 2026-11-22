@@ -8,13 +8,15 @@ import { preparerPage, segments } from '../shared/ui';
 import { ParcoursService } from '../services/parcours.service';
 import { ProfilService } from '../services/profil.service';
 import { LangueService } from '../services/langue.service';
-import { arreterVoix, dureeParole } from '../shared/voix';
+import { arreterVoix } from '../shared/voix';
+import { OndeComponent } from '../shared/onde.component';
 import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
+import { tr } from '../i18n/i18n';
 
 @Component({
   selector: 'parcours',
   standalone: true,
-  imports: [NativeScriptCommonModule, BarreNavComponent, LogoComponent],
+  imports: [NativeScriptCommonModule, BarreNavComponent, LogoComponent, OndeComponent],
   schemas: [NO_ERRORS_SCHEMA],
   template: `
     <GridLayout rows="*, auto" class="fond">
@@ -34,11 +36,7 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
                 <Label class="ico chat-avatar-ico" text="&#xe39f;"></Label>
               </GridLayout>
               <StackLayout col="1">
-                <FlexboxLayout class="ondes" alignItems="center">
-                  @for (b of barres; track $index) {
-                    <StackLayout class="onde" [class.onde-active]="parle" [height]="b"></StackLayout>
-                  }
-                </FlexboxLayout>
+                <onde-voix [actif]="parle"></onde-voix>
                 <Label class="voix-txt" [text]="salut" textWrap="true" [textAlignment]="rtl ? 'right' : 'left'"></Label>
               </StackLayout>
               <GridLayout col="2" class="voix-fermer" verticalAlignment="top" (tap)="fermerSalut()">
@@ -52,41 +50,41 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
             <WebView src="~/assets/intro.html" class="hero-web" (loaded)="configurerVideo($event)"></WebView>
             <StackLayout class="hero-pastille" orientation="horizontal" horizontalAlignment="left" verticalAlignment="top" isUserInteractionEnabled="false">
               <StackLayout class="hero-point" verticalAlignment="center"></StackLayout>
-              <Label class="hero-pastille-txt" text="DÉCOUVRE WAYPOINT"></Label>
+              <Label class="hero-pastille-txt" [text]="t('DÉCOUVRE WAYPOINT')"></Label>
             </StackLayout>
           </GridLayout>
 
           <StackLayout class="entree" marginTop="20">
-            <Label class="sur-titre" [text]="'Jour ' + jour + ' · ' + ville"></Label>
-            <Label class="titre" text="Mon parcours"></Label>
+            <Label class="sur-titre" [text]="t('Jour {n}', { n: jour }) + ' · ' + ville"></Label>
+            <Label class="titre" [text]="t('Mon parcours')"></Label>
             <FlexboxLayout class="segments">
               @for (s of segs; track $index) {
                 <StackLayout class="seg" flexGrow="1" [class.seg-plein]="s.plein"></StackLayout>
               }
             </FlexboxLayout>
-            <Label class="petit sb" [text]="prog.faites + ' étapes sur ' + prog.total + ' · ' + prog.pourcent + ' %'"></Label>
+            <Label class="petit sb" [text]="t('{faites} étapes sur {total}', { faites: prog.faites, total: prog.total }) + ' · ' + prog.pourcent + ' %'"></Label>
           </StackLayout>
 
           @if (prochaine) {
             <StackLayout class="carte-noire entree-2" (tap)="ouvrir(prochaine)">
-              <Label class="oeil-clair" text="PROCHAINE ÉTAPE"></Label>
+              <Label class="oeil-clair" [text]="t('PROCHAINE ÉTAPE')"></Label>
               <Label class="carte-titre" [text]="prochaine.titre" textWrap="true"></Label>
               <StackLayout orientation="horizontal" marginBottom="18">
                 <Label class="ico meta-ico" text="&#xe8b5;"></Label>
                 <Label class="meta" [text]="prochaine.duree" marginRight="16"></Label>
                 <Label class="ico meta-ico" text="&#xe873;"></Label>
-                <Label class="meta" [text]="prochaine.documents.length + ' documents'"></Label>
+                <Label class="meta" [text]="t('{n} documents', { n: prochaine.documents.length })"></Label>
               </StackLayout>
               <FlexboxLayout class="btn btn-accent" justifyContent="center" alignItems="center">
-                <Label class="btn-txt" text="Commencer"></Label>
+                <Label class="btn-txt" [text]="t('Commencer')"></Label>
                 <Label class="ico btn-ico" marginLeft="8" marginRight="0" text="&#xe5c8;"></Label>
               </FlexboxLayout>
             </StackLayout>
           } @else {
             <StackLayout class="carte-noire entree-2">
               <Label class="ico" fontSize="40" color="#FF6B4F" text="&#xe86c;"></Label>
-              <Label class="carte-titre" text="Bravo. Ton parcours est terminé." textWrap="true"></Label>
-              <Label class="meta" text="Bienvenue chez toi." textWrap="true"></Label>
+              <Label class="carte-titre" [text]="t('Bravo. Ton parcours est terminé.')" textWrap="true"></Label>
+              <Label class="meta" [text]="t('Bienvenue chez toi.')" textWrap="true"></Label>
             </StackLayout>
           }
 
@@ -96,8 +94,8 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
               <Label class="ico carte-ia-ico" text="&#xe39f;"></Label>
             </GridLayout>
             <StackLayout col="1" verticalAlignment="center">
-              <Label class="ligne-txt" text="Une question ?"></Label>
-              <Label class="petit" text="Demande à l'assistant Waypoint" textWrap="true"></Label>
+              <Label class="ligne-txt" [text]="t('Une question ?')"></Label>
+              <Label class="petit" [text]="t('Demande à l\\'assistant Waypoint')" textWrap="true"></Label>
             </StackLayout>
             <Label col="2" class="ico chevron" text="&#xe5cc;"></Label>
           </GridLayout>
@@ -114,13 +112,13 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
               }
             </GridLayout>
             <StackLayout class="video-infos">
-              <Label class="oeil" text="À REGARDER"></Label>
+              <Label class="oeil" [text]="t('À REGARDER')"></Label>
               <Label class="ligne-txt" [text]="video.titre" textWrap="true"></Label>
               <Label class="petit" [text]="video.auteur"></Label>
             </StackLayout>
           </StackLayout>
 
-          <Label class="etiquette entree-3" text="TOUTES TES ÉTAPES"></Label>
+          <Label class="etiquette entree-3" [text]="t('TOUTES TES ÉTAPES')"></Label>
           <StackLayout class="liste entree-3">
             @for (e of etapes; track e.id; let dernier = $last) {
               <GridLayout columns="auto, *, auto" class="ligne" [class.ligne-derniere]="dernier" (tap)="ouvrir(e)">
@@ -141,6 +139,7 @@ import { idYouTube, VIDEO_ACCUEIL } from '../data/video-accueil';
   `,
 })
 export class ParcoursComponent {
+  t = tr;
   etapes: Etape[] = [];
   prochaine?: Etape;
   prog = { faites: 0, total: 0, pourcent: 0 };
@@ -154,7 +153,7 @@ export class ParcoursComponent {
   salut = '';
   rtl = false;
   parle = false;
-  barres = [14, 24, 32, 20, 28, 16, 26, 12];
+  private finParole: any;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -181,24 +180,30 @@ export class ParcoursComponent {
     this.cdr.markForCheck();
   }
 
-  /** Une fois par ouverture de l'app, l'assistant salue à voix haute dans la langue choisie. */
+  /** Une fois par ouverture de l'app, l'assistant salue à voix haute (voix d'IA) dans la langue choisie. */
   private saluer(): void {
     if (this.langue.dejaSalue) return;
     this.langue.dejaSalue = true;
     const l = this.langue.langue();
     this.salut = l.retour(this.prog.total - this.prog.faites);
     this.rtl = !!l.rtl;
-    this.parle = this.langue.voixActive;
-    setTimeout(() => this.langue.dire(this.salut), 600); // laisse la page s'afficher
-    setTimeout(() => {
-      this.parle = false;
+    setTimeout(async () => {
+      const duree = await this.langue.dire(this.salut);
+      if (!duree || !this.salut) return;
+      this.parle = true;
       this.cdr.markForCheck();
-    }, 600 + dureeParole(this.salut));
+      clearTimeout(this.finParole);
+      this.finParole = setTimeout(() => {
+        this.parle = false;
+        this.cdr.markForCheck();
+      }, duree);
+    }, 500); // laisse la page s'afficher
   }
 
   fermerSalut(): void {
     arreterVoix();
     this.salut = '';
+    this.parle = false;
     this.cdr.markForCheck();
   }
 

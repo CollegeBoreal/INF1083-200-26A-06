@@ -86,13 +86,40 @@ Avec l'offre **gratuite** de Gemini, Google peut utiliser les questions pour am�
 
 Avec l'offre payante de Gemini, les questions ne sont pas utilisées par Google.
 
-## Langue et voix
+## Langue, voix et traduction (tout est en ligne)
 
-- **Premier lancement :** l'écran `pages/langue.component.ts` propose 10 langues : français, anglais, espagnol, arabe, chinois, portugais, ukrainien, tagalog, hindi et persan.
-- **Dès qu'on choisit une langue,** l'assistant se présente à voix haute dans cette langue.
-- **À chaque ouverture suivante,** l'assistant salue sur « Mon parcours » et dit combien d'étapes il reste. La voix se coupe dans Mon compte → Voix de l'assistant.
-- **Dans le chat,** l'IA répond dans la langue choisie, et le bouton « Écouter » lit chaque réponse à voix haute.
-- **La voix vient du téléphone** (`shared/voix.ts`) : elle est gratuite, ne demande aucun plugin et marche sans Internet. Si une langue n'est pas installée sur le téléphone (souvent le persan ou le tagalog), le texte s'affiche quand même. Pour ajouter la voix sur Android : Paramètres → Synthèse vocale → Installer les données vocales.
-- **Pour ajouter une langue :** ajoute un bloc dans `data/langues.ts`.
-- **Après une modification de la fonction serveur,** redéploie-la :
-  `npx supabase@latest functions deploy assistant --project-ref edqqmzmffpvlxnljmysm --use-api`
+Waypoint fonctionne **en ligne seulement** : il faut un compte et Internet. Sans Internet, l'écran « Pas de connexion Internet » s'affiche.
+
+1. **Première ouverture :** on choisit sa langue parmi 10 (français, anglais, espagnol, arabe, chinois, portugais, ukrainien, tagalog, hindi, persan).
+2. **L'assistant se présente** avec une **voix d'IA** (Gemini), générée par la fonction serveur (mode `voix`).
+3. **« Continuer »** fait traduire **toute l'app** par l'IA (mode `traduire`) : écrans, boutons, messages et contenu des étapes. Une barre montre la progression. Les traductions sont gardées sur le téléphone, donc c'est immédiat les fois suivantes.
+4. **À chaque ouverture,** l'assistant salue à voix haute sur « Mon parcours ». On peut couper la voix dans Mon compte → Voix de l'assistant.
+5. **Dans le chat,** l'IA répond dans la langue choisie, et « Écouter » lit la réponse avec la voix d'IA.
+
+### Fichiers
+
+| Fichier | Rôle |
+|---|---|
+| `src/app/i18n/i18n.ts` | `tr('texte en français')` renvoie le texte dans la langue choisie |
+| `src/app/i18n/textes-ui.ts` | La liste des textes à traduire. **Si tu ajoutes un texte avec `t('…')`, ajoute-le ici.** |
+| `src/app/services/traduction.service.ts` | Fait traduire en ligne ce qui manque |
+| `src/app/shared/voix.ts` | Demande la voix d'IA au serveur et la joue (chaque phrase est gardée après la 1re fois) |
+| `src/app/pages/langue.component.ts` | Le choix de la langue |
+| `src/app/pages/hors-ligne.component.ts` | L'écran « Pas de connexion Internet » |
+
+### Après cette mise à jour
+
+Redéploie la fonction serveur, qui a 2 nouveaux modes (`voix` et `traduire`) :
+
+```bash
+npx supabase@latest functions deploy assistant --project-ref edqqmzmffpvlxnljmysm --use-api
+```
+
+### Réglages facultatifs (secrets Supabase)
+
+- `GEMINI_TTS_MODEL` : modèle de voix (par défaut `gemini-3.1-flash-tts-preview`)
+- `GEMINI_VOICE` : nom de la voix (par défaut `Kore` ; autres voix : `Puck`, `Charon`, `Aoede`…)
+
+### Limites de l'offre gratuite
+
+Gemini limite le nombre de demandes par minute et par jour, surtout pour la voix. Si la limite est atteinte, la voix ne joue pas, mais le texte s'affiche quand même. Pour une démonstration devant un public, ouvre l'app une fois avant : la voix d'accueil et les traductions seront déjà gardées sur le téléphone.

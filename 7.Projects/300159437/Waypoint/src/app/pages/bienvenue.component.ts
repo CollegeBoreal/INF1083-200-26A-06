@@ -7,6 +7,7 @@ import { ParcoursService } from '../services/parcours.service';
 import { SyncService } from '../services/sync.service';
 import { LogoComponent } from '../shared/logo.component';
 import { preparerPage } from '../shared/ui';
+import { tr } from '../i18n/i18n';
 
 @Component({
   selector: 'bienvenue',
@@ -20,20 +21,20 @@ import { preparerPage } from '../shared/ui';
           <StackLayout class="entree" marginTop="8"><logo-etape></logo-etape></StackLayout>
 
           <StackLayout class="entree-2" marginTop="28" marginBottom="20">
-            <Label class="titre" text="Bienvenue." textWrap="true"></Label>
-            <Label class="texte" text="Trois questions. On s'occupe du reste." textWrap="true"></Label>
+            <Label class="titre" [text]="t('Bienvenue.')" textWrap="true"></Label>
+            <Label class="texte" [text]="t('Trois questions. On s\\'occupe du reste.')" textWrap="true"></Label>
           </StackLayout>
 
           <StackLayout class="entree-3">
             <StackLayout class="question">
               <Label class="q-num" text="1 / 3"></Label>
-              <Label class="q-titre" text="D'où viens-tu ?"></Label>
-              <TextField class="champ r" hint="Ton pays d'origine" [(ngModel)]="origine" returnKeyType="next"></TextField>
+              <Label class="q-titre" [text]="t('D\\'où viens-tu ?')"></Label>
+              <TextField class="champ r" [hint]="t('Ton pays d\\'origine')" [(ngModel)]="origine" returnKeyType="next"></TextField>
             </StackLayout>
 
             <StackLayout class="question">
               <Label class="q-num" text="2 / 3"></Label>
-              <Label class="q-titre" text="Où arrives-tu ?"></Label>
+              <Label class="q-titre" [text]="t('Où arrives-tu ?')"></Label>
               <FlexboxLayout flexWrap="wrap">
                 @for (p of provinces; track p.id) {
                   <GridLayout class="pastille" [class.pastille-active]="province === p.id" (tap)="province = p.id">
@@ -41,16 +42,16 @@ import { preparerPage } from '../shared/ui';
                   </GridLayout>
                 }
               </FlexboxLayout>
-              <TextField class="champ r champ-espace" hint="Ta ville" [(ngModel)]="ville"></TextField>
+              <TextField class="champ r champ-espace" [hint]="t('Ta ville')" [(ngModel)]="ville"></TextField>
             </StackLayout>
 
             <StackLayout class="question">
               <Label class="q-num" text="3 / 3"></Label>
-              <Label class="q-titre" text="Tu arrives comme…"></Label>
+              <Label class="q-titre" [text]="t('Tu arrives comme…')"></Label>
               <FlexboxLayout flexWrap="wrap">
                 @for (s of statuts; track s.id) {
                   <GridLayout class="pastille" [class.pastille-active]="statut === s.id" (tap)="statut = s.id">
-                    <Label class="pastille-txt" [class.pastille-txt-actif]="statut === s.id" [text]="s.nom"></Label>
+                    <Label class="pastille-txt" [class.pastille-txt-actif]="statut === s.id" [text]="t(s.nom)"></Label>
                   </GridLayout>
                 }
               </FlexboxLayout>
@@ -61,15 +62,16 @@ import { preparerPage } from '../shared/ui';
 
       <StackLayout row="1" class="pied">
         <FlexboxLayout class="btn btn-accent" justifyContent="center" alignItems="center" (tap)="creer()">
-          <Label class="btn-txt" text="Créer mon parcours"></Label>
+          <Label class="btn-txt" [text]="t('Créer mon parcours')"></Label>
           <Label class="ico btn-ico" marginLeft="8" marginRight="0" text="&#xe5c8;"></Label>
         </FlexboxLayout>
-        <Label class="petit centre" marginTop="10" text="Aucun compte requis · Fonctionne hors ligne"></Label>
+        <Label class="petit centre" marginTop="10" [text]="t('Ton parcours est sauvegardé dans ton compte')"></Label>
       </StackLayout>
     </GridLayout>
   `,
 })
 export class BienvenueComponent {
+  t = tr;
   origine = '';
   province: Province = 'QC';
   ville = 'Montréal';
@@ -92,7 +94,7 @@ export class BienvenueComponent {
 
   creer(): void {
     if (!this.origine.trim() || !this.ville.trim()) {
-      Dialogs.alert({ title: 'Il manque une réponse', message: "Indique ton pays d'origine et ta ville.", okButtonText: 'OK' });
+      Dialogs.alert({ title: tr('Il manque une réponse'), message: tr("Indique ton pays d'origine et ta ville."), okButtonText: 'OK' });
       return;
     }
     this.parcours.reinitialiser();

@@ -12,10 +12,12 @@ import { CompteComponent } from './pages/compte.component';
 import { IntroComponent } from './pages/intro.component';
 import { AssistantComponent } from './pages/assistant.component';
 import { LangueComponent } from './pages/langue.component';
+import { HorsLigneComponent } from './pages/hors-ligne.component';
 
 export const routes: Routes = [
   { path: '', component: DemarrageComponent },
   { path: 'langue', component: LangueComponent },
+  { path: 'hors-ligne', component: HorsLigneComponent },
   { path: 'intro', component: IntroComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'compte', component: CompteComponent },

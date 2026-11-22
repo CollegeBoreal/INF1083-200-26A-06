@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApplicationSettings } from '@nativescript/core';
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from '../config';
+import { tr } from '../i18n/i18n';
 
 interface Session {
   access_token: string;
@@ -16,12 +17,12 @@ const CLE_INVITE = 'etape.invite';
 function messageErreur(corps: any): string {
   const brut: string = corps?.error_description || corps?.msg || corps?.message || corps?.error || '';
   const m = brut.toLowerCase();
-  if (m.includes('invalid login')) return 'Courriel ou mot de passe incorrect.';
-  if (m.includes('already registered') || m.includes('already been registered')) return 'Ce courriel a déjà un compte. Connecte-toi.';
-  if (m.includes('password') && m.includes('6')) return 'Le mot de passe doit avoir au moins 6 caractères.';
-  if (m.includes('email not confirmed')) return 'Confirme ton courriel avec le lien reçu, puis reconnecte-toi.';
-  if (m.includes('invalid') && m.includes('email')) return 'Ce courriel n\'est pas valide.';
-  return brut || 'Une erreur est survenue. Réessaie.';
+  if (m.includes('invalid login')) return tr('Courriel ou mot de passe incorrect.');
+  if (m.includes('already registered') || m.includes('already been registered')) return tr('Ce courriel a déjà un compte. Connecte-toi.');
+  if (m.includes('password') && m.includes('6')) return tr('Le mot de passe doit avoir au moins 6 caractères.');
+  if (m.includes('email not confirmed')) return tr('Confirme ton courriel avec le lien reçu, puis reconnecte-toi.');
+  if (m.includes('invalid') && m.includes('email')) return tr('Ce courriel n\'est pas valide.');
+  return brut || tr('Une erreur est survenue. Réessaie.');
 }
 
 @Injectable({ providedIn: 'root' })
@@ -70,7 +71,7 @@ export class AuthService {
         body: JSON.stringify(corps),
       });
     } catch {
-      throw new Error('Pas de connexion Internet. Vérifie ton réseau.');
+      throw new Error(tr('Pas de connexion Internet. Vérifie ton réseau.'));
     }
     const texte = await rep.text();
     const json = texte ? JSON.parse(texte) : {};

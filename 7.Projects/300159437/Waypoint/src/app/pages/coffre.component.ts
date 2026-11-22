@@ -5,6 +5,7 @@ import { DocumentCoffre, NOMS_DOCS, TypeDoc } from '../models';
 import { CoffreService } from '../services/coffre.service';
 import { BarreNavComponent } from '../shared/barre-nav.component';
 import { preparerPage } from '../shared/ui';
+import { tr } from '../i18n/i18n';
 
 @Component({
   selector: 'coffre',
@@ -19,9 +20,9 @@ import { preparerPage } from '../shared/ui';
             <StackLayout col="0">
               <StackLayout orientation="horizontal">
                 <Label class="ico" fontSize="15" color="#5F6368" text="&#xe897;" marginRight="4" verticalAlignment="center"></Label>
-                <Label class="sur-titre" text="Sur ton téléphone, nulle part ailleurs"></Label>
+                <Label class="sur-titre" [text]="t('Sur ton téléphone, nulle part ailleurs')"></Label>
               </StackLayout>
-              <Label class="titre" text="Mon coffre"></Label>
+              <Label class="titre" [text]="t('Mon coffre')"></Label>
             </StackLayout>
             <GridLayout col="1" class="rond-btn-noir" verticalAlignment="bottom" (tap)="ajouter()">
               <Label class="ico rond-ico-blanc" text="&#xe145;"></Label>
@@ -35,8 +36,8 @@ import { preparerPage } from '../shared/ui';
               </GridLayout>
               <StackLayout col="1" verticalAlignment="center">
                 <Label class="ligne-txt" textWrap="true"
-                       [text]="a.doc.nom + (a.jours < 0 ? ' a expiré' : ' expire dans ' + a.jours + ' jours')"></Label>
-                <Label class="petit" text="Pense à le renouveler à temps." textWrap="true"></Label>
+                       [text]="a.jours < 0 ? t('{doc} a expiré', { doc: t(a.doc.nom) }) : t('{doc} expire dans {jours} jours', { doc: t(a.doc.nom), jours: a.jours })"></Label>
+                <Label class="petit" [text]="t('Pense à le renouveler à temps.')" textWrap="true"></Label>
               </StackLayout>
             </GridLayout>
           }
@@ -44,12 +45,12 @@ import { preparerPage } from '../shared/ui';
           @if (docs.length === 0) {
             <StackLayout class="entree-2">
               <Label class="ico vide-ico" text="&#xe897;"></Label>
-              <Label class="b centre" fontSize="18" marginTop="12" text="Ton coffre est vide"></Label>
+              <Label class="b centre" fontSize="18" marginTop="12" [text]="t('Ton coffre est vide')"></Label>
               <Label class="texte centre" marginTop="6" textWrap="true"
-                     text="Photographie ton passeport et tes documents importants. Ils restent sur ton téléphone."></Label>
+                     [text]="t('Photographie ton passeport et tes documents importants. Ils restent sur ton téléphone.')"></Label>
               <FlexboxLayout class="btn btn-noir" marginTop="20" justifyContent="center" alignItems="center" (tap)="ajouter()">
                 <Label class="ico btn-ico" text="&#xe412;"></Label>
-                <Label class="btn-txt" text="Ajouter un document"></Label>
+                <Label class="btn-txt" [text]="t('Ajouter un document')"></Label>
               </FlexboxLayout>
             </StackLayout>
           } @else {
@@ -63,7 +64,7 @@ import { preparerPage } from '../shared/ui';
                       <Label class="ico tuile-ico-txt" text="&#xe873;"></Label>
                     </GridLayout>
                   }
-                  <Label class="doc-nom" [text]="d.nom" textWrap="true"></Label>
+                  <Label class="doc-nom" [text]="t(d.nom)" textWrap="true"></Label>
                   <Label class="doc-meta" [class.doc-meta-rouge]="bientot(d)" [text]="meta(d)"></Label>
                 </StackLayout>
               }
@@ -76,6 +77,7 @@ import { preparerPage } from '../shared/ui';
   `,
 })
 export class CoffreComponent {
+  t = tr;
   docs: DocumentCoffre[] = [];
   alertes: { doc: DocumentCoffre; jours: number }[] = [];
 
@@ -98,33 +100,33 @@ export class CoffreComponent {
 
   meta(d: DocumentCoffre): string {
     const j = this.coffre.joursRestants(d);
-    if (j === null) return 'Sans expiration';
-    if (j < 0) return 'Expiré';
-    if (j <= 180) return `Expire dans ${j} jours`;
-    return `Valide jusqu'au ${d.expiration}`;
+    if (j === null) return tr('Sans expiration');
+    if (j < 0) return tr('Expiré');
+    if (j <= 180) return tr('Expire dans {jours} jours', { jours: j });
+    return tr("Valide jusqu'au {date}", { date: d.expiration ?? '' });
   }
 
   async ajouter(): Promise<void> {
     const types = Object.keys(NOMS_DOCS) as TypeDoc[];
     const choix = await Dialogs.action({
-      title: 'Quel document ?',
-      cancelButtonText: 'Annuler',
-      actions: types.map((t) => NOMS_DOCS[t]),
+      title: tr('Quel document ?'),
+      cancelButtonText: tr('Annuler'),
+      actions: types.map((t) => tr(NOMS_DOCS[t])),
     });
-    const type = types.find((t) => NOMS_DOCS[t] === choix);
+    const type = types.find((t) => tr(NOMS_DOCS[t]) === choix);
     if (!type) return;
 
     const r = await Dialogs.prompt({
-      title: "Date d'expiration",
-      message: "Format AAAA-MM-JJ. Laisse vide s'il n'y en a pas.",
-      okButtonText: 'Prendre la photo',
-      cancelButtonText: 'Annuler',
+      title: tr("Date d'expiration"),
+      message: tr("Format AAAA-MM-JJ. Laisse vide s'il n'y en a pas."),
+      okButtonText: tr('Prendre la photo'),
+      cancelButtonText: tr('Annuler'),
       defaultText: '',
     });
     if (!r.result) return;
     const date = r.text.trim();
     if (date && !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-      await Dialogs.alert({ message: 'Date invalide. Exemple : 2031-04-30', okButtonText: 'OK' });
+      await Dialogs.alert({ message: tr('Date invalide. Exemple : 2031-04-30'), okButtonText: 'OK' });
       return;
     }
     try {
@@ -136,9 +138,13 @@ export class CoffreComponent {
   }
 
   async options(d: DocumentCoffre): Promise<void> {
-    const choix = await Dialogs.action({ title: d.nom, cancelButtonText: 'Fermer', actions: ['Supprimer'] });
-    if (choix === 'Supprimer') {
-      const ok = await Dialogs.confirm({ message: `Supprimer « ${d.nom} » ?`, okButtonText: 'Supprimer', cancelButtonText: 'Annuler' });
+    const choix = await Dialogs.action({ title: tr(d.nom), cancelButtonText: tr('Fermer'), actions: [tr('Supprimer')] });
+    if (choix === tr('Supprimer')) {
+      const ok = await Dialogs.confirm({
+        message: tr('Supprimer « {doc} » ?', { doc: tr(d.nom) }),
+        okButtonText: tr('Supprimer'),
+        cancelButtonText: tr('Annuler'),
+      });
       if (ok) {
         this.coffre.supprimer(d.id);
         this.charger();

@@ -37,8 +37,12 @@ export class LangueService {
     if (!v) arreterVoix();
   }
 
-  /** Fait parler l'assistant dans la langue choisie, si la voix est activée. */
-  dire(texte: string, forcer = false): void {
-    if (this.voixActive || forcer) parler(texte, this.langue().voix);
+  /**
+   * Fait parler l'assistant (voix d'IA en ligne) dans la langue choisie.
+   * Retourne la durée en ms (0 si muet ou voix indisponible).
+   */
+  async dire(texte: string, forcer = false): Promise<number> {
+    if (!this.voixActive && !forcer) return 0;
+    return parler(texte, this.langue().voix);
   }
 }

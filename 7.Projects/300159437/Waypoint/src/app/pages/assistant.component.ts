@@ -8,6 +8,7 @@ import { arreterVoix } from '../shared/voix';
 import { ParcoursService } from '../services/parcours.service';
 import { BarreNavComponent } from '../shared/barre-nav.component';
 import { preparerPage } from '../shared/ui';
+import { tr } from '../i18n/i18n';
 
 @Component({
   selector: 'assistant',
@@ -22,10 +23,10 @@ import { preparerPage } from '../shared/ui';
           <Label class="ico chat-avatar-ico" text="&#xe39f;"></Label>
         </GridLayout>
         <StackLayout col="1" verticalAlignment="center">
-          <Label class="chat-nom" text="Assistant Waypoint"></Label>
+          <Label class="chat-nom" [text]="t('Assistant Waypoint')"></Label>
           <StackLayout orientation="horizontal">
             <StackLayout class="chat-point" verticalAlignment="center"></StackLayout>
-            <Label class="petit" text="IA · vérifie toujours sur le site officiel"></Label>
+            <Label class="petit" [text]="t('IA · vérifie toujours sur le site officiel')"></Label>
           </StackLayout>
         </StackLayout>
         @if (messages.length) {
@@ -40,11 +41,11 @@ import { preparerPage } from '../shared/ui';
         <StackLayout class="chat-fil">
           @if (!messages.length && !enCours) {
             <StackLayout class="entree">
-              <Label class="titre-moyen" text="Une question sur ton installation ?" textWrap="true"></Label>
+              <Label class="titre-moyen" [text]="t('Une question sur ton installation ?')" textWrap="true"></Label>
               <Label class="texte" marginTop="6" textWrap="true"
-                     text="Je connais ton parcours. Demande-moi quoi faire, où aller ou quels documents apporter."></Label>
+                     [text]="t('Je connais ton parcours. Demande-moi quoi faire, où aller ou quels documents apporter.')"></Label>
             </StackLayout>
-            <Label class="etiquette entree-2" text="ESSAIE"></Label>
+            <Label class="etiquette entree-2" [text]="t('ESSAIE')"></Label>
             <StackLayout class="entree-2">
               @for (s of suggestions; track s) {
                 <GridLayout columns="*, auto" class="chat-suggestion" (tap)="envoyer(s)">
@@ -56,7 +57,7 @@ import { preparerPage } from '../shared/ui';
             <GridLayout columns="auto, *" class="carte-gris entree-3" marginTop="10">
               <Label col="0" class="ico" fontSize="18" color="#5F6368" marginRight="10" text="&#xe897;"></Label>
               <Label col="1" class="petit" textWrap="true"
-                     text="Ne partage jamais ton NAS, ton numéro de passeport ou tes infos bancaires dans le chat."></Label>
+                     [text]="t('Ne partage jamais ton NAS, ton numéro de passeport ou tes infos bancaires dans le chat.')"></Label>
             </GridLayout>
           }
 
@@ -70,7 +71,7 @@ import { preparerPage } from '../shared/ui';
                 <Label class="bulle-txt" [text]="m.texte" textWrap="true"></Label>
                 <StackLayout orientation="horizontal" class="bulle-ecouter" (tap)="ecouter(m.texte)">
                   <Label class="ico bulle-ecouter-ico" text="&#xe050;"></Label>
-                  <Label class="bulle-ecouter-txt" text="Écouter"></Label>
+                  <Label class="bulle-ecouter-txt" [text]="t('Écouter')"></Label>
                 </StackLayout>
               </StackLayout>
             }
@@ -78,7 +79,7 @@ import { preparerPage } from '../shared/ui';
 
           @if (enCours) {
             <StackLayout class="bulle bulle-ia" horizontalAlignment="left">
-              <Label class="bulle-txt bulle-attente" text="Waypoint réfléchit…"></Label>
+              <Label class="bulle-txt bulle-attente" [text]="t('Waypoint réfléchit…')"></Label>
             </StackLayout>
           }
 
@@ -94,7 +95,7 @@ import { preparerPage } from '../shared/ui';
       <!-- Saisie -->
       @if (connecte) {
         <GridLayout row="2" columns="*, auto" class="chat-saisie">
-          <TextField #champ col="0" class="chat-champ r" hint="Écris ta question…" returnKeyType="send"
+          <TextField #champ col="0" class="chat-champ r" [hint]="t('Écris ta question…')" returnKeyType="send"
                      maxLength="1000" [(ngModel)]="brouillon" (returnPress)="envoyer()"></TextField>
           <GridLayout col="1" class="chat-envoyer" [class.chat-envoyer-off]="!brouillon.trim() || enCours" (tap)="envoyer()">
             <Label class="ico rond-ico-blanc" fontSize="22" text="&#xe163;"></Label>
@@ -102,9 +103,9 @@ import { preparerPage } from '../shared/ui';
         </GridLayout>
       } @else {
         <StackLayout row="2" class="pied">
-          <Label class="petit centre" marginBottom="10" textWrap="true" text="L'assistant est réservé aux comptes Waypoint (c'est gratuit)."></Label>
+          <Label class="petit centre" marginBottom="10" textWrap="true" [text]="t('L\\'assistant est réservé aux comptes Waypoint (c\\'est gratuit).')"></Label>
           <FlexboxLayout class="btn btn-noir" justifyContent="center" alignItems="center" (tap)="seConnecter()">
-            <Label class="btn-txt" text="Créer un compte ou me connecter"></Label>
+            <Label class="btn-txt" [text]="t('Créer un compte ou me connecter')"></Label>
           </FlexboxLayout>
         </StackLayout>
       }
@@ -114,6 +115,7 @@ import { preparerPage } from '../shared/ui';
   `,
 })
 export class AssistantComponent {
+  t = tr;
   @ViewChild('defile') defile?: ElementRef<ScrollView>;
   @ViewChild('champ') champ?: ElementRef<TextField>;
 
@@ -144,9 +146,9 @@ export class AssistantComponent {
     this.messages = this.assistant.historique();
     const prochaine = this.parcours.prochaine();
     this.suggestions = [
-      prochaine ? `Comment faire « ${prochaine.titre} » ?` : 'Quelle est la prochaine chose à faire ?',
-      'Quels documents dois-je toujours garder sur moi ?',
-      'Comment trouver un logement sans historique de crédit ?',
+      prochaine ? tr('Comment faire « {etape} » ?', { etape: prochaine.titre }) : tr('Quelle est la prochaine chose à faire ?'),
+      tr('Quels documents dois-je toujours garder sur moi ?'),
+      tr('Comment trouver un logement sans historique de crédit ?'),
     ];
     this.cdr.markForCheck();
     this.descendre(false);
@@ -171,7 +173,7 @@ export class AssistantComponent {
     } catch (e: any) {
       this.messages = avant; // la question revient dans le champ pour réessayer
       this.brouillon = question;
-      this.erreur = e?.message ?? 'Une erreur est survenue.';
+      this.erreur = tr(e?.message ?? 'Une erreur est survenue.');
     } finally {
       this.enCours = false;
       this.cdr.markForCheck();

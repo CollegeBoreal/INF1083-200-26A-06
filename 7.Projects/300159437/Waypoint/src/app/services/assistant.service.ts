@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApplicationSettings } from '@nativescript/core';
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from '../config';
 import { NOMS_STATUTS } from '../models';
+import { tr } from '../i18n/i18n';
 import { AuthService } from './auth.service';
 import { LangueService } from './langue.service';
 import { ParcoursService } from './parcours.service';
@@ -59,7 +60,7 @@ export class AssistantService {
   /** Envoie la question, retourne la conversation mise à jour. */
   async demander(question: string): Promise<MessageIA[]> {
     const jeton = await this.auth.jeton();
-    if (!jeton) throw new Error("Connecte-toi pour utiliser l'assistant.");
+    if (!jeton) throw new Error(tr("Connecte-toi pour utiliser l'assistant."));
 
     // La question n'est gardée qu'avec sa réponse : en cas d'erreur, rien n'est enregistré.
     const messages = [...this.historique(), { role: 'user', texte: question } as MessageIA];
@@ -76,7 +77,7 @@ export class AssistantService {
         body: JSON.stringify({ messages: messages.slice(-12), contexte: this.contexte() }),
       });
     } catch {
-      throw new Error('Pas de connexion Internet. Vérifie ton réseau.');
+      throw new Error(tr('Pas de connexion Internet. Vérifie ton réseau.'));
     }
 
     const texte = await rep.text();
@@ -86,8 +87,8 @@ export class AssistantService {
     } catch {
       /* réponse non JSON */
     }
-    if (rep.status === 404) throw new Error("L'assistant n'est pas encore installé sur le serveur (voir ASSISTANT-IA.md).");
-    if (!rep.ok || !json.texte) throw new Error(json.erreur || "L'assistant ne répond pas pour le moment. Réessaie.");
+    if (rep.status === 404) throw new Error(tr("L'assistant n'est pas encore installé sur le serveur (voir ASSISTANT-IA.md)."));
+    if (!rep.ok || !json.texte) throw new Error(tr(json.erreur || "L'assistant ne répond pas pour le moment. Réessaie."));
 
     const suite = [...messages, { role: 'assistant', texte: json.texte } as MessageIA];
     this.garder(suite);

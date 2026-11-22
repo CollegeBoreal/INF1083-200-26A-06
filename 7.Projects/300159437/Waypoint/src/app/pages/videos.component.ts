@@ -6,6 +6,7 @@ import { Etape, Plateforme, Video } from '../models';
 import { ParcoursService } from '../services/parcours.service';
 import { ouvrirRechercheTikTok, ouvrirRechercheYouTube } from '../shared/outils';
 import { preparerPage } from '../shared/ui';
+import { tr } from '../i18n/i18n';
 
 @Component({
   selector: 'videos',
@@ -22,10 +23,10 @@ import { preparerPage } from '../shared/ui';
             </GridLayout>
 
             <StackLayout class="entree" marginTop="20">
-              <Label class="oeil" text="EN VIDÉO"></Label>
+              <Label class="oeil" [text]="t('EN VIDÉO')"></Label>
               <Label class="titre-moyen" [text]="etape.titre" textWrap="true"></Label>
               <Label class="texte" marginTop="8" textWrap="true"
-                     text="Des nouveaux arrivants qui l'ont déjà fait. Vidéos choisies et vérifiées par Waypoint."></Label>
+                     [text]="t('Des nouveaux arrivants qui l\\'ont déjà fait. Vidéos choisies et vérifiées par Waypoint.')"></Label>
             </StackLayout>
 
             <!-- Onglets TikTok / YouTube -->
@@ -54,15 +55,15 @@ import { preparerPage } from '../shared/ui';
             } @else {
               <StackLayout class="carte-gris entree-2" marginTop="8">
                 <Label class="ico" fontSize="34" color="#141414" text="&#xe037;"></Label>
-                <Label class="ligne-txt" marginTop="8" text="Bientôt ici"></Label>
+                <Label class="ligne-txt" marginTop="8" [text]="t('Bientôt ici')"></Label>
                 <Label class="petit" marginTop="2" textWrap="true"
-                       [text]="'On choisit encore les meilleures vidéos pour cette étape. En attendant, cherche directement sur ' + nomOnglet + '.'"></Label>
+                       [text]="t('On choisit encore les meilleures vidéos pour cette étape. En attendant, cherche directement sur {app}.', { app: nomOnglet })"></Label>
               </StackLayout>
             }
 
             <FlexboxLayout class="btn btn-blanc" marginTop="14" justifyContent="center" alignItems="center" (tap)="chercher()">
               <Label class="ico btn-ico-noir" text="&#xe8b6;"></Label>
-              <Label class="btn-txt-noir" [text]="'Chercher sur ' + nomOnglet"></Label>
+              <Label class="btn-txt-noir" [text]="t('Chercher sur {app}', { app: nomOnglet })"></Label>
             </FlexboxLayout>
           </StackLayout>
         </ScrollView>
@@ -70,7 +71,7 @@ import { preparerPage } from '../shared/ui';
         <StackLayout row="1" class="pied-blanc">
           <FlexboxLayout class="btn btn-noir" justifyContent="center" alignItems="center" (tap)="partager()">
             <Label class="ico btn-ico" text="&#xe80d;"></Label>
-            <Label class="btn-txt" text="Partager ma progression"></Label>
+            <Label class="btn-txt" [text]="t('Partager ma progression')"></Label>
           </FlexboxLayout>
         </StackLayout>
       </GridLayout>
@@ -78,6 +79,7 @@ import { preparerPage } from '../shared/ui';
   `,
 })
 export class VideosComponent {
+  t = tr;
   etape?: Etape;
   onglet: Plateforme = 'tiktok';
   onglets: { id: Plateforme; nom: string }[] = [

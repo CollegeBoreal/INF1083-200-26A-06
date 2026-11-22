@@ -1,17 +1,24 @@
 /*
  * Waypoint — fonction serveur « assistant » (Supabase Edge Function, Deno).
  *
- * L'app envoie la conversation ici ; cette fonction ajoute les consignes,
- * appelle Gemini (Google) avec la clé gardée sur le serveur, et renvoie la réponse.
+ * Trois services, tous avec Gemini (Google) et la clé gardée sur le serveur :
+ *   mode "chat"      l'assistant répond (utilisateur connecté obligatoire)
+ *   mode "voix"      transforme un texte en voix (fichier WAV)
+ *   mode "traduire"  traduit les textes de l'app dans la langue choisie
  * La clé de l'IA n'est JAMAIS dans l'app.
  *
  * Secrets à définir dans Supabase (voir ASSISTANT-IA.md) :
- *   GEMINI_API_KEY   clé de https://aistudio.google.com/apikey
- *   GEMINI_MODEL     (facultatif) modèle, par défaut gemini-3.5-flash
+ *   GEMINI_API_KEY    clé de https://aistudio.google.com/apikey
+ *   GEMINI_MODEL      (facultatif) modèle texte, par défaut gemini-3.5-flash
+ *   GEMINI_TTS_MODEL  (facultatif) modèle voix, par défaut gemini-3.1-flash-tts-preview
+ *   GEMINI_VOICE      (facultatif) nom de la voix, par défaut Kore
  */
 
 const GEMINI_KEY = Deno.env.get('GEMINI_API_KEY') ?? '';
 const MODELE = Deno.env.get('GEMINI_MODEL') ?? 'gemini-3.5-flash';
+const MODELE_VOIX = Deno.env.get('GEMINI_TTS_MODEL') ?? 'gemini-3.1-flash-tts-preview';
+const NOM_VOIX = Deno.env.get('GEMINI_VOICE') ?? 'Kore';
+const GEMINI = 'https://generativelanguage.googleapis.com/v1beta/models';
 const SUPABASE_URL = Deno.env.get('SUPABASE_URL') ?? '';
 const SUPABASE_ANON_KEY = Deno.env.get('SUPABASE_ANON_KEY') ?? '';
 
@@ -65,6 +72,116 @@ Ce que l'on sait de la personne (elle l'a entré dans l'app) :
 - Étapes qui restent : ${liste(ctx.restantes)}`;
 }
 
+
+async function appelerGemini(modele: string, corps: unknown): Promise<Response> {
+  return await fetch(`${GEMINI}/${modele}:generateContent`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-goog-api-key': GEMINI_KEY },
+    body: JSON.stringify(corps),
+  });
+}
+
+function erreurGemini(g: Response): Response {
+  if (g.status === 429) return repondre(429, { erreur: "Le service d'IA est très demandé. Réessaie dans une minute." });
+  return repondre(502, { erreur: "Le service d'IA ne répond pas pour le moment. Réessaie." });
+}
+
+/** PCM 16 bits mono (ce que renvoie Gemini) → fichier WAV lisible par le téléphone. */
+function pcmVersWav(pcm: Uint8Array, frequence = 24000): Uint8Array {
+  const wav = new Uint8Array(44 + pcm.length);
+  const v = new DataView(wav.buffer);
+  const ecrire = (pos: number, txt: string) => [...txt].forEach((c, i) => (wav[pos + i] = c.charCodeAt(0)));
+  ecrire(0, 'RIFF');
+  v.setUint32(4, 36 + pcm.length, true);
+  ecrire(8, 'WAVE');
+  ecrire(12, 'fmt ');
+  v.setUint32(16, 16, true);
+  v.setUint16(20, 1, true); // PCM
+  v.setUint16(22, 1, true); // mono
+  v.setUint32(24, frequence, true);
+  v.setUint32(28, frequence * 2, true);
+  v.setUint16(32, 2, true);
+  v.setUint16(34, 16, true);
+  ecrire(36, 'data');
+  v.setUint32(40, pcm.length, true);
+  wav.set(pcm, 44);
+  return wav;
+}
+
+function base64VersOctets(b64: string): Uint8Array {
+  const bin = atob(b64);
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+
+function octetsVersBase64(octets: Uint8Array): string {
+  let bin = '';
+  for (let i = 0; i < octets.length; i += 0x8000) bin += String.fromCharCode(...octets.subarray(i, i + 0x8000));
+  return btoa(bin);
+}
+
+/** Mode "voix" : le texte est lu par une voix d'IA naturelle. */
+async function voix(corps: any): Promise<Response> {
+  const texte = typeof corps?.texte === 'string' ? corps.texte.trim().slice(0, 700) : '';
+  if (!texte) return repondre(400, { erreur: 'Texte manquant.' });
+  const g = await appelerGemini(MODELE_VOIX, {
+    contents: [{ parts: [{ text: texte }] }],
+    generationConfig: {
+      responseModalities: ['AUDIO'],
+      speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: NOM_VOIX } } },
+    },
+  });
+  if (!g.ok) {
+    console.error('Gemini voix', g.status, await g.text());
+    return erreurGemini(g);
+  }
+  const json: any = await g.json();
+  const donnees = (json?.candidates?.[0]?.content?.parts ?? []).find((p: any) => p?.inlineData?.data)?.inlineData?.data;
+  if (!donnees) return repondre(502, { erreur: 'Aucune voix reçue.' });
+  return repondre(200, { audio: octetsVersBase64(pcmVersWav(base64VersOctets(donnees))) });
+}
+
+/** Mode "traduire" : traduit une liste de textes de l'app (même ordre, même nombre). */
+async function traduire(corps: any): Promise<Response> {
+  const langue = court(corps?.langue, 60);
+  const textes: string[] = Array.isArray(corps?.textes)
+    ? corps.textes.filter((t: unknown) => typeof t === 'string').slice(0, 80).map((t: string) => t.slice(0, 1500))
+    : [];
+  if (!langue || !textes.length) return repondre(400, { erreur: 'Requête invalide.' });
+
+  const consigne = `Translate each French string of this JSON array into ${langue}, for the interface of a mobile app that helps newcomers settle in Canada.
+Rules:
+- Return ONLY a JSON array of strings, same length and same order.
+- Keep placeholders like {n}, {ville}, {jours} exactly as they are.
+- Keep the names Waypoint, TikTok, YouTube, Service Canada, IRCC, RAMQ, NAS/SIN numbers and URLs unchanged.
+- Short, natural, friendly wording (informal "you"). Keep capital letters when the French is in capitals.
+- Canadian context: keep official program names recognisable (you may add the English or French name in parentheses only if very useful).`;
+
+  const g = await appelerGemini(MODELE, {
+    systemInstruction: { parts: [{ text: consigne }] },
+    contents: [{ role: 'user', parts: [{ text: JSON.stringify(textes) }] }],
+    generationConfig: { temperature: 0.2, responseMimeType: 'application/json', maxOutputTokens: 16000 },
+  });
+  if (!g.ok) {
+    console.error('Gemini traduire', g.status, await g.text());
+    return erreurGemini(g);
+  }
+  const json: any = await g.json();
+  const brut = (json?.candidates?.[0]?.content?.parts ?? [])
+    .filter((p: any) => !p?.thought && typeof p?.text === 'string')
+    .map((p: any) => p.text)
+    .join('');
+  try {
+    const liste = JSON.parse(brut);
+    if (!Array.isArray(liste) || liste.length !== textes.length) throw new Error('longueur');
+    return repondre(200, { traductions: liste.map((t: unknown, i: number) => (typeof t === 'string' && t.trim() ? t : textes[i])) });
+  } catch {
+    console.error('Traduction illisible', brut.slice(0, 500));
+    return repondre(502, { erreur: 'Traduction impossible pour le moment. Réessaie.' });
+  }
+}
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
   if (req.method !== 'POST') return repondre(405, { erreur: 'Méthode non permise.' });
@@ -73,7 +190,23 @@ Deno.serve(async (req) => {
     return repondre(500, { erreur: "L'assistant n'est pas encore configuré sur le serveur (secret GEMINI_API_KEY manquant)." });
   }
 
-  // 1. Seuls les utilisateurs connectés peuvent utiliser l'assistant.
+  let corps: any;
+  try {
+    corps = await req.json();
+  } catch {
+    return repondre(400, { erreur: 'Requête invalide.' });
+  }
+
+  // Voix et traduction : utilisés dès le choix de la langue, avant la connexion.
+  try {
+    if (corps?.mode === 'voix') return await voix(corps);
+    if (corps?.mode === 'traduire') return await traduire(corps);
+  } catch (e) {
+    console.error(e);
+    return repondre(502, { erreur: "Le service d'IA ne répond pas pour le moment. Réessaie." });
+  }
+
+  // 1. Chat : seuls les utilisateurs connectés peuvent utiliser l'assistant.
   const autorisation = req.headers.get('Authorization') ?? '';
   const qui = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
     headers: { apikey: SUPABASE_ANON_KEY, Authorization: autorisation },
@@ -81,12 +214,6 @@ Deno.serve(async (req) => {
   if (!qui.ok) return repondre(401, { erreur: "Connecte-toi pour utiliser l'assistant." });
 
   // 2. Lire et nettoyer la conversation.
-  let corps: any;
-  try {
-    corps = await req.json();
-  } catch {
-    return repondre(400, { erreur: 'Requête invalide.' });
-  }
   const bruts: any[] = Array.isArray(corps?.messages) ? corps.messages.slice(-MAX_MESSAGES) : [];
   const contents = bruts
     .filter((m) => (m?.role === 'user' || m?.role === 'assistant') && typeof m?.texte === 'string' && m.texte.trim())
@@ -99,14 +226,10 @@ Deno.serve(async (req) => {
   // 3. Demander à Gemini.
   let g: Response;
   try {
-    g = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODELE}:generateContent`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': GEMINI_KEY },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: consignes(corps?.contexte ?? {}) }] },
-        contents,
-        generationConfig: { temperature: 0.4, maxOutputTokens: 2048 },
-      }),
+    g = await appelerGemini(MODELE, {
+      systemInstruction: { parts: [{ text: consignes(corps?.contexte ?? {}) }] },
+      contents,
+      generationConfig: { temperature: 0.4, maxOutputTokens: 2048 },
     });
   } catch {
     return repondre(502, { erreur: "L'assistant ne répond pas pour le moment. Réessaie." });

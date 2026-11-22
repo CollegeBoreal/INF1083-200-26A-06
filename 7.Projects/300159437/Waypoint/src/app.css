@@ -17,13 +17,14 @@ Page, .r { font-family: "Inter", "Inter-Regular"; color: #141414; }
 .ico { font-family: "Material Icons", "MaterialIcons-Regular"; font-size: 22; }
 
 /* ---------- Animations d'entrée ---------- */
+/* Glissement seulement : le contenu reste toujours visible, même si l'animation ne se lance pas. */
 @keyframes entree {
-  from { opacity: 0; transform: translate(0, 18); }
-  to   { opacity: 1; transform: translate(0, 0); }
+  from { transform: translate(0, 14); }
+  to   { transform: translate(0, 0); }
 }
-.entree   { animation-name: entree; animation-duration: 420; animation-timing-function: ease-out; animation-fill-mode: forwards; }
-.entree-2 { animation-name: entree; animation-duration: 420; animation-delay: 80;  animation-timing-function: ease-out; animation-fill-mode: forwards; opacity: 0; }
-.entree-3 { animation-name: entree; animation-duration: 420; animation-delay: 160; animation-timing-function: ease-out; animation-fill-mode: forwards; opacity: 0; }
+.entree   { animation-name: entree; animation-duration: 380; animation-timing-function: ease-out; }
+.entree-2 { animation-name: entree; animation-duration: 380; animation-delay: 60;  animation-timing-function: ease-out; }
+.entree-3 { animation-name: entree; animation-duration: 380; animation-delay: 120; animation-timing-function: ease-out; }
 
 /* ---------- Mise en page ---------- */
 .fond { background-color: #F4F4F2; }
@@ -215,12 +216,7 @@ Page, .r { font-family: "Inter", "Inter-Regular"; color: #141414; }
 .voix-fermer { width: 32; height: 32; }
 .ondes { height: 34; }
 .onde { width: 4; border-radius: 2; background-color: #FF6B4F; margin-right: 4; opacity: 0.5; }
-@keyframes onde {
-  0%   { transform: scale(1, 0.35); }
-  50%  { transform: scale(1, 1); }
-  100% { transform: scale(1, 0.35); }
-}
-.onde-active { opacity: 1; animation-name: onde; animation-duration: 700; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+.onde-active { opacity: 1; }
 
 .bulle-ecouter { margin-top: 8; }
 .bulle-ecouter-ico { font-size: 16; color: #C8361E; vertical-align: center; margin-right: 4; }

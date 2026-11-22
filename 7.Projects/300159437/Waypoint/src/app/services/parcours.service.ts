@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { ApplicationSettings } from '@nativescript/core';
 import { ETAPES_CANADA } from '../data/parcours-canada';
 import { Etape } from '../models';
+import { tr } from '../i18n/i18n';
+
+/** Copie de l'étape dans la langue choisie. */
+function traduite(e: Etape): Etape {
+  return { ...e, titre: tr(e.titre), pourquoi: tr(e.pourquoi), duree: tr(e.duree), comment: e.comment.map((c) => tr(c)) };
+}
 import { ProfilService } from './profil.service';
 
 const CLE_FAITES = 'etape.faites';
@@ -18,11 +24,12 @@ export class ParcoursService {
       (e) =>
         (e.statuts === 'tous' || e.statuts.includes(p.statut)) &&
         (!e.provinces || e.provinces.includes(p.province))
-    );
+    ).map(traduite);
   }
 
   get(id: string): Etape | undefined {
-    return ETAPES_CANADA.find((e) => e.id === id);
+    const e = ETAPES_CANADA.find((x) => x.id === id);
+    return e ? traduite(e) : undefined;
   }
 
   private faites(): string[] {
