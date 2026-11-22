@@ -1,0 +1,66 @@
+<ActionBar title="Musique"></ActionBar>
+
+<GridLayout rows="auto, auto, *" class="p-4">
+
+  <TextField
+    row="0"
+    class="input p-3"
+    hint="Artiste ou titre"
+    returnKeyType="search"
+    [(ngModel)]="term"
+    (returnPress)="searchSong()">
+  </TextField>
+
+  <Button
+    row="1"
+    text="Rechercher"
+    class="btn btn-primary"
+    (tap)="searchSong()">
+  </Button>
+
+  <ActivityIndicator
+    row="2"
+    *ngIf="loading"
+    busy="true"
+    width="50"
+    height="50"
+    verticalAlignment="top"
+    marginTop="30">
+  </ActivityIndicator>
+
+  <Label
+    row="2"
+    *ngIf="!loading && message"
+    [text]="message"
+    textWrap="true"
+    class="text-center"
+    verticalAlignment="top"
+    marginTop="30">
+  </Label>
+
+  <ListView
+    row="2"
+    *ngIf="songs.length > 0"
+    [items]="songs"
+    separatorColor="transparent">
+    <ng-template let-song="item">
+      <GridLayout columns="72, *" class="p-2" (tap)="openSong(song)">
+        <Image
+          col="0"
+          [src]="song.artwork"
+          width="64"
+          height="64"
+          stretch="aspectFill"
+          borderRadius="8"
+          verticalAlignment="center">
+        </Image>
+        <StackLayout col="1" verticalAlignment="center" marginLeft="12">
+          <Label [text]="song.title" class="font-bold" fontSize="16" textWrap="true"></Label>
+          <Label [text]="song.artist" opacity="0.8"></Label>
+          <Label [text]="song.album" opacity="0.5" fontSize="12"></Label>
+        </StackLayout>
+      </GridLayout>
+    </ng-template>
+  </ListView>
+
+</GridLayout>
