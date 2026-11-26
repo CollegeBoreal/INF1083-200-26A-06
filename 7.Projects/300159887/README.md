@@ -4,11 +4,11 @@
 
 
 
-COLLÈGE BORÉAL  |  INF1083 — DÉVELOPPEMENT D’APPLICATIONS
+# COLLÈGE BORÉAL  |  INF1083 — DÉVELOPPEMENT D’APPLICATIONS
 
 
 
-
+```
 RAPPORT FINAL
 
 TP 7 — Projects
@@ -24,10 +24,10 @@ Matricule : 300159887
 Cours : INF1083-200 — Développement d’applications
 
 Date : 19 novembre 2026
+```
 
 
-
-Application BarberShop — écran d’accueil
+## 💈 Application BarberShop — écran d’accueil
 
 
 COLLÈGE BORÉAL  |  INF1083 — DÉVELOPPEMENT D’APPLICATIONS
