@@ -44,3 +44,10 @@ INF 1083-200 Développement d'applications
 ```
 =[[1]]*,02+[[2]]*,08+[[3]]*,1+[[4]]*,1+[[5]]*,2+[[6]]*,2+[[7]]*,3
 ```
+
+## NativeScript Summary (B300153416)
+- *Environment & Build:* Configured JAVA_HOME and PATH for JDK 17 so javac works for Android builds (ns run android --emulator).
+- *UI & Layout Fix:* Wrapped <ActionBar title="Music Legends"></ActionBar> and <ListView> inside <Frame><Page>...</Page></Frame> in src/app/app.component.ts to resolve the missing Page error.
+- *Result:* Verified live on the Android emulator (emulator-5554 / Pixel_7) displaying Michael Jackson, Freddie Mercury, Whitney Houston, and Bob Marley with HMR enabled.
+
+![Music Legends on Android Emulator](./2.NativeScript/B300153416/music-legends-emulator.png)
