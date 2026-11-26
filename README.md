@@ -6,12 +6,36 @@ INF 1083-200 Développement d'applications
 
 ## :one: [Devoirs](Devoirs)
 
-|  :hash: | Date   | Cours                                            | 🎉 Participations                                              |
-|---------|--------|:-------------------------------------------------|:-------------------------------------------------------------- |
-| :one:   | 16-sep | [0.PlanDeCours](0.PlanDeCours)                   | [🎉](0.PlanDeCours/.scripts/Participation.md)                  |
-| :two:   | 08-oct | [2.Nativescript](2.NativeScript)                 | [🎉](2.NativeScript/.scripts/Participation.md)                 |
-| :three: | 15-oct | [3.Angular](3.Angular)                           | [🎉](3.Angular/.scripts/Participation.md)                      |
-| :four:  | 22-oct | [4.Forms](4.Forms)                               | [🎉](4.Forms/.scripts/Participation.md)                        |
-| :five:  | 05-nov | [5.RxJS](5.RxJS)                                 | [🎉](5.RxJS/.scripts/Participation.md)                         |
-| :six:   | 12-nov | [6.Animations](6.Animations)                     | [🎉](6.Animations/.scripts/Participation.md)                   |
+|  :hash: | Date   | Cours                                            | 🎉 Participations                                              |  💯% |
+|---------|--------|:-------------------------------------------------|:-------------------------------------------------------------- |-----|
+| :one:   | 16-sep | [0.PlanDeCours](0.PlanDeCours)                   | [🎉](0.PlanDeCours/.scripts/Participation.md)                  | 0️⃣2️⃣
+| :two:   | 08-oct | [2.Nativescript](2.NativeScript)                 | [🎉](2.NativeScript/.scripts/Participation.md)                 | 0️⃣8️⃣
+| :three: | 15-oct | [3.Angular](3.Angular)                           | [🎉](3.Angular/.scripts/Participation.md)                      | 1️⃣0️⃣
+| :four:  | 22-oct | [4.Forms](4.Forms)                               | [🎉](4.Forms/.scripts/Participation.md)                        | 1️⃣0️⃣
+| :five:  | 05-nov | [5.RxJS](5.RxJS)                                 | [🎉](5.RxJS/.scripts/Participation.md)                         | 2️⃣0️⃣
+| :six:   | 12-nov | [6.Animations](6.Animations)                     | [🎉](6.Animations/.scripts/Participation.md)                   | 2️⃣0️⃣
+| :six:   | 01-dec | [7.Projects](7.Projects)                         | [🎉](7.Projects/.scripts/Participation.md)                     | 3️⃣0️⃣
+
+## 🎯 Ce que les étudiants apprendront
+
+### 🏗️ 1. Introduction aux applications hybrides
+- Comprendre les différences entre applications 🌐 web, 📱 natives et 🔄 hybrides.
+- Créer et configurer un projet d'application.
+- Utiliser les outils de compilation et de débogage.
+- Modifier les fichiers de configuration.
+- Produire une documentation technique professionnelle.
+
+### 🎨 2. Design d'interfaces graphiques
+- Concevoir des interfaces conviviales.
+- Réaliser des maquettes papier ou numériques.
+- Utiliser les contrôles graphiques appropriés.
+- Programmer les événements et interactions utilisateur.
+- Tester et corriger les interfaces développées.
+
+### 💾 3. Applications connectées aux données
+- Développer des applications web et hybrides.
+- Connecter une application à une base de données.
+- Lire, ajouter et modifier des données.
+- Effectuer la validation des entrées utilisateur.
+- Comprendre le modèle client-serveur.
 
