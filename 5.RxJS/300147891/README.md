@@ -112,6 +112,9 @@ ns run android
 
 <img width="656" height="925" alt="Capture d&#39;écran 2026-11-26 004058" src="https://github.com/user-attachments/assets/cbc93d2b-4170-4d52-8a44-179054d16783" />
 
+<img width="401" height="826" alt="Capture d&#39;écran 2026-11-26 005049" src="https://github.com/user-attachments/assets/cf5139c8-1094-4f33-9d18-9764274be4d5" />
+
+
 ## 10. Conclusion
 
 Ce laboratoire m'a permis de comprendre l'utilisation
