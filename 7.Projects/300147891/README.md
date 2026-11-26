@@ -48,32 +48,32 @@ la fermeture de l'application.
 
 Cette page présente l'application et l'objectif sportif.
 
-![Accueil](<img width="520" height="898" alt="accueil" src="https://github.com/user-attachments/assets/8403bad4-ab30-4327-a476-7b015b1a482e" />
-)
+<img width="520" height="898" alt="accueil" src="https://github.com/user-attachments/assets/8403bad4-ab30-4327-a476-7b015b1a482e" />
+
 
 ### 2. Exercices
 
 Cette page affiche une liste de six exercices avec
 les groupes musculaires, les séries et les répétitions.
 
-![Exercices](<img width="435" height="900" alt="exercice" src="https://github.com/user-attachments/assets/3b899c9a-1fde-4e99-9289-5fad6e5a52d2" />
-)
+<img width="435" height="900" alt="exercice" src="https://github.com/user-attachments/assets/3b899c9a-1fde-4e99-9289-5fad6e5a52d2" />
+
 
 ### 3. Progression
 
 Cette page permet d'enregistrer les séances et
 de suivre le pourcentage de progression.
 
-![Progression](<img width="502" height="873" alt="progression" src="https://github.com/user-attachments/assets/8eaeab7d-0148-4d12-b78a-463858ee0526" />
-)
+<img width="502" height="873" alt="progression" src="https://github.com/user-attachments/assets/8eaeab7d-0148-4d12-b78a-463858ee0526" />
+
 
 ### 4. Réinitialisation
 
 Le bouton Réinitialiser permet de remettre
 le compteur des séances à zéro.
 
-![Réinitialisation](<img width="496" height="780" alt="reinitialisation" src="https://github.com/user-attachments/assets/2f85c23c-3031-4128-a3b2-760c9d58e9c3" />
-)
+<img width="496" height="780" alt="reinitialisation" src="https://github.com/user-attachments/assets/2f85c23c-3031-4128-a3b2-760c9d58e9c3" />
+
 
 ## Exécution du projet
 
