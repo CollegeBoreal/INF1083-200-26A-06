@@ -93,6 +93,9 @@ Dans `nativescript.config.ts`, remplacer `org.nativescript.etape` par un identif
 
 ## Contenu
 
+# capture
+<img src="images/Screenshot%202026-11-26%20004128.png" width="40%">
+
 - **Étapes** : `src/app/data/parcours-canada.ts`. Relire chaque étape et vérifier chaque lien `source` sur le site officiel avant de publier. Les durées sont des estimations.
 - **Vidéos** : dans chaque étape,
   ```ts
