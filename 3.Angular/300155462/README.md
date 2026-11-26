@@ -10,6 +10,20 @@ La route d’accueil contient le bouton **Saluer**. La route **Utilisateurs** ap
 
 ## Capture du code
 
+### Application dans le navigateur
+
+J’ai ouvert l’application dans Edge et cliqué sur **Saluer**. Le composant Accueil a affiché « Bonjour de la part de Zakaria ! ».
+
+![Message après un clic sur Saluer](images/accueil-angular.jpg)
+
+Dans **Utilisateurs**, le bouton **Charger l’annuaire** a envoyé une requête à JSONPlaceholder. La réponse reçue contenait dix utilisateurs. La page a affiché leurs noms et leurs courriels.
+
+![Annuaire affichant les dix utilisateurs reçus](images/annuaire-angular.jpg)
+
+Ces captures proviennent d’une exécution locale des composants avec Angular 20.3 en compilation JIT dans le navigateur.
+
+### Composant Annuaire
+
 ![Le composant `Annuaire` gère le chargement de la liste et l’échec de la requête HTTP.](images/code-source.jpg)
 
 Le composant `Annuaire` gère le chargement de la liste et l’échec de la requête HTTP.
