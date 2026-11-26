@@ -39,3 +39,8 @@ INF 1083-200 Développement d'applications
 - Effectuer la validation des entrées utilisateur.
 - Comprendre le modèle client-serveur.
 
+# :books: References
+
+```
+=[[1]]*,02+[[2]]*,08+[[3]]*,1+[[4]]*,1+[[5]]*,2+[[6]]*,2+[[7]]*,3
+```
