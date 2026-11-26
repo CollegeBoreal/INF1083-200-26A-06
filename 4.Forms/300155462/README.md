@@ -4,6 +4,16 @@ Zakaria Mamssi · INF1083 · Groupe 06
 
 Le formulaire repose sur FormBuilder, formGroup et deux contrôles. Le courriel doit être valide et le nom doit contenir au moins un caractère visible. Une inscription valide écrit les deux valeurs dans la console.
 
+## Fonctionnement
+
+Le formulaire associe les champs courriel et nom d’utilisateur à deux contrôles Angular. Lors d’une soumission valide, le composant affiche les valeurs dans la console.
+
+## Capture du code
+
+![Le composant Home définit les contrôles du formulaire et les validateurs.](images/code-source.jpg)
+
+Le composant Home définit les contrôles du formulaire et les validateurs.
+
 ## Code source
 
 ### src/app/home/home.component.ts
@@ -174,3 +184,4 @@ Essayer un formulaire vide, puis entrer essai@example.org et Zakaria. Vérifier 
 Capture des résultats locaux — Soumission · états du formulaire simulés.
 
 ![Résultats de la vérification](images/verification.png)
+
