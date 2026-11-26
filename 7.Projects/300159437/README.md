@@ -52,6 +52,12 @@ npm install
 ns run android
 ```
 
+# capture 
+<img src="images/Screenshot%202026-11-22%20044156.png" width="40%">
+
+
+
+
 Il faut un téléphone Android branché (débogage USB) ou un émulateur Android Studio. iOS : `ns run ios`, sur un Mac seulement.
 
 Après un changement d'identifiant ou de nom de dossier, supprimer `platforms` (il est recréé automatiquement) :
