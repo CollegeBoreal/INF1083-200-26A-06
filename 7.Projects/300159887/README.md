@@ -32,11 +32,11 @@ Date : 19 novembre 2026
 
 COLLÈGE BORÉAL  |  INF1083 — DÉVELOPPEMENT D’APPLICATIONS
 
-1. Présentation et objectifs
+### 1. Présentation et objectifs
 
 BarberShop est une application mobile de démonstration destinée à présenter les prestations d’un salon de coiffure pour hommes. Elle permet de consulter les tarifs et de remplir un formulaire de demande de réservation. Le projet répond à la consigne d’une application comportant au minimum trois pages accessibles par onglets.
 
-2. Environnement technique
+### 2. Environnement technique
 
 Technologie
 
