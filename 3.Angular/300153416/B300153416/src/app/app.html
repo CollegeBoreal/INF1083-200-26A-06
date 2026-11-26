@@ -1,0 +1,29 @@
+﻿<main class="container">
+  <h1>Music Legends</h1>
+
+  <ul class="legend-list">
+    @for (person of personService.items(); track person.id) {
+      <li
+        class="legend-item"
+        [class.active]="selectedPerson()?.id === person.id"
+        (click)="selectPerson(person.id)"
+      >
+        <span class="name">{{ person.name }}</span>
+        <span class="nationality">{{ person.nationality }}</span>
+      </li>
+    }
+  </ul>
+
+  @if (selectedPerson(); as current) {
+    <section class="details-card">
+      <h2>{{ current.name }}</h2>
+      <p><strong>Nationality:</strong> {{ current.nationality }}</p>
+      <h3>Notable Achievements</h3>
+      <ul>
+        @for (achievement of current.notableAchievements; track achievement) {
+          <li>{{ achievement }}</li>
+        }
+      </ul>
+    </section>
+  }
+</main>
