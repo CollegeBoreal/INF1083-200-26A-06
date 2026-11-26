@@ -1,0 +1,78 @@
+<ActionBar title="Progression"></ActionBar>
+
+<ScrollView backgroundColor="#F1F5F9">
+    <StackLayout padding="20">
+
+        <Label text="📈 Ma progression"
+               fontSize="28"
+               fontWeight="bold"
+               color="#0F172A">
+        </Label>
+
+        <Label text="Suis tes performances sportives"
+               fontSize="16"
+               color="#64748B"
+               marginBottom="25">
+        </Label>
+
+        <StackLayout backgroundColor="#152C43"
+                     borderRadius="20"
+                     padding="25">
+
+            <Label text="SÉANCES RÉALISÉES"
+                   fontSize="14"
+                   color="#CBD5E1">
+            </Label>
+
+            <Label [text]="nombreSeances + ' / ' + objectif"
+                   fontSize="40"
+                   fontWeight="bold"
+                   color="white"
+                   marginTop="15">
+            </Label>
+
+            <Progress [value]="progression"
+                      maxValue="100"
+                      color="#22C55E"
+                      backgroundColor="#475569"
+                      marginTop="15">
+            </Progress>
+
+            <Label [text]="progression + '% de ton objectif'"
+                   fontSize="16"
+                   color="white"
+                   marginTop="10">
+            </Label>
+
+            <Label *ngIf="nombreSeances >= objectif"
+                   text="🎉 Objectif atteint !"
+                   color="#86EFAC"
+                   fontSize="20"
+                   fontWeight="bold"
+                   marginTop="15">
+            </Label>
+
+        </StackLayout>
+
+        <Button text="+ Enregistrer une séance"
+                (tap)="ajouterSeance()"
+                backgroundColor="#2563EB"
+                color="white"
+                fontSize="18"
+                fontWeight="bold"
+                borderRadius="12"
+                height="60"
+                marginTop="25">
+        </Button>
+
+        <Button text="Réinitialiser"
+                (tap)="reinitialiser()"
+                backgroundColor="white"
+                color="#DC2626"
+                borderRadius="12"
+                height="50"
+                marginTop="10">
+        </Button>
+
+    </StackLayout>
+</ScrollView>
