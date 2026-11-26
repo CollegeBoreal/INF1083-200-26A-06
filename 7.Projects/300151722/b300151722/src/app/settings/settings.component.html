@@ -1,13 +1,297 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Settings" colSpan="2"></Label>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-  </GridLayout>
+<ActionBar backgroundColor="#FFF9F0" color="#205B42">
+
+    <NavigationButton visibility="collapsed">
+    </NavigationButton>
+
+    <GridLayout columns="50,*">
+
+        <Label
+            col="0"
+            text="☰"
+            fontSize="25"
+            textAlignment="center"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+
+        <Label
+            col="1"
+            text="ℹ️ À propos"
+            fontSize="19"
+            fontWeight="bold">
+        </Label>
+
+    </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf013;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView backgroundColor="#FFF9F0">
+
+    <StackLayout padding="20">
+
+        <!-- EN-TETE -->
+        <StackLayout
+            backgroundColor="#205B42"
+            borderRadius="24"
+            padding="30"
+            marginTop="12"
+            marginBottom="22">
+
+            <Label
+                text="🍽️🌍"
+                fontSize="55"
+                textAlignment="center">
+            </Label>
+
+            <Label
+                text="Cuisine du Monde"
+                color="white"
+                fontSize="27"
+                fontWeight="bold"
+                textAlignment="center"
+                marginTop="15">
+            </Label>
+
+            <Label
+                text="Un voyage culinaire autour du monde"
+                color="#D8EADD"
+                fontSize="14"
+                textAlignment="center"
+                textWrap="true"
+                marginTop="10">
+            </Label>
+
+            <Label
+                text="Version de développement 0.1"
+                color="#B6D9C3"
+                fontSize="12"
+                textAlignment="center"
+                marginTop="14">
+            </Label>
+
+        </StackLayout>
+
+        <!-- STATISTIQUES -->
+        <GridLayout columns="*,*" marginBottom="22">
+
+            <StackLayout
+                col="0"
+                backgroundColor="#E3EFE4"
+                borderRadius="16"
+                padding="20"
+                marginRight="6">
+
+                <Label
+                    text="🌍"
+                    fontSize="28"
+                    textAlignment="center">
+                </Label>
+
+                <Label
+                    [text]="nombrePays"
+                    color="#205B42"
+                    fontSize="30"
+                    fontWeight="bold"
+                    textAlignment="center"
+                    marginTop="6">
+                </Label>
+
+                <Label
+                    text="Pays"
+                    color="#5D7464"
+                    fontSize="13"
+                    textAlignment="center">
+                </Label>
+
+            </StackLayout>
+
+            <StackLayout
+                col="1"
+                backgroundColor="#FFF0DF"
+                borderRadius="16"
+                padding="20"
+                marginLeft="6">
+
+                <Label
+                    text="👨‍🍳"
+                    fontSize="28"
+                    textAlignment="center">
+                </Label>
+
+                <Label
+                    [text]="nombreRecettes"
+                    color="#B66D36"
+                    fontSize="30"
+                    fontWeight="bold"
+                    textAlignment="center"
+                    marginTop="6">
+                </Label>
+
+                <Label
+                    text="Recettes détaillées"
+                    color="#986B4A"
+                    fontSize="12"
+                    textAlignment="center">
+                </Label>
+
+            </StackLayout>
+
+        </GridLayout>
+
+        <!-- PRESENTATION -->
+        <StackLayout
+            backgroundColor="white"
+            borderRadius="18"
+            padding="20"
+            marginBottom="15">
+
+            <Label
+                text="📖 Notre application"
+                color="#26382B"
+                fontSize="21"
+                fontWeight="bold"
+                marginBottom="12">
+            </Label>
+
+            <Label
+                text="Cuisine du Monde est une application Android qui permet de découvrir les spécialités traditionnelles de différents pays."
+                color="#536456"
+                fontSize="15"
+                textWrap="true"
+                marginBottom="12">
+            </Label>
+
+            <Label
+                text="Vous pouvez rechercher un pays, consulter les recettes disponibles, enregistrer vos favoris et rechercher des vidéos de préparation sur YouTube."
+                color="#536456"
+                fontSize="15"
+                textWrap="true">
+            </Label>
+
+        </StackLayout>
+
+        <!-- FONCTIONNALITES -->
+        <StackLayout
+            backgroundColor="white"
+            borderRadius="18"
+            padding="20"
+            marginBottom="15">
+
+            <Label
+                text="✨ Fonctionnalités"
+                color="#26382B"
+                fontSize="21"
+                fontWeight="bold"
+                marginBottom="15">
+            </Label>
+
+            <Label
+                text="🌍 Découverte de 195 pays"
+                color="#435647"
+                fontSize="15"
+                marginBottom="13">
+            </Label>
+
+            <Label
+                text="🔎 Recherche de spécialités"
+                color="#435647"
+                fontSize="15"
+                marginBottom="13">
+            </Label>
+
+            <Label
+                text="👨‍🍳 Ingrédients et préparations"
+                color="#435647"
+                fontSize="15"
+                marginBottom="13">
+            </Label>
+
+            <Label
+                text="❤️ Sauvegarde des favoris"
+                color="#435647"
+                fontSize="15"
+                marginBottom="13">
+            </Label>
+
+            <Label
+                text="▶ Recherches de vidéos YouTube"
+                color="#435647"
+                fontSize="15">
+            </Label>
+
+        </StackLayout>
+
+        <!-- INFORMATIONS TECHNIQUES -->
+        <StackLayout
+            backgroundColor="white"
+            borderRadius="18"
+            padding="20"
+            marginBottom="20">
+
+            <Label
+                text="💻 Informations du projet"
+                color="#26382B"
+                fontSize="20"
+                fontWeight="bold"
+                marginBottom="15">
+            </Label>
+
+            <Label
+                text="Projet : 7.Projects"
+                color="#536456"
+                fontSize="14"
+                marginBottom="10">
+            </Label>
+
+            <Label
+                text="Cours : INF1083"
+                color="#536456"
+                fontSize="14"
+                marginBottom="10">
+            </Label>
+
+            <Label
+                text="Étudiant : 300151722"
+                color="#536456"
+                fontSize="14"
+                marginBottom="10">
+            </Label>
+
+            <Label
+                text="Technologies : NativeScript, Angular et TypeScript"
+                color="#536456"
+                fontSize="14"
+                textWrap="true">
+            </Label>
+
+        </StackLayout>
+
+        <!-- BOUTON -->
+        <Button
+            text="🍲 DÉCOUVRIR LES RECETTES"
+            backgroundColor="#205B42"
+            color="white"
+            height="56"
+            borderRadius="15"
+            (tap)="allerAuxRecettes()">
+        </Button>
+
+        <Label
+            text="Les données intégrées sont consultables hors connexion. YouTube nécessite Internet."
+            color="#8D998F"
+            fontSize="12"
+            textAlignment="center"
+            textWrap="true"
+            marginTop="20">
+        </Label>
+
+        <Label
+            text="Fait avec ❤️ — Cuisine du Monde"
+            color="#8D998F"
+            fontSize="12"
+            textAlignment="center"
+            marginTop="20"
+            marginBottom="25">
+        </Label>
+
+    </StackLayout>
+</ScrollView>

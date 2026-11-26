@@ -1,52 +1,41 @@
-import { Component, OnInit } from '@angular/core'
-import { NavigationEnd, Router } from '@angular/router'
-import { RouterExtensions } from '@nativescript/angular'
+
+import { Component } from '@angular/core';
+import { RouterExtensions } from '@nativescript/angular';
+import { Application } from '@nativescript/core';
+
 import {
-  DrawerTransitionBase,
-  RadSideDrawer,
-  SlideInOnTopTransition,
-} from 'nativescript-ui-sidedrawer'
-import { filter } from 'rxjs/operators'
-import { Application } from '@nativescript/core'
+    RadSideDrawer,
+    SlideInOnTopTransition
+} from 'nativescript-ui-sidedrawer';
 
 @Component({
-  standalone: false,
-  selector: 'ns-app',
-  templateUrl: 'app.component.html',
+    selector: 'ns-app',
+    standalone: false,
+    templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
-  private _activatedUrl: string
-  private _sideDrawerTransition: DrawerTransitionBase
+export class AppComponent {
 
-  constructor(private router: Router, private routerExtensions: RouterExtensions) {
-    // Use the component constructor to inject services.
-  }
+    sideDrawerTransition = new SlideInOnTopTransition();
 
-  ngOnInit(): void {
-    this._activatedUrl = '/home'
-    this._sideDrawerTransition = new SlideInOnTopTransition()
+    constructor(
+        private routerExtensions: RouterExtensions
+    ) {}
 
-    this.router.events
-      .pipe(filter((event: any) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => (this._activatedUrl = event.urlAfterRedirects))
-  }
+    onNavItemTap(route: string): void {
 
-  get sideDrawerTransition(): DrawerTransitionBase {
-    return this._sideDrawerTransition
-  }
+        const drawer =
+            <RadSideDrawer>Application.getRootView();
 
-  isComponentSelected(url: string): boolean {
-    return this._activatedUrl === url
-  }
+        if (drawer) {
+            drawer.closeDrawer();
+        }
 
-  onNavItemTap(navItemRoute: string): void {
-    this.routerExtensions.navigate([navItemRoute], {
-      transition: {
-        name: 'fade',
-      },
-    })
-
-    const sideDrawer = <RadSideDrawer>Application.getRootView()
-    sideDrawer.closeDrawer()
-  }
+        this.routerExtensions.navigate([route], {
+            clearHistory: true,
+            transition: {
+                name: 'fade',
+                duration: 200
+            }
+        });
+    }
 }

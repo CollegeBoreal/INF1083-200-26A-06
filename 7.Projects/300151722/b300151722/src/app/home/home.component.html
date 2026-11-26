@@ -1,76 +1,102 @@
-
-<ActionBar class="action-bar">
+<ActionBar backgroundColor="#FFFAF2" color="#234732">
     <NavigationButton visibility="collapsed"></NavigationButton>
-
     <GridLayout columns="50,*">
-        <Label
-            col="0"
-            text="☰"
-            fontSize="25"
-            textAlignment="center"
-            (tap)="onDrawerButtonTap()">
-        </Label>
-
-        <Label
-            col="1"
-            text="DZIS TV Player"
-            class="action-bar-title">
-        </Label>
+        <Label col="0" text="☰" fontSize="25" textAlignment="center" (tap)="onDrawerButtonTap()"></Label>
+        <Label col="1" text="🍽 Cuisine du Monde" fontSize="19" fontWeight="bold"></Label>
     </GridLayout>
 </ActionBar>
 
 <ScrollView class="page">
     <StackLayout class="container">
-
-        <Label
-            text="DZIS TV Player"
-            class="app-title">
-        </Label>
-
-        <Label
-            text="Votre univers de divertissement"
-            class="subtitle">
-        </Label>
-
-        <Label
-            text="Bienvenue !"
-            class="section-title">
-        </Label>
-
-        <Label
-            text="Découvrez vos chaînes et vos contenus préférés."
-            class="description"
-            textWrap="true">
-        </Label>
-
-        <GridLayout columns="*,*" rows="150,150" class="cards">
-
-            <StackLayout row="0" col="0" class="card tv-card">
-                <Label text="📺" class="card-icon"></Label>
-                <Label text="TV en direct" class="card-title"></Label>
+        <StackLayout *ngIf="!paysSelectionne">
+            <StackLayout class="hero">
+                <Label text="🌍 UN VOYAGE GOURMAND" class="hero-tag"></Label>
+                <Label text="Cuisine du Monde" class="hero-title"></Label>
+                <Label text="195 pays, des saveurs à découvrir !" class="hero-subtitle"></Label>
             </StackLayout>
 
-            <StackLayout row="0" col="1" class="card film-card">
-                <Label text="🎬" class="card-icon"></Label>
-                <Label text="Films" class="card-title"></Label>
+            <GridLayout columns="38,*" class="search-box">
+                <Label col="0" text="🔎" class="search-icon"></Label>
+                <TextField col="1" hint="Chercher France, Algérie, pizza..." [(ngModel)]="recherche" class="search-field" autocorrect="false"></TextField>
+            </GridLayout>
+
+            <GridLayout columns="*,auto" class="section-header">
+                <Label col="0" text="Les pays du monde" class="section-title"></Label>
+                <Label col="1" [text]="paysFiltres.length + ' pays'" class="count"></Label>
+            </GridLayout>
+
+            <GridLayout columns="*,*" class="filters">
+                <Button col="0" text="🌍 Tous les pays" [class]="favorisSeulement ? 'filter-idle' : 'filter-active'" (tap)="afficherTous()"></Button>
+                <Button col="1" text="❤️ Favoris" [class]="favorisSeulement ? 'filter-active' : 'filter-idle'" (tap)="afficherFavoris()"></Button>
+            </GridLayout>
+
+            <StackLayout *ngFor="let pays of paysVisibles" class="country-card">
+                <GridLayout columns="64,*,46">
+                    <GridLayout col="0" class="flag-box" (tap)="ouvrirPays(pays)">
+                        <Image *ngIf="photoPays(pays.code)"
+                               [src]="photoPays(pays.code)"
+                               stretch="aspectFill"
+                               class="mini-photo"></Image>
+                        <Label *ngIf="!photoPays(pays.code)"
+                               [text]="pays.drapeau" class="flag"></Label>
+                    </GridLayout>
+                    <StackLayout col="1" class="country-info" (tap)="ouvrirPays(pays)">
+                        <Label [text]="pays.nom" class="country-name" textWrap="true"></Label>
+                        <Label [text]="'🍲 ' + pays.plat" class="dish" textWrap="true"></Label>
+                        <Label text="Voir la spécialité  →" class="view-recipe"></Label>
+                    </StackLayout>
+                    <Label col="2" [text]="estFavori(pays.code) ? '❤️' : '♡'" class="heart" (tap)="changerFavori(pays.code)"></Label>
+                </GridLayout>
             </StackLayout>
 
-            <StackLayout row="1" col="0" class="card serie-card">
-                <Label text="🍿" class="card-icon"></Label>
-                <Label text="Séries" class="card-title"></Label>
+            <StackLayout *ngIf="paysFiltres.length === 0" class="empty-card">
+                <Label text="🔎" class="empty-icon"></Label>
+                <Label text="Aucun pays trouvé" class="empty-title"></Label>
+                <Label text="Essayez un autre nom ou désactivez le filtre Favoris." class="empty-text" textWrap="true"></Label>
             </StackLayout>
 
-            <StackLayout row="1" col="1" class="card playlist-card">
-                <Label text="📋" class="card-icon"></Label>
-                <Label text="Playlists" class="card-title"></Label>
+            <Button *ngIf="peutAfficherPlus" text="Afficher 20 autres pays ↓" class="more-button" (tap)="afficherPlus()"></Button>
+
+            <Label text="Des spécialités sont proposées pour les 195 pays. Les recettes détaillées sont ajoutées progressivement." class="footer" textWrap="true"></Label>
+        </StackLayout>
+
+        <StackLayout *ngIf="paysSelectionne as pays">
+            <Button text="← Retour aux pays" class="back-button" (tap)="revenir()"></Button>
+            <StackLayout class="detail-hero">
+                <Label [text]="pays.drapeau" class="detail-flag"></Label>
+                <Label [text]="pays.nom" class="detail-country" textWrap="true"></Label>
+            </StackLayout>
+            <GridLayout *ngIf="photoPays(pays.code)" class="photo-detail-box">
+                <Image [src]="photoPays(pays.code)"
+                       stretch="aspectFill" class="photo-detail"></Image>
+            </GridLayout>
+            <Label *ngIf="photoPays(pays.code)"
+                   text="📷 Source et licence de la photo"
+                   class="photo-credit" (tap)="ouvrirCreditPhoto(pays)"></Label>
+            <Label text="SPÉCIALITÉ À DÉCOUVRIR" class="eyebrow"></Label>
+            <Label [text]="pays.plat" class="detail-title" textWrap="true"></Label>
+            <Button [text]="estFavori(pays.code) ? '❤️ Retirer des favoris' : '♡ Ajouter aux favoris'" class="favorite-button" (tap)="changerFavori(pays.code)"></Button>
+
+            <StackLayout *ngIf="detailsSelectionnes as detail">
+                <Label [text]="'⏱ ' + detail.duree + '     🍽 ' + detail.portions" class="meta"></Label>
+                <Label text="🛒 Ingrédients" class="section-title"></Label>
+                <StackLayout class="white-card">
+                    <Label *ngFor="let ingredient of detail.ingredients" [text]="'✓ ' + ingredient" class="ingredient" textWrap="true"></Label>
+                </StackLayout>
+                <Label text="👨‍🍳 Préparation" class="section-title"></Label>
+                <StackLayout *ngFor="let etape of detail.etapes; let i = index" class="step-card">
+                    <Label [text]="'ÉTAPE ' + (i + 1)" class="step-number"></Label>
+                    <Label [text]="etape" class="step-text" textWrap="true"></Label>
+                </StackLayout>
             </StackLayout>
 
-        </GridLayout>
-
-        <Label
-            text="M3U • Xtream Codes • Streaming"
-            class="footer">
-        </Label>
-
+            <StackLayout *ngIf="!detailsSelectionnes" class="white-card">
+                <Label text="👨‍🍳 Recette détaillée à compléter" class="pending-title"></Label>
+                <Label text="Nous avons ajouté ce pays et sa spécialité. Les ingrédients et les étapes seront ajoutés progressivement. Vous pouvez déjà rechercher une vidéo de préparation." class="pending-text" textWrap="true"></Label>
+            </StackLayout>
+            <Button text="▶ Rechercher une video recette sur YouTube" class="youtube-button" (tap)="ouvrirYoutube(pays)"></Button>
+            <Button text="🔎 Autre recherche YouTube" class="youtube-alt-button" (tap)="ouvrirYoutubeAutre(pays)"></Button>
+            <Label text="Pour l'Algerie, l'autre recherche utilise des mots en arabe. Les resultats dependent de YouTube." class="footer" textWrap="true"></Label>
+        </StackLayout>
     </StackLayout>
 </ScrollView>

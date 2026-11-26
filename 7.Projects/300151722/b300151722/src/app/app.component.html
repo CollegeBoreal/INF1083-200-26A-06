@@ -1,69 +1,210 @@
+
 <RadSideDrawer [drawerTransition]="sideDrawerTransition">
-  <GridLayout tkDrawerContent rows="auto, *" class="nt-drawer__content">
-    <StackLayout row="0" class="nt-drawer__header">
-      <Image class="nt-drawer__header-image fas t-36" src="font://&#xf2bd;"></Image>
-      <Label class="nt-drawer__header-brand" text="User Name"></Label>
-      <Label class="nt-drawer__header-footnote" text="username@mail.com"></Label>
-    </StackLayout>
 
-    <ScrollView row="1" class="nt-drawer__body">
-      <StackLayout>
-        <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/home')"
-          (tap)="onNavItemTap('/home')"
-        >
-          <Label col="0" text="&#xf015;" class="nt-icon fas"></Label>
-          <Label col="1" text="Home" class="p-r-10"></Label>
-        </GridLayout>
+    <!-- MENU LATERAL CUISINE DU MONDE -->
+    <GridLayout
+        tkDrawerContent
+        rows="auto,*"
+        width="285"
+        backgroundColor="#FFF9F0">
 
-        <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/browse')"
-          (tap)="onNavItemTap('/browse')"
-        >
-          <Label col="0" text="&#xf1ea;" class="nt-icon far"></Label>
-          <Label col="1" text="Browse" class="p-r-10"></Label>
-        </GridLayout>
+        <!-- EN-TETE -->
+        <StackLayout
+            row="0"
+            backgroundColor="#205B42"
+            padding="28"
+            paddingTop="50"
+            paddingBottom="30">
 
-        <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/search')"
-          (tap)="onNavItemTap('/search')"
-        >
-          <Label col="0" text="&#xf002;" class="nt-icon fas"></Label>
-          <Label col="1" text="Search" class="p-r-10"></Label>
-        </GridLayout>
+            <Label
+                text="🍽️🌍"
+                fontSize="42"
+                marginBottom="15">
+            </Label>
 
-        <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/featured')"
-          (tap)="onNavItemTap('/featured')"
-        >
-          <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
-          <Label col="1" text="Featured" class="p-r-10"></Label>
-        </GridLayout>
+            <Label
+                text="Cuisine du Monde"
+                color="#FFFFFF"
+                fontSize="24"
+                fontWeight="bold">
+            </Label>
 
-        <StackLayout class="hr"></StackLayout>
+            <Label
+                text="195 pays, des saveurs à découvrir"
+                color="#D8EADD"
+                fontSize="13"
+                textWrap="true"
+                marginTop="8">
+            </Label>
 
-        <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/settings')"
-          (tap)="onNavItemTap('/settings')"
-        >
-          <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
-          <Label col="1" text="Settings" class="p-r-10"></Label>
-        </GridLayout>
-      </StackLayout>
-    </ScrollView>
-  </GridLayout>
+        </StackLayout>
 
-  <GridLayout tkMainContent>
-    <page-router-outlet></page-router-outlet>
-  </GridLayout>
+        <!-- OPTIONS DU MENU -->
+        <ScrollView row="1">
+
+            <StackLayout padding="16">
+
+                <Label
+                    text="MENU PRINCIPAL"
+                    color="#87958A"
+                    fontSize="12"
+                    fontWeight="bold"
+                    marginTop="15"
+                    marginBottom="18"
+                    marginLeft="10">
+                </Label>
+
+                <!-- ACCUEIL -->
+                <GridLayout
+                    columns="55,*"
+                    height="60"
+                    backgroundColor="#E4EEE3"
+                    borderRadius="14"
+                    marginBottom="9"
+                    (tap)="onNavItemTap('/home')">
+
+                    <Label
+                        col="0"
+                        text="🏠"
+                        fontSize="24"
+                        textAlignment="center"
+                        verticalAlignment="middle">
+                    </Label>
+
+                    <Label
+                        col="1"
+                        text="Accueil"
+                        color="#205B42"
+                        fontSize="16"
+                        fontWeight="bold"
+                        verticalAlignment="middle">
+                    </Label>
+                </GridLayout>
+
+                <!-- PAYS -->
+                <GridLayout
+                    columns="55,*"
+                    height="60"
+                    marginBottom="9"
+                    (tap)="onNavItemTap('/browse')">
+
+                    <Label
+                        col="0"
+                        text="🌍"
+                        fontSize="24"
+                        textAlignment="center"
+                        verticalAlignment="middle">
+                    </Label>
+
+                    <Label
+                        col="1"
+                        text="Pays du monde"
+                        color="#26382B"
+                        fontSize="16"
+                        verticalAlignment="middle">
+                    </Label>
+                </GridLayout>
+
+                <!-- RECETTES -->
+                <GridLayout
+                    columns="55,*"
+                    height="60"
+                    marginBottom="9"
+                    (tap)="onNavItemTap('/featured')">
+
+                    <Label
+                        col="0"
+                        text="🍲"
+                        fontSize="24"
+                        textAlignment="center"
+                        verticalAlignment="middle">
+                    </Label>
+
+                    <Label
+                        col="1"
+                        text="Recettes"
+                        color="#26382B"
+                        fontSize="16"
+                        verticalAlignment="middle">
+                    </Label>
+                </GridLayout>
+
+                <!-- FAVORIS -->
+                <GridLayout
+                    columns="55,*"
+                    height="60"
+                    marginBottom="9"
+                    (tap)="onNavItemTap('/search')">
+
+                    <Label
+                        col="0"
+                        text="❤️"
+                        fontSize="24"
+                        textAlignment="center"
+                        verticalAlignment="middle">
+                    </Label>
+
+                    <Label
+                        col="1"
+                        text="Mes favoris"
+                        color="#26382B"
+                        fontSize="16"
+                        verticalAlignment="middle">
+                    </Label>
+                </GridLayout>
+
+                <StackLayout
+                    height="1"
+                    backgroundColor="#E5E9DF"
+                    marginTop="18"
+                    marginBottom="18">
+                </StackLayout>
+
+                <!-- A PROPOS -->
+                <GridLayout
+                    columns="55,*"
+                    height="60"
+                    (tap)="onNavItemTap('/settings')">
+
+                    <Label
+                        col="0"
+                        text="ℹ️"
+                        fontSize="24"
+                        textAlignment="center"
+                        verticalAlignment="middle">
+                    </Label>
+
+                    <Label
+                        col="1"
+                        text="À propos"
+                        color="#26382B"
+                        fontSize="16"
+                        verticalAlignment="middle">
+                    </Label>
+                </GridLayout>
+
+                <Label
+                    text="🍽️ Cuisine du Monde"
+                    color="#8A9A8D"
+                    fontSize="13"
+                    textAlignment="center"
+                    marginTop="65">
+                </Label>
+
+                <Label
+                    text="Projet 7 - INF1083"
+                    color="#A0A99F"
+                    fontSize="11"
+                    textAlignment="center"
+                    marginTop="8">
+                </Label>
+
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <!-- PAGES DE L'APPLICATION -->
+    <page-router-outlet tkMainContent>
+    </page-router-outlet>
+
 </RadSideDrawer>

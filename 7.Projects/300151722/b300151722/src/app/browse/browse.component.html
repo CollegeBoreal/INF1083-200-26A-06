@@ -1,227 +1,91 @@
 
-<ActionBar class="action-bar">
-    <NavigationButton visibility="collapsed"></NavigationButton>
+<ActionBar backgroundColor="#FFF9F0" color="#205B42">
+    <NavigationButton visibility="collapsed">
+    </NavigationButton>
 
     <GridLayout columns="50,*">
+
         <Label
             col="0"
             text="☰"
             fontSize="25"
+            textAlignment="center"
             (tap)="onDrawerButtonTap()">
         </Label>
 
         <Label
             col="1"
-            text="DZIS TV Player - Playlists"
-            class="action-bar-title">
+            text="🌍 Pays du monde"
+            fontSize="19"
+            fontWeight="bold">
         </Label>
+
     </GridLayout>
 </ActionBar>
 
-<ScrollView backgroundColor="#0B0920">
-    <StackLayout padding="18">
+<ScrollView backgroundColor="#FFF9F0">
 
-        <Label
-            text="📺 Mes Playlists"
-            color="white"
-            fontSize="26"
-            fontWeight="bold"
-            marginBottom="15">
-        </Label>
+    <StackLayout padding="22">
 
-        <GridLayout columns="*,*" marginBottom="15">
-            <Button
-                col="0"
-                text="M3U"
-                color="white"
-                backgroundColor="#5533A5"
-                (tap)="choisirType('M3U')">
-            </Button>
-
-            <Button
-                col="1"
-                text="Xtream Codes"
-                color="white"
-                backgroundColor="#5533A5"
-                (tap)="choisirType('Xtream')">
-            </Button>
-        </GridLayout>
-
-        <Label
-            [text]="'Type : ' + typePlaylist"
-            color="#C8B8F0"
-            marginBottom="12">
-        </Label>
-
-        <Label text="Nom de la playlist" color="white"></Label>
-
-        <TextField
-            hint="Ma TV"
-            [(ngModel)]="nomPlaylist"
-            backgroundColor="white"
-            color="black"
-            padding="12"
-            marginBottom="12">
-        </TextField>
-
-        <StackLayout *ngIf="typePlaylist === 'M3U'">
-            <Label text="Lien M3U" color="white"></Label>
-
-            <TextField
-                hint="https://exemple.com/playlist.m3u"
-                [(ngModel)]="urlM3U"
-                backgroundColor="white"
-                color="black"
-                padding="12">
-            </TextField>
-        </StackLayout>
-
-        <StackLayout *ngIf="typePlaylist === 'Xtream'">
-            <Label text="Serveur" color="white"></Label>
-
-            <TextField
-                hint="https://serveur-exemple.com"
-                [(ngModel)]="serveur"
-                backgroundColor="white"
-                color="black"
-                padding="12"
-                marginBottom="10">
-            </TextField>
-
-            <Label text="Utilisateur" color="white"></Label>
-
-            <TextField
-                hint="Nom d'utilisateur"
-                [(ngModel)]="utilisateur"
-                backgroundColor="white"
-                color="black"
-                padding="12"
-                marginBottom="10">
-            </TextField>
-
-            <Label text="Mot de passe" color="white"></Label>
-
-            <TextField
-                hint="Mot de passe"
-                secure="true"
-                [(ngModel)]="motDePasse"
-                backgroundColor="white"
-                color="black"
-                padding="12">
-            </TextField>
-        </StackLayout>
-
-        <Button
-            text="💾 ENREGISTRER"
-            (tap)="enregistrerPlaylist()"
-            color="white"
-            backgroundColor="#673AB7"
-            height="52"
+        <StackLayout
+            backgroundColor="#205B42"
+            borderRadius="22"
+            padding="28"
             marginTop="15">
-        </Button>
-
-        <Button
-            *ngIf="typePlaylist === 'M3U'"
-            text="📥 CHARGER LE CATALOGUE"
-            (tap)="chargerCatalogue()"
-            [isEnabled]="!chargement"
-            color="white"
-            backgroundColor="#286B77"
-            height="52"
-            marginTop="10">
-        </Button>
-
-        <ActivityIndicator
-            [busy]="chargement"
-            color="#80E5A1"
-            marginTop="10">
-        </ActivityIndicator>
-
-        <Label
-            [text]="message"
-            color="#80E5A1"
-            textWrap="true"
-            marginTop="12"
-            marginBottom="20">
-        </Label>
-
-        <StackLayout *ngIf="contenus.length > 0">
 
             <Label
-                text="📂 Mon catalogue"
-                color="white"
-                fontSize="23"
+                text="🌍"
+                fontSize="55"
+                textAlignment="center">
+            </Label>
+
+            <Label
+                text="Pays du monde"
+                fontSize="27"
                 fontWeight="bold"
-                marginBottom="12">
+                color="white"
+                textAlignment="center"
+                marginTop="15">
             </Label>
 
             <Label
-                [text]="'Total : ' + contenus.length"
-                color="#C8B8F0"
-                marginBottom="10">
+                text="Découvrez les saveurs de 195 pays"
+                fontSize="15"
+                color="#D4E8DA"
+                textAlignment="center"
+                marginTop="12"
+                textWrap="true">
             </Label>
-
-            <GridLayout columns="*,*,*,*" marginBottom="15">
-                <Button
-                    col="0"
-                    text="Tout"
-                    (tap)="filtrer('Tout')">
-                </Button>
-                <Button
-                    col="1"
-                    text="TV"
-                    (tap)="filtrer('TV')">
-                </Button>
-                <Button
-                    col="2"
-                    text="Films"
-                    (tap)="filtrer('Films')">
-                </Button>
-                <Button
-                    col="3"
-                    text="Séries"
-                    (tap)="filtrer('Séries')">
-                </Button>
-            </GridLayout>
-
-            <Label
-                [text]="'Affichage : ' + contenusAffiches.length + ' éléments'"
-                color="#C8B8F0"
-                marginBottom="12">
-            </Label>
-
-            <StackLayout
-                *ngFor="let contenu of contenusAffiches"
-                backgroundColor="#302550"
-                borderRadius="10"
-                padding="12"
-                marginBottom="8">
-
-                <Label
-                    [text]="contenu.nom"
-                    color="white"
-                    fontSize="16"
-                    fontWeight="bold"
-                    textWrap="true">
-                </Label>
-
-                <Label
-                    [text]="contenu.categorie + ' • ' + contenu.groupe"
-                    color="#B9ABDE"
-                    fontSize="12"
-                    textWrap="true">
-                </Label>
-
-            </StackLayout>
 
         </StackLayout>
 
         <Label
-            text="❤️ Les favoris seront ajoutés directement dans les catalogues."
-            color="#C8B8F0"
+            text="🍽️ Découvrez les traditions culinaires"
+            fontSize="21"
+            fontWeight="bold"
+            color="#26382B"
             textWrap="true"
-            marginTop="25">
+            marginTop="30">
         </Label>
+
+        <Label
+            text="Explorez les spécialités traditionnelles de différents pays, les ingrédients, les préparations et les vidéos YouTube."
+            color="#607568"
+            fontSize="15"
+            textWrap="true"
+            marginTop="15">
+        </Label>
+
+        <Button
+            text="🌍 EXPLORER LES 195 PAYS"
+            (tap)="ouvrirPays()"
+            backgroundColor="#205B42"
+            color="white"
+            height="58"
+            borderRadius="15"
+            marginTop="30">
+        </Button>
 
     </StackLayout>
+
 </ScrollView>

@@ -1,13 +1,174 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Search" colSpan="2"></Label>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
-  </GridLayout>
+<ActionBar backgroundColor="#FFFAF2" color="#234732">
+
+    <NavigationButton visibility="collapsed">
+    </NavigationButton>
+
+    <GridLayout columns="50,*">
+
+        <Label
+            col="0"
+            text="☰"
+            fontSize="25"
+            textAlignment="center"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+
+        <Label
+            col="1"
+            text="❤️ Mes favoris"
+            fontSize="19"
+            fontWeight="bold">
+        </Label>
+
+    </GridLayout>
+
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf002;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView class="page">
+
+    <StackLayout class="container">
+
+        <!-- EN-TETE -->
+        <StackLayout class="hero">
+
+            <Label
+                text="❤️"
+                class="hero-icon">
+            </Label>
+
+            <Label
+                text="Mes favoris"
+                class="hero-title">
+            </Label>
+
+            <Label
+                text="Retrouvez vos plats traditionnels préférés."
+                class="hero-description"
+                textWrap="true">
+            </Label>
+
+        </StackLayout>
+
+        <!-- COMPTEUR -->
+        <GridLayout
+            columns="*,auto"
+            class="section-header">
+
+            <Label
+                col="0"
+                text="Mes recettes préférées"
+                class="section-title">
+            </Label>
+
+            <Label
+                col="1"
+                [text]="paysFavoris.length + ' favoris'"
+                class="counter">
+            </Label>
+
+        </GridLayout>
+
+        <Button
+            text="↻ Actualiser mes favoris"
+            class="refresh-button"
+            (tap)="actualiser()">
+        </Button>
+
+        <!-- LISTE DES FAVORIS -->
+        <StackLayout
+            *ngFor="let pays of paysFavoris"
+            class="favorite-card">
+
+            <GridLayout columns="65,*,45">
+
+                <GridLayout
+                    col="0"
+                    class="flag-box">
+
+                    <Label
+                        [text]="pays.drapeau"
+                        class="flag">
+                    </Label>
+
+                </GridLayout>
+
+                <StackLayout
+                    col="1"
+                    class="country-info">
+
+                    <Label
+                        [text]="pays.nom"
+                        class="country-name"
+                        textWrap="true">
+                    </Label>
+
+                    <Label
+                        [text]="'🍲 ' + pays.plat"
+                        class="dish-name"
+                        textWrap="true">
+                    </Label>
+
+                </StackLayout>
+
+                <Label
+                    col="2"
+                    text="❤️"
+                    class="heart-button"
+                    (tap)="supprimerFavori(pays.code)">
+                </Label>
+
+            </GridLayout>
+
+            <Button
+                text="▶ Rechercher la recette sur YouTube"
+                class="youtube-button"
+                (tap)="ouvrirYoutube(pays)">
+            </Button>
+
+        </StackLayout>
+
+        <!-- AUCUN FAVORI -->
+        <StackLayout
+            *ngIf="paysFavoris.length === 0"
+            class="empty-card">
+
+            <Label
+                text="♡"
+                class="empty-icon">
+            </Label>
+
+            <Label
+                text="Aucun favori pour le moment"
+                class="empty-title">
+            </Label>
+
+            <Label
+                text="Explorez les pays du monde et appuyez sur le cœur pour enregistrer vos plats préférés."
+                class="empty-description"
+                textWrap="true">
+            </Label>
+
+            <Button
+                text="🌍 Découvrir les pays"
+                class="discover-button"
+                (tap)="allerAccueil()">
+            </Button>
+
+        </StackLayout>
+
+        <!-- MESSAGE -->
+        <Label
+            [text]="message"
+            class="message"
+            textWrap="true">
+        </Label>
+
+        <Label
+            text="🍽️ Cuisine du Monde"
+            class="footer">
+        </Label>
+
+    </StackLayout>
+
+</ScrollView>
