@@ -4,6 +4,16 @@ Zakaria Mamssi · INF1083 · Groupe 06
 
 Patron Angular à onglets. Dans Search, ngModel lie le champ au composant. Un service HttpClient transforme la réponse en Observable<Country[]> avec map. La liste affiche le pays et la capitale. Le service du cours est interrogé sans clé dans son exemple.
 
+## Fonctionnement
+
+Dans l’onglet **Search**, la saisie est liée au composant avec `ngModel`. Le service encode le nom de la capitale dans l’URL. L’opérateur `map` transforme la réponse en une liste de pays et de capitales.
+
+## Capture du code
+
+![Le service `ApicallService` construit la requête HTTP et transforme la réponse avec RxJS.](images/code-source.jpg)
+
+Le service `ApicallService` construit la requête HTTP et transforme la réponse avec RxJS.
+
 ## Code source
 
 ### src/app/shared/apicall.service.ts
@@ -762,3 +772,4 @@ Dans Search, essayer Ottawa, une valeur vide et une capitale inexistante. Vérif
 Capture des résultats locaux — Recherche · réponses du service simulées.
 
 ![Résultats de la vérification](images/verification.png)
+
