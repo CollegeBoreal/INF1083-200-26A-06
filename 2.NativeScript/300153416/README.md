@@ -67,6 +67,12 @@ git push origin main
 <img width="2040" height="1536" alt="AAA" src="https://github.com/user-attachments/assets/c3888d53-9701-4bb1-b468-70b7ba8421ab" />
 <img width="2040" height="1536" alt="AAAA" src="https://github.com/user-attachments/assets/5a6a9b4e-3c5b-4c94-ad99-7df86f84d0a3" />
 <img width="2040" height="1536" alt="WhatsApp Image 2026-10-04 at 10 41 17" src="https://github.com/user-attachments/assets/75eb2ffe-943f-4f08-9633-ba0b31663398" />
+<img width="2040" height="1536" alt="=" src="https://github.com/user-attachments/assets/59241f0d-bcba-4354-8b30-4d814c794451" />
+<img width="2040" height="1536" alt="==" src="https://github.com/user-attachments/assets/e9576966-1373-4d4b-b8de-901a108c7b83" />
+<img width="1920" height="1080" alt="===" src="https://github.com/user-attachments/assets/b97e4634-1902-4f2c-90f0-93cf03bae1c7" />
+
+
+
 
 
 
