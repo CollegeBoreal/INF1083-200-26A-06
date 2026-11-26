@@ -9,6 +9,7 @@ L'ouverture du projet MONPREMIERAPP dans Visual Studio Code avec la suggestion d
 <img width="1361" height="702" alt="Capture d&#39;écran 2026-10-03 022238" src="https://github.com/user-attachments/assets/f77c5022-6b15-42e7-b147-a9a0d93549f8" />
 L'application est compilée et lancée (ns run android). L'émulateur Android affiche l'interface utilisateur (une liste de pionniers de l'informatique) correspondant directement au code XML (main-page.xml) ouvert dans l'éditeur.
 <img width="1039" height="667" alt="Capture d&#39;écran 2026-10-03 023441" src="https://github.com/user-attachments/assets/33b1c1e2-bd32-4a84-b6e0-47cf34ab7e42" />
+Personnalisation de l'application avec les personnalités algériennes
 <img width="424" height="689" alt="Capture d&#39;écran 2026-11-26 103924" src="https://github.com/user-attachments/assets/5f91c573-691a-47c6-9241-923f3f4d38bf" />
 Description : Cette capture montre la liste des 15 personnalités algériennes affichées dans l'application NativeScript sur l'émulateur Android.
 <img width="396" height="694" alt="Capture d&#39;écran 2026-11-26 104627" src="https://github.com/user-attachments/assets/b07f75ed-f196-4654-bb31-bfd16c922712" />
