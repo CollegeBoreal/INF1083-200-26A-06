@@ -40,6 +40,8 @@ La première page présente un objectif quotidien de 30 minutes, un résumé du 
 
 Le bouton **Commencer mon entraînement** ouvre la page Exercices et **Voir mes progrès** permet d'accéder au suivi.
 
+<img width="854" height="675" alt="image" src="https://github.com/user-attachments/assets/aa2d39d5-8fd7-4c07-8364-9c0611e92340" />
+
 <p align="center">
   <img src="images/accueil.png" width="650">
 </p>
