@@ -43,23 +43,25 @@ L'application propose également des recherches sur YouTube pour découvrir les 
 
 **Bibliothèques principales :** `@nativescript/angular`, `@nativescript/core` et `nativescript-ui-sidedrawer`.
 
+
 ## 📸 Captures d'écran
 
 ### 1. Accueil — Les pays du monde
 
-c:\Users\islam\Downloads\1111aaa\1.png
+![Accueil de Cuisine du Monde](images/1.png)
 
 ### 2. Menu de navigation
 
-c:\Users\islam\Downloads\1111aaa\2.png
+![Menu principal](images/2.png)
 
 ### 3. Recettes traditionnelles
 
-c:\Users\islam\Downloads\1111aaa\3.png
+![Recettes du Monde](images/3.png)
 
 ### 4. Mes favoris
 
-c:\Users\islam\Downloads\1111aaa\4.png
+![Mes favoris](images/4.png)
+
 
 ## 📱 Test de l'application
 
