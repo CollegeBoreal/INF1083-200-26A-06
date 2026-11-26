@@ -17,6 +17,12 @@ awk -F, 'NR>1 {print $3 "," $7 ",#"}' ~/Downloads/INF1083-200-26A-06\ Notes-2026
 cat ../../../D2L_import.csv
 ```
 
+- [ ] Remove
+
+```
+rm ~/Downloads/INF1083-200-26A-06\ Notes-2026*.csv
+```
+
 ## In D2L
 
 - [ ] Importer les notes d’appréciation
