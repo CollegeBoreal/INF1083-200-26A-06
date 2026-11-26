@@ -88,13 +88,20 @@ Lancer l'application sur Android :
 ```bash
 ns run android
 ```
+## Plugins et dépendances utilisés
+
+- @nativescript/angular : intégration d'Angular.
+- @nativescript/core : composants natifs et sauvegarde locale.
+- @nativescript/theme : style des interfaces.
+- @angular/router : navigation entre les pages.
+
+Pour la sauvegarde des séances, j'ai utilisé
+ApplicationSettings, intégré à NativeScript.
+
+Aucun plugin externe supplémentaire n'a été installé.
 
 ## Limitation actuelle
 
 La réinitialisation des séances est manuelle.
 
-## Auteur
 
-- Matricule : 300147891
-- Cours : INF1083
-- Collège Boréal
