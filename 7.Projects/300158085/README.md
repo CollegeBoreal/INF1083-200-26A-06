@@ -215,7 +215,22 @@ Les six illustrations (`src/assets/categories/`) sont des créations originales,
 
 ### Photos du métier et carte
 
-Chaque catégorie possède aussi une vraie photo professionnelle (baie de brassage, salle de serveurs, réparation d'ordinateur…). Les photos proviennent de Pexels ou d'Unsplash, dont les licences autorisent l'utilisation gratuite ; elles sont publiées dans le dossier `photos/` du dépôt [sankotalent-data](https://github.com/kevinmayele/sankotalent-data), avec la liste de leurs auteurs dans `photos/CREDITS.md`. Comme la liste des talents, elles peuvent être remplacées sans publier de nouvelle version. Tant qu'une photo n'est pas disponible, le bandeau affiche le dégradé bleu de l'application.
+Chaque catégorie possède aussi une vraie photo du métier, affichée en bandeau en haut de la fiche d'un talent et de la liste filtrée. Les six photos viennent de Pexels, dont la licence autorise l'utilisation gratuite. Elles sont publiées dans le dossier `photos/` du dépôt [sankotalent-data](https://github.com/kevinmayele/sankotalent-data), en JPEG de 1 200 × 800 pixels et de moins de 350 Ko. Aucune ne montre de visage reconnaissable ni de logo de marque. Comme la liste des talents, elles peuvent être remplacées sans publier de nouvelle version de l'application. Tant qu'une photo n'est pas disponible, le bandeau affiche le dégradé bleu de l'application.
+
+| Fiche Réseau | Fiche Cybersécurité | Fiche Développement |
+|:---:|:---:|:---:|
+| <img src="images/fiche-reseau.png" width="220"> | <img src="images/fiche-securite.png" width="220"> | <img src="images/fiche-developpement.png" width="220"> |
+
+| Fichier | Sujet | Auteur (Pexels) |
+|---|---|---|
+| `reseau.jpg` | Câbles à fibre optique branchés sur un équipement réseau | Brett Sayles |
+| `securite.jpg` | Ordinateur portable avec un terminal en texte vert | Rafael Minguet Delgado |
+| `support.jpg` | Réparation d'une carte électronique au tournevis | Mikhail Nilov |
+| `systemes.jpg` | Baies de serveurs | Brett Sayles |
+| `developpement.jpg` | Code source à l'écran | Godfrey Atima |
+| `cloud.jpg` | Allée d'un centre de données | Brett Sayles |
+
+Les liens vers chaque photo d'origine sont dans [photos/CREDITS.md](https://github.com/kevinmayele/sankotalent-data/blob/main/photos/CREDITS.md).
 
 La carte ne demande ni plugin ni clé d'accès : `src/app/shared/carte.ts` construit une adresse Plans (iPhone) ou Google Maps (Android) et l'ouvre avec `Utils.openUrl`.
 
