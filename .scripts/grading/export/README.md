@@ -34,9 +34,13 @@ OrgDefinedID, Labos Points Grade, End-of-Line Indicator
 # Cleanup
 
 
+* TAB key
 
 ```
-rm ~/Downloads/INF1083-200-26A-06\ Notes-2026*.csv
+rm ~/Downloads/INF1083-200-26A-06\ Notes-2026
+```
+
+```
 rm ../../../D2L_import.csv
 ```
 
