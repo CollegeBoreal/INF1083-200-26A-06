@@ -2,7 +2,7 @@
   <StackLayout class="ecran">
     <GridLayout columns="*, auto">
       <StackLayout col="0">
-        <Label text="SANKOTALENT" class="legende"></Label>
+        <Label text="~/sankotalent $ whoami" class="invite"></Label>
         <Label [text]="l.t('profil.titre')" class="titre-xl"></Label>
       </StackLayout>
       <GridLayout col="1" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
@@ -13,7 +13,7 @@
 
     <StackLayout class="carte" style="padding: 24" (loaded)="apparaitre($event, 0)">
       <Image *ngIf="photo" [src]="photo" width="110" height="110" stretch="aspectFill" horizontalAlignment="center" (loaded)="zoomer($event)"
-        style="border-radius: 55; clip-path: circle(50% at 50% 50%); border-width: 3; border-color: #E8F0FE"></Image>
+        style="border-radius: 55; clip-path: circle(50% at 50% 50%); border-width: 3; border-color: #22E39A"></Image>
       <Label *ngIf="!photo" text="&#xf007;" class="avatar avatar-xl avatar-icone" horizontalAlignment="center"></Label>
       <GridLayout columns="*, 10, *">
         <Button col="0" [text]="l.t('profil.camera')" class="bouton-secondaire" (tap)="prendrePhoto($event)"></Button>

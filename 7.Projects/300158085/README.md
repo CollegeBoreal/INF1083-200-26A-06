@@ -9,9 +9,9 @@
 | **Cours** | INF1083 |
 | **Établissement** | Collège Boréal, campus de Toronto |
 | **Technologies** | NativeScript 9, Angular 22, TypeScript |
-| **Version** | 1.2 |
+| **Version** | 1.3 |
 
-<img src="images/accueil.png" alt="Écran d'accueil de SankoTalent" width="280">
+<img src="images/accueil-v13.png" alt="Écran d'accueil de SankoTalent" width="280"> &nbsp; <img src="images/formations.png" alt="Onglet Formations" width="280">
 
 ---
 
@@ -25,6 +25,7 @@
 6. [Animations](#6-animations)
 7. [Bilinguisme](#7-bilinguisme)
    - [Liste des talents en ligne, catégories et carte](#7-bis-liste-des-talents-en-ligne-catégories-et-carte)
+   - [Formations et recrutement de formateurs](#7-ter-formations-et-recrutement-de-formateurs)
 8. [Template](#8-template)
 9. [Plugins](#9-plugins)
 10. [Modules NativeScript utilisés sans plugin](#10-modules-nativescript-utilisés-sans-plugin)
@@ -65,6 +66,8 @@ Le nom s'affiche dans l'en-tête de chaque onglet. L'identifiant technique de l'
 | Contact par courriel | Courriel prérempli dans la langue de l'utilisateur (plugin email) |
 | Carte | Bouton « Voir sur la carte » : la ville du professionnel, ou sa propre position, s'ouvre dans Plans (iPhone) ou Google Maps (Android) |
 | Photos du métier | Vraie photo du domaine en bandeau sur la fiche d'un talent et sur la liste filtrée par catégorie |
+| Formations | Catalogue de huit formations (CCNA, Security+, Linux, Windows Server, A+, NativeScript, Python, Azure AZ-104), filtre par domaine, programme détaillé et inscription |
+| Devenir formateur | Formulaire de candidature pour recruter des formateurs, envoyé par courriel à SANKOVEYA |
 | Profil personnel | Nom, spécialité, expérience, enregistrés sur l'appareil |
 | Photo de profil | Prise avec la caméra ou choisie dans la galerie (plugins camera et imagepicker) |
 | Géolocalisation | Détection de la position GPS (plugin geolocation) |
@@ -75,41 +78,58 @@ Le nom s'affiche dans l'en-tête de chaque onglet. L'identifiant technique de l'
 
 ### 4.1 Navigation
 
-L'application est organisée en trois onglets. Une page de détail s'ouvre depuis la liste des talents.
+L'application est organisée en quatre onglets. Une page de détail s'ouvre depuis la liste des talents, et deux pages s'ouvrent depuis l'onglet Formations.
 
 ```
 +-------------------------------------------------+
-|  SANKOTALENT                          [ EN ]    |
+|  ~/sankotalent $                      [ EN ]    |
 |  Accueil                                        |
 |                                                 |
 |          (contenu de l'onglet actif)            |
 |                                                 |
-|   +-----------------------------------------+   |
-|   |  Accueil  |   Talents   |  Mon profil   |   |
-|   +-----------------------------------------+   |
+|  +-------------------------------------------+  |
+|  | Accueil | Talents | Formations | Mon profil|  |
+|  +-------------------------------------------+  |
 +-------------------------------------------------+
-                        |
-                        v
-               Fiche d'un talent
-          (bouton Contacter -> courriel)
+              |                   |
+              v                   v
+      Fiche d'un talent    Fiche d'une formation  ->  inscription (courriel)
+     (Contacter, carte)    Devenez formateur      ->  candidature (courriel)
 ```
 
 ### 4.2 Charte graphique
 
+Depuis la version 1.3, l'application adopte un thème sombre « terminal », pensé pour un public de professionnels des TI.
+
 | Élément | Choix | Justification |
 |---|---|---|
-| Police | **Poppins** (Google Fonts, licence libre OFL) en quatre graisses | Typographie géométrique, lisible sur petit écran, plus distinctive que la police système |
-| Couleur principale | Bleu `#0A5BD7` | Couleur unique pour tous les éléments interactifs : l'utilisateur sait immédiatement ce qui se touche |
-| Bandeau d'accueil | Dégradé `#0A2A66` vers `#0A5BD7` | Donne de la profondeur sans ajouter de couleur |
-| Fond | Gris `#F2F2F7` | Fond standard des réglages d'iOS ; il fait ressortir les cartes blanches |
-| Cartes | Blanches, rayon de 18 points, ombre légère | Regroupent les informations par bloc logique |
+| Fond | Bleu nuit `#060B16` avec un motif discret : chiffres binaires, lignes de commande (`ping`, `ssh`, `nmap`, `git push`), circuits et carte réseau des villes de la RD Congo | Ancre l'application dans l'univers de l'informatique ; le motif reste très peu contrasté pour ne pas gêner la lecture |
+| Police du texte | **Inter** (licence libre OFL) en cinq graisses | Police conçue pour les écrans, proche de la police système de l'iPhone, très lisible en petite taille |
+| Police « code » | **JetBrains Mono** (licence libre OFL) | Police des développeurs, utilisée pour les touches techniques : invite `~/sankotalent $`, titres de section `// CATÉGORIES`, sigles des formations, chiffres |
+| Couleur principale | Vert terminal `#22E39A` | Boutons principaux, filtre actif, chiffres clés : la couleur de l'action |
+| Couleurs d'accent | Cyan `#22D3EE`, violet `#A78BFA`, ambre `#FBBF24`, rose `#F472B6`, bleu `#60A5FA` | Chaque domaine des TI a sa couleur : l'interface n'est plus monochrome et l'œil associe un domaine à une teinte |
+| Cartes | Bleu nuit opaque `#0F1A2E`, bordure fine `#1E2C47`, rayon de 18 points | Se détachent du fond sans ombre, comme des fenêtres de terminal |
+| Bandeau d'accueil | Dégradé bleu, sarcelle puis vert | Fait le lien entre l'ancien bleu de l'application et le nouveau vert |
+| Recrutement de formateurs | Dégradé violet | Se distingue nettement du catalogue : c'est un appel à l'action différent |
 | Icônes | Font Awesome, incluse dans le template | Aucune dépendance supplémentaire |
 
 Tous les styles sont centralisés dans `src/_app-common.scss` sous forme de classes réutilisables (`.carte`, `.titre-xl`, `.badge`, `.bouton`, etc.). Aucune couleur n'est écrite directement dans les pages.
 
 ## 5. Pages de l'application
 
-L'application compte **quatre pages** : trois onglets et une page de détail. La consigne en demande au moins trois.
+L'application compte **sept pages** : quatre onglets, la fiche d'un talent, la fiche d'une formation et le formulaire formateur. La consigne en demande au moins trois.
+
+**Version 1.3 : thème sombre « terminal »**
+
+| Accueil | Talents | Fiche d'un talent | Mon profil |
+|---|---|---|---|
+| <img src="images/accueil-v13.png" width="200"> | <img src="images/talents-v13.png" width="200"> | <img src="images/fiche-talent-v13.png" width="200"> | <img src="images/profil-v13.png" width="200"> |
+
+| Formations | Fiche d'une formation | Inscription |
+|---|---|---|
+| <img src="images/formations.png" width="200"> | <img src="images/formation-fiche.png" width="200"> | <img src="images/inscription.png" width="200"> |
+
+**Version 1.2 : thème clair** (captures conservées pour montrer l'évolution du design)
 
 | Accueil | Talents | Fiche d'un talent | Mon profil |
 |---|---|---|---|
@@ -127,11 +147,23 @@ Chaque professionnel apparaît dans une carte avec une pastille à ses initiales
 
 La fiche s'ouvre sur une photo du domaine du professionnel (réseau, serveurs, réparation…), puis reprend son identité, ses informations (ville, expérience, courriel) et ses compétences. Le bouton **Voir sur la carte** ouvre sa ville dans l'application de cartes du téléphone. Le bouton **Contacter** ouvre l'application Mail avec un objet et un message préremplis dans la langue choisie.
 
-### 5.4 Mon profil
+### 5.4 Formations
+
+L'onglet présente le catalogue de formations. En haut, une carte violette **Devenez formateur** ouvre le formulaire de candidature. Une rangée de filtres défilant horizontalement (Toutes, Réseau, Cybersécurité, Support TI, Systèmes, Développement, Infonuagique) restreint le catalogue à un domaine. Chaque formation affiche son sigle dans une pastille à la couleur de son domaine, son titre, sa durée et son niveau. Les formations auxquelles l'utilisateur est inscrit apparaissent dans une section **Mes inscriptions** et portent la mention « ✓ Inscrit ».
+
+### 5.5 Fiche d'une formation et inscription
+
+La fiche détaille la formation : domaine, durée, niveau, format (en ligne, présentiel ou hybride), description et programme numéroté. Le formulaire d'inscription demande le nom (prérempli depuis Mon profil), le courriel, le téléphone WhatsApp, la ville et le niveau actuel. La ville se choisit dans une **roue à faire défiler** (`ListPicker`) qui propose 24 villes de la RD Congo, et le niveau par trois boutons (Débutant, Intermédiaire, Avancé). Le courriel et le téléphone sont vérifiés avant l'envoi.
+
+### 5.6 Devenez formateur
+
+Le formulaire recrute les personnes qui enseignent : coordonnées, ville, domaine enseigné, années d'expérience, certifications, disponibilité (soirs, fins de semaine, temps plein) et un message libre. La candidature est enregistrée sur l'appareil et envoyée par courriel à SANKOVEYA.
+
+### 5.7 Mon profil
 
 Le professionnel saisit son nom, sa spécialité et ses années d'expérience. Il ajoute une photo par la caméra ou la galerie, puis détecte sa position. Le profil est enregistré sur l'appareil avec `ApplicationSettings` et rechargé au lancement suivant. Une fois la position détectée, le bouton **Voir sur la carte** l'affiche dans l'application de cartes.
 
-### 5.5 Démonstration
+### 5.8 Démonstration
 
 Parcours complet de la version 1.2 sur le simulateur iPhone 18 Pro (iOS 27.2) : accueil et catégories illustrées, filtre par catégorie, liste des talents actualisée en ligne, fiche d'un talent et page Mon profil.
 
@@ -244,6 +276,23 @@ La carte ne demande ni plugin ni clé d'accès : `src/app/shared/carte.ts` const
 | Développement | <img src="sankotalent/src/assets/categories/developpement.png" width="90"> |
 | Infonuagique | <img src="sankotalent/src/assets/categories/cloud.png" width="90"> |
 
+## 7 ter. Formations et recrutement de formateurs
+
+SankoTalent ne se limite plus à trouver des professionnels : l'application aide aussi à les former. Le catalogue suit le même principe que la liste des talents. Huit formations sont intégrées à l'application (`src/app/shared/formations.ts`) et le service `FormationsService` tente au démarrage de télécharger `formations.json` depuis le dépôt [sankotalent-data](https://github.com/kevinmayele/sankotalent-data). Si le fichier existe et passe la validation, il remplace le catalogue intégré et il est gardé sur l'appareil ; sinon le catalogue intégré reste affiché. Ajouter une formation ne demande donc pas de publier une nouvelle version.
+
+Les inscriptions et les candidatures n'ont pas besoin de serveur. Elles sont enregistrées sur l'appareil avec `ApplicationSettings`, puis un courriel prérempli est préparé vers `contact@sankoveya.com` avec le plugin email. Sans compte de courriel, sur le simulateur par exemple, une fenêtre indique l'adresse à utiliser et précise que la demande est gardée dans l'application.
+
+| Formation | Domaine | Niveau | Durée |
+|---|---|---|---|
+| Réseaux Cisco – préparation CCNA | Réseau | Intermédiaire | 10 semaines |
+| Cybersécurité – CompTIA Security+ | Cybersécurité | Intermédiaire | 8 semaines |
+| Linux et bash pour administrateurs | Systèmes | Débutant | 6 semaines |
+| Windows Server et Active Directory | Systèmes | Intermédiaire | 6 semaines |
+| Support technique – CompTIA A+ | Support TI | Débutant | 5 semaines |
+| Applications mobiles NativeScript et Angular | Développement | Intermédiaire | 8 semaines |
+| Python pour l'automatisation TI | Développement | Débutant | 5 semaines |
+| Microsoft Azure – administrateur AZ-104 | Infonuagique | Avancé | 8 semaines |
+
 ## 8. Template
 
 | Template | Rôle |
@@ -297,9 +346,11 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
 | `Image` | Affichage des illustrations et des photos des catégories |
 | `Utils.openUrl`, `isIOS` | Ouverture de Plans ou de Google Maps |
 | `Dialogs` | Messages de confirmation et d'information |
+| `ListPicker` | Roue de choix de la ville dans les formulaires d'inscription et de candidature |
+| `WrapLayout` | Boutons de choix (niveau, domaine, disponibilité) qui passent à la ligne si besoin |
 | `Page` | Masquage de la barre de titre sur les onglets à grand titre |
 | `TabView`, `ScrollView`, `GridLayout`, `StackLayout` | Mise en page |
-| `NativeScriptRouterModule` (`nsRouterLink`) | Navigation vers la fiche d'un talent |
+| `NativeScriptRouterModule` (`nsRouterLink`) | Navigation vers la fiche d'un talent, la fiche d'une formation et le formulaire formateur |
 
 ## 11. Structure du code
 
@@ -313,6 +364,7 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
     └── src/
         ├── _app-common.scss
         ├── assets/categories/
+        ├── assets/fond/
         ├── fonts/
         └── app/
             ├── app.component.*
@@ -321,6 +373,9 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
             ├── browse/
             ├── home/
             │   └── item-detail/
+            ├── formations/
+            │   ├── formation-detail/
+            │   └── formateur/
             └── search/
 ```
 
@@ -340,9 +395,17 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
 | `src/app/home/home.component.*` | Page Talents |
 | `src/app/home/home-routing.module.ts` | Routes de l'onglet Talents : liste (`default`) et fiche (`item/:id`) |
 | `src/app/home/item-detail/item-detail.component.*` | Fiche d'un talent et envoi de courriel |
+| `src/app/formations/formations.component.*` | Page Formations : recrutement de formateurs, filtre par domaine, mes inscriptions, catalogue |
+| `src/app/formations/formation-detail/*` | Fiche d'une formation et formulaire d'inscription |
+| `src/app/formations/formateur/*` | Formulaire de candidature de formateur |
+| `src/app/shared/formations.ts` | Catalogue intégré des huit formations et couleur de chaque domaine |
+| `src/app/shared/formations.service.ts` | Catalogue en ligne, validation, cache, inscriptions et candidature enregistrées sur l'appareil |
+| `src/app/shared/courriel.ts` | Envoi d'un courriel prérempli à SANKOVEYA et vérification d'une adresse |
+| `src/app/shared/villes.ts` | Les 24 villes de la RD Congo proposées dans la roue |
 | `src/app/search/search.component.*` | Page Mon profil : caméra, galerie, géolocalisation, enregistrement |
 | `src/_app-common.scss` | Système de design : police, couleurs, cartes, boutons, champs |
-| `src/fonts/Poppins-*.ttf` | Police Poppins (4 graisses) |
+| `src/fonts/Inter-*.ttf`, `src/fonts/JetBrainsMono-*.ttf` | Polices Inter (5 graisses) et JetBrains Mono (3 graisses) |
+| `src/assets/fond/motif.jpg` | Fond « terminal » : binaire, commandes, circuits et carte réseau de la RD Congo |
 | `App_Resources/iOS/Info.plist` | Autorisations iOS (caméra, photos, position) |
 
 ## 12. Environnement de développement
@@ -391,6 +454,9 @@ xcrun simctl location <UDID_DU_SIMULATEUR> set 4.3217,15.3126
 | Plantage au bouton Caméra sur simulateur | Le simulateur déclare une caméra qui n'existe pas | Détection du simulateur (`SIMULATOR_DEVICE_NAME`) et message explicatif |
 | Position jamais détectée, sans erreur | Demande d'autorisation « Toujours » sans la clé `Info.plist` correspondante : iOS ignore la demande | Demande limitée à « Pendant l'utilisation de l'app » |
 | Police Poppins ignorée | iOS ne trouvait pas la police par son seul nom PostScript | Déclaration de la famille (`Poppins`) et de la graisse (`font-weight`) |
+| Motif de fond trop visible derrière le texte | Le texte du motif était dessiné sans transparence réelle sur l'image | Motif redessiné sur un calque transparent puis fusionné ; commandes éloignées de la zone des titres |
+| Champs de saisie décalés par rapport à leur titre | Marges horizontales ajoutées aux champs par le thème NativeScript | `margin: 6 0 0 0` sur la classe `.champ` |
+| Seul le premier niveau visible (« Débutant » sur toute la largeur) | Un `GridLayout` dans un `StackLayout` horizontal prend toute la largeur disponible | Boutons placés dans un `WrapLayout` avec `horizontal-align: left` |
 | Majuscule automatique sur chaque mot | Transformation de texte appliquée par le thème | `text-transform: none` sur les composants texte |
 | Cartes de l'Accueil sans effet au toucher | Cartes conçues comme de simples encadrés, sans gestionnaire `(tap)` | Service `NavigationService` lié au `selectedIndex` du `TabView` ; chaque carte ouvre l'onglet concerné |
 | Profil ajouté sur GitHub invisible dans l'application | Profil collé après la fermeture du tableau `talents` : JSON invalide, rejeté par la validation | Profil replacé à l'intérieur du tableau ; la validation a protégé l'application pendant l'erreur |
@@ -416,11 +482,13 @@ Le dépôt ne contient donc que le code source, les ressources et la configurati
 | 1.0 | Structure à trois onglets ; annuaire de talents ; fiche avec contact par courriel ; profil avec caméra, galerie et géolocalisation ; design inspiré d'iOS avec la police Poppins |
 | 1.1 | Couverture de toute la RD Congo (six provinces) ; application bilingue français / anglais ; animations d'apparition, de zoom et de pulsation ; cartes de l'Accueil interactives |
 | 1.2 | Catégories illustrées en 3D avec filtre ; liste des talents publiée en ligne et actualisable ; mention de la dernière mise à jour et mode hors connexion ; autorisations Android ; photos du métier en bandeau ; bouton « Voir sur la carte » |
+| 1.3 | Onglet Formations : catalogue de huit formations, filtre par domaine, fiche détaillée et inscription ; recrutement de formateurs ; choix de la ville par roue ; thème sombre « terminal » avec motif informatique ; polices Inter et JetBrains Mono ; une couleur par domaine |
 
 ## 17. Limites connues et évolutions prévues
 
 **Limites connues**
 
+- Les inscriptions et candidatures arrivent par courriel ; il n'y a pas encore de base de données centrale.
 - Sur le simulateur, la caméra et l'envoi de courriel ne sont pas disponibles. L'application l'indique par un message clair ; ces deux fonctions s'utilisent normalement sur un iPhone réel.
 - Les profils de professionnels sont des données fictives de démonstration.
 - L'application a été testée sur iOS uniquement. Le code et les autorisations sont prêts pour Android, mais l'application n'a pas été vérifiée sur un émulateur Android.
@@ -428,5 +496,6 @@ Le dépôt ne contient donc que le code source, les ressources et la configurati
 **Évolutions prévues**
 
 - Publication du profil personnel dans la liste des talents.
+- Envoi des inscriptions vers une base de données en ligne, avec confirmation automatique.
 - Écran « Nouveautés » présentant le contenu de chaque version.
 - Photo de chaque professionnel, publiée avec la liste en ligne.

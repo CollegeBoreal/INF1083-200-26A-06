@@ -1,0 +1,65 @@
+<ScrollView>
+  <StackLayout class="ecran">
+    <GridLayout columns="*, auto">
+      <StackLayout col="0">
+        <Label text="~/sankotalent $ ls formations" class="invite"></Label>
+        <Label [text]="l.t('formations.titre')" class="titre-xl"></Label>
+      </StackLayout>
+      <GridLayout col="1" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
+        <Label col="0" text="&#xf0ac;" class="icone langue-icone"></Label>
+        <Label col="1" [text]="l.autre" class="langue-texte"></Label>
+      </GridLayout>
+    </GridLayout>
+    <Label [text]="l.t('formations.sous')" textWrap="true" class="sous-titre"></Label>
+
+    <!-- Recrutement des formateurs -->
+    <StackLayout class="formateur" (loaded)="apparaitre($event, 0)">
+      <GridLayout columns="*, auto">
+        <StackLayout col="0">
+          <Label [text]="l.t('formateur.titre')" class="formateur-titre"></Label>
+          <Label [text]="l.t('formateur.texte')" textWrap="true" class="formateur-texte"></Label>
+        </StackLayout>
+        <Label col="1" text="&#xf51c;" class="icone" style="font-size: 34; color: #FFFFFF; margin-left: 12"></Label>
+      </GridLayout>
+      <Button [text]="fs.candidatureFormateur ? l.t('formateur.envoyee') : l.t('formateur.bouton')" class="formateur-bouton"
+        [nsRouterLink]="['../formateur']"></Button>
+    </StackLayout>
+
+    <!-- Filtre par domaine -->
+    <ScrollView orientation="horizontal" scrollBarIndicatorVisible="false" class="puces">
+      <StackLayout orientation="horizontal">
+        <GridLayout class="puce" [class.active]="domaine === null" (tap)="choisirDomaine($event, null)">
+          <Label [text]="l.t('formations.toutes')" class="puce-texte"></Label>
+        </GridLayout>
+        <GridLayout *ngFor="let c of categories" class="puce" [class.active]="domaine === c.cle" (tap)="choisirDomaine($event, c.cle)">
+          <Label [text]="l.tr(c.nom)" class="puce-texte"></Label>
+        </GridLayout>
+      </StackLayout>
+    </ScrollView>
+
+    <!-- Mes inscriptions -->
+    <StackLayout *ngIf="mesFormations.length > 0">
+      <Label [text]="l.t('formations.mes')" class="legende" style="margin-top: 24"></Label>
+      <GridLayout *ngFor="let f of mesFormations" columns="auto, *, auto" class="carte" style="padding: 12 16"
+        [nsRouterLink]="['../formation', f.id]">
+        <Label col="0" text="&#xf058;" class="icone" style="font-size: 18; margin-right: 12"></Label>
+        <Label col="1" [text]="l.tr(f.titre)" textWrap="true" class="nom" style="font-size: 14"></Label>
+        <Label col="2" text="&#xf054;" class="icone chevron"></Label>
+      </GridLayout>
+    </StackLayout>
+
+    <!-- Catalogue -->
+    <Label [text]="l.t('formations.catalogue')" class="legende" style="margin-top: 24"></Label>
+    <Label *ngIf="formations.length === 0" [text]="l.t('formations.aucune')" textWrap="true" class="sous-titre" style="margin-top: 12"></Label>
+    <GridLayout *ngFor="let f of formations; let i = index" columns="58, *, auto" class="carte"
+      [nsRouterLink]="['../formation', f.id]" (loaded)="apparaitre($event, i + 1)">
+      <Label col="0" [text]="f.code" class="formation-code" [color]="couleur(f)" [backgroundColor]="fond(f)"></Label>
+      <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
+        <Label [text]="l.tr(f.titre)" textWrap="true" class="nom"></Label>
+        <Label [text]="meta(f)" textWrap="true" class="formation-meta"></Label>
+        <Label *ngIf="fs.estInscrit(f.id)" [text]="l.t('formations.inscrit')" class="inscrit"></Label>
+      </StackLayout>
+      <Label col="2" text="&#xf054;" class="icone chevron"></Label>
+    </GridLayout>
+  </StackLayout>
+</ScrollView>

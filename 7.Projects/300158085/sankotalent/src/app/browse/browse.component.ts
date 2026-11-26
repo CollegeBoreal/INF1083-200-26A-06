@@ -45,7 +45,7 @@ export class BrowseComponent {
     }, 150)
   }
 
-  // Ouvre un onglet depuis une carte de l'accueil (1 = Talents, 2 = Mon profil)
+  // Ouvre un onglet depuis une carte de l'accueil (1 = Talents, 2 = Formations, 3 = Mon profil)
   ouvrirOnglet(args: any, onglet: number): void {
     pulser(args.object)
     setTimeout(() => {

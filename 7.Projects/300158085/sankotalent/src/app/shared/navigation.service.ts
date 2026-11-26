@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 
-// Onglet affiché : 0 = Accueil, 1 = Talents, 2 = Mon profil.
+// Onglet affiché : 0 = Accueil, 1 = Talents, 2 = Formations, 3 = Mon profil.
 // Partagé entre la barre d'onglets et les pages qui veulent changer d'onglet.
 @Injectable({
   providedIn: 'root',
