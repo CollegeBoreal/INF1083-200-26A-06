@@ -11,3 +11,7 @@
 
 ## Capture d'écran
 ![Résultat de l'application](images/resultat.png)
+
+## Apercu de l'application (localhost:4200)
+
+![Music Legends Angular](./images/music-legends-angular.png)
