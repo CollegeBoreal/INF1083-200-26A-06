@@ -26,6 +26,7 @@ ns create b300147891-animations --template @nativescript/template-drawer-navigat
 cd b300147891-animations
 code .
 ```
+<img width="1892" height="561" alt="Capture d&#39;écran 2026-11-26 092114" src="https://github.com/user-attachments/assets/451a54ef-fa04-4d35-8a6e-08380ae68409" />
 
 ## 3. Animation déclarative (CSS)
 
@@ -59,7 +60,8 @@ styleUrls: ['./home.component.scss']
 Le bouton change de couleur du rouge au vert pendant
 deux secondes et conserve sa couleur finale.
 
-![Animation déclarative](images/home.png)
+![Animation <img width="480" height="911" alt="Capture d&#39;écran 2026-11-26 095650" src="https://github.com/user-attachments/assets/31f0b0f6-bf3a-44f7-846e-b431891d691e" />
+s/home.png)
 
 ## 4. Animation impérative (TypeScript)
 
@@ -82,18 +84,21 @@ et catch() permet de gérer les erreurs.
 
 ### Interface de l'application
 
-![Interface Browse](images/browse.png)
+![Interface Browse] <img width="475" height="912" alt="Capture d&#39;écran 2026-11-26 095935" src="https://github.com/user-attachments/assets/1cd80640-f6e0-41d2-aa6b-c0e3e57714aa" />
+
 
 ### Agrandissement du logo
 
-![Animation Scale](images/scale.jpg)
+![Animation Scale]<img width="256" height="593" alt="Capture d&#39;écran 2026-11-26 101617" src="https://github.com/user-attachments/assets/146f3284-56c6-46d1-a09b-dca1a4a488c5" />
+
 
 ### Vérification dans le terminal
 
 À la fin de la séquence, le message Animation finished
 s'affiche dans le terminal.
 
-![Confirmation](images/animation.png)
+![Confirmation] <img width="871" height="217" alt="Capture d&#39;écran 2026-11-26 101124" src="https://github.com/user-attachments/assets/c6e0635e-1b5b-48e6-9446-d318ec2819e4" />
+
 
 ## 5. Difficultés rencontrées et solutions
 
