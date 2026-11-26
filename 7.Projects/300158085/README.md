@@ -126,6 +126,14 @@ La fiche reprend l'identité du professionnel, puis ses informations (ville, exp
 
 Le professionnel saisit son nom, sa spécialité et ses années d'expérience. Il ajoute une photo par la caméra ou la galerie, puis détecte sa position. Le profil est enregistré sur l'appareil avec `ApplicationSettings` et rechargé au lancement suivant.
 
+### 5.5 Démonstration
+
+Parcours complet de l'application sur le simulateur iPhone 18 Pro (iOS 27.2) : accueil, liste des talents, fiche, bascule français / anglais et page Mon profil.
+
+<img src="images/demo.gif" alt="Démonstration de SankoTalent" width="280">
+
+Version vidéo : [images/demo.mp4](images/demo.mp4)
+
 ## 6. Animations
 
 Les animations reposent sur l'API `view.animate()` du cœur de NativeScript, sans plugin. Elles sont regroupées dans un seul fichier, `src/app/shared/animations.ts`, qui expose trois fonctions réutilisables. Chaque page déclenche ses animations sur l'événement `(loaded)` des vues : elles se rejouent donc à chaque retour sur l'onglet.
