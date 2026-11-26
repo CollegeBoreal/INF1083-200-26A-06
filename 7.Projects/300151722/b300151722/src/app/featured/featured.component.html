@@ -1,0 +1,261 @@
+
+<ActionBar backgroundColor="#FFF9F0" color="#205B42">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+
+    <GridLayout columns="50,*">
+        <Label
+            col="0"
+            text="☰"
+            fontSize="24"
+            textAlignment="center"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+
+        <Label
+            col="1"
+            text="🍲 Recettes du Monde"
+            fontSize="19"
+            fontWeight="bold">
+        </Label>
+    </GridLayout>
+</ActionBar>
+
+<ScrollView backgroundColor="#FFF9F0">
+    <StackLayout padding="18">
+
+        <!-- LISTE DES RECETTES -->
+        <StackLayout *ngIf="!selection">
+
+            <StackLayout class="hero">
+                <Label
+                    text="👨‍🍳"
+                    fontSize="42"
+                    textAlignment="center">
+                </Label>
+
+                <Label
+                    text="Nos recettes"
+                    class="hero-title">
+                </Label>
+
+                <Label
+                    text="Découvrez les plats traditionnels, leurs ingrédients et leurs préparations."
+                    class="hero-subtitle"
+                    textWrap="true">
+                </Label>
+            </StackLayout>
+
+            <Label
+                text="🔎 Rechercher une recette"
+                class="section-title">
+            </Label>
+
+            <TextField
+                hint="Ex. Couscous, France, pizza..."
+                [(ngModel)]="recherche"
+                class="search-field">
+            </TextField>
+
+            <GridLayout
+                columns="*,auto"
+                marginTop="22"
+                marginBottom="16">
+
+                <Label
+                    col="0"
+                    text="🍽️ Plats à cuisiner"
+                    class="section-title">
+                </Label>
+
+                <Label
+                    col="1"
+                    [text]="recettesFiltrees.length + ' recettes'"
+                    class="counter"
+                    verticalAlignment="middle">
+                </Label>
+            </GridLayout>
+
+            <!-- CARTE AVEC PHOTO -->
+            <StackLayout
+                *ngFor="let recette of recettesFiltrees"
+                class="recipe-card"
+                (tap)="ouvrirRecette(recette)">
+
+                <GridLayout columns="85,*">
+
+                    <GridLayout
+                        col="0"
+                        class="flag-box">
+
+                        <Image
+                            *ngIf="photoPays(recette.code)"
+                            [src]="photoPays(recette.code)"
+                            stretch="aspectFill"
+                            class="recipe-photo">
+                        </Image>
+
+                        <Label
+                            *ngIf="!photoPays(recette.code)"
+                            [text]="recette.drapeau"
+                            class="flag">
+                        </Label>
+
+                    </GridLayout>
+
+                    <StackLayout
+                        col="1"
+                        paddingLeft="14"
+                        verticalAlignment="middle">
+
+                        <Label
+                            [text]="recette.drapeau + ' ' + recette.nom"
+                            class="country"
+                            textWrap="true">
+                        </Label>
+
+                        <Label
+                            [text]="recette.plat"
+                            class="dish"
+                            textWrap="true">
+                        </Label>
+
+                        <Label
+                            [text]="'⏱ ' + recette.duree + '  •  Voir la recette →'"
+                            class="duration"
+                            textWrap="true">
+                        </Label>
+
+                    </StackLayout>
+
+                </GridLayout>
+            </StackLayout>
+
+            <Label
+                *ngIf="recettesFiltrees.length === 0"
+                text="Aucune recette trouvée."
+                class="footer">
+            </Label>
+
+            <Label
+                text="D'autres recettes détaillées seront ajoutées progressivement."
+                class="footer"
+                textWrap="true">
+            </Label>
+
+        </StackLayout>
+
+        <!-- DETAILS DE LA RECETTE -->
+        <StackLayout *ngIf="selection as recette">
+
+            <Button
+                text="← Retour aux recettes"
+                class="back-button"
+                (tap)="retour()">
+            </Button>
+
+            <StackLayout class="detail-hero">
+
+                <Label
+                    [text]="recette.drapeau"
+                    fontSize="55"
+                    textAlignment="center">
+                </Label>
+
+                <Label
+                    [text]="recette.nom"
+                    class="detail-country">
+                </Label>
+
+            </StackLayout>
+
+            <!-- GRANDE PHOTO -->
+            <GridLayout
+                *ngIf="photoPays(recette.code)"
+                class="detail-photo-box">
+
+                <Image
+                    [src]="photoPays(recette.code)"
+                    stretch="aspectFill"
+                    class="detail-photo">
+                </Image>
+
+            </GridLayout>
+
+            <Label
+                [text]="recette.plat"
+                class="detail-title"
+                textWrap="true">
+            </Label>
+
+            <Label
+                [text]="'⏱ ' + recette.duree + '   •   🍽 ' + recette.portions"
+                class="detail-meta">
+            </Label>
+
+            <Button
+                [text]="estFavori(recette.code) ? '❤️ Retirer des favoris' : '♡ Ajouter aux favoris'"
+                class="favorite-button"
+                (tap)="changerFavori(recette.code)">
+            </Button>
+
+            <!-- INGREDIENTS -->
+            <Label
+                text="🛒 Ingrédients"
+                class="section-title"
+                marginTop="18"
+                marginBottom="12">
+            </Label>
+
+            <StackLayout class="white-card">
+
+                <Label
+                    *ngFor="let ingredient of recette.ingredients"
+                    [text]="'✓ ' + ingredient"
+                    class="ingredient"
+                    textWrap="true">
+                </Label>
+
+            </StackLayout>
+
+            <!-- PREPARATION -->
+            <Label
+                text="👨‍🍳 Préparation"
+                class="section-title"
+                marginTop="18"
+                marginBottom="12">
+            </Label>
+
+            <StackLayout
+                *ngFor="let etape of recette.etapes; let i = index"
+                class="step-card">
+
+                <Label
+                    [text]="'ÉTAPE ' + (i + 1)"
+                    class="step-title">
+                </Label>
+
+                <Label
+                    [text]="etape"
+                    class="step-text"
+                    textWrap="true">
+                </Label>
+
+            </StackLayout>
+
+            <!-- YOUTUBE -->
+            <Button
+                text="▶ RECHERCHER SUR YOUTUBE"
+                class="youtube-button"
+                (tap)="ouvrirYoutube(recette)">
+            </Button>
+
+            <Label
+                text="YouTube nécessite une connexion Internet."
+                class="footer"
+                textWrap="true">
+            </Label>
+
+        </StackLayout>
+
+    </StackLayout>
+</ScrollView>

@@ -1,0 +1,91 @@
+
+<ActionBar backgroundColor="#FFF9F0" color="#205B42">
+    <NavigationButton visibility="collapsed">
+    </NavigationButton>
+
+    <GridLayout columns="50,*">
+
+        <Label
+            col="0"
+            text="☰"
+            fontSize="25"
+            textAlignment="center"
+            (tap)="onDrawerButtonTap()">
+        </Label>
+
+        <Label
+            col="1"
+            text="🌍 Pays du monde"
+            fontSize="19"
+            fontWeight="bold">
+        </Label>
+
+    </GridLayout>
+</ActionBar>
+
+<ScrollView backgroundColor="#FFF9F0">
+
+    <StackLayout padding="22">
+
+        <StackLayout
+            backgroundColor="#205B42"
+            borderRadius="22"
+            padding="28"
+            marginTop="15">
+
+            <Label
+                text="🌍"
+                fontSize="55"
+                textAlignment="center">
+            </Label>
+
+            <Label
+                text="Pays du monde"
+                fontSize="27"
+                fontWeight="bold"
+                color="white"
+                textAlignment="center"
+                marginTop="15">
+            </Label>
+
+            <Label
+                text="Découvrez les saveurs de 195 pays"
+                fontSize="15"
+                color="#D4E8DA"
+                textAlignment="center"
+                marginTop="12"
+                textWrap="true">
+            </Label>
+
+        </StackLayout>
+
+        <Label
+            text="🍽️ Découvrez les traditions culinaires"
+            fontSize="21"
+            fontWeight="bold"
+            color="#26382B"
+            textWrap="true"
+            marginTop="30">
+        </Label>
+
+        <Label
+            text="Explorez les spécialités traditionnelles de différents pays, les ingrédients, les préparations et les vidéos YouTube."
+            color="#607568"
+            fontSize="15"
+            textWrap="true"
+            marginTop="15">
+        </Label>
+
+        <Button
+            text="🌍 EXPLORER LES 195 PAYS"
+            (tap)="ouvrirPays()"
+            backgroundColor="#205B42"
+            color="white"
+            height="58"
+            borderRadius="15"
+            marginTop="30">
+        </Button>
+
+    </StackLayout>
+
+</ScrollView>
