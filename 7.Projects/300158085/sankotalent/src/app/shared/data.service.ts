@@ -1,5 +1,11 @@
-import { Injectable } from '@angular/core'
+import { Injectable, NgZone } from '@angular/core'
+import { ApplicationSettings, Http } from '@nativescript/core'
 import { Texte } from './langue.service'
+
+// Liste publiée sur GitHub : la modifier met l'application à jour sans nouvelle version
+const URL_TALENTS = 'https://raw.githubusercontent.com/kevinmayele/sankotalent-data/main/talents.json'
+const CLE_CACHE = 'talents.cache'
+const CLE_DATE = 'talents.date'
 
 export interface DataItem {
   id: number
@@ -9,14 +15,15 @@ export interface DataItem {
   experience: number
   email: string
   description: Texte
+  categorie?: string
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  // Profils fictifs de démonstration, répartis dans plusieurs provinces de la RD Congo
-  private items = new Array<DataItem>(
+  // Liste intégrée : utilisée au premier lancement et en secours sans connexion
+  private readonly listeIntegree = new Array<DataItem>(
     {
       id: 1,
       name: 'Patrick Mbuyi',
@@ -91,11 +98,70 @@ export class DataService {
     }
   )
 
+  private items: Array<DataItem>
+
+  // Date de la dernière actualisation réussie (null = liste intégrée)
+  derniereMiseAJour: number = null
+  enCours = false
+  horsLigne = false
+
+  constructor(private zone: NgZone) {
+    this.items = this.listeIntegree
+    const cache = ApplicationSettings.getString(CLE_CACHE, '')
+    if (cache) {
+      try {
+        const talents = JSON.parse(cache)
+        if (this.estValide(talents)) {
+          this.items = talents
+          this.derniereMiseAJour = ApplicationSettings.getNumber(CLE_DATE, null)
+        }
+      } catch (erreur) {
+        // Cache illisible : on garde la liste intégrée
+      }
+    }
+  }
+
   getItems(): Array<DataItem> {
     return this.items
   }
 
   getItem(id: number): DataItem {
     return this.items.filter((item) => item.id === id)[0]
+  }
+
+  // Télécharge la liste en ligne ; en cas d'échec, la liste actuelle est conservée
+  async actualiser(): Promise<boolean> {
+    if (this.enCours) return false
+    this.zone.run(() => (this.enCours = true))
+    try {
+      const donnees: any = await Http.getJSON(`${URL_TALENTS}?t=${Date.now()}`)
+      const talents = donnees?.talents
+      if (!this.estValide(talents)) throw new Error('Format de données invalide')
+      const maintenant = Date.now()
+      ApplicationSettings.setString(CLE_CACHE, JSON.stringify(talents))
+      ApplicationSettings.setNumber(CLE_DATE, maintenant)
+      this.zone.run(() => {
+        this.items = talents
+        this.derniereMiseAJour = maintenant
+        this.horsLigne = false
+        this.enCours = false
+      })
+      return true
+    } catch (erreur) {
+      this.zone.run(() => {
+        this.horsLigne = true
+        this.enCours = false
+      })
+      return false
+    }
+  }
+
+  // Vérifie qu'une liste reçue a la forme attendue avant de l'utiliser
+  private estValide(talents: any): boolean {
+    return (
+      Array.isArray(talents) &&
+      talents.length > 0 &&
+      talents.every((t) => typeof t.id === 'number' && t.name && t.specialite?.fr && t.specialite?.en && t.description?.fr)
+    )
   }
 }

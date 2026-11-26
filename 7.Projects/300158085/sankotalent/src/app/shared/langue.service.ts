@@ -21,6 +21,9 @@ const TEXTES: Record<string, Texte> = {
     en: 'Networking, cybersecurity, support, systems, development and cloud.',
   },
   'hero.chiffre': { fr: 'professionnels TI disponibles', en: 'IT professionals available' },
+  'accueil.categories': { fr: 'CATÉGORIES', en: 'CATEGORIES' },
+  'accueil.talent': { fr: 'talent', en: 'professional' },
+  'accueil.talents': { fr: 'talents', en: 'professionals' },
   'accueil.etapes': { fr: 'COMMENT ÇA MARCHE', en: 'HOW IT WORKS' },
   'etape1.titre': { fr: 'Parcourez les talents', en: 'Browse the talent' },
   'etape1.texte': { fr: 'Kinshasa, Lubumbashi, Goma, Kisangani et plus.', en: 'Kinshasa, Lubumbashi, Goma, Kisangani and more.' },
@@ -31,6 +34,18 @@ const TEXTES: Record<string, Texte> = {
 
   'talents.titre': { fr: 'Talents TI', en: 'IT talent' },
   'talents.dispo': { fr: 'professionnels disponibles en RD Congo', en: 'professionals available in DR Congo' },
+  'talents.dispo1': { fr: 'professionnel disponible en RD Congo', en: 'professional available in DR Congo' },
+  'talents.maj': { fr: 'Mis à jour', en: 'Updated' },
+  'talents.filtre': { fr: 'Catégorie', en: 'Category' },
+  'talents.tous': { fr: 'Voir tous les talents', en: 'Show all talent' },
+  'talents.aucun': { fr: 'Aucun professionnel dans cette catégorie pour le moment.', en: 'No professionals in this category yet.' },
+  'talents.integree': { fr: 'Liste intégrée à l’application', en: 'Built-in list' },
+  'talents.horsLigne': { fr: 'Hors connexion : dernière liste enregistrée', en: 'Offline: last saved list' },
+  'talents.actualise': { fr: 'Liste actualisée', en: 'List updated' },
+  'temps.instant': { fr: 'à l’instant', en: 'just now' },
+  'temps.minutes': { fr: 'il y a {n} min', en: '{n} min ago' },
+  'temps.heures': { fr: 'il y a {n} h', en: '{n} h ago' },
+  'temps.jours': { fr: 'il y a {n} j', en: '{n} d ago' },
 
   'fiche.titre': { fr: 'Profil', en: 'Profile' },
   'fiche.infos': { fr: 'INFORMATIONS', en: 'INFORMATION' },
@@ -83,6 +98,16 @@ export class LangueService {
   // Donnée bilingue (spécialité, description) dans la langue choisie
   tr(texte: Texte): string {
     return texte[this.langue]
+  }
+
+  // Durée écoulée depuis une date, par exemple « il y a 5 min » ou « 5 min ago »
+  ilYa(horodatage: number): string {
+    const minutes = Math.floor((Date.now() - horodatage) / 60000)
+    if (minutes < 1) return this.t('temps.instant')
+    if (minutes < 60) return this.t('temps.minutes').replace('{n}', String(minutes))
+    const heures = Math.floor(minutes / 60)
+    if (heures < 24) return this.t('temps.heures').replace('{n}', String(heures))
+    return this.t('temps.jours').replace('{n}', String(Math.floor(heures / 24)))
   }
 
   // Libellé du bouton : la langue vers laquelle on peut basculer

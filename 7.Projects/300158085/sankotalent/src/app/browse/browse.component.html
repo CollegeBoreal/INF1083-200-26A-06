@@ -20,9 +20,19 @@
       </GridLayout>
     </StackLayout>
 
+    <Label [text]="l.t('accueil.categories')" class="legende" style="margin-top: 28"></Label>
+    <GridLayout columns="*, 12, *" rows="auto, auto, auto">
+      <StackLayout *ngFor="let c of categories; let i = index" [col]="(i % 2) * 2" [row]="floor(i / 2)"
+        class="categorie" (loaded)="apparaitre($event, i + 2)" (tap)="ouvrirCategorie($event, c.cle)">
+        <Image [src]="c.image" class="categorie-image" stretch="aspectFit"></Image>
+        <Label [text]="l.tr(c.nom)" class="categorie-nom"></Label>
+        <Label [text]="compter(c.cle) + ' ' + (compter(c.cle) > 1 ? l.t('accueil.talents') : l.t('accueil.talent'))" class="categorie-nombre"></Label>
+      </StackLayout>
+    </GridLayout>
+
     <Label [text]="l.t('accueil.etapes')" class="legende" style="margin-top: 28"></Label>
 
-    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 3)" (tap)="ouvrirOnglet($event, 1)">
+    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 8)" (tap)="ouvrirOnglet($event, 1)">
       <Label col="0" text="&#xf0c0;" class="icone pastille"></Label>
       <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
         <Label [text]="l.t('etape1.titre')" class="nom"></Label>
@@ -31,7 +41,7 @@
       <Label col="2" text="&#xf054;" class="icone chevron"></Label>
     </GridLayout>
 
-    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 4)" (tap)="ouvrirOnglet($event, 1)">
+    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 9)" (tap)="ouvrirOnglet($event, 1)">
       <Label col="0" text="&#xf0e0;" class="icone pastille"></Label>
       <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
         <Label [text]="l.t('etape2.titre')" class="nom"></Label>
@@ -40,7 +50,7 @@
       <Label col="2" text="&#xf054;" class="icone chevron"></Label>
     </GridLayout>
 
-    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 5)" (tap)="ouvrirOnglet($event, 2)">
+    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 10)" (tap)="ouvrirOnglet($event, 2)">
       <Label col="0" text="&#xf007;" class="icone pastille"></Label>
       <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
         <Label [text]="l.t('etape3.titre')" class="nom"></Label>

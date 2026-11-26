@@ -94,3 +94,19 @@ TabView { selected-tab-text-color: #0A5BD7; tab-text-color: #8E8E93; }
 .langue { background-color: #FFFFFF; border-radius: 18; padding: 8 14; vertical-align: center; box-shadow: 0 2 8 rgba(0, 0, 0, 0.08); }
 .langue-icone { font-size: 13; margin-right: 6; }
 .langue-texte { font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 13; color: #0A5BD7; }
+
+// Actualisation de la liste des talents
+.actualiser { width: 38; height: 38; border-radius: 19; background-color: #FFFFFF; text-align: center; font-size: 15; margin-right: 8; box-shadow: 0 2 8 rgba(0, 0, 0, 0.08); }
+.etat-liste { font-size: 12; color: #8E8E93; margin-top: 2; }
+.etat-liste.hors-ligne { color: #C25B00; }
+
+// Catégories de l'Accueil
+.categorie { background-color: #FFFFFF; border-radius: 18; padding: 12 12 14 12; margin-top: 12; box-shadow: 0 4 14 rgba(0, 0, 0, 0.06); }
+.categorie-image { height: 96; margin-bottom: 6; }
+.categorie-nom { font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 15; color: #1C1C1E; text-align: center; }
+.categorie-nombre { font-size: 12; color: #8E8E93; text-align: center; }
+
+// Filtre actif sur la page Talents
+.filtre { background-color: #0A5BD7; border-radius: 16; padding: 7 14; margin-top: 10; horizontal-align: left; }
+.filtre-texte { font-family: "Poppins", "Poppins-Medium"; font-weight: 500; font-size: 13; color: #FFFFFF; }
+.filtre-fermer { color: #FFFFFF; font-size: 12; margin-left: 8; }

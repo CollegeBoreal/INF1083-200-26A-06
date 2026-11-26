@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { DataService } from './shared/data.service'
 import { LangueService } from './shared/langue.service'
 import { NavigationService } from './shared/navigation.service'
 
@@ -8,7 +9,10 @@ import { NavigationService } from './shared/navigation.service'
   templateUrl: 'app.component.html',
 })
 export class AppComponent {
-  constructor(public l: LangueService, public nav: NavigationService) {}
+  constructor(public l: LangueService, public nav: NavigationService, data: DataService) {
+    // Récupère la dernière liste de talents en ligne au démarrage
+    data.actualiser()
+  }
 
   // Garde l'onglet en mémoire quand l'utilisateur touche la barre d'onglets
   ongletChange(args: any): void {

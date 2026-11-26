@@ -9,7 +9,7 @@
 | **Cours** | INF1083 |
 | **Établissement** | Collège Boréal, campus de Toronto |
 | **Technologies** | NativeScript 9, Angular 22, TypeScript |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 
 <img src="images/accueil.png" alt="Écran d'accueil de SankoTalent" width="280">
 
@@ -24,6 +24,7 @@
 5. [Pages de l'application](#5-pages-de-lapplication)
 6. [Animations](#6-animations)
 7. [Bilinguisme](#7-bilinguisme)
+   - [Liste des talents en ligne et catégories](#7-bis-liste-des-talents-en-ligne-et-catégories)
 8. [Template](#8-template)
 9. [Plugins](#9-plugins)
 10. [Modules NativeScript utilisés sans plugin](#10-modules-nativescript-utilisés-sans-plugin)
@@ -57,7 +58,9 @@ Le nom s'affiche dans l'en-tête de chaque onglet. L'identifiant technique de l'
 
 | Fonctionnalité | Description |
 |---|---|
-| Annuaire de talents | Six professionnels répartis dans six provinces : Kinshasa, Haut-Katanga, Kasaï-Oriental, Nord-Kivu, Tshopo et Kongo-Central |
+| Annuaire de talents | Professionnels répartis dans plusieurs provinces : Kinshasa, Haut-Katanga, Kasaï-Oriental, Nord-Kivu, Sud-Kivu, Tshopo et Kongo-Central |
+| Catégories illustrées | Six domaines des TI présentés par des illustrations 3D originales ; un toucher filtre la liste des talents |
+| Liste en ligne | Talents chargés depuis un fichier JSON public sur GitHub, actualisables sans publier de nouvelle version |
 | Fiche détaillée | Ville, années d'expérience, adresse courriel et compétences de chaque professionnel |
 | Contact par courriel | Courriel prérempli dans la langue de l'utilisateur (plugin email) |
 | Profil personnel | Nom, spécialité, expérience, enregistrés sur l'appareil |
@@ -112,11 +115,11 @@ L'application compte **quatre pages** : trois onglets et une page de détail. La
 
 ### 5.1 Accueil
 
-La page présente l'application. Un bandeau en dégradé affiche le nombre de professionnels disponibles. Ce nombre est calculé à partir des données, et non écrit en dur. Trois cartes expliquent le fonctionnement : parcourir, contacter, créer son profil. Le bandeau et les cartes sont interactifs : un toucher ouvre directement l'onglet concerné (Talents ou Mon profil), grâce au service `NavigationService` lié à la propriété `selectedIndex` du `TabView`.
+La page présente l'application. Un bandeau en dégradé affiche le nombre de professionnels disponibles. La section **Catégories** présente six domaines des TI (Réseau, Cybersécurité, Support TI, Systèmes, Développement, Infonuagique), chacun illustré par une image 3D et accompagné du nombre de talents correspondants ; un toucher ouvre la liste des talents filtrée sur ce domaine. Ce nombre est calculé à partir des données, et non écrit en dur. Trois cartes expliquent le fonctionnement : parcourir, contacter, créer son profil. Le bandeau et les cartes sont interactifs : un toucher ouvre directement l'onglet concerné (Talents ou Mon profil), grâce au service `NavigationService` lié à la propriété `selectedIndex` du `TabView`.
 
 ### 5.2 Talents
 
-Chaque professionnel apparaît dans une carte avec une pastille à ses initiales, sa spécialité dans une étiquette bleue et sa ville. Un toucher sur une carte ouvre la fiche correspondante. La navigation utilise `nsRouterLink` avec un paramètre d'identifiant (`item/:id`).
+Chaque professionnel apparaît dans une carte avec une pastille à ses initiales, sa spécialité dans une étiquette bleue et sa ville. Sous le titre, l'application indique la date de la dernière mise à jour de la liste (« Mis à jour il y a 5 min ») ; le bouton circulaire à côté du sélecteur de langue relance le téléchargement. Lorsqu'une catégorie est active, une pastille bleue l'indique et permet de revenir à la liste complète. Un toucher sur une carte ouvre la fiche correspondante. La navigation utilise `nsRouterLink` avec un paramètre d'identifiant (`item/:id`).
 
 ### 5.3 Fiche d'un talent
 
@@ -128,7 +131,7 @@ Le professionnel saisit son nom, sa spécialité et ses années d'expérience. I
 
 ### 5.5 Démonstration
 
-Parcours complet de l'application sur le simulateur iPhone 18 Pro (iOS 27.2) : accueil, liste des talents, fiche, bascule français / anglais et page Mon profil.
+Parcours complet de la version 1.2 sur le simulateur iPhone 18 Pro (iOS 27.2) : accueil et catégories illustrées, filtre par catégorie, liste des talents actualisée en ligne, fiche d'un talent et page Mon profil.
 
 <img src="images/demo.gif" alt="Démonstration de SankoTalent" width="280">
 
@@ -185,6 +188,38 @@ Le mécanisme repose sur un service Angular unique, `src/app/shared/langue.servi
 
 Le service est injecté dans chaque composant. Comme les gabarits appellent `l.t(...)` directement, Angular met à jour toutes les pages au moment de la bascule. Ajouter une troisième langue, le lingala par exemple, se limite à compléter le dictionnaire.
 
+## 7 bis. Liste des talents en ligne et catégories
+
+### Liste en ligne
+
+Depuis la version 1.2, la liste des professionnels n'est plus figée dans le code. Elle est publiée dans un dépôt GitHub public distinct, [kevinmayele/sankotalent-data](https://github.com/kevinmayele/sankotalent-data), sous forme d'un fichier `talents.json`. Ajouter un professionnel dans ce fichier met l'application à jour sans recompilation ni nouvelle version.
+
+| Situation | Comportement |
+|---|---|
+| Démarrage de l'application | Téléchargement de la liste avec `Http.getJSON` du cœur de NativeScript |
+| Bouton d'actualisation (page Talents) | Nouveau téléchargement ; l'icône tourne pendant l'opération |
+| Téléchargement réussi | Liste enregistrée sur l'appareil (`ApplicationSettings`) avec sa date |
+| Pas de connexion | Dernière liste enregistrée conservée, mention « Hors connexion » en orange |
+| Premier lancement sans connexion | Liste intégrée à l'application, utilisée en secours |
+| Fichier en ligne mal formé | Rejeté par une validation du format ; l'application garde la liste précédente et ne plante pas |
+
+Cette résilience a été vérifiée en conditions réelles : un ajout mal placé dans `talents.json` (un profil collé après la fermeture du tableau) a été rejeté par l'application sans erreur, puis accepté une fois le fichier corrigé.
+
+### Catégories illustrées
+
+Les six catégories sont définies dans `src/app/shared/categories.ts`. Chaque catégorie possède un nom bilingue, une illustration et des mots clés. La catégorie d'un talent est lue dans son champ `categorie` s'il existe ; sinon elle est déduite de sa spécialité. Un professionnel ajouté sur GitHub se range ainsi automatiquement dans le bon domaine.
+
+Les six illustrations (`src/assets/categories/`) sont des créations originales, dessinées en vectoriel dans un style 3D isométrique aux couleurs de l'application, puis exportées en PNG transparent : routeur Wi-Fi, bouclier et cadenas, casque de support, baie de serveurs, ordinateur portable et nuage. Elles sont libres de droits.
+
+| Catégorie | Illustration |
+|---|---|
+| Réseau | <img src="sankotalent/src/assets/categories/reseau.png" width="90"> |
+| Cybersécurité | <img src="sankotalent/src/assets/categories/securite.png" width="90"> |
+| Support TI | <img src="sankotalent/src/assets/categories/support.png" width="90"> |
+| Systèmes | <img src="sankotalent/src/assets/categories/systemes.png" width="90"> |
+| Développement | <img src="sankotalent/src/assets/categories/developpement.png" width="90"> |
+| Infonuagique | <img src="sankotalent/src/assets/categories/cloud.png" width="90"> |
+
 ## 8. Template
 
 | Template | Rôle |
@@ -224,6 +259,8 @@ Ces plugins accèdent à des fonctions protégées d'iOS. Chaque accès est just
 | `NSPhotoLibraryUsageDescription` | SankoTalent accède à vos photos pour choisir la photo de votre profil. |
 | `NSLocationWhenInUseUsageDescription` | SankoTalent utilise votre position pour indiquer votre ville sur votre profil. |
 
+Sur Android, les autorisations équivalentes sont déclarées dans `App_Resources/Android/src/main/AndroidManifest.xml` : `CAMERA`, `READ_MEDIA_IMAGES`, `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`, ainsi qu'un bloc `<queries>` qui permet au plugin email de détecter une application de courriel (Android 11 et plus). La caméra et le GPS sont déclarés facultatifs (`required="false"`) pour que l'application s'installe aussi sur un appareil qui n'en possède pas.
+
 L'application demande uniquement l'accès à la position **pendant son utilisation**, jamais en arrière-plan : c'est le niveau minimal nécessaire.
 
 ## 10. Modules NativeScript utilisés sans plugin
@@ -231,7 +268,9 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
 | Module | Utilisation |
 |---|---|
 | `view.animate()` et `CoreTypes.AnimationCurve` | Animations |
-| `ApplicationSettings` | Enregistrement du profil et de la langue choisie |
+| `ApplicationSettings` | Enregistrement du profil, de la langue choisie et de la dernière liste de talents |
+| `Http.getJSON` | Téléchargement de la liste des talents en ligne |
+| `Image` | Affichage des illustrations des catégories |
 | `Dialogs` | Messages de confirmation et d'information |
 | `Page` | Masquage de la barre de titre sur les onglets à grand titre |
 | `TabView`, `ScrollView`, `GridLayout`, `StackLayout` | Mise en page |
@@ -248,6 +287,7 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
     ├── package.json
     └── src/
         ├── _app-common.scss
+        ├── assets/categories/
         ├── fonts/
         └── app/
             ├── app.component.*
@@ -264,10 +304,12 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
 | `src/main.ts` | Point d'entrée : démarrage de l'application Angular |
 | `src/app/app.component.html` | Barre d'onglets ; titres traduits par le service de langue ; onglet actif lié à `NavigationService` |
 | `src/app/app-routing.module.ts` | Routage principal : un module par onglet, chargé à la demande |
-| `src/app/shared/data.service.ts` | Données des six professionnels ; modèle `DataItem` avec champs bilingues |
+| `src/app/shared/data.service.ts` | Liste des talents : téléchargement en ligne, validation, cache sur l'appareil et liste intégrée de secours ; modèle `DataItem` bilingue |
 | `src/app/shared/langue.service.ts` | Dictionnaire français / anglais et bascule de langue |
 | `src/app/shared/animations.ts` | Fonctions d'animation `apparaitre`, `zoomer` et `pulser` |
-| `src/app/shared/navigation.service.ts` | Onglet actif, partagé entre la barre d'onglets et les pages (ouverture d'un onglet depuis l'Accueil) |
+| `src/app/shared/navigation.service.ts` | Onglet actif et catégorie filtrée, partagés entre la barre d'onglets et les pages |
+| `src/app/shared/categories.ts` | Les six catégories : nom bilingue, illustration, mots clés, déduction de la catégorie d'un talent |
+| `src/assets/categories/*.png` | Illustrations 3D des six catégories |
 | `src/app/browse/browse.component.*` | Page Accueil |
 | `src/app/home/home.component.*` | Page Talents |
 | `src/app/home/home-routing.module.ts` | Routes de l'onglet Talents : liste (`default`) et fiche (`item/:id`) |
@@ -325,6 +367,8 @@ xcrun simctl location <UDID_DU_SIMULATEUR> set 4.3217,15.3126
 | Police Poppins ignorée | iOS ne trouvait pas la police par son seul nom PostScript | Déclaration de la famille (`Poppins`) et de la graisse (`font-weight`) |
 | Majuscule automatique sur chaque mot | Transformation de texte appliquée par le thème | `text-transform: none` sur les composants texte |
 | Cartes de l'Accueil sans effet au toucher | Cartes conçues comme de simples encadrés, sans gestionnaire `(tap)` | Service `NavigationService` lié au `selectedIndex` du `TabView` ; chaque carte ouvre l'onglet concerné |
+| Profil ajouté sur GitHub invisible dans l'application | Profil collé après la fermeture du tableau `talents` : JSON invalide, rejeté par la validation | Profil replacé à l'intérieur du tableau ; la validation a protégé l'application pendant l'erreur |
+| Accord « 1 professionnels » | Texte toujours au pluriel | Libellé au singulier quand la liste filtrée ne contient qu'un talent |
 | Avertissements Sass dans le terminal | Syntaxe ancienne dans `@nativescript/theme` | Sans effet sur l'application ; aucune action requise |
 
 ## 15. Fichiers non versionnés
@@ -345,17 +389,18 @@ Le dépôt ne contient donc que le code source, les ressources et la configurati
 |---|---|
 | 1.0 | Structure à trois onglets ; annuaire de talents ; fiche avec contact par courriel ; profil avec caméra, galerie et géolocalisation ; design inspiré d'iOS avec la police Poppins |
 | 1.1 | Couverture de toute la RD Congo (six provinces) ; application bilingue français / anglais ; animations d'apparition, de zoom et de pulsation ; cartes de l'Accueil interactives |
+| 1.2 | Catégories illustrées en 3D avec filtre ; liste des talents publiée en ligne et actualisable ; mention de la dernière mise à jour et mode hors connexion ; autorisations Android |
 
 ## 17. Limites connues et évolutions prévues
 
 **Limites connues**
 
 - Sur le simulateur, la caméra et l'envoi de courriel ne sont pas disponibles. L'application l'indique par un message clair ; ces deux fonctions s'utilisent normalement sur un iPhone réel.
-- Les six profils sont des données fictives de démonstration.
-- L'application a été testée sur iOS uniquement. Le code est compatible Android, mais il n'a pas été vérifié sur un émulateur.
+- Les profils de professionnels sont des données fictives de démonstration.
+- L'application a été testée sur iOS uniquement. Le code et les autorisations sont prêts pour Android, mais l'application n'a pas été vérifiée sur un émulateur Android.
 
 **Évolutions prévues**
 
-- Liste des talents publiée en ligne et actualisable depuis l'application, pour ajouter des professionnels sans publier de nouvelle version.
 - Publication du profil personnel dans la liste des talents.
 - Écran « Nouveautés » présentant le contenu de chaque version.
+- Photo de chaque professionnel, publiée avec la liste en ligne.

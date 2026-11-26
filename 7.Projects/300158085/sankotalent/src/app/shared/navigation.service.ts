@@ -7,4 +7,7 @@ import { Injectable } from '@angular/core'
 })
 export class NavigationService {
   onglet = 0
+
+  // Catégorie choisie sur l'Accueil pour filtrer la liste des talents (null = tous)
+  filtre: string = null
 }

@@ -1,16 +1,24 @@
 <ScrollView>
   <StackLayout class="ecran">
-    <GridLayout columns="*, auto">
+    <GridLayout columns="*, auto, auto">
       <StackLayout col="0">
         <Label text="SANKOTALENT" class="legende"></Label>
         <Label [text]="l.t('talents.titre')" class="titre-xl"></Label>
       </StackLayout>
-      <GridLayout col="1" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
+      <Label col="1" text="&#xf021;" class="icone actualiser" (tap)="actualiser($event)"></Label>
+      <GridLayout col="2" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
         <Label col="0" text="&#xf0ac;" class="icone langue-icone"></Label>
         <Label col="1" [text]="l.autre" class="langue-texte"></Label>
       </GridLayout>
     </GridLayout>
-    <Label [text]="items.length + ' ' + l.t('talents.dispo')" class="sous-titre"></Label>
+    <Label [text]="items.length + ' ' + (items.length > 1 ? l.t('talents.dispo') : l.t('talents.dispo1'))" class="sous-titre"></Label>
+    <Label [text]="etat" class="etat-liste" [class.hors-ligne]="data.horsLigne"></Label>
+
+    <GridLayout *ngIf="nav.filtre" columns="auto, auto" class="filtre" (tap)="retirerFiltre($event)">
+      <Label col="0" [text]="l.t('talents.filtre') + ' : ' + nomFiltre" class="filtre-texte"></Label>
+      <Label col="1" text="&#xf00d;" class="icone filtre-fermer"></Label>
+    </GridLayout>
+    <Label *ngIf="nav.filtre && items.length === 0" [text]="l.t('talents.aucun')" textWrap="true" class="sous-titre" style="margin-top: 16"></Label>
 
     <GridLayout *ngFor="let item of items; let i = index" columns="50, *, auto" class="carte"
       [nsRouterLink]="['../item', item.id]" (loaded)="apparaitre($event, i)">
