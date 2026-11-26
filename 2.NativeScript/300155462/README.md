@@ -4,6 +4,16 @@ Zakaria Mamssi · INF1083 · Groupe 06
 
 Patron Angular Hello World (`@nativescript/template-blank-ng`). Le composant Home affiche un compteur initialisé à zéro. Le bouton appelle `increment()` et la liaison Angular actualise le libellé.
 
+## Fonctionnement
+
+Le bouton appelle `increment()`. La valeur de `count`, initialisée à zéro, augmente de un à chaque appui et la liaison Angular actualise le texte à l’écran.
+
+## Capture du code
+
+![La méthode `increment()` du composant Home met à jour le compteur.](images/code-source.jpg)
+
+La méthode `increment()` du composant Home met à jour le compteur.
+
 ## Code source
 
 ### src/app/home/home.component.ts
@@ -161,3 +171,4 @@ Appuyer deux fois sur « Compter un appui ». Le compteur doit afficher 2.
 Capture des résultats locaux — Compteur · logique du composant.
 
 ![Résultats de la vérification](images/verification.png)
+
