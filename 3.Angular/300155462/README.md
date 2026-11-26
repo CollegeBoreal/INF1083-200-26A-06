@@ -4,6 +4,16 @@ Zakaria Mamssi · INF1083 · Groupe 06
 
 Application web à deux routes. Le bouton de la page Accueil affiche une salutation. La page Utilisateurs charge l’annuaire JSONPlaceholder avec HttpClient et affiche la liste ou une erreur réseau.
 
+## Fonctionnement
+
+La route d’accueil contient le bouton **Saluer**. La route **Utilisateurs** appelle JSONPlaceholder avec `HttpClient`, puis affiche les noms et les courriels reçus. Le composant prévoit aussi un message si la requête échoue.
+
+## Capture du code
+
+![Le composant `Annuaire` gère le chargement de la liste et l’échec de la requête HTTP.](images/code-source.jpg)
+
+Le composant `Annuaire` gère le chargement de la liste et l’échec de la requête HTTP.
+
 ## Code source
 
 ### src/app/annuaire.ts
@@ -137,3 +147,4 @@ Ouvrir http://localhost:4200, saluer, puis sélectionner Utilisateurs et charger
 Capture des résultats locaux — Accueil et annuaire · HTTP simulé.
 
 ![Résultats de la vérification](images/verification.png)
+
