@@ -59,6 +59,8 @@ Cette page affiche le chronomètre et les cartes des exercices. Chaque carte ind
 
 L'utilisateur appuie sur **Terminer exercice** pour enregistrer son activité. Le programme utilise une clé associée au nom de l'exercice pour éviter de compter deux fois le même exercice.
 
+<img width="479" height="675" alt="image" src="https://github.com/user-attachments/assets/e9fe7da5-c7e1-4e88-9456-3bdccd8de8b5" />
+
 <p align="center">
   <img src="images/exercices.png" width="450">
 </p>
@@ -72,6 +74,8 @@ Le bouton **Actualiser mes progrès** permet de recalculer les résultats.
 Le bouton **Réinitialiser l'entraînement** est prévu pour effacer les résultats du programme.
 
 Pendant mon test, trois exercices sur quatre ont été enregistrés. L'application a affiché **75 %**, **160 kcal indicatives** et le niveau **Sportif confirmé**.
+
+<img width="445" height="675" alt="image" src="https://github.com/user-attachments/assets/69e3b886-7dcf-4057-97a6-e29085d4cef7" />
 
 <p align="center">
   <img src="images/suivi.png" width="450">
@@ -119,6 +123,8 @@ Les récompenses encouragent l'utilisateur à terminer le programme. Les calorie
 
 J'ai créé le projet sous le nom SportFit, puis renommé son dossier en `b300160424`. J'ai ajouté trois composants pour remplacer la navigation de démonstration par les pages de fitness.
 
+<img width="842" height="675" alt="image" src="https://github.com/user-attachments/assets/c040b7cf-e9b2-4693-83d5-c16e4a61cd3c" />
+
 <p align="center">
   <img src="images/creation.png" width="750">
 </p>
@@ -155,6 +161,8 @@ Aucun plugin externe supplémentaire n'est identifié dans les fonctionnalités 
 | `src/app/app.component.html` | Menu de navigation |
 | `src/app/app.component.ts` | Composant principal |
 
+<img width="967" height="675" alt="image" src="https://github.com/user-attachments/assets/1a8645f0-a27c-48d1-bc5e-46470013d5a8" />
+
 <p align="center">
   <img src="images/structure.png" width="750">
 </p>
@@ -171,6 +179,7 @@ export const routes: Routes = [
   { path: 'suivi', component: SuiviComponent }
 ];
 ```
+<img width="975" height="628" alt="image" src="https://github.com/user-attachments/assets/a892925b-49f3-449f-9bbe-c08da7d8c14f" />
 
 <p align="center">
   <img src="images/routes.png" width="750">
