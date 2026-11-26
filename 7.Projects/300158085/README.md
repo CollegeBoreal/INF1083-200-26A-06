@@ -112,7 +112,7 @@ L'application compte **quatre pages** : trois onglets et une page de détail. La
 
 ### 5.1 Accueil
 
-La page présente l'application. Un bandeau en dégradé affiche le nombre de professionnels disponibles. Ce nombre est calculé à partir des données, et non écrit en dur. Trois cartes expliquent le fonctionnement : parcourir, contacter, créer son profil.
+La page présente l'application. Un bandeau en dégradé affiche le nombre de professionnels disponibles. Ce nombre est calculé à partir des données, et non écrit en dur. Trois cartes expliquent le fonctionnement : parcourir, contacter, créer son profil. Le bandeau et les cartes sont interactifs : un toucher ouvre directement l'onglet concerné (Talents ou Mon profil), grâce au service `NavigationService` lié à la propriété `selectedIndex` du `TabView`.
 
 ### 5.2 Talents
 
@@ -134,7 +134,7 @@ Les animations reposent sur l'API `view.animate()` du cœur de NativeScript, san
 |---|---|---|---|---|
 | Apparition en cascade | `apparaitre(args, rang)` | Cartes de l'Accueil, liste des Talents, blocs de la fiche et du profil | La vue monte de 24 points avec un fondu ; chaque élément est décalé de 70 ms par rapport au précédent | 450 ms, courbe `easeOut` |
 | Zoom avec rebond | `zoomer(args, delai)` | Bandeau d'accueil, pastille d'initiales de la fiche, photo de profil | La vue passe de 60 % à 100 % de sa taille avec un fondu | 550 ms, courbe `spring` |
-| Pulsation au toucher | `pulser(vue)` | Bouton de langue, Contacter, Caméra, Galerie, Position, Enregistrer | Enfoncement à 94 % puis retour avec rebond, pour confirmer le toucher | 90 ms + 200 ms |
+| Pulsation au toucher | `pulser(vue)` | Cartes de l'Accueil, bouton de langue, Contacter, Caméra, Galerie, Position, Enregistrer | Enfoncement à 94 % puis retour avec rebond, pour confirmer le toucher | 90 ms + 200 ms |
 
 Extrait de la fonction d'apparition :
 
@@ -254,11 +254,12 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
 | Fichier | Rôle |
 |---|---|
 | `src/main.ts` | Point d'entrée : démarrage de l'application Angular |
-| `src/app/app.component.html` | Barre d'onglets ; titres traduits par le service de langue |
+| `src/app/app.component.html` | Barre d'onglets ; titres traduits par le service de langue ; onglet actif lié à `NavigationService` |
 | `src/app/app-routing.module.ts` | Routage principal : un module par onglet, chargé à la demande |
 | `src/app/shared/data.service.ts` | Données des six professionnels ; modèle `DataItem` avec champs bilingues |
 | `src/app/shared/langue.service.ts` | Dictionnaire français / anglais et bascule de langue |
 | `src/app/shared/animations.ts` | Fonctions d'animation `apparaitre`, `zoomer` et `pulser` |
+| `src/app/shared/navigation.service.ts` | Onglet actif, partagé entre la barre d'onglets et les pages (ouverture d'un onglet depuis l'Accueil) |
 | `src/app/browse/browse.component.*` | Page Accueil |
 | `src/app/home/home.component.*` | Page Talents |
 | `src/app/home/home-routing.module.ts` | Routes de l'onglet Talents : liste (`default`) et fiche (`item/:id`) |
@@ -315,6 +316,7 @@ xcrun simctl location <UDID_DU_SIMULATEUR> set 4.3217,15.3126
 | Position jamais détectée, sans erreur | Demande d'autorisation « Toujours » sans la clé `Info.plist` correspondante : iOS ignore la demande | Demande limitée à « Pendant l'utilisation de l'app » |
 | Police Poppins ignorée | iOS ne trouvait pas la police par son seul nom PostScript | Déclaration de la famille (`Poppins`) et de la graisse (`font-weight`) |
 | Majuscule automatique sur chaque mot | Transformation de texte appliquée par le thème | `text-transform: none` sur les composants texte |
+| Cartes de l'Accueil sans effet au toucher | Cartes conçues comme de simples encadrés, sans gestionnaire `(tap)` | Service `NavigationService` lié au `selectedIndex` du `TabView` ; chaque carte ouvre l'onglet concerné |
 | Avertissements Sass dans le terminal | Syntaxe ancienne dans `@nativescript/theme` | Sans effet sur l'application ; aucune action requise |
 
 ## 15. Fichiers non versionnés
@@ -334,7 +336,7 @@ Le dépôt ne contient donc que le code source, les ressources et la configurati
 | Version | Contenu |
 |---|---|
 | 1.0 | Structure à trois onglets ; annuaire de talents ; fiche avec contact par courriel ; profil avec caméra, galerie et géolocalisation ; design inspiré d'iOS avec la police Poppins |
-| 1.1 | Couverture de toute la RD Congo (six provinces) ; application bilingue français / anglais ; animations d'apparition, de zoom et de pulsation |
+| 1.1 | Couverture de toute la RD Congo (six provinces) ; application bilingue français / anglais ; animations d'apparition, de zoom et de pulsation ; cartes de l'Accueil interactives |
 
 ## 17. Limites connues et évolutions prévues
 
