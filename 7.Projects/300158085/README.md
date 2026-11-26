@@ -24,7 +24,7 @@
 5. [Pages de l'application](#5-pages-de-lapplication)
 6. [Animations](#6-animations)
 7. [Bilinguisme](#7-bilinguisme)
-   - [Liste des talents en ligne et catégories](#7-bis-liste-des-talents-en-ligne-et-catégories)
+   - [Liste des talents en ligne, catégories et carte](#7-bis-liste-des-talents-en-ligne-catégories-et-carte)
 8. [Template](#8-template)
 9. [Plugins](#9-plugins)
 10. [Modules NativeScript utilisés sans plugin](#10-modules-nativescript-utilisés-sans-plugin)
@@ -63,6 +63,8 @@ Le nom s'affiche dans l'en-tête de chaque onglet. L'identifiant technique de l'
 | Liste en ligne | Talents chargés depuis un fichier JSON public sur GitHub, actualisables sans publier de nouvelle version |
 | Fiche détaillée | Ville, années d'expérience, adresse courriel et compétences de chaque professionnel |
 | Contact par courriel | Courriel prérempli dans la langue de l'utilisateur (plugin email) |
+| Carte | Bouton « Voir sur la carte » : la ville du professionnel, ou sa propre position, s'ouvre dans Plans (iPhone) ou Google Maps (Android) |
+| Photos du métier | Vraie photo du domaine en bandeau sur la fiche d'un talent et sur la liste filtrée par catégorie |
 | Profil personnel | Nom, spécialité, expérience, enregistrés sur l'appareil |
 | Photo de profil | Prise avec la caméra ou choisie dans la galerie (plugins camera et imagepicker) |
 | Géolocalisation | Détection de la position GPS (plugin geolocation) |
@@ -123,11 +125,11 @@ Chaque professionnel apparaît dans une carte avec une pastille à ses initiales
 
 ### 5.3 Fiche d'un talent
 
-La fiche reprend l'identité du professionnel, puis ses informations (ville, expérience, courriel) et ses compétences. Le bouton **Contacter** ouvre l'application Mail avec un objet et un message préremplis dans la langue choisie.
+La fiche s'ouvre sur une photo du domaine du professionnel (réseau, serveurs, réparation…), puis reprend son identité, ses informations (ville, expérience, courriel) et ses compétences. Le bouton **Voir sur la carte** ouvre sa ville dans l'application de cartes du téléphone. Le bouton **Contacter** ouvre l'application Mail avec un objet et un message préremplis dans la langue choisie.
 
 ### 5.4 Mon profil
 
-Le professionnel saisit son nom, sa spécialité et ses années d'expérience. Il ajoute une photo par la caméra ou la galerie, puis détecte sa position. Le profil est enregistré sur l'appareil avec `ApplicationSettings` et rechargé au lancement suivant.
+Le professionnel saisit son nom, sa spécialité et ses années d'expérience. Il ajoute une photo par la caméra ou la galerie, puis détecte sa position. Le profil est enregistré sur l'appareil avec `ApplicationSettings` et rechargé au lancement suivant. Une fois la position détectée, le bouton **Voir sur la carte** l'affiche dans l'application de cartes.
 
 ### 5.5 Démonstration
 
@@ -188,7 +190,7 @@ Le mécanisme repose sur un service Angular unique, `src/app/shared/langue.servi
 
 Le service est injecté dans chaque composant. Comme les gabarits appellent `l.t(...)` directement, Angular met à jour toutes les pages au moment de la bascule. Ajouter une troisième langue, le lingala par exemple, se limite à compléter le dictionnaire.
 
-## 7 bis. Liste des talents en ligne et catégories
+## 7 bis. Liste des talents en ligne, catégories et carte
 
 ### Liste en ligne
 
@@ -210,6 +212,13 @@ Cette résilience a été vérifiée en conditions réelles : un ajout mal plac�
 Les six catégories sont définies dans `src/app/shared/categories.ts`. Chaque catégorie possède un nom bilingue, une illustration et des mots clés. La catégorie d'un talent est lue dans son champ `categorie` s'il existe ; sinon elle est déduite de sa spécialité. Un professionnel ajouté sur GitHub se range ainsi automatiquement dans le bon domaine.
 
 Les six illustrations (`src/assets/categories/`) sont des créations originales, dessinées en vectoriel dans un style 3D isométrique aux couleurs de l'application, puis exportées en PNG transparent : routeur Wi-Fi, bouclier et cadenas, casque de support, baie de serveurs, ordinateur portable et nuage. Elles sont libres de droits.
+
+### Photos du métier et carte
+
+Chaque catégorie possède aussi une vraie photo professionnelle (baie de brassage, salle de serveurs, réparation d'ordinateur…). Les photos proviennent de Pexels ou d'Unsplash, dont les licences autorisent l'utilisation gratuite ; elles sont publiées dans le dossier `photos/` du dépôt [sankotalent-data](https://github.com/kevinmayele/sankotalent-data), avec la liste de leurs auteurs dans `photos/CREDITS.md`. Comme la liste des talents, elles peuvent être remplacées sans publier de nouvelle version. Tant qu'une photo n'est pas disponible, le bandeau affiche le dégradé bleu de l'application.
+
+La carte ne demande ni plugin ni clé d'accès : `src/app/shared/carte.ts` construit une adresse Plans (iPhone) ou Google Maps (Android) et l'ouvre avec `Utils.openUrl`.
+
 
 | Catégorie | Illustration |
 |---|---|
@@ -270,7 +279,8 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
 | `view.animate()` et `CoreTypes.AnimationCurve` | Animations |
 | `ApplicationSettings` | Enregistrement du profil, de la langue choisie et de la dernière liste de talents |
 | `Http.getJSON` | Téléchargement de la liste des talents en ligne |
-| `Image` | Affichage des illustrations des catégories |
+| `Image` | Affichage des illustrations et des photos des catégories |
+| `Utils.openUrl`, `isIOS` | Ouverture de Plans ou de Google Maps |
 | `Dialogs` | Messages de confirmation et d'information |
 | `Page` | Masquage de la barre de titre sur les onglets à grand titre |
 | `TabView`, `ScrollView`, `GridLayout`, `StackLayout` | Mise en page |
@@ -308,6 +318,7 @@ L'application demande uniquement l'accès à la position **pendant son utilisati
 | `src/app/shared/langue.service.ts` | Dictionnaire français / anglais et bascule de langue |
 | `src/app/shared/animations.ts` | Fonctions d'animation `apparaitre`, `zoomer` et `pulser` |
 | `src/app/shared/navigation.service.ts` | Onglet actif et catégorie filtrée, partagés entre la barre d'onglets et les pages |
+| `src/app/shared/carte.ts` | Ouverture de l'application de cartes (ville d'un talent, position de l'utilisateur) |
 | `src/app/shared/categories.ts` | Les six catégories : nom bilingue, illustration, mots clés, déduction de la catégorie d'un talent |
 | `src/assets/categories/*.png` | Illustrations 3D des six catégories |
 | `src/app/browse/browse.component.*` | Page Accueil |
@@ -389,7 +400,7 @@ Le dépôt ne contient donc que le code source, les ressources et la configurati
 |---|---|
 | 1.0 | Structure à trois onglets ; annuaire de talents ; fiche avec contact par courriel ; profil avec caméra, galerie et géolocalisation ; design inspiré d'iOS avec la police Poppins |
 | 1.1 | Couverture de toute la RD Congo (six provinces) ; application bilingue français / anglais ; animations d'apparition, de zoom et de pulsation ; cartes de l'Accueil interactives |
-| 1.2 | Catégories illustrées en 3D avec filtre ; liste des talents publiée en ligne et actualisable ; mention de la dernière mise à jour et mode hors connexion ; autorisations Android |
+| 1.2 | Catégories illustrées en 3D avec filtre ; liste des talents publiée en ligne et actualisable ; mention de la dernière mise à jour et mode hors connexion ; autorisations Android ; photos du métier en bandeau ; bouton « Voir sur la carte » |
 
 ## 17. Limites connues et évolutions prévues
 

@@ -5,6 +5,7 @@ import * as geolocation from '@nativescript/geolocation'
 import { create, ImagePickerMediaType } from '@nativescript/imagepicker'
 import { LangueService } from '../shared/langue.service'
 import { apparaitre, pulser, zoomer } from '../shared/animations'
+import { ouvrirCarteCoordonnees } from '../shared/carte'
 
 @Component({
   standalone: false,
@@ -111,6 +112,11 @@ export class SearchComponent implements OnInit {
     } catch (erreur) {
       this.zone.run(() => (this.erreurPosition = true))
     }
+  }
+
+  voirCarte(args: any): void {
+    pulser(args.object)
+    if (this.latitude !== null) ouvrirCarteCoordonnees(this.latitude, this.longitude, this.l.t('profil.maPosition'))
   }
 
   enregistrer(args: any): void {

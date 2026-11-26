@@ -5,6 +5,8 @@ import { available, compose } from '@nativescript/email'
 import { DataItem, DataService } from '../../shared/data.service'
 import { LangueService } from '../../shared/langue.service'
 import { apparaitre, pulser, zoomer } from '../../shared/animations'
+import { Categorie, categorieDe, categorieParCle } from '../../shared/categories'
+import { ouvrirCarteLieu } from '../../shared/carte'
 
 @Component({
   standalone: false,
@@ -14,6 +16,7 @@ import { apparaitre, pulser, zoomer } from '../../shared/animations'
 export class ItemDetailComponent implements OnInit {
   item: DataItem
   initiales = ''
+  categorie: Categorie
   apparaitre = apparaitre
   zoomer = zoomer
 
@@ -28,6 +31,12 @@ export class ItemDetailComponent implements OnInit {
       .join('')
       .substring(0, 2)
       .toUpperCase()
+    this.categorie = categorieParCle(categorieDe(this.item))
+  }
+
+  voirCarte(args: any): void {
+    pulser(args.object)
+    ouvrirCarteLieu(`${this.item.ville}, ${this.l.t('pays')}`)
   }
 
   async contacter(args: any): Promise<void> {

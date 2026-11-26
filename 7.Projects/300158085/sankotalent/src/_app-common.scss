@@ -110,3 +110,7 @@ TabView { selected-tab-text-color: #0A5BD7; tab-text-color: #8E8E93; }
 .filtre { background-color: #0A5BD7; border-radius: 16; padding: 7 14; margin-top: 10; horizontal-align: left; }
 .filtre-texte { font-family: "Poppins", "Poppins-Medium"; font-weight: 500; font-size: 13; color: #FFFFFF; }
 .filtre-fermer { color: #FFFFFF; font-size: 12; margin-left: 8; }
+
+// Vraie photo du métier en bandeau (catégorie filtrée, fiche d'un talent)
+.bandeau-photo { height: 170; border-radius: 18; margin-top: 12; background: linear-gradient(135deg, #0A2A66, #0A5BD7); }
+.bandeau-titre { font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 15; color: #FFFFFF; background-color: rgba(10, 42, 102, 0.55); border-radius: 12; padding: 5 12; vertical-align: bottom; horizontal-align: left; margin: 12; }

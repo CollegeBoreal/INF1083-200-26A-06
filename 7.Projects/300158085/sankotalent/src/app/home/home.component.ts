@@ -26,6 +26,10 @@ export class HomeComponent {
   }
 
   // Nom de la catégorie active, dans la langue choisie
+  get categorieActive() {
+    return this.nav.filtre ? categorieParCle(this.nav.filtre) : null
+  }
+
   get nomFiltre(): string {
     const categorie = this.nav.filtre ? categorieParCle(this.nav.filtre) : null
     return categorie ? this.l.tr(categorie.nom) : ''

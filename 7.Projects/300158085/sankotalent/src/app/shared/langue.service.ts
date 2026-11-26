@@ -52,6 +52,9 @@ const TEXTES: Record<string, Texte> = {
   'fiche.competences': { fr: 'COMPÉTENCES', en: 'SKILLS' },
   'fiche.ans': { fr: 'ans d’expérience', en: 'years of experience' },
   'fiche.contacter': { fr: 'Contacter', en: 'Contact' },
+  'fiche.carte': { fr: 'Voir sur la carte', en: 'View on map' },
+  'pays': { fr: 'République démocratique du Congo', en: 'Democratic Republic of the Congo' },
+  'profil.maPosition': { fr: 'Ma position', en: 'My location' },
   'courriel.titre': { fr: 'Courriel', en: 'Email' },
   'courriel.absent': {
     fr: "Aucun compte de courriel n'est configuré sur cet appareil. Adresse du professionnel :",
