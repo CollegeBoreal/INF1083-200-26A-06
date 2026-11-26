@@ -104,10 +104,13 @@ ns run android
 | Capitale recherchée | Pays obtenu | Résultat |
 |---|---|---|
 | Conakry | Guinea | Réussi |
-
+| Tokyo | Japon | Réussi |
 ### Capture de l'application
 
-![Capital Explorer](images/rxjs-conakry.png)
+![Capital Explorer](images<img width="367" height="818" alt="rxjs-conakry" src="https://github.com/user-attachments/assets/d7367e01-a114-4ffc-aa3c-aa3e2e8fdf09" />
+/rxjs-conakry.png)
+
+<img width="656" height="925" alt="Capture d&#39;écran 2026-11-26 004058" src="https://github.com/user-attachments/assets/cbc93d2b-4170-4d52-8a44-179054d16783" />
 
 ## 10. Conclusion
 
