@@ -1,0 +1,36 @@
+<GridLayout rows="*, auto">
+
+  <page-router-outlet row="0"></page-router-outlet>
+
+  <GridLayout row="1"
+    columns="*, *, *"
+    backgroundColor="#15803d"
+    padding="5">
+
+    <Button col="0"
+      text="Accueil"
+      [nsRouterLink]="['/accueil']"
+      backgroundColor="#15803d"
+      color="white"
+      fontSize="14">
+    </Button>
+
+    <Button col="1"
+      text="Exercices"
+      [nsRouterLink]="['/exercices']"
+      backgroundColor="#15803d"
+      color="white"
+      fontSize="14">
+    </Button>
+
+    <Button col="2"
+      text="Suivi"
+      [nsRouterLink]="['/suivi']"
+      backgroundColor="#15803d"
+      color="white"
+      fontSize="14">
+    </Button>
+
+  </GridLayout>
+
+</GridLayout>
