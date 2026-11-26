@@ -1,24 +1,25 @@
+
 import { Injectable, signal } from '@angular/core';
 import { Person } from './person';
 
 @Injectable({providedIn: 'root'})
 export class PersonService {
   items = signal<Person[]>([
-    { id: 1, name: 'Alan Turing', nationality: 'British', notableAchievements: ['WW2 code breaking', 'Father of theoretical computer science and AI' ] },
-    { id: 2, name: 'Grace Hopper', nationality: 'American', notableAchievements: ['COBOL development', 'Navy commander', 'Implementation of computer systems and components testing'] },
-    { id: 3, name: 'Donal Knuth', nationality: 'American', notableAchievements: [ 'Author of The Art of Computer Programming', 'Created TeX typesetting system' ] },
-    { id: 4, name: 'Ada Lovelace', nationality: 'British', notableAchievements: [ 'First computer programmer', 'Worked on Analytical Engine' ]},
-    { id: 5, name: 'John von Neumann', nationality: 'Hungarian/American', notableAchievements: [ 'Von Neumann architecture', 'Game theory', 'Contributed to EDVAC' ] },
-    { id: 6, name: 'Tim Berners-Lee', nationality: 'British', notableAchievements: [ 'Inventor of the World Wide Web' ] },
-    { id: 7, name: 'Edsger Dijkstra', nationality: 'Dutch', notableAchievements: [ 'Shortest path algorithm', 'Structured programming advocate' ] },
-    { id: 8, name: 'Linus Torvalds', nationality: 'Finnish-American', notableAchievements: ['Creator of Linux kernel', 'Creator of Git'] },
-    { id: 9, name: 'John McCarthy', nationality: 'American', notableAchievements: ['Coined term "Artificial Intelligence"', 'Created LISP programming language'] },
-    { id: 10, name: 'Dennis Ritchie', nationality: 'American', notableAchievements: ['Creator of C programming language', 'Co-creator of Unix'] },
-    { id: 11, name: 'Bjarne Stroustrup', nationality: 'Danish', notableAchievements: [ 'Creator of C++ programming language' ] },
-    { id: 12, name: 'Steve Wozniak', nationality: 'American', notableAchievements: ['Co-founder of Apple', 'Designer of Apple I & II', 'Pioneer of personal computing'] },
-    { id: 13, name: 'Tommy Flowers', nationality: 'British', notableAchievements: ['Designer of Colossus', 'Pioneer in electronic computing'] },
-    { id: 14, name: 'John Backus', nationality: 'American', notableAchievements: ['Created FORTRAN', 'Developed Backus-Naur form(BNF) notation'] },
-    { id: 15, name: 'Niklaus Wirth', nationality: 'Swiss', notableAchievements: ['Creator of Pascal, Modula, Oberon languages', 'Software engineering pioneer'] },
+    { id: 1, name: 'Margaret Hamilton', nationality: 'American', notableAchievements: ['Led Apollo flight software development', 'Pioneer of software engineering'] },
+    { id: 2, name: 'Katherine Johnson', nationality: 'American', notableAchievements: ['NASA mathematician', 'Calculated trajectories for space missions'] },
+    { id: 3, name: 'Claude Shannon', nationality: 'American', notableAchievements: ['Father of information theory', 'Contributed to digital circuit design'] },
+    { id: 4, name: 'Hedy Lamarr', nationality: 'Austrian-American', notableAchievements: ['Co-invented frequency-hopping technology', 'Contributed to wireless communication'] },
+    { id: 5, name: 'Guido van Rossum', nationality: 'Dutch', notableAchievements: ['Creator of Python programming language', 'Promoted readable programming'] },
+    { id: 6, name: 'James Gosling', nationality: 'Canadian', notableAchievements: ['Creator of Java programming language', 'Worked on the Java platform'] },
+    { id: 7, name: 'Brendan Eich', nationality: 'American', notableAchievements: ['Creator of JavaScript', 'Co-founded Mozilla'] },
+    { id: 8, name: 'Radia Perlman', nationality: 'American', notableAchievements: ['Invented the Spanning Tree Protocol', 'Pioneer in network engineering'] },
+    { id: 9, name: 'Barbara Liskov', nationality: 'American', notableAchievements: ['Developed the Liskov substitution principle', 'Pioneer in programming languages'] },
+    { id: 10, name: 'Ken Thompson', nationality: 'American', notableAchievements: ['Co-created Unix', 'Co-developed the Go programming language'] },
+    { id: 11, name: 'Brian Kernighan', nationality: 'Canadian', notableAchievements: ['Co-authored The C Programming Language', 'Contributed to Unix development'] },
+    { id: 12, name: 'Sophie Wilson', nationality: 'British', notableAchievements: ['Co-designed the ARM processor architecture', 'Designed the BBC Micro'] },
+    { id: 13, name: 'Donald Knuth', nationality: 'American', notableAchievements: ['Author of The Art of Computer Programming', 'Created TeX'] },
+    { id: 14, name: 'Anita Borg', nationality: 'American', notableAchievements: ['Founded the Institute for Women and Technology', 'Promoted women in computing'] },
+    { id: 15, name: 'Frances Allen', nationality: 'American', notableAchievements: ['Pioneer in compiler optimization', 'First woman to receive the Turing Award'] },
   ]);
 
   getPerson(id: number): Person {
