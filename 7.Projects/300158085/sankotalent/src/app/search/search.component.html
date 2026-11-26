@@ -1,0 +1,47 @@
+<ScrollView>
+  <StackLayout class="ecran">
+    <GridLayout columns="*, auto">
+      <StackLayout col="0">
+        <Label text="SANKOTALENT" class="legende"></Label>
+        <Label [text]="l.t('profil.titre')" class="titre-xl"></Label>
+      </StackLayout>
+      <GridLayout col="1" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
+        <Label col="0" text="&#xf0ac;" class="icone langue-icone"></Label>
+        <Label col="1" [text]="l.autre" class="langue-texte"></Label>
+      </GridLayout>
+    </GridLayout>
+
+    <StackLayout class="carte" style="padding: 24" (loaded)="apparaitre($event, 0)">
+      <Image *ngIf="photo" [src]="photo" width="110" height="110" stretch="aspectFill" horizontalAlignment="center" (loaded)="zoomer($event)"
+        style="border-radius: 55; clip-path: circle(50% at 50% 50%); border-width: 3; border-color: #E8F0FE"></Image>
+      <Label *ngIf="!photo" text="&#xf007;" class="avatar avatar-xl avatar-icone" horizontalAlignment="center"></Label>
+      <GridLayout columns="*, 10, *">
+        <Button col="0" [text]="l.t('profil.camera')" class="bouton-secondaire" (tap)="prendrePhoto($event)"></Button>
+        <Button col="2" [text]="l.t('profil.galerie')" class="bouton-secondaire" (tap)="choisirPhoto($event)"></Button>
+      </GridLayout>
+    </StackLayout>
+
+    <Label [text]="l.t('profil.infos')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 1)">
+      <Label [text]="l.t('profil.nom')" class="etiquette" style="margin-top: 0"></Label>
+      <TextField class="champ" [hint]="l.t('profil.nom.ex')" [text]="nom" (textChange)="nom = $any($event).value"></TextField>
+
+      <Label [text]="l.t('profil.specialite')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('profil.specialite.ex')" [text]="specialite" (textChange)="specialite = $any($event).value"></TextField>
+
+      <Label [text]="l.t('profil.experience')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('profil.experience.ex')" keyboardType="number" [text]="experience" (textChange)="experience = $any($event).value"></TextField>
+    </StackLayout>
+
+    <Label [text]="l.t('profil.position')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 2)">
+      <GridLayout columns="30, *">
+        <Label col="0" text="&#xf3c5;" class="icone"></Label>
+        <Label col="1" [text]="position" textWrap="true" class="texte"></Label>
+      </GridLayout>
+      <Button [text]="l.t('profil.detecter')" class="bouton-secondaire" (tap)="detecterPosition($event)"></Button>
+    </StackLayout>
+
+    <Button [text]="l.t('profil.enregistrer')" class="bouton" (tap)="enregistrer($event)"></Button>
+  </StackLayout>
+</ScrollView>

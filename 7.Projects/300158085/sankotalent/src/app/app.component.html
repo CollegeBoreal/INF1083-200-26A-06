@@ -1,0 +1,13 @@
+<TabView androidTabsPosition="bottom" [selectedIndex]="nav.onglet" (selectedIndexChanged)="ongletChange($event)">
+  <GridLayout *tabItem="{ title: l.t('onglet.accueil') }">
+    <page-router-outlet name="browseTab"></page-router-outlet>
+  </GridLayout>
+
+  <GridLayout *tabItem="{ title: l.t('onglet.talents') }">
+    <page-router-outlet name="homeTab"></page-router-outlet>
+  </GridLayout>
+
+  <GridLayout *tabItem="{ title: l.t('onglet.profil') }">
+    <page-router-outlet name="searchTab"></page-router-outlet>
+  </GridLayout>
+</TabView>

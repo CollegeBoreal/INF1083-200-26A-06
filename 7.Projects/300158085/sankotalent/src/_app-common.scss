@@ -1,0 +1,96 @@
+@import '@nativescript/theme/core';
+@import '@nativescript/theme/default';
+
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+
+// Font icon class
+.fab {
+  font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
+  font-weight: 400;
+}
+
+.fas {
+  font-family: 'Font Awesome 5 Free', 'fa-solid-900';
+  font-weight: 900;
+}
+
+.far {
+  font-family: 'Font Awesome 5 Free', 'fa-regular-400';
+  font-weight: 400;
+}
+
+// Custom tabstrip item class
+.navigation__item {
+  &:active,
+  &:active Label {
+    @include colorize($contrasted-color: complementary background 20% 0%);
+  }
+}
+
+// Common page class
+.page__content {
+  &-icon,
+  &-placeholder {
+    color: const(grey);
+    font-size: 20;
+    vertical-align: center;
+    horizontal-align: center;
+  }
+
+  &-icon {
+    font-size: 72;
+    vertical-align: top;
+    margin-top: 20%;
+  }
+}
+
+// Garder le texte tel qu'il est écrit (pas de majuscule automatique)
+Label, Button, TextField, TabView, ActionBar {
+  text-transform: none;
+}
+
+// Texte d'exemple des champs en gris clair
+TextField {
+  placeholder-color: #AAAAAA;
+}
+
+// ===== Systeme de design SankoTalent =====
+Page { background-color: #F2F2F7; }
+Label, Button, TextField { font-family: "Poppins", "Poppins-Regular"; font-weight: 400; color: #1C1C1E; }
+ActionBar { background-color: #F2F2F7; color: #1C1C1E; }
+TabView { selected-tab-text-color: #0A5BD7; tab-text-color: #8E8E93; }
+
+.ecran { padding: 12 20 120 20; }
+.legende { font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 12; color: #8E8E93; letter-spacing: 0.08; }
+.titre-xl { font-family: "Poppins", "Poppins-Bold"; font-weight: 700; font-size: 32; color: #1C1C1E; margin-bottom: 4; }
+.titre { font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 22; color: #1C1C1E; }
+.sous-titre { font-size: 14; color: #6E6E73; }
+.texte { font-size: 15; color: #3A3A3C; line-height: 4; }
+.nom { font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 16; color: #1C1C1E; }
+
+.hero { background: linear-gradient(135deg, #0A2A66, #0A5BD7); border-radius: 24; padding: 24; margin-top: 16; }
+.hero-titre { font-family: "Poppins", "Poppins-Bold"; font-weight: 700; font-size: 24; color: #FFFFFF; }
+.hero-texte { font-size: 14; color: #DCE6FA; margin-top: 6; }
+.hero-chiffre { font-family: "Poppins", "Poppins-Bold"; font-weight: 700; font-size: 46; color: #FFFFFF; }
+
+.carte { background-color: #FFFFFF; border-radius: 18; padding: 16; margin-top: 12; box-shadow: 0 4 14 rgba(0, 0, 0, 0.06); }
+
+.avatar { width: 50; height: 50; border-radius: 25; background-color: #E8F0FE; color: #0A5BD7; font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 17; text-align: center; vertical-align: center; }
+.avatar-xl { width: 96; height: 96; border-radius: 48; font-size: 32; }
+.badge { background-color: #E8F0FE; color: #0A5BD7; font-family: "Poppins", "Poppins-Medium"; font-weight: 500; font-size: 12; border-radius: 10; padding: 3 10; horizontal-align: left; margin-top: 4; }
+
+.icone { font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "fa-solid-900"; font-weight: 900; color: #0A5BD7; font-size: 16; vertical-align: center; }
+.pastille { width: 44; height: 44; border-radius: 22; background-color: #E8F0FE; text-align: center; font-size: 17; }
+.avatar-icone { font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "fa-solid-900"; font-weight: 900; font-size: 36; }
+.chevron { color: #C7C7CC; font-size: 14; }
+
+.bouton { background-color: #0A5BD7; color: #FFFFFF; font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 16; border-radius: 14; height: 54; margin-top: 24; }
+.bouton-secondaire { background-color: #E8F0FE; color: #0A5BD7; font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 15; border-radius: 14; height: 46; margin-top: 14; }
+.etiquette { font-family: "Poppins", "Poppins-Medium"; font-weight: 500; font-size: 13; color: #6E6E73; margin-top: 14; }
+.champ { background-color: #F2F2F7; border-radius: 12; padding: 12 14; font-size: 15; margin-top: 6; border-width: 0; placeholder-color: #AEAEB2; }
+
+// Bouton de langue FR / EN
+.langue { background-color: #FFFFFF; border-radius: 18; padding: 8 14; vertical-align: center; box-shadow: 0 2 8 rgba(0, 0, 0, 0.08); }
+.langue-icone { font-size: 13; margin-right: 6; }
+.langue-texte { font-family: "Poppins", "Poppins-SemiBold"; font-weight: 600; font-size: 13; color: #0A5BD7; }

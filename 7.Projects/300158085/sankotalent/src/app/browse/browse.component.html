@@ -1,0 +1,52 @@
+<ScrollView>
+  <StackLayout class="ecran">
+    <GridLayout columns="*, auto">
+      <StackLayout col="0">
+        <Label text="SANKOTALENT" class="legende"></Label>
+        <Label [text]="l.t('accueil.titre')" class="titre-xl"></Label>
+      </StackLayout>
+      <GridLayout col="1" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
+        <Label col="0" text="&#xf0ac;" class="icone langue-icone"></Label>
+        <Label col="1" [text]="l.autre" class="langue-texte"></Label>
+      </GridLayout>
+    </GridLayout>
+
+    <StackLayout class="hero" (loaded)="zoomer($event, 100)" (tap)="ouvrirOnglet($event, 1)">
+      <Label [text]="l.t('hero.titre')" textWrap="true" class="hero-titre"></Label>
+      <Label [text]="l.t('hero.texte')" textWrap="true" class="hero-texte"></Label>
+      <GridLayout columns="auto, *" style="margin-top: 18">
+        <Label col="0" [text]="nombreTalents" class="hero-chiffre"></Label>
+        <Label col="1" [text]="l.t('hero.chiffre')" textWrap="true" class="hero-texte" verticalAlignment="center" style="margin-left: 14"></Label>
+      </GridLayout>
+    </StackLayout>
+
+    <Label [text]="l.t('accueil.etapes')" class="legende" style="margin-top: 28"></Label>
+
+    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 3)" (tap)="ouvrirOnglet($event, 1)">
+      <Label col="0" text="&#xf0c0;" class="icone pastille"></Label>
+      <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
+        <Label [text]="l.t('etape1.titre')" class="nom"></Label>
+        <Label [text]="l.t('etape1.texte')" textWrap="true" class="sous-titre"></Label>
+      </StackLayout>
+      <Label col="2" text="&#xf054;" class="icone chevron"></Label>
+    </GridLayout>
+
+    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 4)" (tap)="ouvrirOnglet($event, 1)">
+      <Label col="0" text="&#xf0e0;" class="icone pastille"></Label>
+      <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
+        <Label [text]="l.t('etape2.titre')" class="nom"></Label>
+        <Label [text]="l.t('etape2.texte')" textWrap="true" class="sous-titre"></Label>
+      </StackLayout>
+      <Label col="2" text="&#xf054;" class="icone chevron"></Label>
+    </GridLayout>
+
+    <GridLayout columns="44, *, auto" class="carte" (loaded)="apparaitre($event, 5)" (tap)="ouvrirOnglet($event, 2)">
+      <Label col="0" text="&#xf007;" class="icone pastille"></Label>
+      <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
+        <Label [text]="l.t('etape3.titre')" class="nom"></Label>
+        <Label [text]="l.t('etape3.texte')" textWrap="true" class="sous-titre"></Label>
+      </StackLayout>
+      <Label col="2" text="&#xf054;" class="icone chevron"></Label>
+    </GridLayout>
+  </StackLayout>
+</ScrollView>

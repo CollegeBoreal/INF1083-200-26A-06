@@ -1,0 +1,26 @@
+<ScrollView>
+  <StackLayout class="ecran">
+    <GridLayout columns="*, auto">
+      <StackLayout col="0">
+        <Label text="SANKOTALENT" class="legende"></Label>
+        <Label [text]="l.t('talents.titre')" class="titre-xl"></Label>
+      </StackLayout>
+      <GridLayout col="1" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
+        <Label col="0" text="&#xf0ac;" class="icone langue-icone"></Label>
+        <Label col="1" [text]="l.autre" class="langue-texte"></Label>
+      </GridLayout>
+    </GridLayout>
+    <Label [text]="items.length + ' ' + l.t('talents.dispo')" class="sous-titre"></Label>
+
+    <GridLayout *ngFor="let item of items; let i = index" columns="50, *, auto" class="carte"
+      [nsRouterLink]="['../item', item.id]" (loaded)="apparaitre($event, i)">
+      <Label col="0" [text]="initiales(item.name)" class="avatar"></Label>
+      <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
+        <Label [text]="item.name" class="nom"></Label>
+        <Label [text]="l.tr(item.specialite)" class="badge"></Label>
+        <Label [text]="item.ville" class="sous-titre" style="font-size: 13; margin-top: 4"></Label>
+      </StackLayout>
+      <Label col="2" text="&#xf054;" class="icone chevron"></Label>
+    </GridLayout>
+  </StackLayout>
+</ScrollView>
