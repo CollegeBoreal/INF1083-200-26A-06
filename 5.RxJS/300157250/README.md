@@ -80,15 +80,18 @@ export class Country {
 
 ### Projet ouvert dans VS Code
 
-![Projet](images/projet.png)
+<img width="929" height="727" alt="projet" src="https://github.com/user-attachments/assets/5381def6-1a12-46ca-b267-98b5042914f3" />
+
 
 ### Interface de recherche
 
-![Recherche](images/recherche.png)
+<img width="363" height="824" alt=" recherche" src="https://github.com/user-attachments/assets/c333302b-5bfc-4112-9f2c-9f30243596b1" />
+
 
 ### Résultats obtenus
 
-![Résultat](images/resultat.png)
+<img width="341" height="577" alt="resultat" src="https://github.com/user-attachments/assets/f27d23f7-ffd0-44d5-9b89-e7d7383ba122" />
+
 
 ---
 
