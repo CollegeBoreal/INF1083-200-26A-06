@@ -1,24 +1,25 @@
-DOCUMENTATION TECHNIQUE
+aDOCUMENTATION TECHNIQUE
 Projet Angular
-B300159180
+ B300159180
 Application de gestion des étudiants
 Documentation du développement, du fonctionnement,
-des tests et des résultats avec captures d’écran
+ des tests et des résultats avec captures d’écran
 Environnement de développement : Visual Studio Code
-Technologies : Angular, TypeScript, HTML et CSS
- 
+ Technologies : Angular, TypeScript, HTML et CSS
+
+ 
 1. Introduction
 Ce document présente la réalisation du projet Angular identifié par B300159180. L’objectif est de développer une application web simple qui affiche les informations du projet et permet de gérer une liste d’étudiants. La documentation explique l’organisation du projet, le rôle des principaux fichiers, le fonctionnement des fonctionnalités et les tests effectués dans le navigateur.
 2. Objectifs de l’application
-•	Afficher l’identifiant du projet B300159180.
-•	Afficher un message de bienvenue et permettre de changer le nom affiché.
-•	Gérer un état de connexion : connecté ou déconnecté.
-•	Ajouter un étudiant à une liste.
-•	Refuser une saisie vide et détecter les noms déjà présents.
-•	Afficher le nombre total d’étudiants.
-•	Modifier le nom d’un étudiant existant.
-•	Supprimer un étudiant de la liste.
-•	Afficher des messages pour informer l’utilisateur du résultat de ses actions.
+·	Afficher l’identifiant du projet B300159180.
+·	Afficher un message de bienvenue et permettre de changer le nom affiché.
+·	Gérer un état de connexion : connecté ou déconnecté.
+·	Ajouter un étudiant à une liste.
+·	Refuser une saisie vide et détecter les noms déjà présents.
+·	Afficher le nombre total d’étudiants.
+·	Modifier le nom d’un étudiant existant.
+·	Supprimer un étudiant de la liste.
+·	Afficher des messages pour informer l’utilisateur du résultat de ses actions.
 3. Environnement et démarrage du projet
 Le développement est effectué dans Visual Studio Code. Le projet Angular est ouvert dans le dossier B300159180. Le navigateur permet de tester l’application localement.
 3.1 Fichiers principaux
@@ -32,7 +33,7 @@ package.json	Décrit les dépendances et les scripts du projet.
 3.2 Lancer l’application
 Dans le terminal intégré de Visual Studio Code, se placer dans le dossier du projet puis lancer :
 npm install
-ng serve --open
+ ng serve --open
 La commande npm install installe les dépendances du projet lorsque cela est nécessaire. La commande ng serve --open démarre le serveur de développement Angular et ouvre normalement le navigateur à l’adresse http://localhost:4200. Si le serveur est déjà lancé, il n’est pas nécessaire de démarrer une deuxième instance.
 4. Technologies et notions utilisées
 Angular : Cadre de développement utilisé pour construire l’interface web et organiser l’application en composants.
@@ -107,4 +108,5 @@ Les captures confirment le fonctionnement des principales opérations de gestion
 Remarque : les captures fournies démontrent les états affichés dans le navigateur. Elles ne permettent pas, à elles seules, de confirmer le contenu complet de chaque fichier source ni le comportement après fermeture complète du navigateur.
 10. Conclusion
 La réalisation de ce projet a permis de pratiquer les bases du développement avec Angular. Le travail relie la logique TypeScript, la structure HTML et la présentation CSS. Il met en pratique les signaux, la gestion des événements, les conditions d’affichage, la validation des saisies et la manipulation d’une liste. Les tests réalisés dans le navigateur permettent de vérifier les principales fonctionnalités de l’application.
+
 
