@@ -1,4 +1,4 @@
-aDOCUMENTATION TECHNIQUE
+```
 Projet Angular
  B300159180
 Application de gestion des étudiants
@@ -7,7 +7,7 @@ Documentation du développement, du fonctionnement,
 Environnement de développement : Visual Studio Code
  Technologies : Angular, TypeScript, HTML et CSS
 
- 
+ ```
 1. Introduction
 Ce document présente la réalisation du projet Angular identifié par B300159180. L’objectif est de développer une application web simple qui affiche les informations du projet et permet de gérer une liste d’étudiants. La documentation explique l’organisation du projet, le rôle des principaux fichiers, le fonctionnement des fonctionnalités et les tests effectués dans le navigateur.
 2. Objectifs de l’application
