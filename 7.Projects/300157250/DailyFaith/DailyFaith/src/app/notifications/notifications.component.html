@@ -1,0 +1,65 @@
+
+<ActionBar title="Notifications"></ActionBar>
+
+<GridLayout rows="*, auto">
+
+  <ScrollView row="0">
+
+    <StackLayout class="container">
+
+      <Label
+        text="Notifications"
+        class="title">
+      </Label>
+
+      <Label
+        [text]="unreadCount + ' notification(s) non lue(s)'"
+        class="subtitle"
+        textWrap="true">
+      </Label>
+
+      <Button
+        text="Tout marquer comme lu"
+        (tap)="markAllAsRead()"
+        class="read-all-button">
+      </Button>
+
+      @for (notification of notifications; track notification.id) {
+
+        <StackLayout
+          class="notification-card"
+          (tap)="markAsRead(notification)">
+
+          <Label
+            [text]="notification.read ? 'Lu' : 'NOUVEAU'"
+            [class]="notification.read ? 'read' : 'unread'">
+          </Label>
+
+          <Label
+            [text]="notification.title"
+            class="notification-title"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="notification.content"
+            class="content"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="notification.date"
+            class="date">
+          </Label>
+
+        </StackLayout>
+
+      }
+
+    </StackLayout>
+
+  </ScrollView>
+
+  <ns-navigation row="1"></ns-navigation>
+
+</GridLayout>

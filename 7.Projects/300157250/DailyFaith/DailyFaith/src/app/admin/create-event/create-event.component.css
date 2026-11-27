@@ -1,0 +1,94 @@
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.header-card {
+    background-color: #183B32;
+    border-radius: 18;
+    padding: 25;
+    margin-top: 15;
+    margin-bottom: 25;
+}
+
+.header-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 35;
+    color: #C5A66A;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.header-title {
+    color: #FFFFFF;
+    font-size: 24;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-description {
+    color: #C5A66A;
+    font-size: 14;
+    text-align: center;
+    margin-top: 12;
+}
+
+.form-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+}
+
+.field-label {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+    margin-top: 15;
+    margin-bottom: 10;
+}
+
+.input {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 15;
+    font-size: 15;
+    height: 55;
+}
+
+.description-input {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 15;
+    font-size: 15;
+    height: 150;
+}
+
+.publish-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 16;
+    font-weight: bold;
+    padding: 15;
+    margin-top: 25;
+}
+
+.cancel-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-width: 1;
+    border-color: #C5A66A;
+    border-radius: 12;
+    font-size: 16;
+    padding: 15;
+    margin-top: 12;
+}

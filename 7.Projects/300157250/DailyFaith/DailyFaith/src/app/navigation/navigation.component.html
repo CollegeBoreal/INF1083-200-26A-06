@@ -1,0 +1,50 @@
+
+<GridLayout columns="*, *, *, *, *" class="navbar">
+
+  @for (tab of tabs; track tab.page; let i = $index) {
+
+    <StackLayout
+      [col]="i"
+      [class]="isActive(tab.page) ? 'nav-item-active' : 'nav-item'"
+      (tap)="navigate(tab.page)">
+
+      <GridLayout
+        width="48"
+        height="34"
+        horizontalAlignment="center">
+
+        <Label
+          [text]="tab.icon"
+          [class]="isActive(tab.page) ? 'nav-icon-active' : 'nav-icon'"
+          horizontalAlignment="center"
+          verticalAlignment="center">
+        </Label>
+
+        @if (tab.page === 'notifications' && unreadCount > 0) {
+
+          <Label
+            [text]="unreadCount > 99 ? '99+' : unreadCount"
+            class="notification-badge"
+            horizontalAlignment="right"
+            verticalAlignment="top">
+          </Label>
+
+        }
+
+      </GridLayout>
+
+      <Label
+        [text]="tab.title"
+        [class]="isActive(tab.page) ? 'nav-text-active' : 'nav-text'">
+      </Label>
+
+      <StackLayout
+        horizontalAlignment="center"
+        [class]="isActive(tab.page) ? 'indicator-active' : 'indicator'">
+      </StackLayout>
+
+    </StackLayout>
+
+  }
+
+</GridLayout>

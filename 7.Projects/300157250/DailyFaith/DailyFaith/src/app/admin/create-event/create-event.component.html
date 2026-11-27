@@ -1,0 +1,98 @@
+
+<ActionBar title="Créer un événement"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <StackLayout class="header-card">
+
+      <Label
+        text="&#xf271;"
+        class="header-icon">
+      </Label>
+
+      <Label
+        text="Nouvel événement"
+        class="header-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Rassemblez votre communauté dans la foi."
+        class="header-description"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <StackLayout class="form-card">
+
+      <Label
+        text="Nom de l'événement"
+        class="field-label">
+      </Label>
+
+      <TextField
+        hint="Ex : Culte du dimanche"
+        [text]="title"
+        (textChange)="onTitleChange($event)"
+        class="input">
+      </TextField>
+
+      <Label text="Date" class="field-label"></Label>
+
+      <TextField
+        hint="Ex : 6 décembre 2026"
+        [text]="date"
+        (textChange)="onDateChange($event)"
+        class="input">
+      </TextField>
+
+      <Label text="Heure" class="field-label"></Label>
+
+      <TextField
+        hint="Ex : 10 h 00"
+        [text]="time"
+        (textChange)="onTimeChange($event)"
+        class="input">
+      </TextField>
+
+      <Label text="Lieu" class="field-label"></Label>
+
+      <TextField
+        hint="Ex : Église principale"
+        [text]="location"
+        (textChange)="onLocationChange($event)"
+        class="input">
+      </TextField>
+
+      <Label
+        text="Description"
+        class="field-label">
+      </Label>
+
+      <TextView
+        hint="Décrivez votre événement..."
+        [text]="description"
+        (textChange)="onDescriptionChange($event)"
+        class="description-input">
+      </TextView>
+
+      <Button
+        text="Publier l'événement"
+        (tap)="publishEvent()"
+        class="publish-button">
+      </Button>
+
+      <Button
+        text="Annuler"
+        (tap)="cancel()"
+        class="cancel-button">
+      </Button>
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ScrollView>

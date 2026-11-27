@@ -1,0 +1,197 @@
+
+<ActionBar title="Gestion des événements"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <StackLayout class="header-card">
+
+      <Label
+        text="&#xf073;"
+        class="header-icon">
+      </Label>
+
+      <Label
+        text="Gestion des événements"
+        class="header-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Gérez les activités de votre église."
+        class="header-description"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <Label
+      [text]="events.length + ' événement(s) programmé(s)'"
+      class="counter"
+      textWrap="true">
+    </Label>
+
+    @if (events.length === 0) {
+
+      <Label
+        text="Aucun événement disponible."
+        class="empty-message"
+        textWrap="true">
+      </Label>
+
+    }
+
+    @for (event of events; track event.id) {
+
+      <StackLayout class="event-card">
+
+        <Label
+          [text]="event.title"
+          class="event-title"
+          textWrap="true">
+        </Label>
+
+        <GridLayout columns="30, *" class="detail-row">
+
+          <Label col="0" text="&#xf073;" class="detail-icon"></Label>
+
+          <Label
+            col="1"
+            [text]="event.date"
+            class="details"
+            textWrap="true">
+          </Label>
+
+        </GridLayout>
+
+        <GridLayout columns="30, *" class="detail-row">
+
+          <Label col="0" text="&#xf017;" class="detail-icon"></Label>
+
+          <Label
+            col="1"
+            [text]="event.time"
+            class="details">
+          </Label>
+
+        </GridLayout>
+
+        <GridLayout columns="30, *" class="detail-row">
+
+          <Label col="0" text="&#xf3c5;" class="detail-icon"></Label>
+
+          <Label
+            col="1"
+            [text]="event.location"
+            class="details"
+            textWrap="true">
+          </Label>
+
+        </GridLayout>
+
+        <Label
+          [text]="event.description"
+          class="description"
+          textWrap="true">
+        </Label>
+
+        @if (editingId === event.id) {
+
+          <StackLayout class="edit-form">
+
+            <Label
+              text="Modifier l'événement"
+              class="edit-title"
+              textWrap="true">
+            </Label>
+
+            <Label text="Nom de l'événement" class="field-label"></Label>
+
+            <TextField
+              [text]="title"
+              (textChange)="onTitleChange($event)"
+              class="input">
+            </TextField>
+
+            <Label text="Date" class="field-label"></Label>
+
+            <TextField
+              [text]="date"
+              (textChange)="onDateChange($event)"
+              class="input">
+            </TextField>
+
+            <Label text="Heure" class="field-label"></Label>
+
+            <TextField
+              [text]="time"
+              (textChange)="onTimeChange($event)"
+              class="input">
+            </TextField>
+
+            <Label text="Lieu" class="field-label"></Label>
+
+            <TextField
+              [text]="location"
+              (textChange)="onLocationChange($event)"
+              class="input">
+            </TextField>
+
+            <Label text="Description" class="field-label"></Label>
+
+            <TextView
+              [text]="description"
+              (textChange)="onDescriptionChange($event)"
+              class="description-input">
+            </TextView>
+
+            <Button
+              text="Enregistrer"
+              (tap)="saveEvent()"
+              class="save-button">
+            </Button>
+
+            <Button
+              text="Annuler"
+              (tap)="cancelEdit()"
+              class="cancel-button">
+            </Button>
+
+          </StackLayout>
+
+        } @else {
+
+          <GridLayout columns="*, *">
+
+            <Button
+              col="0"
+              text="Modifier"
+              (tap)="editEvent(event)"
+              class="edit-button">
+            </Button>
+
+            <Button
+              col="1"
+              text="Supprimer"
+              (tap)="deleteEvent(event)"
+              class="delete-button">
+            </Button>
+
+          </GridLayout>
+
+        }
+
+      </StackLayout>
+
+    }
+
+    <Button
+      text="Retour au tableau de bord"
+      (tap)="goBack()"
+      class="back-button">
+    </Button>
+
+  </StackLayout>
+
+</ScrollView>

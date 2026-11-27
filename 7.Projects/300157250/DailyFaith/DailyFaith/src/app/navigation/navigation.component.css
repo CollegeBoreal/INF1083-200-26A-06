@@ -1,0 +1,79 @@
+
+.navbar {
+    background-color: #183B32;
+    padding: 10;
+    border-top-width: 2;
+    border-top-color: #C5A66A;
+}
+
+.nav-item {
+    padding: 10 2;
+    margin: 2;
+    border-radius: 12;
+}
+
+.nav-item-active {
+    background-color: #315348;
+    padding: 10 2;
+    margin: 2;
+    border-radius: 12;
+}
+
+.nav-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 23;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.nav-icon-active {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 23;
+    color: #C5A66A;
+    text-align: center;
+}
+
+.nav-text {
+    font-size: 11;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 7;
+    letter-spacing: 0;
+}
+
+.nav-text-active {
+    font-size: 11;
+    color: #C5A66A;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 7;
+    letter-spacing: 0;
+}
+
+.indicator {
+    width: 20;
+    height: 3;
+    margin-top: 8;
+    background-color: transparent;
+    border-radius: 3;
+}
+
+.indicator-active {
+    width: 20;
+    height: 3;
+    margin-top: 8;
+    background-color: #C5A66A;
+    border-radius: 3;
+}
+
+.notification-badge {
+    background-color: #DC2626;
+    color: #FFFFFF;
+    font-size: 10;
+    font-weight: bold;
+    min-width: 19;
+    height: 19;
+    padding: 0 4;
+    border-radius: 10;
+    text-align: center;
+}

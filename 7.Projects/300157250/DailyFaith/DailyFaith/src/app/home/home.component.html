@@ -1,0 +1,194 @@
+
+<ActionBar title="Daily Faith"></ActionBar>
+
+<GridLayout rows="*, auto">
+
+  <ScrollView row="0">
+
+    <StackLayout class="home-container">
+
+      <Label
+        text="DAILY FAITH"
+        class="app-title"
+        textAlignment="center"
+        horizontalAlignment="stretch">
+      </Label>
+
+      <Label
+        text="Grow in Faith. Live in Grace."
+        class="subtitle"
+        textAlignment="center">
+      </Label>
+
+      <Label
+        text="Bonjour, bienvenue !"
+        class="welcome">
+      </Label>
+
+      <Label
+        text="Que Dieu bénisse votre journée."
+        class="description"
+        textWrap="true">
+      </Label>
+
+      @if (latestMessage; as message) {
+
+        <StackLayout class="verse-card">
+
+          <Label
+            text="RÉFÉRENCE BIBLIQUE"
+            class="verse-heading">
+          </Label>
+
+          <Label
+            [text]="message.verse"
+            class="verse-text"
+            textWrap="true">
+          </Label>
+
+          <Label
+            text="Méditez la parole de Dieu."
+            class="verse-reference"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+        <Label
+          text="Dernier message biblique"
+          class="section-title"
+          textWrap="true">
+        </Label>
+
+        <StackLayout class="message-card">
+
+          <Label
+            [text]="message.title"
+            class="message-title"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="message.author"
+            class="author">
+          </Label>
+
+          <Label
+            [text]="message.date"
+            class="author">
+          </Label>
+
+          <Label
+            [text]="message.content"
+            class="message-text"
+            textWrap="true">
+          </Label>
+
+          <GridLayout columns="*, *">
+
+            <Button
+              col="0"
+              [text]="(message.liked ? 'Aimé' : 'J’aime') + ' (' + message.likes + ')'"
+              (tap)="toggleLike()"
+              class="like-button">
+            </Button>
+
+            <Button
+              col="1"
+              [text]="'Commentaires (' + message.comments.length + ')'"
+              (tap)="goToMessages()"
+              class="comment-button">
+            </Button>
+
+          </GridLayout>
+
+        </StackLayout>
+
+      } @else {
+
+        <Label
+          text="Aucun message biblique disponible."
+          class="description"
+          textWrap="true">
+        </Label>
+
+      }
+
+      <Button
+        text="Voir tous les messages"
+        (tap)="goToMessages()"
+        class="view-all-button">
+      </Button>
+
+      <Label
+        text="Événements de l'église"
+        class="section-title"
+        textWrap="true">
+      </Label>
+
+      @if (upcomingEvents.length === 0) {
+
+        <Label
+          text="Aucun événement disponible."
+          class="description"
+          textWrap="true">
+        </Label>
+
+      }
+
+      @for (event of upcomingEvents; track event.id) {
+
+        <StackLayout class="message-card">
+
+          <Label
+            [text]="event.title"
+            class="message-title"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="event.date"
+            class="author"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="'Heure : ' + event.time"
+            class="event-details">
+          </Label>
+
+          <Label
+            [text]="'Lieu : ' + event.location"
+            class="event-details"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="event.description"
+            class="message-text"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      }
+
+      <Button
+        text="Voir tous les événements"
+        (tap)="goToEvents()"
+        class="view-all-button">
+      </Button>
+
+      <Button
+        text="Se déconnecter"
+        (tap)="logout()"
+        class="logout-button">
+      </Button>
+
+    </StackLayout>
+
+  </ScrollView>
+
+  <ns-navigation row="1"></ns-navigation>
+
+</GridLayout>

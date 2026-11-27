@@ -1,0 +1,71 @@
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.title {
+    color: #183B32;
+    font-size: 28;
+    font-weight: bold;
+    margin-top: 15;
+    margin-bottom: 10;
+}
+
+.subtitle {
+    color: #8A806D;
+    font-size: 15;
+    margin-bottom: 20;
+}
+
+.read-all-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    padding: 15;
+    font-size: 15;
+    margin-bottom: 25;
+}
+
+.notification-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 15;
+}
+
+.unread {
+    color: #FFFFFF;
+    background-color: #183B32;
+    font-size: 11;
+    font-weight: bold;
+    padding: 6 12;
+    border-radius: 8;
+    margin-bottom: 12;
+}
+
+.read {
+    color: #8A806D;
+    font-size: 12;
+    margin-bottom: 12;
+}
+
+.notification-title {
+    color: #183B32;
+    font-size: 20;
+    font-weight: bold;
+    margin-bottom: 10;
+}
+
+.content {
+    color: #183B32;
+    font-size: 15;
+    margin-bottom: 15;
+}
+
+.date {
+    color: #A88A50;
+    font-size: 12;
+}

@@ -1,0 +1,92 @@
+
+<ActionBar title="Envoyer une notification"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <StackLayout class="header-card">
+
+      <Label
+        text="&#xf0f3;"
+        class="header-icon">
+      </Label>
+
+      <Label
+        text="Nouvelle notification"
+        class="header-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Restez en contact avec votre communauté."
+        class="header-description"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <StackLayout class="form-card">
+
+      <Label
+        text="Destinataires"
+        class="field-label">
+      </Label>
+
+      <GridLayout columns="40, *" class="recipient-card">
+
+        <Label
+          col="0"
+          text="&#xf0c0;"
+          class="recipient-icon">
+        </Label>
+
+        <Label
+          col="1"
+          text="Espace membre"
+          class="recipient-text">
+        </Label>
+
+      </GridLayout>
+
+      <Label
+        text="Titre de la notification"
+        class="field-label">
+      </Label>
+
+      <TextField
+        hint="Ex : Rappel du culte"
+        [text]="title"
+        (textChange)="onTitleChange($event)"
+        class="input">
+      </TextField>
+
+      <Label
+        text="Contenu de la notification"
+        class="field-label">
+      </Label>
+
+      <TextView
+        hint="Écrivez votre annonce ici..."
+        [text]="content"
+        (textChange)="onContentChange($event)"
+        class="notification-input">
+      </TextView>
+
+      <Button
+        text="Envoyer la notification"
+        (tap)="sendNotification()"
+        class="send-button">
+      </Button>
+
+      <Button
+        text="Annuler"
+        (tap)="cancel()"
+        class="cancel-button">
+      </Button>
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ScrollView>

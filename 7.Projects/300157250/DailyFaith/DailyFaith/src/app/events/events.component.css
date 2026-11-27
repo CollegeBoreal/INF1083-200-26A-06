@@ -1,0 +1,63 @@
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.title {
+    color: #183B32;
+    font-size: 26;
+    font-weight: bold;
+    margin-top: 15;
+}
+
+.subtitle {
+    color: #A88A50;
+    font-size: 14;
+    margin-top: 8;
+    margin-bottom: 25;
+}
+
+.event-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 20;
+}
+
+.event-title {
+    color: #183B32;
+    font-size: 21;
+    font-weight: bold;
+}
+
+.date {
+    color: #A88A50;
+    font-size: 14;
+    font-weight: bold;
+    margin-top: 12;
+    margin-bottom: 8;
+}
+
+.details {
+    color: #555555;
+    font-size: 14;
+    margin-top: 5;
+}
+
+.description {
+    color: #555555;
+    font-size: 15;
+    margin-top: 15;
+    margin-bottom: 15;
+}
+
+.participate-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    font-weight: bold;
+    padding: 12;
+}

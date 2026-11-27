@@ -1,0 +1,179 @@
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.header-card {
+    background-color: #183B32;
+    border-radius: 18;
+    padding: 25;
+    margin-top: 15;
+    margin-bottom: 25;
+}
+
+.header-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 32;
+    color: #C5A66A;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.header-title {
+    color: #FFFFFF;
+    font-size: 24;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-description {
+    color: #C5A66A;
+    font-size: 14;
+    text-align: center;
+    margin-top: 10;
+}
+
+.counter {
+    color: #183B32;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 20;
+}
+
+.empty-message {
+    color: #8A806D;
+    font-size: 16;
+    text-align: center;
+    padding: 25;
+}
+
+.event-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 18;
+}
+
+.event-title {
+    color: #183B32;
+    font-size: 21;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.detail-row {
+    margin-bottom: 10;
+}
+
+.detail-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    color: #A88A50;
+    font-size: 16;
+}
+
+.details {
+    color: #183B32;
+    font-size: 14;
+}
+
+.description {
+    color: #8A806D;
+    font-size: 15;
+    margin-top: 10;
+    margin-bottom: 15;
+}
+
+.edit-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    font-size: 14;
+    padding: 12;
+    margin: 4;
+}
+
+.delete-button {
+    background-color: #FBE9E7;
+    color: #B42318;
+    border-radius: 10;
+    font-size: 14;
+    padding: 12;
+    margin: 4;
+}
+
+.edit-form {
+    background-color: #F7F4EC;
+    border-radius: 12;
+    padding: 15;
+    margin-top: 15;
+}
+
+.edit-title {
+    color: #183B32;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.field-label {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
+    margin-top: 12;
+    margin-bottom: 8;
+}
+
+.input {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 12;
+    font-size: 15;
+    height: 55;
+}
+
+.description-input {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 12;
+    font-size: 15;
+    height: 150;
+}
+
+.save-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    font-weight: bold;
+    padding: 12;
+    margin-top: 20;
+}
+
+.cancel-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-radius: 10;
+    border-width: 1;
+    border-color: #C5A66A;
+    padding: 12;
+    margin-top: 10;
+}
+
+.back-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 16;
+    font-weight: bold;
+    padding: 15;
+    margin-top: 15;
+    margin-bottom: 20;
+}

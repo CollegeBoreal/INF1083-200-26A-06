@@ -1,0 +1,83 @@
+
+<ActionBar title="Publier un message"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <StackLayout class="header-card">
+
+      <Label
+        text="&#xf02d;"
+        class="header-icon">
+      </Label>
+
+      <Label
+        text="Nouveau message biblique"
+        class="header-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Partagez la parole de Dieu avec votre communauté."
+        class="header-description"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <StackLayout class="form-card">
+
+      <Label
+        text="Titre du message"
+        class="field-label">
+      </Label>
+
+      <TextField
+        hint="Ex : Gardez confiance en Dieu"
+        [text]="title"
+        (textChange)="onTitleChange($event)"
+        class="input">
+      </TextField>
+
+      <Label
+        text="Référence biblique"
+        class="field-label">
+      </Label>
+
+      <TextField
+        hint="Ex : Psaume 23:1"
+        [text]="verse"
+        (textChange)="onVerseChange($event)"
+        class="input">
+      </TextField>
+
+      <Label
+        text="Contenu du message"
+        class="field-label">
+      </Label>
+
+      <TextView
+        hint="Écrivez votre message biblique ici..."
+        [text]="content"
+        (textChange)="onContentChange($event)"
+        class="message-input">
+      </TextView>
+
+      <Button
+        text="Publier le message"
+        (tap)="publish()"
+        class="publish-button">
+      </Button>
+
+      <Button
+        text="Annuler"
+        (tap)="cancel()"
+        class="cancel-button">
+      </Button>
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ScrollView>

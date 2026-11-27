@@ -1,0 +1,73 @@
+
+
+.login-container {
+    background-color: #F7F4EC;
+    padding: 35;
+}
+
+.logo {
+    color: #C5A66A;
+    font-size: 55;
+    margin-top: 55;
+    margin-bottom: 10;
+}
+
+.app-title {
+    color: #183B32;
+    font-size: 26;
+    font-weight: bold;
+    letter-spacing: 0;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 12;
+}
+
+
+.subtitle {
+    color: #8A806D;
+    font-size: 14;
+    margin-bottom: 55;
+    text-align: center;
+
+}
+
+.welcome {
+    color: #183B32;
+    font-size: 25;
+    font-weight: bold;
+    margin-bottom: 8;
+}
+
+.field-label {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
+    margin-top: 18;
+}
+
+.input {
+    background-color: #FFFFFF;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 12;
+    margin-top: 8;
+    color: #183B32;
+}
+
+.login-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 16;
+    font-weight: bold;
+    margin-top: 35;
+    padding: 14;
+}
+
+.register-link {
+    color: #A88A50;
+    font-size: 13;
+    margin-top: 25;
+    text-align: center;
+}

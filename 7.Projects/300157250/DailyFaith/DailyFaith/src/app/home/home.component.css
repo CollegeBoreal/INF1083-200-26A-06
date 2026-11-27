@@ -1,0 +1,146 @@
+
+.home-container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.app-title {
+    color: #183B32;
+    font-size: 26;
+    font-weight: bold;
+    letter-spacing: 0;
+    margin-top: 15;
+}
+
+.subtitle {
+    color: #A88A50;
+    font-size: 13;
+    margin-bottom: 30;
+}
+
+.welcome {
+    color: #183B32;
+    font-size: 24;
+    font-weight: bold;
+}
+
+.description {
+    color: #8A806D;
+    font-size: 14;
+    margin-top: 8;
+    margin-bottom: 20;
+}
+
+.verse-card {
+    background-color: #183B32;
+    border-radius: 18;
+    padding: 25;
+    margin-bottom: 20;
+}
+
+.verse-heading {
+    color: #C5A66A;
+    font-size: 13;
+    font-weight: bold;
+}
+
+.verse-text {
+    color: #FFFFFF;
+    font-size: 23;
+    font-weight: bold;
+    margin-top: 18;
+    margin-bottom: 15;
+}
+
+.verse-reference {
+    color: #C5A66A;
+    font-size: 14;
+}
+
+.section-title {
+    color: #183B32;
+    font-size: 21;
+    font-weight: bold;
+    margin-top: 15;
+    margin-bottom: 15;
+}
+
+.message-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    padding: 20;
+    margin-bottom: 15;
+    border-width: 1;
+    border-color: #E3DCCB;
+}
+
+.message-title {
+    color: #183B32;
+    font-size: 20;
+    font-weight: bold;
+}
+
+.author {
+    color: #A88A50;
+    font-size: 13;
+    margin-top: 8;
+}
+
+.message-text {
+    color: #555555;
+    font-size: 15;
+    margin-top: 15;
+    margin-bottom: 15;
+}
+
+.like-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    font-weight: bold;
+    font-size: 13;
+    padding: 12;
+    margin: 4;
+}
+
+.comment-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-radius: 10;
+    border-width: 1;
+    border-color: #E3DCCB;
+    font-size: 13;
+    font-weight: bold;
+    padding: 12;
+    margin: 4;
+}
+
+.event-details {
+    color: #183B32;
+    font-size: 14;
+    margin-top: 8;
+}
+
+.view-all-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-width: 1;
+    border-color: #C5A66A;
+    border-radius: 12;
+    font-size: 14;
+    font-weight: bold;
+    padding: 14;
+    margin-top: 5;
+    margin-bottom: 20;
+}
+
+.logout-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 15;
+    font-weight: bold;
+    margin-top: 20;
+    margin-bottom: 20;
+    padding: 12;
+}

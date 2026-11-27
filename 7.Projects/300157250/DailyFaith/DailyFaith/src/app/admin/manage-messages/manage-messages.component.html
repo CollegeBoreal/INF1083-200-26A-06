@@ -1,0 +1,155 @@
+
+<ActionBar title="Gestion des messages"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <StackLayout class="header-card">
+
+      <Label
+        text="&#xf02d;"
+        class="header-icon">
+      </Label>
+
+      <Label
+        text="Gestion des messages"
+        class="header-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Gérez vos publications bibliques."
+        class="header-description"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <Label
+      [text]="messages.length + ' message(s) publié(s)'"
+      class="counter">
+    </Label>
+
+    @if (messages.length === 0) {
+
+      <Label
+        text="Aucun message disponible."
+        class="empty-message"
+        textWrap="true">
+      </Label>
+
+    }
+
+    @for (message of messages; track message.id) {
+
+      <StackLayout class="message-card">
+
+        <Label
+          [text]="message.title"
+          class="message-title"
+          textWrap="true">
+        </Label>
+
+        <Label
+          [text]="message.verse"
+          class="verse"
+          textWrap="true">
+        </Label>
+
+        <Label
+          [text]="message.date"
+          class="date">
+        </Label>
+
+        <Label
+          [text]="message.content"
+          class="content"
+          textWrap="true">
+        </Label>
+
+        @if (editingId === message.id) {
+
+          <StackLayout class="edit-form">
+
+            <Label
+              text="Modifier le message"
+              class="edit-title">
+            </Label>
+
+            <Label text="Titre" class="field-label"></Label>
+
+            <TextField
+              [text]="title"
+              (textChange)="onTitleChange($event)"
+              class="input">
+            </TextField>
+
+            <Label
+              text="Référence biblique"
+              class="field-label">
+            </Label>
+
+            <TextField
+              [text]="verse"
+              (textChange)="onVerseChange($event)"
+              class="input">
+            </TextField>
+
+            <Label text="Contenu" class="field-label"></Label>
+
+            <TextView
+              [text]="content"
+              (textChange)="onContentChange($event)"
+              class="message-input">
+            </TextView>
+
+            <Button
+              text="Enregistrer"
+              (tap)="saveMessage()"
+              class="save-button">
+            </Button>
+
+            <Button
+              text="Annuler"
+              (tap)="cancelEdit()"
+              class="cancel-button">
+            </Button>
+
+          </StackLayout>
+
+        } @else {
+
+          <GridLayout columns="*, *">
+
+            <Button
+              col="0"
+              text="Modifier"
+              (tap)="editMessage(message)"
+              class="edit-button">
+            </Button>
+
+            <Button
+              col="1"
+              text="Supprimer"
+              (tap)="deleteMessage(message)"
+              class="delete-button">
+            </Button>
+
+          </GridLayout>
+
+        }
+
+      </StackLayout>
+
+    }
+
+    <Button
+      text="Retour au tableau de bord"
+      (tap)="goBack()"
+      class="back-button">
+    </Button>
+
+  </StackLayout>
+
+</ScrollView>

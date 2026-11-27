@@ -1,0 +1,70 @@
+
+
+<ActionBar title="Événements"></ActionBar>
+
+<GridLayout rows="*, auto">
+
+  <ScrollView row="0">
+    <StackLayout class="container">
+
+      <Label
+        text="Événements de l'église"
+        class="title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Restons unis dans la foi."
+        class="subtitle"
+        textWrap="true">
+      </Label>
+
+      @for (event of events; track event.title) {
+
+        <StackLayout class="event-card">
+
+          <Label
+            [text]="event.title"
+            class="event-title"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="event.date"
+            class="date"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="'Heure : ' + event.time"
+            class="details">
+          </Label>
+
+          <Label
+            [text]="'Lieu : ' + event.location"
+            class="details"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="event.description"
+            class="description"
+            textWrap="true">
+          </Label>
+
+          <Button
+            [text]="event.registered ? 'Participation confirmée' : 'Participer'"
+            (tap)="participate(event)"
+            class="participate-button">
+          </Button>
+
+        </StackLayout>
+
+      }
+
+    </StackLayout>
+  </ScrollView>
+
+  <ns-navigation row="1"></ns-navigation>
+
+</GridLayout>
