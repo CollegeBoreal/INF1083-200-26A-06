@@ -1,0 +1,18 @@
+<ActionBar title="Historique" class="garage-bar"></ActionBar>
+
+<GridLayout rows="auto, *" class="garage-page page-inset">
+  <Label row="0" text="Entretiens enregistrés" class="page-title"></Label>
+  @if (entretiens.historique().length) {
+    <ListView row="1" [items]="entretiens.historique()" separatorColor="transparent">
+      <ng-template let-item="item">
+        <StackLayout class="panel history-entry">
+          <Label [text]="item.type" class="entry-title" textWrap="true"></Label>
+          <Label [text]="item.date + '  •  ' + item.kilometrage + ' km'" class="entry-meta"></Label>
+        </StackLayout>
+      </ng-template>
+    </ListView>
+  } @else {
+    <Label row="1" text="Aucun entretien enregistré." class="panel entry-meta"
+      verticalAlignment="top" textWrap="true"></Label>
+  }
+</GridLayout>
