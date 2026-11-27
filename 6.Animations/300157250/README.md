@@ -24,7 +24,8 @@ Dans la page Home, un bouton change progressivement de couleur du rouge au vert 
 
 **Résultat de l'animation :**
 
-![Animation Home](images/home.png)
+<img width="396" height="840" alt="recherche" src="https://github.com/user-attachments/assets/83e0cd82-12f2-4f2c-a7fa-f90381783882" />
+
 
 
 ## 3. Animation impérative – Browse
@@ -43,7 +44,8 @@ Les animations réalisées sont :
 
 **Résultat des animations :**
 
-![Animation Browse](images/browse.png)
+<img width="396" height="840" alt="recherche" src="https://github.com/user-attachments/assets/509fd6b6-59a9-4a0d-a8e1-d356fe2b4aed" />
+
 
 
 ## 4. Conclusion
