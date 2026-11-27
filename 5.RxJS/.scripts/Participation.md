@@ -48,6 +48,6 @@
 | 27 | [300160006](../300160006/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489041?s=460&v=4' width=20 height=20></image>](https://github.com/maimouna247) | :1st_place_medal: | :heavy_check_mark: | 🏆 | 1️⃣ 🚀 Très bien - Belle application |
 | 28 | [300160424](../300160424/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261502136?s=460&v=4' width=20 height=20></image>](https://github.com/youcef-1994) | :1st_place_medal: | :heavy_check_mark: | 🏆 | 1️⃣ Bien |
 | 29 | [300160504](../300160504/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261492337?s=460&v=4' width=20 height=20></image>](https://github.com/Mmounir07) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
-| 30 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image>](https://github.com/belhadiyanis200-a11y) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
+| 30 | [300160733](../300160733/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261489188?s=460&v=4' width=20 height=20></image>](https://github.com/belhadiyanis200-a11y) | :1st_place_medal: | :heavy_check_mark: | :x: | 1️⃣ Rien À corriger |
 | 31 | [300160862](../300160862/README.md) :point_right: [<image src='https://avatars0.githubusercontent.com/u/261494322?s=460&v=4' width=20 height=20></image>](https://github.com/cherifyamna) | :x: | :x: | :x: | 1️⃣ Rien À corriger |
-| :abacus: | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 19 📈 61.29% |
+| :abacus: | \$\displaystyle\sum_{i=1}^{31} s_i\$ = 20 📈 64.52% |
