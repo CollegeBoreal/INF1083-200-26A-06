@@ -24,3 +24,8 @@ Ce projet présente une application Angular contenant un composant d’accueil.
 cd B300160862
 npm install
 ng serve
+```
+
+## Résultat
+
+![Résultat de l’application Angular](images/API.PNG-03.png)
