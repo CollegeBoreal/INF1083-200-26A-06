@@ -1,8 +1,6 @@
-﻿
-import { HttpClient } from '@angular/common/http';
+﻿import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, timeout } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, timeout, map } from 'rxjs';
 import { Country } from './country';
 
 @Injectable({
@@ -18,14 +16,14 @@ export class ApicallService {
         'https://flagcdn.com/fr/codes.json'
       )
       .pipe(
-        timeout(10000),
+        timeout(15000),
         map(data =>
           Object.keys(data)
             .filter(code => /^[a-z]{2}$/.test(code))
             .map(code => ({
               code: code,
               name: data[code],
-              flag: `https://flagcdn.com/w320/${code}.png`
+              flag: `https://flagcdn.com/w160/${code.toLowerCase()}.png`
             }))
             .sort((a, b) =>
               a.name.localeCompare(b.name, 'fr')
