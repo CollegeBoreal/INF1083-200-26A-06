@@ -73,31 +73,45 @@ L’application est ouverte dans le navigateur à l’adresse localhost:4200. Le
 ```Figure 1 — 1. Premier affichage et test d’un doublon.
 2. Liste vide au démarrage
 La section « Liste des étudiants » affiche un compteur à 0 et le message « Aucun étudiant dans la liste. ». Le champ de saisie et le bouton permettent de commencer à ajouter des étudiants.
+<img width="960" height="510" alt="1" src="https://github.com/user-attachments/assets/f3a4a0cd-4b16-4859-96d6-dda1a34031a5" />
+
  
 ```Figure 2 — 2. Liste vide au démarrage.
 3. Ajout de plusieurs étudiants
 Après les ajouts, le compteur indique 2. Les noms « ahmed » et « sara » apparaissent dans la liste et un message confirme l’ajout avec succès.
+<img width="960" height="510" alt="2" src="https://github.com/user-attachments/assets/c3ea70d0-92a7-4fa9-bad6-3e2b9adfcf39" />
+
  
 ```Figure 3 — 3. Ajout de plusieurs étudiants.
 4. Modification des noms
 Les commandes « Modifier » et « Supprimer » sont visibles à côté de chaque étudiant. Les noms affichés sont devenus « ahmed belai » et « sara belai ». Cette étape montre la fonction de modification.
+<img width="960" height="510" alt="3" src="https://github.com/user-attachments/assets/e090127f-1004-459f-922d-f1254f70bb60" />
+
  
 ```Figure 4 — 4. Modification des noms.
 5. Présentation des étudiants sous forme de cartes
 Chaque étudiant est affiché dans une zone distincte avec ses boutons d’action. Le compteur reste à 2 et l’interface est organisée pour faciliter la lecture.
+<img width="960" height="510" alt="4" src="https://github.com/user-attachments/assets/4878036c-6f41-4825-a898-4e422b16afa3" />
+
  
 ```Figure 5 — 5. Présentation des étudiants sous forme de cartes.
 6. Ajout et modification d’un troisième étudiant
 Le compteur indique 3. Le message « Étudiant modifié avec succès. » est visible et la liste contient « ahmed belai », « sara » et « amine blai ». Les boutons permettent toujours de modifier ou supprimer chaque entrée.
+<img width="960" height="510" alt="5" src="https://github.com/user-attachments/assets/0bf50298-5852-4121-9c75-7fa23be2a63d" />
+
  
 ```Figure 6 — 6. Ajout et modification d’un troisième étudiant.
 7. Vérification de l’interface finale
 La dernière capture montre la liste de trois étudiants, le compteur, le champ d’ajout et les deux actions disponibles pour chaque étudiant. Elle sert de vérification visuelle du résultat final.
+<img width="678" height="690" alt="6" src="https://github.com/user-attachments/assets/64bb7cce-f5a7-4178-b221-f74ca2c01bea" />
+
  
 ```Figure 7 — 7. Vérification de l’interface finale.
 8. Tableau des tests fonctionnels
 Fonction testée	Manipulation	Résultat attendu / observé
 Liste vide	Ouvrir l’application sans étudiant dans la liste.	Le compteur indique 0 et un message indique que la liste est vide.
+<img width="701" height="690" alt="7" src="https://github.com/user-attachments/assets/4233306d-66f8-48c7-834b-7e4ede3f6ca6" />
+
 Ajout	Saisir un nom puis cliquer sur Ajouter.	Le nom apparaît et le compteur augmente.
 Doublon	Saisir un nom déjà présent.	L’application affiche « Cet étudiant existe déjà. » et ne crée pas de doublon.
 Modification	Cliquer sur Modifier et changer le nom.	Le nouveau nom est affiché et un message de confirmation apparaît.
