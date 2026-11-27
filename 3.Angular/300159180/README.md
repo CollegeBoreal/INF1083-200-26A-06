@@ -7,7 +7,7 @@ Documentation du développement, du fonctionnement,
 Environnement de développement : Visual Studio Code
  Technologies : Angular, TypeScript, HTML et CSS
 
- ```
+ 
 ```1. Introduction
 Ce document présente la réalisation du projet Angular identifié par B300159180. L’objectif est de développer une application web simple qui affiche les informations du projet et permet de gérer une liste d’étudiants. La documentation explique l’organisation du projet, le rôle des principaux fichiers, le fonctionnement des fonctionnalités et les tests effectués dans le navigateur.
 ```2. Objectifs de l’application
@@ -105,7 +105,9 @@ Suppression	Cliquer sur Supprimer pour un étudiant.	L’étudiant disparaît et
 Connexion	Cliquer sur le bouton de changement d’état.	Le message reflète l’état courant de connexion.
 ```9. Résultat obtenu
 Les captures confirment le fonctionnement des principales opérations de gestion des étudiants. La liste peut afficher plusieurs noms, le compteur suit le nombre d’étudiants, le doublon est détecté et les actions Modifier et Supprimer sont présentées à côté de chaque étudiant. L’interface affiche également les sections d’accueil et de gestion de connexion.
-Remarque : les captures fournies démontrent les états affichés dans le navigateur. Elles ne permettent pas, à elles seules, de confirmer le contenu complet de chaque fichier source ni le comportement après fermeture complète du navigateur.
+
+
+
 10. Conclusion
 La réalisation de ce projet a permis de pratiquer les bases du développement avec Angular. Le travail relie la logique TypeScript, la structure HTML et la présentation CSS. Il met en pratique les signaux, la gestion des événements, les conditions d’affichage, la validation des saisies et la manipulation d’une liste. Les tests réalisés dans le navigateur permettent de vérifier les principales fonctionnalités de l’application.
 
