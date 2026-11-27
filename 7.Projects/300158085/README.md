@@ -36,6 +36,7 @@
 15. [Fichiers non versionnés](#15-fichiers-non-versionnés)
 16. [Historique des versions](#16-historique-des-versions)
 17. [Limites connues et évolutions prévues](#17-limites-connues-et-évolutions-prévues)
+18. [Plateforme serveur (en cours)](#18-plateforme-serveur-en-cours)
 
 ---
 
@@ -499,3 +500,19 @@ Le dépôt ne contient donc que le code source, les ressources et la configurati
 - Envoi des inscriptions vers une base de données en ligne, avec confirmation automatique.
 - Écran « Nouveautés » présentant le contenu de chaque version.
 - Photo de chaque professionnel, publiée avec la liste en ligne.
+
+## 18. Plateforme serveur (en cours)
+
+L'application mobile est la première partie d'une plateforme plus large, SankoTalent par SANKOVEYA Technologies, qui doit identifier, évaluer, former et mettre en relation les talents informatiques de la RD Congo. La partie serveur se construit étape par étape dans le dossier [`plateforme/`](plateforme/README.md).
+
+| Élément | État |
+|---|---|
+| Exigences fonctionnelles de la plateforme (54 sections) | Rédigées : [plateforme/docs/FUNCTIONAL_REQUIREMENTS.md](plateforme/docs/FUNCTIONAL_REQUIREMENTS.md) |
+| Rapport d'audit de l'existant | Rédigé : [plateforme/docs/AUDIT_REPORT.md](plateforme/docs/AUDIT_REPORT.md) |
+| Base de données PostgreSQL (Supabase) : 9 rôles, profils avec identifiants automatiques, candidatures avec historique, entreprises, consentements, journal d'audit, sécurité par ligne | Écrite et vérifiée par **36 tests de sécurité automatisés** |
+| Mise en ligne sur Supabase | Prochaine étape |
+| Connexion de l'application mobile au serveur (version 1.4) | À venir |
+
+Les tests simulent des attaques réelles et vérifient qu'elles sont bloquées : lire le dossier d'un autre candidat, se donner le rôle d'administrateur, se déclarer admis, approuver sa propre demande de rôle (principe des quatre yeux) ou effacer le journal d'audit. Le détail est dans [plateforme/docs/TESTING.md](plateforme/docs/TESTING.md).
+
+Ce dossier est public : il ne contient aucune clé secrète ni aucune donnée réelle. Les secrets de connexion restent dans un fichier `.env` local, exclu par `.gitignore`.
