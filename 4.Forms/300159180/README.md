@@ -100,6 +100,7 @@ Le projet a été lancé depuis le terminal intégré de Visual Studio Code avec
 ns run android 
 
 Le terminal a indiqué que la compilation était réussie et que l'application avait été synchronisée avec l'émulateur Android. 
+<img width="960" height="511" alt="Capture d’écran 2026-11-27 200145" src="https://github.com/user-attachments/assets/de54080f-c418-4713-87ea-9440c3396219" />
 
  
 
@@ -140,6 +141,8 @@ Username
 abdenour 
 
 Après avoir appuyé sur Sign up, les valeurs saisies sont apparues dans le terminal. La capture du terminal montre que les champs sont bien récupérés. 
+<img width="960" height="540" alt="Capture d’écran 2026-11-27 203636" src="https://github.com/user-attachments/assets/0a19e864-2f5c-48bd-a18f-6b02f5b481da" />
+
 
  
 
