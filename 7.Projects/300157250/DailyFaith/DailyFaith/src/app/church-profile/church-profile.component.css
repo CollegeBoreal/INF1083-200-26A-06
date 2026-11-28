@@ -1,0 +1,534 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+/* Couverture */
+
+.cover {
+    background-color: #183B32;
+    border-radius: 18;
+}
+
+.cover-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 55;
+    color: #C7AB70;
+}
+
+/* Logo principal */
+
+.logo-container {
+    width: 110;
+    height: 110;
+    border-radius: 55;
+    border-width: 5;
+    border-color: #F7F4EC;
+    background-color: #183B32;
+    margin-top: -45;
+    margin-bottom: 15;
+}
+
+.logo-image {
+    width: 100;
+    height: 100;
+    border-radius: 50;
+}
+
+.logo-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 35;
+    color: #C7AB70;
+}
+
+.church-name {
+    font-size: 25;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+    margin-bottom: 8;
+}
+
+.username {
+    font-size: 15;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 25;
+}
+
+/* Statistiques */
+
+.statistics {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    padding: 20 5;
+    margin-bottom: 20;
+}
+
+.stat-number {
+    font-size: 25;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 12;
+    color: #777777;
+    text-align: center;
+    margin-top: 5;
+}
+
+/* Abonnement */
+
+.follow-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    font-size: 16;
+    font-weight: bold;
+    border-radius: 12;
+    height: 52;
+    margin-bottom: 20;
+}
+
+.following-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #183B32;
+    font-size: 15;
+    font-weight: bold;
+    border-radius: 12;
+    height: 52;
+    margin-bottom: 20;
+}
+
+.owner-label {
+    background-color: #E8EDE7;
+    color: #183B32;
+    border-radius: 10;
+    padding: 15;
+    text-align: center;
+    font-size: 14;
+    margin-bottom: 20;
+}
+
+/* Présentation */
+
+.info-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    padding: 20;
+    margin-bottom: 20;
+}
+
+.section-title {
+    font-size: 13;
+    font-weight: bold;
+    color: #A88A50;
+    margin-bottom: 20;
+}
+
+.info-row {
+    margin-bottom: 15;
+}
+
+.small-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 15;
+    color: #A88A50;
+}
+
+.info-text {
+    font-size: 15;
+    color: #183B32;
+}
+
+.address {
+    font-size: 13;
+    color: #777777;
+    margin-left: 25;
+    margin-bottom: 15;
+}
+
+.description {
+    font-size: 15;
+    color: #444444;
+    margin-top: 10;
+}
+
+/* Onglets */
+
+.tabs {
+    background-color: #FFFFFF;
+    border-radius: 12;
+    padding-top: 15;
+    margin-bottom: 20;
+}
+
+.tab-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 20;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 8;
+}
+
+.tab-label {
+    font-size: 14;
+    color: #777777;
+    text-align: center;
+    margin-bottom: 12;
+}
+
+.tab-active {
+    font-size: 14;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+    margin-bottom: 12;
+}
+
+.indicator {
+    height: 3;
+    background-color: #183B32;
+}
+
+/* Publications */
+
+.publication-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 18;
+    margin-bottom: 20;
+}
+
+.publication-header {
+    margin-bottom: 20;
+}
+
+.publication-logo {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+    background-color: #183B32;
+}
+
+.publication-logo-image {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+}
+
+.publication-logo-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 20;
+    color: #C5A66A;
+}
+
+.publication-church {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.publication-author {
+    color: #A88A50;
+    font-size: 13;
+    margin-top: 4;
+}
+
+.publication-date {
+    color: #999999;
+    font-size: 11;
+    margin-top: 4;
+}
+
+.publication-title {
+    color: #183B32;
+    font-size: 22;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+/* Verset biblique */
+
+.verse-card {
+    background-color: #F7F4EC;
+    border-left-width: 4;
+    border-left-color: #A88A50;
+    border-radius: 10;
+    padding: 15;
+    margin-bottom: 15;
+}
+
+.verse-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 18;
+    color: #A88A50;
+}
+
+.verse-text {
+    color: #A88A50;
+    font-size: 15;
+    font-weight: bold;
+}
+
+.publication-content {
+    color: #444444;
+    font-size: 16;
+    line-height: 5;
+    margin-bottom: 20;
+}
+
+/* Likes et commentaires */
+
+.publication-actions {
+    border-top-width: 1;
+    border-top-color: #E3DCCB;
+    padding-top: 12;
+}
+
+.like-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    font-size: 13;
+    font-weight: bold;
+    border-radius: 10;
+    height: 45;
+    margin-right: 5;
+}
+
+.liked-button {
+    background-color: #FCE8E8;
+    color: #C0392B;
+    font-size: 13;
+    font-weight: bold;
+    border-radius: 10;
+    height: 45;
+    margin-right: 5;
+}
+
+.comment-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    font-size: 12;
+    font-weight: bold;
+    border-radius: 10;
+    height: 45;
+    margin-left: 5;
+}
+
+.comments-section {
+    margin-top: 20;
+    padding-top: 15;
+    border-top-width: 1;
+    border-top-color: #E3DCCB;
+}
+
+.comments-title {
+    color: #183B32;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.empty-comments {
+    color: #8A806D;
+    font-size: 13;
+    margin-bottom: 15;
+}
+
+.comment-card {
+    background-color: #F7F4EC;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.comment-author {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
+}
+
+.comment-content {
+    color: #555555;
+    font-size: 14;
+    margin-top: 8;
+}
+
+.comment-date {
+    color: #8A806D;
+    font-size: 11;
+    margin-top: 8;
+}
+
+.comment-input {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    font-size: 14;
+    height: 85;
+    padding: 12;
+    margin-top: 10;
+}
+
+.publish-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    font-size: 14;
+    font-weight: bold;
+    border-radius: 10;
+    padding: 12;
+    margin-top: 10;
+}
+
+/* Page vide */
+
+.empty-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    padding: 30 20;
+    margin-bottom: 20;
+}
+
+.empty-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 35;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.empty-title {
+    font-size: 18;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+    margin-bottom: 10;
+}
+
+.empty-text {
+    font-size: 14;
+    color: #777777;
+    text-align: center;
+}
+
+.back-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #183B32;
+    border-radius: 12;
+    font-size: 15;
+    height: 50;
+    margin-bottom: 25;
+}
+
+/* Événements de l'église */
+
+.event-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 20;
+}
+
+.event-header {
+    margin-bottom: 15;
+}
+
+.event-category {
+    color: #A88A50;
+    font-size: 12;
+    font-weight: bold;
+}
+
+.event-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 16;
+    color: #A88A50;
+}
+
+.event-title {
+    color: #183B32;
+    font-size: 22;
+    font-weight: bold;
+    margin-bottom: 20;
+}
+
+.event-detail {
+    margin-bottom: 12;
+}
+
+.event-info {
+    color: #183B32;
+    font-size: 14;
+}
+
+.event-description {
+    color: #555555;
+    font-size: 15;
+    margin-top: 10;
+    margin-bottom: 20;
+}
+
+.event-participants {
+    background-color: #F7F4EC;
+    border-radius: 10;
+    padding: 12;
+    margin-bottom: 15;
+}
+
+.event-participants-text {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
+}
+
+.participate-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 15;
+    font-weight: bold;
+    padding: 15;
+}
+
+.registered-button {
+    background-color: #E8EDE7;
+    color: #183B32;
+    border-radius: 12;
+    border-width: 1;
+    border-color: #183B32;
+    font-size: 15;
+    font-weight: bold;
+    padding: 15;
+}
+
+.participation-help {
+    color: #8A806D;
+    font-size: 12;
+    text-align: center;
+    margin-top: 10;
+}

@@ -1,0 +1,39 @@
+<ActionBar [title]="l.t('fiche.titre')"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="ecran">
+    <GridLayout *ngIf="categorie" class="bandeau-photo" (loaded)="apparaitre($event, 0)">
+      <Image [src]="categorie.photo" stretch="aspectFill" loadMode="async"></Image>
+      <Label [text]="l.tr(categorie.nom)" class="bandeau-titre"></Label>
+    </GridLayout>
+    <StackLayout class="carte" style="padding: 24">
+      <Label [text]="initiales" class="avatar avatar-xl" horizontalAlignment="center" (loaded)="zoomer($event, 50)"></Label>
+      <Label [text]="item.name" class="titre" style="text-align: center; margin-top: 14" (loaded)="apparaitre($event, 2)"></Label>
+      <Label [text]="l.tr(item.specialite)" class="badge" horizontalAlignment="center" style="margin-top: 8" (loaded)="apparaitre($event, 3)"></Label>
+    </StackLayout>
+
+    <Label [text]="l.t('fiche.infos')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 4)">
+      <GridLayout columns="30, *">
+        <Label col="0" text="&#xf3c5;" class="icone"></Label>
+        <Label col="1" [text]="item.ville" class="texte"></Label>
+      </GridLayout>
+      <Button [text]="l.t('fiche.carte')" class="bouton-secondaire" (tap)="voirCarte($event)" style="margin-top: 10"></Button>
+      <GridLayout columns="30, *" style="margin-top: 14">
+        <Label col="0" text="&#xf0b1;" class="icone"></Label>
+        <Label col="1" [text]="item.experience + ' ' + l.t('fiche.ans')" class="texte"></Label>
+      </GridLayout>
+      <GridLayout columns="30, *" style="margin-top: 14">
+        <Label col="0" text="&#xf0e0;" class="icone"></Label>
+        <Label col="1" [text]="item.email" class="texte"></Label>
+      </GridLayout>
+    </StackLayout>
+
+    <Label [text]="l.t('fiche.competences')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 5)">
+      <Label [text]="l.tr(item.description)" textWrap="true" class="texte"></Label>
+    </StackLayout>
+
+    <Button [text]="l.t('fiche.contacter')" class="bouton" (tap)="contacter($event)" (loaded)="apparaitre($event, 6)"></Button>
+  </StackLayout>
+</ScrollView>

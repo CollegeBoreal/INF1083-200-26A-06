@@ -1,0 +1,165 @@
+<ActionBar title="Nouvelle publication"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <StackLayout class="header-card">
+
+      <Label
+        text="&#xf02d;"
+        class="header-icon">
+      </Label>
+
+      <Label
+        text="PUBLIER UN MESSAGE"
+        class="header-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Partagez la parole de Dieu avec votre communauté."
+        class="header-description"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <StackLayout class="form-card">
+
+      <Label
+        text="Sélectionner une église"
+        class="field-label">
+      </Label>
+
+      @for (church of churches; track church.id) {
+
+        <GridLayout
+          columns="60, *, 35"
+          [class]="selectedChurchId === church.id ? 'church-selected' : 'church-option'"
+          (tap)="selectChurch(church)">
+
+          <GridLayout
+            col="0"
+            class="church-logo">
+
+            @if (church.logo) {
+
+              <Image
+                [src]="getLogoPath(church)"
+                class="church-image"
+                stretch="aspectFill">
+              </Image>
+
+            } @else {
+
+              <Label
+                text="&#xf51d;"
+                class="church-icon"
+                horizontalAlignment="center"
+                verticalAlignment="center">
+              </Label>
+
+            }
+
+          </GridLayout>
+
+          <StackLayout
+            col="1"
+            verticalAlignment="center">
+
+            <Label
+              [text]="church.name"
+              class="church-name"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="'@' + church.username"
+              class="church-username">
+            </Label>
+
+          </StackLayout>
+
+          <Label
+            col="2"
+            [text]="selectedChurchId === church.id ? '&#xf058;' : '&#xf111;'"
+            class="selection-icon"
+            verticalAlignment="center">
+          </Label>
+
+        </GridLayout>
+
+      } @empty {
+
+        <Label
+          text="Vous devez créer une église avant de publier."
+          class="empty-text"
+          textWrap="true">
+        </Label>
+
+        <Button
+          text="+ Créer une église"
+          class="publish-button"
+          (tap)="createChurch()">
+        </Button>
+
+      }
+
+      @if (selectedChurch) {
+
+        <Label
+          text="Titre du message"
+          class="field-label">
+        </Label>
+
+        <TextField
+          hint="Exemple : Marcher dans la foi"
+          [text]="title"
+          (textChange)="onTitleChange($event)"
+          class="input">
+        </TextField>
+
+        <Label
+          text="Verset biblique"
+          class="field-label">
+        </Label>
+
+        <TextField
+          hint="Exemple : Jean 3:16"
+          [text]="verse"
+          (textChange)="onVerseChange($event)"
+          class="input">
+        </TextField>
+
+        <Label
+          text="Message biblique"
+          class="field-label">
+        </Label>
+
+        <TextView
+          hint="Écrivez votre message..."
+          [text]="content"
+          (textChange)="onContentChange($event)"
+          class="message-input">
+        </TextView>
+
+        <Button
+          text="Publier le message"
+          class="publish-button"
+          (tap)="publish()">
+        </Button>
+
+      }
+
+      <Button
+        text="Annuler"
+        class="cancel-button"
+        (tap)="cancel()">
+      </Button>
+
+    </StackLayout>
+
+  </StackLayout>
+
+</ScrollView>

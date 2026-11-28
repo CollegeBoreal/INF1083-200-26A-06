@@ -1,0 +1,78 @@
+
+<ScrollView>
+  <StackLayout class="register-container">
+
+    <Label
+      text="✦"
+      class="logo"
+      textAlignment="center">
+    </Label>
+
+    <Label
+      text="DAILY FAITH"
+      class="app-title"
+      textAlignment="center">
+    </Label>
+
+    <Label
+      text="Grow in Faith. Live in Grace."
+      class="subtitle"
+      textAlignment="center">
+    </Label>
+
+    <Label
+      text="Créer un compte"
+      class="welcome">
+    </Label>
+
+    <Label text="Nom complet" class="field-label"></Label>
+    <TextField
+      hint="Entrez votre nom complet"
+      (textChange)="onNameChange($event)"
+      class="input">
+    </TextField>
+
+    <Label text="Adresse email" class="field-label"></Label>
+    <TextField
+      hint="Entrez votre adresse email"
+      keyboardType="email"
+      (textChange)="onEmailChange($event)"
+      class="input">
+    </TextField>
+
+    <Label text="Mot de passe" class="field-label"></Label>
+    <TextField
+      hint="Créez un mot de passe"
+      secure="true"
+      (textChange)="onPasswordChange($event)"
+      class="input">
+    </TextField>
+
+    <Label text="Confirmer le mot de passe" class="field-label"></Label>
+    <TextField
+      hint="Confirmez votre mot de passe"
+      secure="true"
+      (textChange)="onConfirmPasswordChange($event)"
+      class="input">
+    </TextField>
+
+    <Label
+      [text]="message"
+      class="message">
+    </Label>
+
+    <Button
+      text="Créer mon compte"
+      (tap)="register()"
+      class="register-button">
+    </Button>
+
+    <Label
+      text="Vous avez déjà un compte ? Connectez-vous"
+      (tap)="goToLogin()"
+      class="login-link"
+      textAlignment="center">
+    </Label>
+
+  </StackLayout>
+</ScrollView>

@@ -4,6 +4,16 @@ Zakaria Mamssi · INF1083 · Groupe 06
 
 Patron Angular à tiroir avec nativescript-ui-sidedrawer. Sur la page Couleur, les images clés CSS font passer le bouton du rouge au vert en deux secondes. La page Mouvement enchaîne opacité, translation, échelle et rotation en TypeScript.
 
+## Fonctionnement
+
+Dans **Couleur**, une animation CSS fait passer le bouton du rouge au vert. Dans **Mouvement**, le bouton déclenche une séquence TypeScript qui modifie l’opacité, la position, l’échelle et la rotation de la vue.
+
+## Capture du code
+
+![La méthode du composant Browse enchaîne les animations NativeScript.](images/code-source.jpg)
+
+La méthode du composant Browse enchaîne les animations NativeScript.
+
 ## Code source
 
 ### src/app/browse/browse.component.ts
@@ -773,3 +783,4 @@ Ouvrir le menu et sélectionner Mouvement. Appuyer sur Animer. Le Z doit revenir
 Capture des résultats locaux — Séquence TypeScript · vue native simulée.
 
 ![Résultats de la vérification](images/verification.png)
+

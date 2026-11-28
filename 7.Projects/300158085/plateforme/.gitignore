@@ -1,0 +1,25 @@
+# Dépendances et fichiers générés
+node_modules/
+dist/
+.angular/
+platforms/
+hooks/
+coverage/
+
+# Secrets : ne JAMAIS publier
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+supabase/.temp/
+supabase/.branches/
+
+# Données réelles de candidats : jamais dans le dépôt
+data/private/
+*.sql.gz
+*.dump
+
+# Systèmes
+.DS_Store
+Thumbs.db

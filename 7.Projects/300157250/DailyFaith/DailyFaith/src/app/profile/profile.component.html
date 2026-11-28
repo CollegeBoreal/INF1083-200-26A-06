@@ -1,0 +1,98 @@
+
+<ActionBar title="Mon profil"></ActionBar>
+
+<GridLayout rows="*, auto">
+
+  <ScrollView row="0">
+    <StackLayout class="container">
+
+      <Label
+        text="Mon profil"
+        class="title">
+      </Label>
+
+      <StackLayout class="profile-card">
+
+        <Label
+          text="DF"
+          class="avatar"
+          horizontalAlignment="center"
+          verticalAlignment="center"
+          textAlignment="center">
+        </Label>
+
+        <Label
+          [text]="user.name"
+          class="user-name"
+          textAlignment="center"
+          textWrap="true">
+        </Label>
+
+        <Label
+          [text]="user.role"
+          class="role"
+          textAlignment="center">
+        </Label>
+
+      </StackLayout>
+
+      <Label
+        text="Informations personnelles"
+        class="section-title"
+        textWrap="true">
+      </Label>
+
+      <StackLayout class="info-card">
+
+        <Label
+          text="Nom complet"
+          class="field-label">
+        </Label>
+
+        <Label
+          [text]="user.name"
+          class="value"
+          textWrap="true">
+        </Label>
+
+        <Label
+          text="Adresse email"
+          class="field-label">
+        </Label>
+
+        <Label
+          [text]="user.email"
+          class="value"
+          textWrap="true">
+        </Label>
+
+        <Label
+          text="Type de compte"
+          class="field-label">
+        </Label>
+
+        <Label
+          [text]="user.role"
+          class="value">
+        </Label>
+
+      </StackLayout>
+
+      <Button
+        text="Se déconnecter"
+        (tap)="logout()"
+        class="logout-button">
+      </Button>
+
+      <Label
+        text="Daily Faith - Version 1.0"
+        class="version"
+        textAlignment="center">
+      </Label>
+
+    </StackLayout>
+  </ScrollView>
+
+  <ns-navigation row="1"></ns-navigation>
+
+</GridLayout>

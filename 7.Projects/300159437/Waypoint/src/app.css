@@ -222,3 +222,7 @@ Page, .r { font-family: "Inter", "Inter-Regular"; color: #141414; }
 .bulle-ecouter-ico { font-size: 16; color: #C8361E; vertical-align: center; margin-right: 4; }
 .bulle-ecouter-txt { font-family: "Inter", "Inter-Bold"; font-weight: bold; font-size: 13; color: #C8361E; vertical-align: center; }
 .interrupteur { color: #C8361E; background-color: #C8361E; }
+
+/* Langue choisie : nom en blanc sur la tuile noire */
+.langue-active .langue-nom { color: #FFFFFF; }
+.langue-active .langue-sous { color: #BDBDB8; }

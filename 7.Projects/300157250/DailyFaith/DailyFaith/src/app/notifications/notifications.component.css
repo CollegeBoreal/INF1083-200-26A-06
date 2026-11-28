@@ -1,0 +1,194 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.header-card {
+    background-color: #183B32;
+    border-radius: 18;
+    padding: 25;
+    margin-top: 15;
+    margin-bottom: 20;
+}
+
+.header-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 35;
+    color: #C5A66A;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.header-title {
+    color: #FFFFFF;
+    font-size: 25;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-description {
+    color: #C5A66A;
+    font-size: 14;
+    text-align: center;
+    margin-top: 10;
+}
+
+.tabs {
+    margin-bottom: 15;
+}
+
+.tab-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-radius: 10;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 12;
+    margin: 4;
+    font-size: 14;
+}
+
+.tab-active {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    padding: 12;
+    margin: 4;
+    font-size: 14;
+    font-weight: bold;
+}
+
+.read-all-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    padding: 15;
+    font-size: 15;
+    margin-bottom: 15;
+}
+
+.notification-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 15;
+}
+
+.notification-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #A88A50;
+    font-size: 22;
+}
+
+.category {
+    color: #A88A50;
+    font-size: 11;
+    font-weight: bold;
+    margin-top: 5;
+}
+
+.unread {
+    color: #FFFFFF;
+    background-color: #183B32;
+    font-size: 10;
+    font-weight: bold;
+    padding: 6;
+    border-radius: 8;
+}
+
+.read {
+    color: #8A806D;
+    font-size: 12;
+    padding: 6;
+}
+
+.church-name {
+    color: #A88A50;
+    font-size: 15;
+    font-weight: bold;
+    margin-top: 10;
+    margin-bottom: 8;
+}
+
+.notification-title {
+    color: #183B32;
+    font-size: 20;
+    font-weight: bold;
+    margin-bottom: 10;
+}
+
+.content {
+    color: #183B32;
+    font-size: 15;
+    margin-bottom: 15;
+}
+
+.date {
+    color: #8A806D;
+    font-size: 12;
+}
+
+.view-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-radius: 10;
+    font-size: 13;
+    margin-top: 15;
+    padding: 10;
+}
+
+.section-title {
+    color: #A88A50;
+    font-size: 14;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.preference-text {
+    color: #8A806D;
+    font-size: 12;
+}
+
+.notification-switch {
+    color: #183B32;
+}
+
+.empty-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    padding: 25;
+    margin-bottom: 20;
+}
+
+.empty-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 40;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.empty-title {
+    color: #183B32;
+    font-size: 20;
+    font-weight: bold;
+    text-align: center;
+}
+
+.empty-text {
+    color: #8A806D;
+    font-size: 14;
+    text-align: center;
+    margin-top: 10;
+    margin-bottom: 20;
+}

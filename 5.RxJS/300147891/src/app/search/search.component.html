@@ -1,0 +1,61 @@
+
+<StackLayout class="form">
+<Label text="🌍 Capital Explorer"
+       fontSize="28"
+       fontWeight="bold"
+       color="#1E3A5F"
+       margin="15">
+</Label>
+
+<Label text="Discover Countries By Their Capitals"
+       fontSize="16"
+       color="gray"
+       margin="15">
+</Label>
+    <TextField
+        class="input"
+        hint="Capital"
+        [(ngModel)]="name">
+    </TextField>
+
+    <Button
+    text="SEARCH CAPITAL"
+    backgroundColor="#2563EB"
+    color="white"
+    fontSize="18"
+    fontWeight="bold"
+    borderRadius="10"
+    height="55"
+    margin="15"
+    (tap)="searchCapital()">
+</Button>
+    
+
+    <ListView
+        [items]="countries"
+        height="650">
+
+        <ng-template let-item="item">
+            <StackLayout>
+
+                <Label [text]="item.name"
+       fontSize="26"
+       fontWeight="bold"
+       color="#1E3A5F"
+       margin="10">
+</Label>
+
+<Label [text]="item.capital"
+       fontSize="22"
+       color="gray"
+       margin="10">
+</Label>
+                
+
+            </StackLayout>
+        </ng-template>
+
+    </ListView>
+
+</StackLayout>
+

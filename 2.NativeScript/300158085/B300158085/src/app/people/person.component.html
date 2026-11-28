@@ -1,10 +1,26 @@
-<ActionBar title="Computer Scientists" iosLargeTitle="true"> </ActionBar>
+
+<ActionBar
+  title="Scientifiques africains"
+  iosLargeTitle="true">
+</ActionBar>
 
 <GridLayout>
   <ListView [items]="personService.items()">
     <ng-template let-item="item">
-      <StackLayout [nsRouterLink]="['/item', item.id]">
-        <Label [text]="item.name" class="text-lg text-gray-500 p-4"></Label>
+      <StackLayout
+        [nsRouterLink]="['/item', item.id]"
+        class="p-4">
+
+        <Label
+          [text]="item.name"
+          class="text-lg text-gray-500">
+        </Label>
+
+        <Label
+          [text]="item.nationality"
+          class="text-sm text-gray-400">
+        </Label>
+
       </StackLayout>
     </ng-template>
   </ListView>

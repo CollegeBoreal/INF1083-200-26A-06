@@ -1,0 +1,58 @@
+<ActionBar title="Exercices"></ActionBar>
+
+<ScrollView backgroundColor="#F1F5F9">
+    <StackLayout padding="20">
+
+        <Label text="🏋️ Mes exercices"
+               fontSize="28"
+               fontWeight="bold"
+               color="#0F172A">
+        </Label>
+
+        <Label text="Construis ton programme de musculation"
+               fontSize="16"
+               color="#64748B"
+               textWrap="true"
+               marginBottom="20">
+        </Label>
+
+        <StackLayout *ngFor="let exercice of exercices"
+                     backgroundColor="white"
+                     borderRadius="15"
+                     padding="15"
+                     marginBottom="12">
+
+            <GridLayout columns="50, *" rows="auto, auto">
+
+                <Label col="0" rowSpan="2"
+                       [text]="exercice.icone"
+                       fontSize="30"
+                       verticalAlignment="center">
+                </Label>
+
+                <Label col="1" row="0"
+                       [text]="exercice.nom"
+                       fontSize="20"
+                       fontWeight="bold"
+                       color="#0F172A">
+                </Label>
+
+                <Label col="1" row="1"
+                       [text]="exercice.muscle"
+                       color="#64748B"
+                       fontSize="15">
+                </Label>
+
+            </GridLayout>
+
+            <Label [text]="exercice.series + ' séries × ' + exercice.repetitions + ' répétitions'"
+                   color="#2563EB"
+                   fontSize="16"
+                   fontWeight="bold"
+                   marginTop="12">
+            </Label>
+
+        </StackLayout>
+
+    </StackLayout>
+</ScrollView>

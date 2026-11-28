@@ -1,0 +1,185 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.header-card {
+    background-color: #183B32;
+    border-radius: 18;
+    padding: 25;
+    margin-top: 15;
+    margin-bottom: 25;
+}
+
+.header-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #C5A66A;
+    font-size: 35;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.header-title {
+    color: #FFFFFF;
+    font-size: 24;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-description {
+    color: #C5A66A;
+    font-size: 14;
+    text-align: center;
+    margin-top: 12;
+}
+
+.form-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+}
+
+.field-label {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+    margin-top: 15;
+    margin-bottom: 10;
+}
+
+.church-card {
+    background-color: #FFFFFF;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.church-selected {
+    background-color: #E8EDE7;
+    border-width: 2;
+    border-color: #183B32;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.church-logo {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+    background-color: #183B32;
+}
+
+.church-image {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+}
+
+.church-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 20;
+    color: #C5A66A;
+}
+
+.church-name {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.church-followers {
+    color: #8A806D;
+    font-size: 12;
+    margin-top: 5;
+}
+
+.selected-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #183B32;
+    font-size: 22;
+}
+
+.recipient-card {
+    background-color: #F7F4EC;
+    border-radius: 10;
+    padding: 15;
+}
+
+.recipient-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #A88A50;
+    font-size: 20;
+}
+
+.recipient-text {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.recipient-description {
+    color: #8A806D;
+    font-size: 12;
+    margin-top: 5;
+}
+
+.input {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 15;
+    font-size: 15;
+    height: 55;
+}
+
+.notification-input {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 15;
+    font-size: 15;
+    height: 180;
+}
+
+.send-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 16;
+    font-weight: bold;
+    padding: 15;
+    margin-top: 25;
+}
+
+.send-button:disabled {
+    opacity: 0.5;
+}
+
+.cancel-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-width: 1;
+    border-color: #C5A66A;
+    border-radius: 12;
+    font-size: 16;
+    padding: 15;
+    margin-top: 12;
+}

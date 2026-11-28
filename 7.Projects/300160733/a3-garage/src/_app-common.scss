@@ -1,0 +1,56 @@
+@import '@nativescript/theme/core';
+@import '@nativescript/theme/default';
+
+.garage-bar { background-color: #102237; color: #ffffff; }
+.garage-page { background-color: #eef2f6; color: #102237; }
+.page-inset { padding: 18; }
+
+.vehicle-card {
+  background-color: #172f48;
+  border-radius: 18;
+  padding: 23;
+  color: #ffffff;
+}
+.vehicle-make { color: #f4a760; font-size: 20; font-weight: 600; }
+.vehicle-model { font-size: 66; font-weight: 800; margin-top: -5; }
+.vehicle-year { color: #d8e4ef; font-size: 15; margin-top: 4; }
+
+.section-title, .page-title { font-size: 22; font-weight: 700; color: #102237; }
+.section-title { margin-top: 24; margin-bottom: 10; }
+.page-title { margin-bottom: 15; }
+
+.panel {
+  background-color: #ffffff;
+  border-radius: 12;
+  padding: 15;
+}
+.entry-title { font-size: 18; font-weight: 700; color: #102237; }
+.entry-meta { font-size: 14; color: #43596e; }
+.entry-title + .entry-meta { margin-top: 4; }
+.history-entry { margin-bottom: 8; }
+
+.field-label { color: #102237; font-weight: 600; font-size: 14; }
+.field {
+  background-color: #f3f6f9;
+  color: #102237;
+  placeholder-color: #50677b;
+  border-radius: 8;
+  border-width: 1;
+  border-color: #d7e0e8;
+  padding: 8 10;
+  margin: 5 0 13;
+  font-size: 16;
+  height: 44;
+}
+.save-button {
+  background-color: #204a66;
+  color: #ffffff;
+  border-radius: 8;
+  font-size: 16;
+  font-weight: 700;
+  height: 46;
+  margin: 1 0 0;
+}
+.message-success, .message-error { font-size: 14; margin-top: 10; }
+.message-success { color: #1d624a; }
+.message-error { color: #a33131; }

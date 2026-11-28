@@ -1,0 +1,28 @@
+// Grandes villes de la RD Congo, proposées dans une roue à faire défiler
+// (inscription aux formations, candidature de formateur)
+export const VILLES: string[] = [
+  'Kinshasa',
+  'Lubumbashi',
+  'Mbuji-Mayi',
+  'Kisangani',
+  'Kananga',
+  'Goma',
+  'Bukavu',
+  'Kolwezi',
+  'Likasi',
+  'Matadi',
+  'Boma',
+  'Mbandaka',
+  'Tshikapa',
+  'Kikwit',
+  'Butembo',
+  'Beni',
+  'Bunia',
+  'Uvira',
+  'Kindu',
+  'Kalemie',
+  'Isiro',
+  'Gemena',
+  'Bandundu',
+  'Kenge',
+]

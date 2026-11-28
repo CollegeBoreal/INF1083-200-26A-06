@@ -1,0 +1,38 @@
+<ScrollView>
+  <StackLayout class="ecran">
+    <GridLayout columns="*, auto, auto">
+      <StackLayout col="0">
+        <Label text="~/sankotalent $ ls talents" class="invite"></Label>
+        <Label [text]="l.t('talents.titre')" class="titre-xl"></Label>
+      </StackLayout>
+      <Label col="1" text="&#xf021;" class="icone actualiser" (tap)="actualiser($event)"></Label>
+      <GridLayout col="2" columns="auto, auto" class="langue" (tap)="changerLangue($event)">
+        <Label col="0" text="&#xf0ac;" class="icone langue-icone"></Label>
+        <Label col="1" [text]="l.autre" class="langue-texte"></Label>
+      </GridLayout>
+    </GridLayout>
+    <Label [text]="items.length + ' ' + (items.length > 1 ? l.t('talents.dispo') : l.t('talents.dispo1'))" class="sous-titre"></Label>
+    <Label [text]="etat" class="etat-liste" [class.hors-ligne]="data.horsLigne"></Label>
+
+    <GridLayout *ngIf="categorieActive" class="bandeau-photo">
+      <Image [src]="categorieActive.photo" stretch="aspectFill" loadMode="async"></Image>
+      <Label [text]="nomFiltre" class="bandeau-titre"></Label>
+    </GridLayout>
+    <GridLayout *ngIf="nav.filtre" columns="auto, auto" class="filtre" (tap)="retirerFiltre($event)">
+      <Label col="0" [text]="l.t('talents.filtre') + ' : ' + nomFiltre" class="filtre-texte"></Label>
+      <Label col="1" text="&#xf00d;" class="icone filtre-fermer"></Label>
+    </GridLayout>
+    <Label *ngIf="nav.filtre && items.length === 0" [text]="l.t('talents.aucun')" textWrap="true" class="sous-titre" style="margin-top: 16"></Label>
+
+    <GridLayout *ngFor="let item of items; let i = index" columns="50, *, auto" class="carte"
+      [nsRouterLink]="['../item', item.id]" (loaded)="apparaitre($event, i)">
+      <Label col="0" [text]="initiales(item.name)" class="avatar"></Label>
+      <StackLayout col="1" style="margin-left: 14" verticalAlignment="center">
+        <Label [text]="item.name" class="nom"></Label>
+        <Label [text]="l.tr(item.specialite)" class="badge"></Label>
+        <Label [text]="item.ville" class="sous-titre" style="font-size: 13; margin-top: 4"></Label>
+      </StackLayout>
+      <Label col="2" text="&#xf054;" class="icone chevron"></Label>
+    </GridLayout>
+  </StackLayout>
+</ScrollView>

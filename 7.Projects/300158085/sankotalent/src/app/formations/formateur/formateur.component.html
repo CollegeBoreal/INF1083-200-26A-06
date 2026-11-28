@@ -1,0 +1,56 @@
+<ActionBar [title]="l.t('formateur.page')"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="ecran">
+    <StackLayout class="formateur" style="margin-top: 8" (loaded)="apparaitre($event, 0)">
+      <Label text="&#xf51c;" class="icone" style="font-size: 34; color: #FFFFFF" horizontalAlignment="left"></Label>
+      <Label [text]="l.t('formateur.titre')" class="formateur-titre" style="margin-top: 10"></Label>
+      <Label [text]="l.t('formateur.texte')" textWrap="true" class="formateur-texte"></Label>
+    </StackLayout>
+
+    <Label [text]="l.t('profil.infos')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 1)">
+      <Label [text]="l.t('profil.nom')" class="etiquette" style="margin-top: 0"></Label>
+      <TextField class="champ" [hint]="l.t('profil.nom.ex')" [text]="nom" (textChange)="nom = $any($event).value"></TextField>
+
+      <Label [text]="l.t('inscription.courriel')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('inscription.courriel.ex')" keyboardType="email" autocapitalizationType="none" autocorrect="false"
+        [text]="courriel" (textChange)="courriel = $any($event).value"></TextField>
+
+      <Label [text]="l.t('inscription.telephone')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('inscription.telephone.ex')" keyboardType="phone" [text]="telephone" (textChange)="telephone = $any($event).value"></TextField>
+
+      <Label [text]="l.t('inscription.ville')" class="etiquette"></Label>
+      <ListPicker class="roue" [items]="villes" [selectedIndex]="indexVille" (selectedIndexChange)="indexVille = $any($event).value"></ListPicker>
+    </StackLayout>
+
+    <Label [text]="l.t('formateur.domaine')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 2)">
+      <WrapLayout>
+        <GridLayout *ngFor="let c of categories" class="puce" [class.active]="domaine === c.cle" (tap)="choisirDomaine($event, c.cle)">
+          <Label [text]="l.tr(c.nom)" class="puce-texte"></Label>
+        </GridLayout>
+      </WrapLayout>
+
+      <Label [text]="l.t('profil.experience')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('profil.experience.ex')" keyboardType="number" [text]="experience" (textChange)="experience = $any($event).value"></TextField>
+
+      <Label [text]="l.t('formateur.certifs')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('formateur.certifs.ex')" [text]="certifications" (textChange)="certifications = $any($event).value"></TextField>
+
+      <Label [text]="l.t('formateur.dispo')" class="etiquette"></Label>
+      <WrapLayout style="margin-top: 8">
+        <GridLayout *ngFor="let d of disponibilites" class="puce" [class.active]="dispo === d" (tap)="choisirDispo($event, d)">
+          <Label [text]="l.t('dispo.' + d)" class="puce-texte"></Label>
+        </GridLayout>
+      </WrapLayout>
+
+      <Label [text]="l.t('formateur.message')" class="etiquette"></Label>
+      <TextView class="champ champ-long" [text]="message" (textChange)="message = $any($event).value"></TextView>
+
+      <Label *ngIf="erreur" [text]="erreur" textWrap="true" class="erreur"></Label>
+    </StackLayout>
+
+    <Button [text]="l.t('formateur.envoyer')" class="bouton" (tap)="envoyer($event)"></Button>
+  </StackLayout>
+</ScrollView>

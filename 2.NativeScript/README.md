@@ -82,3 +82,10 @@ ns run ...
 - [ ]  [NativeScript](https://nativescript.org)
 - [ ]  [OpenJS](https://openjsf.org/blog/nativescript-9-1)
 - [ ]  [Roadmap: FrontEnd Developer](https://roadmap.sh/frontend)
+
+## NativeScript Summary (B300153416)
+- *Environment & Build:* Configured JAVA_HOME and PATH for JDK 17 so javac works for Android builds (ns run android --emulator).
+- *UI & Layout Fix:* Wrapped <ActionBar title="Music Legends"></ActionBar> and <ListView> inside <Frame><Page>...</Page></Frame> in src/app/app.component.ts to resolve the missing Page error.
+- *Result:* Verified live on the Android emulator (emulator-5554 / Pixel_7) displaying Michael Jackson, Freddie Mercury, Whitney Houston, and Bob Marley with HMR enabled.
+
+![Music Legends on Android Emulator](./images/music-legends-emulator.png)

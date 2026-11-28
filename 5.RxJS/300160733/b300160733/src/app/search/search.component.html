@@ -1,0 +1,31 @@
+<ActionBar title="Search"></ActionBar>
+
+<GridLayout rows="auto, auto, *" class="p-16">
+  <StackLayout row="0">
+    <TextField
+      class="input"
+      hint="Capital"
+      [(ngModel)]="name"
+      autocorrect="false"
+      returnKeyType="search"
+      (returnPress)="searchCapital()">
+    </TextField>
+    <Button
+      text="Search"
+      class="btn btn-primary"
+      [isEnabled]="!loading && !!name.trim()"
+      (tap)="searchCapital()">
+    </Button>
+  </StackLayout>
+
+  <Label row="1" [text]="message" [visibility]="message ? 'visible' : 'collapse'" textWrap="true"></Label>
+
+  <ListView row="2" [items]="countries">
+    <ng-template let-item="item">
+      <StackLayout class="p-12">
+        <Label class="font-weight-bold" [text]="item.name"></Label>
+        <Label [text]="item.capital"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>

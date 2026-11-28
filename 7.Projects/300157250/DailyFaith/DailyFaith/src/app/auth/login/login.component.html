@@ -1,0 +1,61 @@
+
+
+
+<ScrollView>
+  <StackLayout class="login-container">
+
+    <Label
+      text="✦"
+      class="logo"
+      textAlignment="center">
+    </Label>
+
+    <Label
+      text="DAILY FAITH"
+      class="app-title"
+      textAlignment="center"
+      horizontalAlignment="stretch">
+    </Label>
+
+    <Label
+      text="Grow in Faith. Live in Grace."
+      class="subtitle"
+      textAlignment="center">
+    </Label>
+
+    <Label text="Bienvenue" class="welcome"></Label>
+
+    <Label text="Adresse email" class="field-label"></Label>
+
+    <TextField
+      hint="Entrez votre adresse email"
+      keyboardType="email"
+      (textChange)="onEmailChange($event)"
+      class="input">
+    </TextField>
+
+    <Label text="Mot de passe" class="field-label"></Label>
+
+    <TextField
+      hint="Entrez votre mot de passe"
+      secure="true"
+      (textChange)="onPasswordChange($event)"
+      class="input">
+    </TextField>
+
+    <Button
+      text="Se connecter"
+      (tap)="login()"
+      class="login-button">
+    </Button>
+
+    <Label
+      text="Vous n'avez pas de compte ? Inscrivez-vous"
+      (tap)="goToRegister()"
+      class="register-link"
+      textAlignment="center"
+      textWrap="true">
+    </Label>
+
+  </StackLayout>
+</ScrollView>

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.signup {
+  padding: 20;
+}
+
+.signup TextField {
+  margin-bottom: 12;
+}

@@ -1,0 +1,336 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+/* En-tête */
+
+.header-card {
+    background-color: #183B32;
+    border-radius: 18;
+    padding: 25;
+    margin-top: 15;
+    margin-bottom: 20;
+}
+
+.header-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 35;
+    color: #C5A66A;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.header-title {
+    color: #FFFFFF;
+    font-size: 24;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-description {
+    color: #C5A66A;
+    font-size: 14;
+    text-align: center;
+    margin-top: 10;
+}
+
+/* Statistiques */
+
+.stats-container {
+    margin-bottom: 25;
+}
+
+.stat-card {
+    background-color: #FFFFFF;
+    border-radius: 14;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 12;
+    margin: 4;
+}
+
+.stat-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 20;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 10;
+}
+
+.stat-number {
+    color: #183B32;
+    font-size: 28;
+    font-weight: bold;
+    text-align: center;
+}
+
+.stat-label {
+    color: #8A806D;
+    font-size: 11;
+    text-align: center;
+    margin-top: 6;
+}
+
+/* Filtres */
+
+.section-title {
+    color: #A88A50;
+    font-size: 14;
+    font-weight: bold;
+    margin-bottom: 10;
+}
+
+.filters {
+    margin-bottom: 20;
+}
+
+.filter-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 22;
+    padding: 12;
+    margin-right: 8;
+    font-size: 13;
+}
+
+.filter-active {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 22;
+    padding: 12;
+    margin-right: 8;
+    font-size: 13;
+    font-weight: bold;
+}
+
+.counter {
+    color: #183B32;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+/* Cartes des événements */
+
+.event-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 18;
+}
+
+.church-header {
+    margin-bottom: 12;
+}
+
+.church-name {
+    color: #A88A50;
+    font-size: 15;
+    font-weight: bold;
+}
+
+.separator {
+    height: 1;
+    background-color: #E3DCCB;
+    margin-bottom: 15;
+}
+
+.event-title {
+    color: #183B32;
+    font-size: 22;
+    font-weight: bold;
+    margin-bottom: 18;
+}
+
+.detail-row {
+    margin-bottom: 12;
+}
+
+.detail-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #A88A50;
+    font-size: 16;
+}
+
+.details {
+    color: #183B32;
+    font-size: 14;
+}
+
+.description {
+    color: #8A806D;
+    font-size: 15;
+    margin-top: 15;
+    margin-bottom: 20;
+}
+
+/* Participants */
+
+.participants-card {
+    background-color: #F7F4EC;
+    border-radius: 10;
+    padding: 12;
+    margin-top: 5;
+}
+
+.participants-text {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
+}
+
+/* Boutons de gestion */
+
+.edit-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    font-size: 14;
+    padding: 12;
+    margin: 4;
+}
+
+.delete-button {
+    background-color: #FBE9E7;
+    color: #B42318;
+    border-radius: 10;
+    font-size: 14;
+    padding: 12;
+    margin: 4;
+}
+
+/* Formulaire de modification */
+
+.edit-form {
+    background-color: #F7F4EC;
+    border-radius: 12;
+    padding: 15;
+    margin-top: 15;
+}
+
+.edit-title {
+    color: #183B32;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.field-label {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
+    margin-top: 12;
+    margin-bottom: 8;
+}
+
+.input {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 12;
+    font-size: 15;
+    height: 55;
+}
+
+.description-input {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    padding: 12;
+    font-size: 15;
+    height: 150;
+}
+
+.save-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    font-weight: bold;
+    padding: 12;
+    margin-top: 20;
+}
+
+.cancel-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-radius: 10;
+    border-width: 1;
+    border-color: #C5A66A;
+    padding: 12;
+    margin-top: 10;
+}
+
+/* Aucun événement */
+
+.empty-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 30;
+    margin-bottom: 20;
+}
+
+.empty-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 40;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.empty-title {
+    color: #183B32;
+    font-size: 20;
+    font-weight: bold;
+    text-align: center;
+}
+
+.empty-message {
+    color: #8A806D;
+    font-size: 14;
+    text-align: center;
+    margin-top: 12;
+}
+
+/* Navigation */
+
+.create-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 16;
+    font-weight: bold;
+    padding: 15;
+    margin-top: 15;
+}
+
+.back-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #A88A50;
+    border-radius: 12;
+    font-size: 15;
+    padding: 15;
+    margin-top: 12;
+    margin-bottom: 25;
+}

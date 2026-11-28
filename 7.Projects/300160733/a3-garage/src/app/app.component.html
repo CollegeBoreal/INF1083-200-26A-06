@@ -1,0 +1,12 @@
+<TabView androidTabsPosition="bottom" tabBackgroundColor="#102237" tabTextColor="#c6d1dc"
+  selectedTabTextColor="#ffffff" androidSelectedTabHighlightColor="#f4a760">
+  <GridLayout *tabItem="{ title: 'Véhicule' }">
+    <page-router-outlet name="homeTab"></page-router-outlet>
+  </GridLayout>
+  <GridLayout *tabItem="{ title: 'Ajouter' }">
+    <page-router-outlet name="browseTab"></page-router-outlet>
+  </GridLayout>
+  <GridLayout *tabItem="{ title: 'Historique' }">
+    <page-router-outlet name="searchTab"></page-router-outlet>
+  </GridLayout>
+</TabView>

@@ -1,0 +1,16 @@
+<ActionBar class="action-bar">
+  <NavigationButton visibility="hidden"></NavigationButton>
+  <GridLayout columns="50, *">
+    <Label class="action-bar-title" text="Browse" colSpan="2"></Label>
+
+    <Label class="fas" accessibilityLabel="Open navigation menu" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+  </GridLayout>
+</ActionBar>
+
+<StackLayout>
+  <AbsoluteLayout width="300" height="300" marginTop="12" backgroundColor="#e8edf4" borderRadius="16">
+    <Image #cible src="~/assets/cible.png" left="0" top="0" width="64" height="64"
+      stretch="aspectFit" accessibilityLabel="Image cible"></Image>
+  </AbsoluteLayout>
+  <Button text="Animate" (tap)="animate()" [isEnabled]="!animating" class="btn btn-primary"></Button>
+</StackLayout>

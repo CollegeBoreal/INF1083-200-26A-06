@@ -1,0 +1,73 @@
+<ActionBar [title]="l.t('inscription.titre')"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="ecran" *ngIf="f">
+    <!-- En-tête de la formation -->
+    <StackLayout class="carte" style="padding: 22">
+      <Label [text]="f.code" class="formation-code" [color]="couleur" [backgroundColor]="fond"
+        style="width: 76; height: 76; border-radius: 20; font-size: 18" horizontalAlignment="left" (loaded)="zoomer($event, 50)"></Label>
+      <Label [text]="l.tr(f.titre)" textWrap="true" class="titre" style="margin-top: 14" (loaded)="apparaitre($event, 1)"></Label>
+      <Label [text]="nomCategorie" class="badge" [color]="couleur" [backgroundColor]="fond" style="margin-top: 8"></Label>
+      <Label *ngIf="fs.estInscrit(f.id)" [text]="l.t('formations.inscrit')" class="inscrit"></Label>
+    </StackLayout>
+
+    <StackLayout class="carte" (loaded)="apparaitre($event, 2)">
+      <GridLayout columns="30, auto, *">
+        <Label col="0" text="&#xf017;" class="icone"></Label>
+        <Label col="1" [text]="l.t('inscription.duree')" class="etiquette" style="margin-top: 0"></Label>
+        <Label col="2" [text]="f.semaines + ' ' + l.t('formations.semaines')" class="texte" textAlignment="right"></Label>
+      </GridLayout>
+      <GridLayout columns="30, auto, *" style="margin-top: 12">
+        <Label col="0" text="&#xf201;" class="icone"></Label>
+        <Label col="1" [text]="l.t('inscription.niveau')" class="etiquette" style="margin-top: 0"></Label>
+        <Label col="2" [text]="l.t('niveau.' + f.niveau)" class="texte" textAlignment="right"></Label>
+      </GridLayout>
+      <GridLayout columns="30, auto, *" style="margin-top: 12">
+        <Label col="0" text="&#xf3c5;" class="icone"></Label>
+        <Label col="1" [text]="l.t('inscription.format')" class="etiquette" style="margin-top: 0"></Label>
+        <Label col="2" [text]="l.tr(f.format)" textWrap="true" class="texte" textAlignment="right" style="margin-left: 10"></Label>
+      </GridLayout>
+    </StackLayout>
+
+    <StackLayout class="carte" (loaded)="apparaitre($event, 3)">
+      <Label [text]="l.tr(f.description)" textWrap="true" class="texte"></Label>
+    </StackLayout>
+
+    <!-- Programme -->
+    <Label [text]="l.t('inscription.programme')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 4)">
+      <GridLayout *ngFor="let m of f.modules; let i = index" columns="36, *">
+        <Label col="0" [text]="numero(i)" class="puce-module"></Label>
+        <Label col="1" [text]="l.tr(m)" textWrap="true" class="ligne-module"></Label>
+      </GridLayout>
+    </StackLayout>
+
+    <!-- Inscription -->
+    <Label [text]="l.t('inscription.formulaire')" class="legende" style="margin-top: 24"></Label>
+    <StackLayout class="carte" (loaded)="apparaitre($event, 5)">
+      <Label [text]="l.t('profil.nom')" class="etiquette" style="margin-top: 0"></Label>
+      <TextField class="champ" [hint]="l.t('profil.nom.ex')" [text]="nom" (textChange)="nom = $any($event).value"></TextField>
+
+      <Label [text]="l.t('inscription.courriel')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('inscription.courriel.ex')" keyboardType="email" autocapitalizationType="none" autocorrect="false"
+        [text]="courriel" (textChange)="courriel = $any($event).value"></TextField>
+
+      <Label [text]="l.t('inscription.telephone')" class="etiquette"></Label>
+      <TextField class="champ" [hint]="l.t('inscription.telephone.ex')" keyboardType="phone" [text]="telephone" (textChange)="telephone = $any($event).value"></TextField>
+
+      <Label [text]="l.t('inscription.ville')" class="etiquette"></Label>
+      <ListPicker class="roue" [items]="villes" [selectedIndex]="indexVille" (selectedIndexChange)="indexVille = $any($event).value"></ListPicker>
+
+      <Label [text]="l.t('inscription.monNiveau')" class="etiquette"></Label>
+      <WrapLayout style="margin-top: 8">
+        <GridLayout *ngFor="let n of niveaux" class="puce" [class.active]="niveau === n" (tap)="choisirNiveau($event, n)">
+          <Label [text]="l.t('niveau.' + n)" class="puce-texte"></Label>
+        </GridLayout>
+      </WrapLayout>
+
+      <Label *ngIf="erreur" [text]="erreur" textWrap="true" class="erreur"></Label>
+    </StackLayout>
+
+    <Button [text]="fs.estInscrit(f.id) ? l.t('inscription.deja') : l.t('inscription.bouton')" class="bouton" (tap)="inscrire($event)"></Button>
+  </StackLayout>
+</ScrollView>

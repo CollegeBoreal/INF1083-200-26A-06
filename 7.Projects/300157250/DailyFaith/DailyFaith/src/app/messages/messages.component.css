@@ -1,0 +1,150 @@
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.title {
+    color: #183B32;
+    font-size: 26;
+    font-weight: bold;
+    margin-top: 15;
+}
+
+.subtitle {
+    color: #A88A50;
+    font-size: 14;
+    margin-top: 8;
+    margin-bottom: 25;
+}
+
+.message-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 18;
+}
+
+.message-title {
+    color: #183B32;
+    font-size: 21;
+    font-weight: bold;
+}
+
+.author {
+    color: #A88A50;
+    font-size: 13;
+    margin-top: 8;
+}
+
+.content {
+    color: #555555;
+    font-size: 16;
+    margin-top: 15;
+    margin-bottom: 15;
+}
+
+.like-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 10;
+    font-size: 13;
+    font-weight: bold;
+    padding: 10;
+    margin-right: 5;
+}
+
+.comment-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    border-radius: 10;
+    font-size: 12;
+    font-weight: bold;
+    padding: 10;
+    margin-left: 5;
+}
+
+.comments-section {
+    margin-top: 20;
+    padding-top: 15;
+    border-top-width: 1;
+    border-top-color: #E3DCCB;
+}
+
+.comments-title {
+    color: #183B32;
+    font-size: 18;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.empty-comments {
+    color: #8A806D;
+    font-size: 13;
+    margin-bottom: 15;
+}
+
+.comment-card {
+    background-color: #F7F4EC;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.comment-author {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
+}
+
+.comment-content {
+    color: #555555;
+    font-size: 14;
+    margin-top: 8;
+}
+
+.comment-date {
+    color: #8A806D;
+    font-size: 11;
+    margin-top: 8;
+}
+
+.comment-input {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 10;
+    font-size: 14;
+    height: 85;
+    padding: 12;
+    margin-top: 10;
+}
+
+.publish-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    font-size: 14;
+    font-weight: bold;
+    border-radius: 10;
+    padding: 12;
+    margin-top: 10;
+}
+.church-name {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+    margin-bottom: 5;
+}
+
+.liked-button {
+    background-color: #FCE8E8;
+    color: #C0392B;
+    border-radius: 10;
+    font-size: 13;
+    font-weight: bold;
+    padding: 10;
+    margin-right: 5;
+}

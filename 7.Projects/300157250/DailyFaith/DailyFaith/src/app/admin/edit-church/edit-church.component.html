@@ -1,0 +1,263 @@
+
+<ActionBar title="Modifier le profil"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    @if (authorized) {
+
+      <!-- Photo de couverture -->
+
+      <GridLayout class="cover" height="190">
+
+        @if (cover) {
+
+          <Image
+            [src]="coverPath"
+            stretch="aspectFill"
+            width="100%"
+            height="190">
+          </Image>
+
+        } @else {
+
+          <Label
+            text="&#xf51d;"
+            class="church-icon"
+            horizontalAlignment="center"
+            verticalAlignment="center">
+          </Label>
+
+        }
+
+      </GridLayout>
+
+      <!-- Logo de l'église -->
+
+      <GridLayout
+        class="logo-container"
+        horizontalAlignment="center">
+
+        @if (logo) {
+
+          <Image
+            [src]="logoPath"
+            class="logo-image"
+            stretch="aspectFill">
+          </Image>
+
+        } @else {
+
+          <Label
+            text="&#xf51d;"
+            class="logo-icon"
+            horizontalAlignment="center"
+            verticalAlignment="center">
+          </Label>
+
+        }
+
+      </GridLayout>
+
+      <Label
+        [text]="name"
+        class="page-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        [text]="'@' + username"
+        class="username">
+      </Label>
+
+      <!-- Gestion des images -->
+
+      <StackLayout class="form-card">
+
+        <Label
+          text="PERSONNALISATION"
+          class="section-title">
+        </Label>
+
+        <Button
+          text="Modifier le logo"
+          class="photo-button"
+          [isEnabled]="!selectingImage"
+          (tap)="selectLogo()">
+        </Button>
+
+        @if (logo) {
+
+          <Button
+            text="Retirer le logo"
+            class="remove-button"
+            [isEnabled]="!selectingImage"
+            (tap)="removeLogo()">
+          </Button>
+
+        }
+
+        <Button
+          text="Modifier la couverture"
+          class="photo-button"
+          [isEnabled]="!selectingImage"
+          (tap)="selectCover()">
+        </Button>
+
+        @if (cover) {
+
+          <Button
+            text="Retirer la couverture"
+            class="remove-button"
+            [isEnabled]="!selectingImage"
+            (tap)="removeCover()">
+          </Button>
+
+        }
+
+        <ActivityIndicator
+          [busy]="selectingImage"
+          [visibility]="selectingImage ? 'visible' : 'collapse'">
+        </ActivityIndicator>
+
+      </StackLayout>
+
+      <!-- Informations générales -->
+
+      <StackLayout class="form-card">
+
+        <Label
+          text="INFORMATIONS GÉNÉRALES"
+          class="section-title">
+        </Label>
+
+        <Label
+          text="Nom de l'église *"
+          class="field-label">
+        </Label>
+
+        <TextField
+          [text]="name"
+          class="input"
+          (textChange)="onNameChange($event)">
+        </TextField>
+
+        <Label
+          text="Identifiant de la page *"
+          class="field-label">
+        </Label>
+
+        <TextField
+          [text]="username"
+          autocapitalizationType="none"
+          autocorrect="false"
+          class="input"
+          (textChange)="onUsernameChange($event)">
+        </TextField>
+
+        <Label
+          text="Nom du pasteur *"
+          class="field-label">
+        </Label>
+
+        <TextField
+          [text]="pastor"
+          class="input"
+          (textChange)="onPastorChange($event)">
+        </TextField>
+
+        <Label
+          text="LOCALISATION"
+          class="section-title">
+        </Label>
+
+        <Label text="Pays *" class="field-label"></Label>
+
+        <TextField
+          [text]="country"
+          class="input"
+          (textChange)="onCountryChange($event)">
+        </TextField>
+
+        <Label text="Ville *" class="field-label"></Label>
+
+        <TextField
+          [text]="city"
+          class="input"
+          (textChange)="onCityChange($event)">
+        </TextField>
+
+        <Label text="Adresse" class="field-label"></Label>
+
+        <TextField
+          [text]="address"
+          class="input"
+          (textChange)="onAddressChange($event)">
+        </TextField>
+
+        <Label
+          text="PRÉSENTATION"
+          class="section-title">
+        </Label>
+
+        <Label
+          text="Description"
+          class="field-label">
+        </Label>
+
+        <TextView
+          [text]="description"
+          class="description-input"
+          (textChange)="onDescriptionChange($event)">
+        </TextView>
+
+        <Label
+          text="* Champs obligatoires"
+          class="help-text">
+        </Label>
+
+        <Button
+          text="Enregistrer les modifications"
+          class="save-button"
+          [isEnabled]="!selectingImage"
+          (tap)="saveChanges()">
+        </Button>
+
+        <Button
+          text="Annuler"
+          class="cancel-button"
+          [isEnabled]="!selectingImage"
+          (tap)="goBack()">
+        </Button>
+
+      </StackLayout>
+
+    } @else {
+
+      <StackLayout class="form-card">
+
+        <Label
+          text="Accès non autorisé"
+          class="page-title">
+        </Label>
+
+        <Label
+          text="Cette église est introuvable ou ne vous appartient pas."
+          class="subtitle"
+          textWrap="true">
+        </Label>
+
+        <Button
+          text="Retour à mes églises"
+          class="save-button"
+          (tap)="goBack()">
+        </Button>
+
+      </StackLayout>
+
+    }
+
+  </StackLayout>
+
+</ScrollView>

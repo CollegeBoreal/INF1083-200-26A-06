@@ -1,0 +1,18 @@
+<TabView androidTabsPosition="bottom"
+         selectedTabTextColor="#2563EB"
+         tabTextColor="#64748B"
+         tabBackgroundColor="#FFFFFF">
+
+    <GridLayout *tabItem="{ title: 'Accueil' }">
+        <page-router-outlet name="homeTab"></page-router-outlet>
+    </GridLayout>
+
+    <GridLayout *tabItem="{ title: 'Exercices' }">
+        <page-router-outlet name="browseTab"></page-router-outlet>
+    </GridLayout>
+
+    <GridLayout *tabItem="{ title: 'Progression' }">
+        <page-router-outlet name="searchTab"></page-router-outlet>
+    </GridLayout>
+
+</TabView>

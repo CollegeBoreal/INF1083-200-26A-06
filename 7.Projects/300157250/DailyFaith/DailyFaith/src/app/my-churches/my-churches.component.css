@@ -1,0 +1,210 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
+
+.container {
+    background-color: #F7F4EC;
+    padding: 20;
+}
+
+.page-title {
+    font-size: 25;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+    margin-top: 15;
+    margin-bottom: 10;
+}
+
+.subtitle {
+    font-size: 14;
+    color: #777777;
+    text-align: center;
+    margin-bottom: 20;
+}
+
+.statistics-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    padding: 25;
+    margin-bottom: 25;
+}
+
+.stat-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 32;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 10;
+}
+
+.stat-number {
+    font-size: 32;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 14;
+    color: #777777;
+    text-align: center;
+    margin-top: 5;
+}
+
+.section-title {
+    font-size: 20;
+    font-weight: bold;
+    color: #183B32;
+    margin-bottom: 15;
+}
+
+.church-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    margin-bottom: 20;
+}
+
+.cover {
+    background-color: #183B32;
+    border-top-left-radius: 18;
+    border-top-right-radius: 18;
+}
+
+.cover-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 50;
+    color: #C7AB70;
+}
+
+.logo {
+    width: 80;
+    height: 80;
+    background-color: #183B32;
+    border-radius: 40;
+    border-width: 4;
+    border-color: #FFFFFF;
+}
+
+.logo-image {
+    border-radius: 40;
+}
+
+.logo-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 30;
+    color: #C7AB70;
+}
+
+.church-content {
+    padding: 20;
+}
+
+.church-name {
+    font-size: 22;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+    margin-bottom: 5;
+}
+
+.username {
+    font-size: 14;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 12;
+}
+
+.following-badge {
+    background-color: #E6EEE7;
+    color: #183B32;
+    font-size: 13;
+    font-weight: bold;
+    border-radius: 20;
+    padding: 8 18;
+    margin-bottom: 20;
+}
+
+.information-row {
+    margin-bottom: 10;
+}
+
+.small-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 15;
+    color: #A88A50;
+}
+
+.information {
+    font-size: 14;
+    color: #183B32;
+}
+
+.description {
+    font-size: 14;
+    color: #555555;
+    margin-top: 10;
+    margin-bottom: 15;
+}
+
+.followers {
+    font-size: 14;
+    font-weight: bold;
+    color: #183B32;
+    margin-bottom: 15;
+}
+
+.profile-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    font-size: 15;
+    font-weight: bold;
+    border-radius: 12;
+    height: 48;
+}
+
+.unfollow-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #183B32;
+    border-radius: 12;
+    font-size: 14;
+    height: 48;
+    margin-top: 10;
+}
+
+.empty-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    padding: 25;
+    margin-bottom: 20;
+}
+
+.empty-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 45;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.empty-title {
+    font-size: 20;
+    font-weight: bold;
+    color: #183B32;
+    text-align: center;
+    margin-bottom: 12;
+}
+
+.discover-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    font-size: 15;
+    font-weight: bold;
+    border-radius: 12;
+    height: 52;
+    margin-top: 10;
+    margin-bottom: 25;
+}

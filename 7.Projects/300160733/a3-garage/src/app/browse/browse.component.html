@@ -1,0 +1,25 @@
+<ActionBar title="Ajouter" class="garage-bar"></ActionBar>
+
+<ScrollView class="garage-page">
+  <StackLayout class="page-inset">
+    <Label text="Nouvel entretien" class="page-title"></Label>
+
+    <StackLayout #formulaire class="panel">
+      <Label text="Type d’entretien" class="field-label"></Label>
+      <TextField id="type" hint="Ex. Vidange" [(ngModel)]="type" class="field"
+        maxLength="60" returnKeyType="next"></TextField>
+
+      <Label text="Date (AAAA-MM-JJ)" class="field-label"></Label>
+      <TextField id="date" hint="AAAA-MM-JJ" [(ngModel)]="date" class="field"
+        autocorrect="false" maxLength="10"></TextField>
+
+      <Label text="Kilométrage (km)" class="field-label"></Label>
+      <TextField id="kilometrage" hint="Ex. 128450" [(ngModel)]="kilometrage" class="field"
+        keyboardType="number" maxLength="9" returnKeyType="done"></TextField>
+
+      <Button text="Enregistrer" class="save-button" (tap)="enregistrer()"></Button>
+      <Label [text]="message" [visibility]="message ? 'visible' : 'collapse'"
+        [class]="enregistre ? 'message-success' : 'message-error'" textWrap="true"></Label>
+    </StackLayout>
+  </StackLayout>
+</ScrollView>

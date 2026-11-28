@@ -1,0 +1,277 @@
+
+<ActionBar title="Mes églises"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <Label
+      text="MES COMMUNAUTÉS"
+      class="page-title">
+    </Label>
+
+    <Label
+      text="Retrouvez et gérez vos pages d'églises."
+      class="subtitle"
+      textWrap="true">
+    </Label>
+
+    <!-- Statistiques -->
+
+    <GridLayout columns="*, *" class="statistics">
+
+      <StackLayout col="0" class="stat-card">
+
+        <Label text="&#xf51d;" class="stat-icon"></Label>
+
+        <Label
+          [text]="totalChurches"
+          class="stat-number">
+        </Label>
+
+        <Label text="Églises" class="stat-label"></Label>
+
+      </StackLayout>
+
+      <StackLayout col="1" class="stat-card">
+
+        <Label text="&#xf0c0;" class="stat-icon"></Label>
+
+        <Label
+          [text]="totalFollowers"
+          class="stat-number">
+        </Label>
+
+        <Label text="Abonnés" class="stat-label"></Label>
+
+      </StackLayout>
+
+    </GridLayout>
+
+    <Label text="Vos pages" class="section-title"></Label>
+
+    <!-- Liste des églises -->
+
+    @for (church of churches; track church.id) {
+
+      <StackLayout class="church-card">
+
+        <!-- Photo de couverture -->
+
+        <GridLayout class="cover" height="180">
+
+          @if (church.cover) {
+
+            <Image
+              [src]="getCoverPath(church)"
+              stretch="aspectFill"
+              width="100%"
+              height="180">
+            </Image>
+
+          } @else {
+
+            <Label
+              text="&#xf51d;"
+              class="cover-icon"
+              horizontalAlignment="center"
+              verticalAlignment="center">
+            </Label>
+
+          }
+
+        </GridLayout>
+
+        <!-- Logo -->
+
+        <GridLayout
+          class="logo-container"
+          horizontalAlignment="center">
+
+          @if (church.logo) {
+
+            <Image
+              [src]="getLogoPath(church)"
+              class="logo-image"
+              stretch="aspectFill">
+            </Image>
+
+          } @else {
+
+            <Label
+              text="&#xf51d;"
+              class="logo-icon"
+              horizontalAlignment="center"
+              verticalAlignment="center">
+            </Label>
+
+          }
+
+        </GridLayout>
+
+        <!-- Informations de l'église -->
+
+        <StackLayout class="church-content">
+
+          <Label
+            [text]="church.name"
+            class="church-name"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="'@' + church.username"
+            class="username">
+          </Label>
+
+          <!-- Statistiques de la page -->
+
+          <GridLayout columns="*, *" class="church-stats">
+
+            <StackLayout col="0">
+
+              <Label
+                [text]="church.followers.length"
+                class="follower-number">
+              </Label>
+
+              <Label
+                text="Abonnés"
+                class="stat-label">
+              </Label>
+
+            </StackLayout>
+
+            <StackLayout col="1">
+
+              <Label
+                text="&#xf058;"
+                class="status-icon">
+              </Label>
+
+              <Label
+                text="Page créée"
+                class="stat-label">
+              </Label>
+
+            </StackLayout>
+
+          </GridLayout>
+
+          <StackLayout class="separator"></StackLayout>
+
+          <!-- Pasteur -->
+
+          <GridLayout columns="25, *" class="info-row">
+
+            <Label
+              col="0"
+              text="&#xf007;"
+              class="small-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="church.pastor"
+              class="pastor-name"
+              textWrap="true">
+            </Label>
+
+          </GridLayout>
+
+          <!-- Localisation -->
+
+          <GridLayout columns="25, *" class="info-row">
+
+            <Label
+              col="0"
+              text="&#xf3c5;"
+              class="small-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="church.city + ', ' + church.country"
+              class="location"
+              textWrap="true">
+            </Label>
+
+          </GridLayout>
+
+          @if (church.address) {
+
+            <Label
+              [text]="church.address"
+              class="address"
+              textWrap="true">
+            </Label>
+
+          }
+
+          <!-- Description -->
+
+          <Label
+            [text]="church.description || 'Aucune description.'"
+            class="description"
+            textWrap="true">
+          </Label>
+
+          <!-- Voir le profil public -->
+
+          <Button
+            text="Voir le profil public"
+            class="create-button"
+            (tap)="viewChurchProfile(church)">
+          </Button>
+
+          <!-- Modifier le profil -->
+
+          <Button
+            text="Modifier le profil"
+            class="edit-button"
+            (tap)="editChurch(church)">
+          </Button>
+
+        </StackLayout>
+
+      </StackLayout>
+
+    } @empty {
+
+      <StackLayout class="empty-card">
+
+        <Label
+          text="&#xf51d;"
+          class="empty-icon">
+        </Label>
+
+        <Label
+          text="Aucune église"
+          class="empty-title">
+        </Label>
+
+        <Label
+          text="Créez votre première page pour développer votre communauté."
+          class="subtitle"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+    }
+
+    <Button
+      text="+ Créer une église"
+      class="create-button"
+      (tap)="createChurch()">
+    </Button>
+
+    <Button
+      text="Retour au tableau de bord"
+      class="back-button"
+      (tap)="goBack()">
+    </Button>
+
+  </StackLayout>
+
+</ScrollView>

@@ -1,0 +1,287 @@
+
+<ActionBar title="Administration"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    <Label
+      text="DAILY FAITH"
+      class="app-title"
+      textAlignment="center">
+    </Label>
+
+    <Label
+      text="ESPACE ADMINISTRATEUR"
+      class="subtitle"
+      textAlignment="center">
+    </Label>
+
+    <StackLayout class="welcome-card">
+
+      <Label
+        [text]="'Bienvenue, ' + pastorName"
+        class="welcome-title"
+        textWrap="true">
+      </Label>
+
+      <Label
+        text="Gérez votre communauté chrétienne."
+        class="welcome-description"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <!-- Statistiques -->
+
+    <GridLayout columns="*, *, *" class="statistics">
+
+      <StackLayout col="0" class="stat-card">
+
+        <Label text="&#xf51d;" class="stat-icon"></Label>
+
+        <Label
+          [text]="totalChurches"
+          class="stat-number">
+        </Label>
+
+        <Label text="Églises" class="stat-label"></Label>
+
+      </StackLayout>
+
+      <StackLayout col="1" class="stat-card">
+
+        <Label text="&#xf02d;" class="stat-icon"></Label>
+
+        <Label
+          [text]="totalMessages"
+          class="stat-number">
+        </Label>
+
+        <Label text="Messages" class="stat-label"></Label>
+
+      </StackLayout>
+
+      <StackLayout col="2" class="stat-card">
+
+        <Label text="&#xf073;" class="stat-icon"></Label>
+
+        <Label
+          [text]="totalEvents"
+          class="stat-number">
+        </Label>
+
+        <Label text="Événements" class="stat-label"></Label>
+
+      </StackLayout>
+
+    </GridLayout>
+
+    <!-- Gestion des églises -->
+
+    <Label
+      text="Mes églises"
+      class="section-title">
+    </Label>
+
+    <GridLayout
+      columns="45, *, 25"
+      class="action-card"
+      (tap)="createChurch()">
+
+      <Label col="0" text="&#xf51d;" class="action-icon"></Label>
+
+      <StackLayout col="1">
+
+        <Label
+          text="Créer mon église"
+          class="action-title">
+        </Label>
+
+        <Label
+          text="Créer une page pour votre communauté."
+          class="action-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <Label col="2" text="&#xf054;" class="arrow"></Label>
+
+    </GridLayout>
+
+    <!-- Nouvelle fonctionnalité -->
+
+    <GridLayout
+      columns="45, *, 25"
+      class="action-card"
+      (tap)="manageChurches()">
+
+      <Label col="0" text="&#xf0c0;" class="action-icon"></Label>
+
+      <StackLayout col="1">
+
+        <Label
+          text="Gérer mes églises"
+          class="action-title">
+        </Label>
+
+        <Label
+          text="Consulter vos pages et vos abonnés."
+          class="action-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <Label col="2" text="&#xf054;" class="arrow"></Label>
+
+    </GridLayout>
+
+    <!-- Gestion des publications -->
+
+    <Label
+      text="Gestion de l'église"
+      class="section-title">
+    </Label>
+
+    <GridLayout
+      columns="45, *, 25"
+      class="action-card"
+      (tap)="publishMessage()">
+
+      <Label col="0" text="&#xf067;" class="action-icon"></Label>
+
+      <StackLayout col="1">
+
+        <Label
+          text="Publier un message"
+          class="action-title">
+        </Label>
+
+        <Label
+          text="Partager un enseignement biblique."
+          class="action-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <Label col="2" text="&#xf054;" class="arrow"></Label>
+
+    </GridLayout>
+
+    <GridLayout
+      columns="45, *, 25"
+      class="action-card"
+      (tap)="manageMessages()">
+
+      <Label col="0" text="&#xf044;" class="action-icon"></Label>
+
+      <StackLayout col="1">
+
+        <Label
+          text="Gérer les messages"
+          class="action-title">
+        </Label>
+
+        <Label
+          text="Modifier ou supprimer les publications."
+          class="action-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <Label col="2" text="&#xf054;" class="arrow"></Label>
+
+    </GridLayout>
+
+    <GridLayout
+      columns="45, *, 25"
+      class="action-card"
+      (tap)="createEvent()">
+
+      <Label col="0" text="&#xf271;" class="action-icon"></Label>
+
+      <StackLayout col="1">
+
+        <Label
+          text="Créer un événement"
+          class="action-title">
+        </Label>
+
+        <Label
+          text="Annoncer une activité de l'église."
+          class="action-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <Label col="2" text="&#xf054;" class="arrow"></Label>
+
+    </GridLayout>
+
+    <GridLayout
+      columns="45, *, 25"
+      class="action-card"
+      (tap)="manageEvents()">
+
+      <Label col="0" text="&#xf073;" class="action-icon"></Label>
+
+      <StackLayout col="1">
+
+        <Label
+          text="Gérer les événements"
+          class="action-title">
+        </Label>
+
+        <Label
+          text="Modifier les activités programmées."
+          class="action-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <Label col="2" text="&#xf054;" class="arrow"></Label>
+
+    </GridLayout>
+
+    <GridLayout
+      columns="45, *, 25"
+      class="action-card"
+      (tap)="sendNotification()">
+
+      <Label col="0" text="&#xf0f3;" class="action-icon"></Label>
+
+      <StackLayout col="1">
+
+        <Label
+          text="Envoyer une notification"
+          class="action-title">
+        </Label>
+
+        <Label
+          text="Informer les membres de l'église."
+          class="action-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <Label col="2" text="&#xf054;" class="arrow"></Label>
+
+    </GridLayout>
+
+    <Button
+      text="Se déconnecter"
+      class="logout-button"
+      (tap)="logout()">
+    </Button>
+
+  </StackLayout>
+
+</ScrollView>

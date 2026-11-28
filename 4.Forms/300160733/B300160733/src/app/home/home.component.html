@@ -1,0 +1,8 @@
+<ActionBar title="Atelier 4.Forms"></ActionBar>
+
+<StackLayout class="signup" [formGroup]="signUpForm">
+  <TextField formControlName="email" hint="Email" keyboardType="email"
+    autocapitalizationType="none" autocorrect="false"></TextField>
+  <TextField formControlName="username" hint="Username"></TextField>
+  <Button text="sign up" (tap)="onButtonTap()" [isEnabled]="signUpForm.valid"></Button>
+</StackLayout>

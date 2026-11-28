@@ -1,8 +1,8 @@
-\# Projet mobile : TechPedia
+# Projet mobile : TechPedia
 
 
 
-\## 1. Présentation du projet
+## 1. Présentation du projet
 
 
 
@@ -14,11 +14,11 @@ L'application permet aussi de tester ses connaissances grâce à un petit quiz i
 
 
 
-\## 2. Les pages de l'application
+## 2. Les pages de l'application
 
 
 
-\### Page d'accueil
+### Page d'accueil
 
 La page d'accueil présente l'application et permet d'accéder aux deux autres pages.
 
@@ -32,7 +32,7 @@ La page d'accueil présente l'application et permet d'accéder aux deux autres p
 
 
 
-\### Page des pionniers
+### Page des pionniers
 
 Cette page présente six personnalités importantes de l'histoire de l'informatique : Ada Lovelace, Alan Turing, Grace Hopper, Tim Berners-Lee, Dennis Ritchie et Linus Torvalds.
 
@@ -46,7 +46,7 @@ Cette page présente six personnalités importantes de l'histoire de l'informati
 
 
 
-\### Page du quiz
+### Page du quiz
 
 Cette page contient deux questions pour tester les connaissances de l'utilisateur. Un message s'affiche selon la réponse choisie.
 
@@ -60,7 +60,7 @@ Cette page contient deux questions pour tester les connaissances de l'utilisateu
 
 
 
-\## 3. Technologies utilisées
+## 3. Technologies utilisées
 
 
 
@@ -76,7 +76,7 @@ Cette page contient deux questions pour tester les connaissances de l'utilisateu
 
 
 
-\## 4. Composants utilisés
+## 4. Composants utilisés
 
 
 
@@ -96,7 +96,7 @@ Cette page contient deux questions pour tester les connaissances de l'utilisateu
 
 
 
-\## 5. Fonctionnalités
+## 5. Fonctionnalités
 
 
 
@@ -112,7 +112,7 @@ Cette page contient deux questions pour tester les connaissances de l'utilisateu
 
 
 
-\## 6. Dépendances
+## 6. Dépendances
 
 
 
@@ -123,11 +123,17 @@ Cette page contient deux questions pour tester les connaissances de l'utilisateu
 
 
 Aucun plugin externe supplémentaire n'a été ajouté.
+
 <img width="576" height="671" alt="Capture d&#39;écran 2026-11-22 053921" src="https://github.com/user-attachments/assets/62a898fa-628d-4e78-8ff1-fa6b97619498" />
+
 Cette page présente l'application et permet d'accéder aux sections des pionniers et du quiz.
+
 <img width="362" height="630" alt="Capture d&#39;écran 2026-11-22 053958" src="https://github.com/user-attachments/assets/e687c984-b76d-4123-af15-f81d23a3711b" />
+
 Cette page présente six personnalités importantes qui ont contribué à l'évolution de l'informatique.
+
 <img width="348" height="623" alt="Capture d&#39;écran 2026-11-22 054052" src="https://github.com/user-attachments/assets/1f2265ec-5138-4e37-8a14-2ebf729f0a2d" />
+
 Cette page permet de tester ses connaissances sur l'histoire de l'informatique et affiche un message selon la réponse choisie.
 
 

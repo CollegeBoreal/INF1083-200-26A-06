@@ -4,11 +4,11 @@
 
 
 
-COLLÈGE BORÉAL  |  INF1083 — DÉVELOPPEMENT D’APPLICATIONS
+# COLLÈGE BORÉAL  |  INF1083 — DÉVELOPPEMENT D’APPLICATIONS
 
 
 
-
+```
 RAPPORT FINAL
 
 TP 7 — Projects
@@ -24,19 +24,19 @@ Matricule : 300159887
 Cours : INF1083-200 — Développement d’applications
 
 Date : 19 novembre 2026
+```
 
 
-
-Application BarberShop — écran d’accueil
+## 💈 Application BarberShop — écran d’accueil
 
 
 COLLÈGE BORÉAL  |  INF1083 — DÉVELOPPEMENT D’APPLICATIONS
 
-1. Présentation et objectifs
+### 1. Présentation et objectifs
 
 BarberShop est une application mobile de démonstration destinée à présenter les prestations d’un salon de coiffure pour hommes. Elle permet de consulter les tarifs et de remplir un formulaire de demande de réservation. Le projet répond à la consigne d’une application comportant au minimum trois pages accessibles par onglets.
 
-2. Environnement technique
+### 2. Environnement technique
 
 Technologie
 

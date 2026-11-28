@@ -1,0 +1,99 @@
+<ActionBar title="Create Account"></ActionBar>
+
+<ScrollView backgroundColor="#F3F5FA">
+    <StackLayout padding="24">
+
+        <Label
+            text="Welcome"
+            fontSize="28"
+            fontWeight="bold"
+            color="#172B60"
+            textAlignment="center"
+            marginTop="45">
+        </Label>
+
+        <Label
+            text="Create your account"
+            fontSize="14"
+            color="#667899"
+            textAlignment="center"
+            marginTop="5"
+            marginBottom="30">
+        </Label>
+
+        <StackLayout
+            [formGroup]="signUpForm"
+            backgroundColor="white"
+            borderRadius="12"
+            padding="20">
+
+            <Label
+                text="EMAIL ADDRESS"
+                fontSize="11"
+                fontWeight="bold"
+                color="#344563">
+            </Label>
+
+            <TextField
+                formControlName="email"
+                hint="example@email.com"
+                keyboardType="email"
+                backgroundColor="#F7F9FC"
+                borderWidth="1"
+                borderColor="#D9E2F0"
+                borderRadius="7"
+                padding="12"
+                marginTop="6"
+                marginBottom="18">
+            </TextField>
+
+            <Label
+                text="USERNAME"
+                fontSize="11"
+                fontWeight="bold"
+                color="#344563">
+            </Label>
+
+            <TextField
+                formControlName="username"
+                hint="Choose a username"
+                backgroundColor="#F7F9FC"
+                borderWidth="1"
+                borderColor="#D9E2F0"
+                borderRadius="7"
+                padding="12"
+                marginTop="6"
+                marginBottom="18">
+            </TextField>
+
+            <Button
+                text="SIGN UP"
+                (tap)="onButtonTap()"
+                backgroundColor="#2563EB"
+                color="white"
+                borderRadius="7"
+                fontWeight="bold"
+                height="48">
+            </Button>
+
+            <Label
+                [text]="message"
+                [color]="messageColor"
+                fontSize="12"
+                textAlignment="center"
+                textWrap="true"
+                marginTop="12">
+            </Label>
+
+            <Label
+                text="Your information will appear in the console."
+                fontSize="10"
+                color="#94A3B8"
+                textAlignment="center"
+                textWrap="true"
+                marginTop="10">
+            </Label>
+
+        </StackLayout>
+    </StackLayout>
+</ScrollView>
