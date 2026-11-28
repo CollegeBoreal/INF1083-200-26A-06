@@ -25,7 +25,7 @@ export class ProfileComponent {
     private authService: AuthService
   ) {}
 
-  // Récupérer les informations du membre connecté
+    // Récupérer les informations du membre connecté
   get user() {
 
     const currentUser = this.authService.getCurrentUser();
@@ -39,13 +39,23 @@ export class ProfileComponent {
     };
   }
 
-  // Fermer la session utilisateur
-  logout() {
+  // Déconnexion Firebase
+  async logout() {
 
-    this.authService.logout();
+    try {
 
-    this.router.navigate(['/login'], {
-      clearHistory: true
-    });
+      await this.authService.logout();
+
+      await this.router.navigate(['/login'], {
+        clearHistory: true
+      });
+
+    } catch (error) {
+
+      console.error(
+        'Erreur de déconnexion Firebase',
+        error
+      );
+    }
   }
 }

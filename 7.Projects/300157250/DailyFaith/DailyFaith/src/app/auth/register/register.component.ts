@@ -1,9 +1,13 @@
+import {
+  Component,
+  NO_ERRORS_SCHEMA
+} from '@angular/core';
 
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   NativeScriptCommonModule,
   RouterExtensions
 } from '@nativescript/angular';
+
 import { alert } from '@nativescript/core';
 import { AuthService } from '../../services/auth.service';
 
@@ -22,6 +26,7 @@ export class RegisterComponent {
   password = '';
   confirmPassword = '';
   message = '';
+  loading = false;
 
   constructor(
     private router: RouterExtensions,
@@ -46,65 +51,98 @@ export class RegisterComponent {
 
   async register() {
 
+    if (this.loading) {
+      return;
+    }
+
     this.message = '';
 
-    // Vérifier les champs
     if (
       !this.name.trim() ||
       !this.email.trim() ||
       !this.password ||
       !this.confirmPassword
     ) {
-      this.message = 'Veuillez remplir tous les champs.';
+
+      this.message =
+        'Veuillez remplir tous les champs.';
+
       return;
     }
 
-    // Vérifier le format de l'adresse email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailPattern.test(this.email.trim())) {
-      this.message = 'Veuillez saisir une adresse email valide.';
+
+      this.message =
+        'Veuillez saisir une adresse email valide.';
+
       return;
     }
 
-    // Vérifier la longueur du mot de passe
     if (this.password.length < 6) {
-      this.message = 'Le mot de passe doit contenir au moins 6 caractères.';
+
+      this.message =
+        'Le mot de passe doit contenir au moins 6 caractères.';
+
       return;
     }
 
-    // Vérifier la confirmation du mot de passe
     if (this.password !== this.confirmPassword) {
-      this.message = 'Les mots de passe ne correspondent pas.';
+
+      this.message =
+        'Les mots de passe ne correspondent pas.';
+
       return;
     }
 
-    // Créer le compte
-    const success = this.authService.register(
-      this.name,
-      this.email,
-      this.password
-    );
+    this.loading = true;
 
-    if (!success) {
-      this.message = 'Cette adresse email est déjà utilisée.';
-      return;
+    try {
+
+      const success = await this.authService.register(
+        this.name,
+        this.email,
+        this.password
+      );
+
+      if (!success) {
+
+        this.message =
+          'Inscription impossible. Vérifiez votre adresse email et votre connexion Internet.';
+
+        await alert(this.message);
+
+        return;
+      }
+
+      this.password = '';
+      this.confirmPassword = '';
+
+      await alert({
+        title: 'Inscription réussie',
+        message:
+          'Bienvenue dans la communauté Daily Faith ! Vous pouvez maintenant vous connecter.',
+        okButtonText: 'Se connecter'
+      });
+
+      await this.router.navigate(['/login'], {
+        clearHistory: true
+      });
+
+    } finally {
+
+      this.loading = false;
     }
-
-    await alert({
-      title: 'Inscription réussie',
-      message: 'Bienvenue dans la communauté Daily Faith ! Vous pouvez maintenant vous connecter.',
-      okButtonText: 'Se connecter'
-    });
-
-    this.router.navigate(['/login'], {
-      clearHistory: true
-    });
   }
 
   goToLogin() {
-    this.router.navigate(['/login'], {
-      clearHistory: true
-    });
+
+    if (!this.loading) {
+
+      this.router.navigate(['/login'], {
+        clearHistory: true
+      });
+    }
   }
 }

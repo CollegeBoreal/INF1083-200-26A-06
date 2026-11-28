@@ -219,14 +219,22 @@ export class HomeComponent {
 
   }
 
-  logout() {
+    async logout() {
 
-    this.authService.logout();
+    try {
 
-    this.router.navigate(['/login'], {
-      clearHistory: true
-    });
+      await this.authService.logout();
 
+      await this.router.navigate(['/login'], {
+        clearHistory: true
+      });
+
+    } catch (error) {
+
+      console.error(
+        'Erreur de déconnexion Firebase',
+        error
+      );
+    }
   }
-
 }
