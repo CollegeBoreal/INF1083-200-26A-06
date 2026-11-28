@@ -1,3 +1,11 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
+
+/* ========================================== */
+/* PAGE PRINCIPALE                            */
+/* ========================================== */
 
 .container {
     background-color: #F7F4EC;
@@ -12,65 +20,137 @@
 }
 
 .subtitle {
-    color: #A88A50;
+    color: #8C703C;
     font-size: 14;
     margin-top: 8;
     margin-bottom: 25;
 }
 
+/* ========================================== */
+/* PUBLICATIONS                               */
+/* ========================================== */
+
 .message-card {
     background-color: #FFFFFF;
-    border-radius: 15;
+    border-radius: 22;
     border-width: 1;
     border-color: #E3DCCB;
-    padding: 20;
-    margin-bottom: 18;
+    padding: 18;
+    margin-bottom: 22;
+}
+
+.church-name {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+    margin-bottom: 5;
 }
 
 .message-title {
     color: #183B32;
-    font-size: 21;
+    font-size: 22;
     font-weight: bold;
+    margin-top: 10;
+    margin-bottom: 8;
 }
 
 .author {
-    color: #A88A50;
+    color: #8C703C;
     font-size: 13;
-    margin-top: 8;
+    margin-top: 5;
+    margin-bottom: 4;
 }
 
 .content {
-    color: #555555;
+    color: #374151;
     font-size: 16;
+    line-height: 5;
     margin-top: 15;
-    margin-bottom: 15;
+    margin-bottom: 20;
 }
+
+/* ========================================== */
+/* INTERACTIONS                               */
+/* ========================================== */
+
+.publication-actions {
+    border-top-width: 1;
+    border-top-color: #E9E4D9;
+    padding-top: 12;
+    padding-bottom: 4;
+}
+
+/* Publication non aimee */
 
 .like-button {
-    background-color: #183B32;
-    color: #FFFFFF;
-    border-radius: 10;
+    background-color: #F5F3EE;
+    color: #183B32;
     font-size: 13;
     font-weight: bold;
-    padding: 10;
+    border-radius: 14;
+    border-width: 1;
+    border-color: #E5DFD2;
+    height: 46;
+    padding: 4;
     margin-right: 5;
+    margin-top: 0;
+    margin-bottom: 0;
 }
+
+/* Publication aimee */
+
+.liked-button {
+    background-color: #FDECEC;
+    color: #DC2626;
+    font-size: 13;
+    font-weight: bold;
+    border-radius: 14;
+    border-width: 1;
+    border-color: #F5C2C2;
+    height: 46;
+    padding: 4;
+    margin-right: 5;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Bouton commentaires */
 
 .comment-button {
-    background-color: #F7F4EC;
+    background-color: #EDF3EF;
     color: #183B32;
-    border-radius: 10;
     font-size: 12;
     font-weight: bold;
-    padding: 10;
+    border-radius: 14;
+    border-width: 1;
+    border-color: #D7E4DC;
+    height: 46;
+    padding: 4;
     margin-left: 5;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
+/* Boutons desactives */
+
+.like-button:disabled,
+.liked-button:disabled,
+.comment-button:disabled,
+.publish-button:disabled {
+    opacity: 0.5;
+}
+
+/* ========================================== */
+/* SECTION COMMENTAIRES                       */
+/* ========================================== */
+
 .comments-section {
-    margin-top: 20;
-    padding-top: 15;
-    border-top-width: 1;
-    border-top-color: #E3DCCB;
+    background-color: #FAF9F6;
+    border-radius: 16;
+    border-width: 1;
+    border-color: #E9E4D9;
+    margin-top: 18;
+    padding: 14;
 }
 
 .comments-title {
@@ -81,16 +161,24 @@
 }
 
 .empty-comments {
-    color: #8A806D;
+    color: #756B59;
     font-size: 13;
+    text-align: center;
+    margin-top: 8;
     margin-bottom: 15;
 }
 
+/* ========================================== */
+/* CARTE DE COMMENTAIRE                       */
+/* ========================================== */
+
 .comment-card {
-    background-color: #F7F4EC;
-    border-radius: 12;
+    background-color: #FFFFFF;
+    border-radius: 14;
+    border-width: 1;
+    border-color: #E9E4D9;
     padding: 12;
-    margin-bottom: 10;
+    margin-bottom: 12;
 }
 
 .comment-author {
@@ -100,51 +188,52 @@
 }
 
 .comment-content {
-    color: #555555;
+    color: #374151;
     font-size: 14;
+    line-height: 3;
     margin-top: 8;
+    margin-bottom: 3;
 }
 
 .comment-date {
     color: #8A806D;
     font-size: 11;
-    margin-top: 8;
+    margin-top: 4;
 }
+
+/* ========================================== */
+/* CHAMP DE COMMENTAIRE                       */
+/* ========================================== */
 
 .comment-input {
     background-color: #FFFFFF;
     color: #183B32;
     border-width: 1;
-    border-color: #E3DCCB;
-    border-radius: 10;
+    border-color: #D8D1C3;
+    border-radius: 14;
     font-size: 14;
-    height: 85;
-    padding: 12;
-    margin-top: 10;
+    height: 100;
+    padding: 14;
+    margin-top: 12;
+    margin-bottom: 8;
 }
+
+.comment-input:focus {
+    border-color: #A88A50;
+}
+
+/* ========================================== */
+/* BOUTON PUBLIER                             */
+/* ========================================== */
 
 .publish-button {
     background-color: #183B32;
     color: #FFFFFF;
     font-size: 14;
     font-weight: bold;
-    border-radius: 10;
+    border-radius: 14;
+    min-height: 48;
     padding: 12;
     margin-top: 10;
-}
-.church-name {
-    color: #183B32;
-    font-size: 16;
-    font-weight: bold;
-    margin-bottom: 5;
-}
-
-.liked-button {
-    background-color: #FCE8E8;
-    color: #C0392B;
-    border-radius: 10;
-    font-size: 13;
-    font-weight: bold;
-    padding: 10;
-    margin-right: 5;
+    margin-bottom: 4;
 }

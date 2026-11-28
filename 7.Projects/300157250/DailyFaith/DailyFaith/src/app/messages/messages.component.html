@@ -26,7 +26,7 @@
         color="#FFFFFF"
         borderRadius="12"
         marginBottom="15"
-        [isEnabled]="!feedLoading"
+        [isEnabled]="!feedLoading && !interactionsLoading"
         (tap)="refreshFeed()">
       </Button>
 
@@ -68,11 +68,15 @@
         marginBottom="15">
       </Label>
 
-      <!-- Publications Firebase -->
+      <!-- ================================= -->
+      <!-- PUBLICATIONS FIREBASE             -->
+      <!-- ================================= -->
 
       @for (message of onlinePublications; track message.key) {
 
         <StackLayout class="message-card">
+
+          <!-- Informations de l'église -->
 
           <Label
             [text]="message.church.name"
@@ -97,11 +101,15 @@
             marginBottom="10">
           </Label>
 
+          <!-- Titre -->
+
           <Label
             [text]="message.title"
             class="message-title"
             textWrap="true">
           </Label>
+
+          <!-- Verset biblique -->
 
           <Label
             [text]="message.verse"
@@ -109,45 +117,273 @@
             textWrap="true">
           </Label>
 
+          <!-- Contenu -->
+
           <Label
             [text]="message.content"
             class="content"
             textWrap="true">
           </Label>
 
-          <!-- Interactions Firebase à venir -->
+          <!-- ================================= -->
+          <!-- LIKES ET COMMENTAIRES FIREBASE    -->
+          <!-- ================================= -->
 
-          <GridLayout columns="*, *">
+          <GridLayout
+            columns="*, *"
+            class="publication-actions">
+
+            <!-- Likes -->
 
             <Button
               col="0"
-              text="♡ J’aime"
-              class="like-button"
-              [isEnabled]="false">
+              [text]="isLikeLoading(message)
+                ? 'Chargement...'
+                : hasLikeError(message)
+                  ? 'Réessayer'
+                  : (isLiked(message) ? '♥ ' : '♡ ')
+                    + getLikes(message) + ' J’aime'"
+              [class]="isLiked(message)
+                ? 'liked-button'
+                : 'like-button'"
+              [isEnabled]="canLike(message)"
+              (tap)="toggleLike(message)">
             </Button>
+
+            <!-- Commentaires -->
 
             <Button
               col="1"
-              text="Commentaires"
+              [text]="isCommentLoading(message)
+                ? 'Chargement...'
+                : showComments(message)
+                  ? 'Masquer'
+                  : getCommentsCount(message)
+                    + ' Commentaire(s)'"
               class="comment-button"
-              [isEnabled]="false">
+              [isEnabled]="!feedLoading && !isCommentLoading(message)"
+              (tap)="toggleComments(message)">
             </Button>
 
           </GridLayout>
 
-          <Label
-            text="Les interactions en ligne seront bientôt disponibles."
-            color="#A88A50"
-            fontSize="11"
-            textAlignment="center"
-            textWrap="true">
-          </Label>
+          <!-- Erreur des likes -->
+
+          @if (hasLikeError(message)) {
+
+            <Label
+              text="Impossible de charger les likes. Appuyez sur Réessayer."
+              color="#B91C1C"
+              fontSize="12"
+              marginTop="8"
+              textWrap="true">
+            </Label>
+
+          }
+
+          <!-- ================================= -->
+          <!-- SECTION COMMENTAIRES FIREBASE     -->
+          <!-- ================================= -->
+
+          @if (showComments(message)) {
+
+            <StackLayout class="comments-section">
+
+              <Label
+                text="Commentaires"
+                class="comments-title">
+              </Label>
+
+              <!-- Actualiser les commentaires -->
+
+              <Button
+                text="Actualiser les commentaires"
+                backgroundColor="#F7F4EC"
+                color="#183B32"
+                borderRadius="8"
+                fontSize="12"
+                height="38"
+                marginBottom="10"
+                [isEnabled]="!feedLoading && !isCommentLoading(message)"
+                (tap)="refreshComments(message)">
+              </Button>
+
+              <!-- Chargement -->
+
+              @if (isCommentLoading(message)) {
+
+                <ActivityIndicator
+                  [busy]="true"
+                  color="#183B32"
+                  height="30">
+                </ActivityIndicator>
+
+                <Label
+                  text="Chargement des commentaires..."
+                  color="#183B32"
+                  fontSize="12"
+                  textAlignment="center"
+                  textWrap="true">
+                </Label>
+
+              }
+
+              <!-- Erreur -->
+
+              @if (hasCommentError(message)) {
+
+                <Label
+                  text="Impossible de confirmer les commentaires. Veuillez actualiser."
+                  color="#B91C1C"
+                  fontSize="12"
+                  marginBottom="10"
+                  textWrap="true">
+                </Label>
+
+              }
+
+              <!-- Liste des commentaires -->
+
+              @for (
+                comment of getOnlineComments(message);
+                track comment.id
+              ) {
+
+                <StackLayout class="comment-card">
+
+                  <GridLayout columns="36, *, auto">
+
+                    <!-- Avatar du membre -->
+
+                    <GridLayout
+                      col="0"
+                      width="32"
+                      height="32"
+                      borderRadius="16"
+                      backgroundColor="#183B32"
+                      verticalAlignment="top">
+
+                      <Label
+                        text="&#xf007;"
+                        fontFamily="Font Awesome 6 Free, fa-solid-900"
+                        fontWeight="900"
+                        fontSize="13"
+                        color="#FFFFFF"
+                        horizontalAlignment="center"
+                        verticalAlignment="center">
+                      </Label>
+
+                    </GridLayout>
+
+                    <!-- Auteur et date -->
+
+                    <StackLayout
+                      col="1"
+                      marginLeft="8">
+
+                      <Label
+                        [text]="comment.authorName"
+                        class="comment-author"
+                        textWrap="true">
+                      </Label>
+
+                      <Label
+                        [text]="comment.date"
+                        class="comment-date"
+                        textWrap="true">
+                      </Label>
+
+                    </StackLayout>
+
+                    <!-- Supprimer le commentaire -->
+
+                    @if (canDeleteComment(message, comment)) {
+
+                      <Button
+                        col="2"
+                        text="Supprimer"
+                        color="#B91C1C"
+                        backgroundColor="transparent"
+                        fontSize="11"
+                        height="36"
+                        [isEnabled]="!feedLoading && !isCommentLoading(message)"
+                        (tap)="deleteOnlineComment(message, comment)">
+                      </Button>
+
+                    }
+
+                  </GridLayout>
+
+                  <!-- Contenu du commentaire -->
+
+                  <Label
+                    [text]="comment.content"
+                    class="comment-content"
+                    textWrap="true">
+                  </Label>
+
+                </StackLayout>
+
+              } @empty {
+
+                @if (
+                  !isCommentLoading(message) &&
+                  !hasCommentError(message)
+                ) {
+
+                  <Label
+                    text="Soyez le premier à commenter."
+                    class="empty-comments"
+                    textWrap="true">
+                  </Label>
+
+                }
+
+              }
+
+              <!-- Nouveau commentaire -->
+
+              <TextView
+                hint="Écrivez votre commentaire..."
+                [text]="getNewComment(message)"
+                (textChange)="onCommentChange($event, message)"
+                [editable]="!feedLoading && !isCommentLoading(message)"
+                maxLength="2000"
+                class="comment-input">
+              </TextView>
+
+              <!-- Compteur de caractères -->
+
+              <Label
+                [text]="getNewComment(message).length + ' / 2000'"
+                color="#888888"
+                fontSize="11"
+                textAlignment="right"
+                marginBottom="5">
+              </Label>
+
+              <!-- Publier -->
+
+              <Button
+                [text]="isCommentLoading(message)
+                  ? 'Veuillez patienter...'
+                  : 'Publier le commentaire'"
+                class="publish-button"
+                [isEnabled]="canComment(message)"
+                (tap)="addComment(message)">
+              </Button>
+
+            </StackLayout>
+
+          }
 
         </StackLayout>
 
       }
 
-      <!-- Publications locales -->
+      <!-- ================================= -->
+      <!-- PUBLICATIONS LOCALES              -->
+      <!-- ================================= -->
 
       @for (message of messages; track message.id) {
 
@@ -196,27 +432,36 @@
 
           <!-- Likes et commentaires locaux -->
 
-          <GridLayout columns="*, *">
+          <GridLayout
+            columns="*, *"
+            class="publication-actions">
 
             <Button
               col="0"
-              [text]="(isLiked(message) ? '♥ Aimé' : '♡ J’aime') + ' (' + message.likes + ')'"
-              [class]="isLiked(message) ? 'liked-button' : 'like-button'"
+              [text]="(isLiked(message) ? '♥ ' : '♡ ')
+                + getLikes(message) + ' J’aime'"
+              [class]="isLiked(message)
+                ? 'liked-button'
+                : 'like-button'"
+              [isEnabled]="canLike(message)"
               (tap)="toggleLike(message)">
             </Button>
 
             <Button
               col="1"
-              [text]="'Commentaires (' + message.comments.length + ')'"
-              (tap)="toggleComments(message)"
-              class="comment-button">
+              [text]="showComments(message)
+                ? 'Masquer'
+                : getCommentsCount(message)
+                  + ' Commentaire(s)'"
+              class="comment-button"
+              (tap)="toggleComments(message)">
             </Button>
 
           </GridLayout>
 
-          <!-- Liste des commentaires -->
+          <!-- Commentaires locaux -->
 
-          @if (message.showComments) {
+          @if (showComments(message)) {
 
             <StackLayout class="comments-section">
 
@@ -225,13 +470,17 @@
                 class="comments-title">
               </Label>
 
-              @for (comment of message.comments; track $index) {
+              @for (
+                comment of getComments(message);
+                track $index
+              ) {
 
                 <StackLayout class="comment-card">
 
                   <Label
                     [text]="comment.author"
-                    class="comment-author">
+                    class="comment-author"
+                    textWrap="true">
                   </Label>
 
                   <Label
@@ -259,15 +508,17 @@
 
               <TextView
                 hint="Écrivez votre commentaire..."
-                [text]="message.newComment"
+                [text]="getNewComment(message)"
                 (textChange)="onCommentChange($event, message)"
+                maxLength="2000"
                 class="comment-input">
               </TextView>
 
               <Button
-                text="Publier"
-                (tap)="addComment(message)"
-                class="publish-button">
+                text="Publier le commentaire"
+                class="publish-button"
+                [isEnabled]="canComment(message)"
+                (tap)="addComment(message)">
               </Button>
 
             </StackLayout>
@@ -278,9 +529,15 @@
 
       }
 
-      <!-- Aucune publication -->
+      <!-- ================================= -->
+      <!-- AUCUNE PUBLICATION                -->
+      <!-- ================================= -->
 
-      @if (!feedLoading && !feedError && totalMessages === 0) {
+      @if (
+        !feedLoading &&
+        !feedError &&
+        totalMessages === 0
+      ) {
 
         <StackLayout class="message-card">
 
@@ -303,6 +560,8 @@
     </StackLayout>
 
   </ScrollView>
+
+  <!-- Navigation principale -->
 
   <ns-navigation row="1"></ns-navigation>
 

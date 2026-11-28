@@ -12,7 +12,7 @@ import {
   RouterExtensions
 } from '@nativescript/angular';
 
-import { alert } from '@nativescript/core';
+import { alert, confirm } from '@nativescript/core';
 
 import {
   Church,
@@ -42,6 +42,18 @@ import {
   PublicationFeedService,
   OnlinePublication
 } from '../services/publication-feed.service';
+
+import {
+  InteractionFirestoreService,
+  OnlineComment
+} from '../services/interaction-firestore.service';
+
+type FeedMessage = Message | OnlinePublication;
+
+interface OnlineLikeState {
+  likes: number;
+  liked: boolean;
+}
 
 @Component({
   selector: 'ns-church-profile',
@@ -83,6 +95,26 @@ export class ChurchProfileComponent implements OnInit {
 
   activeTab: 'publications' | 'events' = 'publications';
 
+  // Likes Firebase
+
+  onlineLikes = new Map<string, OnlineLikeState>();
+
+  likesLoading = new Set<string>();
+
+  likesErrors = new Set<string>();
+
+  // Commentaires Firebase
+
+  onlineComments = new Map<string, OnlineComment[]>();
+
+  commentsLoading = new Set<string>();
+
+  commentsErrors = new Set<string>();
+
+  openedComments = new Set<string>();
+
+  commentInputs = new Map<string, string>();
+
   constructor(
     private route: ActivatedRoute,
     private router: RouterExtensions,
@@ -93,10 +125,44 @@ export class ChurchProfileComponent implements OnInit {
     private messageService: MessageService,
     private eventService: EventService,
     private cdr: ChangeDetectorRef,
-    private publicationFeed: PublicationFeedService
+    private publicationFeed: PublicationFeedService,
+    private interactionService: InteractionFirestoreService
   ) {}
 
-  // Initialisation du profil
+  // ==========================================
+  // GESTION DE LA SESSION
+  // ==========================================
+
+  private isCurrentSession(uid: string): boolean {
+
+    return this.authService.getCurrentUser()?.uid === uid
+      && this.authService.isLoggedIn();
+  }
+
+  private clearInteractions() {
+
+    this.onlineLikes.clear();
+
+    this.likesErrors.clear();
+
+    this.onlineComments.clear();
+
+    this.commentsErrors.clear();
+
+    this.openedComments.clear();
+
+    this.commentInputs.clear();
+  }
+
+  get interactionsLoading(): boolean {
+
+    return this.likesLoading.size > 0
+      || this.commentsLoading.size > 0;
+  }
+
+  // ==========================================
+  // INITIALISATION DU PROFIL
+  // ==========================================
 
   async ngOnInit() {
 
@@ -111,6 +177,7 @@ export class ChurchProfileComponent implements OnInit {
     try {
 
       if (!user || !this.authService.isLoggedIn() || !id) {
+
         return;
       }
 
@@ -119,9 +186,8 @@ export class ChurchProfileComponent implements OnInit {
         const church =
           await this.firestoreService.getChurchById(id);
 
-        if (
-          this.authService.getCurrentUser()?.uid !== user.uid
-        ) {
+        if (!this.isCurrentSession(user.uid)) {
+
           return;
         }
 
@@ -132,6 +198,11 @@ export class ChurchProfileComponent implements OnInit {
         if (church) {
 
           await this.loadFollowStatus();
+
+          if (!this.isCurrentSession(user.uid)) {
+
+            return;
+          }
 
           await this.loadOnlinePublications();
 
@@ -161,17 +232,37 @@ export class ChurchProfileComponent implements OnInit {
 
     } finally {
 
+      if (user && !this.isCurrentSession(user.uid)) {
+
+        this.church = undefined;
+
+        this.onlineChurch = undefined;
+
+        this.localChurch = undefined;
+
+        this.onlinePublications = [];
+
+        this.clearInteractions();
+      }
+
       this.loading = false;
 
       this.cdr.markForCheck();
     }
   }
 
-  // Charger l'état de l'abonnement
+  // ==========================================
+  // ETAT DE L'ABONNEMENT
+  // ==========================================
 
   async loadFollowStatus() {
 
-    if (!this.onlineChurch) {
+    const church = this.onlineChurch;
+
+    const uid = this.authService.getCurrentUser()?.uid;
+
+    if (!church || !uid || !this.isCurrentSession(uid)) {
+
       return;
     }
 
@@ -181,17 +272,31 @@ export class ChurchProfileComponent implements OnInit {
 
       if (this.isOwner) {
 
-        this.onlineFollowersCount =
+        const count =
           await this.firestoreService.getFollowersCount(
-            this.onlineChurch.id
+            church.id
           );
+
+        if (!this.isCurrentSession(uid)) {
+
+          return;
+        }
+
+        this.onlineFollowersCount = count;
 
       } else {
 
-        this.followingOnline =
+        const following =
           await this.firestoreService.isFollowing(
-            this.onlineChurch.id
+            church.id
           );
+
+        if (!this.isCurrentSession(uid)) {
+
+          return;
+        }
+
+        this.followingOnline = following;
       }
 
       this.followReady = true;
@@ -254,8 +359,10 @@ export class ChurchProfileComponent implements OnInit {
       !church ||
       !uid ||
       !this.authService.isLoggedIn() ||
-      this.publicationsLoading
+      this.publicationsLoading ||
+      this.interactionsLoading
     ) {
+
       return;
     }
 
@@ -267,6 +374,8 @@ export class ChurchProfileComponent implements OnInit {
 
     this.onlinePublications = [];
 
+    this.clearInteractions();
+
     this.cdr.markForCheck();
 
     try {
@@ -274,16 +383,37 @@ export class ChurchProfileComponent implements OnInit {
       const publications =
         await this.publicationFeed.forChurch(church);
 
-      if (
-        this.authService.getCurrentUser()?.uid !== uid ||
-        !this.authService.isLoggedIn()
-      ) {
+      if (!this.isCurrentSession(uid)) {
+
         return;
       }
 
       this.onlinePublications = publications.sort(
         (a, b) => b.sortTime - a.sortTime
       );
+
+      // Charger les likes et les commentaires
+
+      await Promise.all(
+
+        this.onlinePublications.map(async message => {
+
+          await Promise.all([
+
+            this.loadOnlineLikes(message),
+
+            this.loadOnlineComments(message)
+
+          ]);
+
+        })
+
+      );
+
+      if (!this.isCurrentSession(uid)) {
+
+        return;
+      }
 
       this.publicationsReady = true;
 
@@ -304,6 +434,15 @@ export class ChurchProfileComponent implements OnInit {
 
     } finally {
 
+      if (!this.isCurrentSession(uid)) {
+
+        this.onlinePublications = [];
+
+        this.publicationsReady = false;
+
+        this.clearInteractions();
+      }
+
       this.publicationsLoading = false;
 
       this.cdr.markForCheck();
@@ -315,6 +454,7 @@ export class ChurchProfileComponent implements OnInit {
   get publications(): Message[] {
 
     if (!this.localChurch) {
+
       return [];
     }
 
@@ -337,13 +477,23 @@ export class ChurchProfileComponent implements OnInit {
     return this.publications.length;
   }
 
+  // Vérifier la source de la publication
+
+  isOnlineMessage(
+    message: FeedMessage
+  ): message is OnlinePublication {
+
+    return 'church' in message;
+  }
+
   // ==========================================
-  // ÉVÉNEMENTS
+  // EVENEMENTS
   // ==========================================
 
   get events(): ChurchEvent[] {
 
     if (!this.localChurch) {
+
       return [];
     }
 
@@ -389,23 +539,25 @@ export class ChurchProfileComponent implements OnInit {
   participate(event: ChurchEvent) {
 
     if (!this.canParticipate) {
+
       return;
     }
 
     this.eventService.toggleParticipation(event);
+
+    this.cdr.markForCheck();
   }
 
   // ==========================================
   // ABONNEMENTS
   // ==========================================
 
-  // Vérifier l'abonnement
-
   get isFollowing(): boolean {
 
     const user = this.authService.getCurrentUser();
 
     if (!user) {
+
       return false;
     }
 
@@ -425,13 +577,14 @@ export class ChurchProfileComponent implements OnInit {
     );
   }
 
-  // Vérifier le propriétaire de l'église
+  // Vérifier le propriétaire
 
   get isOwner(): boolean {
 
     const user = this.authService.getCurrentUser();
 
     if (!user) {
+
       return false;
     }
 
@@ -456,6 +609,7 @@ export class ChurchProfileComponent implements OnInit {
       this.isOwner ||
       this.followLoading
     ) {
+
       return;
     }
 
@@ -491,6 +645,11 @@ export class ChurchProfileComponent implements OnInit {
             churchId
           );
 
+          if (!this.isCurrentSession(user.uid)) {
+
+            return;
+          }
+
           this.followingOnline = false;
 
         } else {
@@ -498,6 +657,11 @@ export class ChurchProfileComponent implements OnInit {
           await this.firestoreService.followChurch(
             churchId
           );
+
+          if (!this.isCurrentSession(user.uid)) {
+
+            return;
+          }
 
           this.followingOnline = true;
         }
@@ -509,13 +673,21 @@ export class ChurchProfileComponent implements OnInit {
           error
         );
 
-        await this.loadFollowStatus();
+        if (this.isCurrentSession(user.uid)) {
 
-        await alert({
-          title: 'Abonnement',
-          message: 'Impossible de modifier votre abonnement. Vérifiez votre connexion.',
-          okButtonText: 'OK'
-        });
+          await this.loadFollowStatus();
+
+          await alert({
+
+            title: 'Abonnement',
+
+            message:
+              'Impossible de modifier votre abonnement. Vérifiez votre connexion.',
+
+            okButtonText: 'OK'
+
+          });
+        }
 
       } finally {
 
@@ -527,9 +699,10 @@ export class ChurchProfileComponent implements OnInit {
       return;
     }
 
-    // Abonnements des anciennes églises locales
+    // Abonnements locaux
 
     if (!this.localChurch) {
+
       return;
     }
 
@@ -552,53 +725,766 @@ export class ChurchProfileComponent implements OnInit {
   }
 
   // ==========================================
-  // LIKES ET COMMENTAIRES LOCAUX
+  // LIKES FIREBASE
   // ==========================================
 
-  // Aimer une publication
+  private async fetchOnlineLikes(
+    message: OnlinePublication
+  ) {
 
-  toggleLike(message: Message) {
+    const uid = this.authService.getCurrentUser()?.uid;
 
-    if (this.online) {
+    if (!uid || !this.isCurrentSession(uid)) {
+
       return;
     }
 
-    this.messageService.toggleLike(message);
+    const [likes, liked] = await Promise.all([
+
+      this.interactionService.getLikesCount(
+        message.churchId,
+        message.id
+      ),
+
+      this.interactionService.isLiked(
+        message.churchId,
+        message.id
+      )
+
+    ]);
+
+    if (!this.isCurrentSession(uid)) {
+
+      return;
+    }
+
+    this.onlineLikes.set(message.key, {
+
+      likes: likes,
+
+      liked: liked
+
+    });
+
+    this.likesErrors.delete(message.key);
+
+    console.log(
+      'DAILY FAITH : Likes profil Firebase =',
+      likes
+    );
+
+    this.cdr.markForCheck();
+  }
+
+  // Charger les likes
+
+  async loadOnlineLikes(
+    message: OnlinePublication
+  ) {
+
+    const key = message.key;
+
+    if (this.likesLoading.has(key)) {
+
+      return;
+    }
+
+    this.likesLoading.add(key);
+
+    this.likesErrors.delete(key);
+
+    this.cdr.markForCheck();
+
+    try {
+
+      await this.fetchOnlineLikes(message);
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur chargement likes profil',
+        error
+      );
+
+      this.onlineLikes.delete(key);
+
+      this.likesErrors.add(key);
+
+    } finally {
+
+      this.likesLoading.delete(key);
+
+      this.cdr.markForCheck();
+    }
+  }
+
+  // Vérifier le chargement
+
+  isLikeLoading(message: FeedMessage): boolean {
+
+    return this.isOnlineMessage(message)
+      && this.likesLoading.has(message.key);
+  }
+
+  // Vérifier les erreurs
+
+  hasLikeError(message: FeedMessage): boolean {
+
+    return this.isOnlineMessage(message)
+      && this.likesErrors.has(message.key);
+  }
+
+  // Vérifier si la publication est aimée
+
+  isLiked(message: FeedMessage): boolean {
+
+    if (this.isOnlineMessage(message)) {
+
+      return this.onlineLikes.get(message.key)?.liked
+        ?? false;
+    }
+
+    return this.messageService
+      .isLikedByCurrentUser(message);
+  }
+
+  // Nombre de likes
+
+  getLikes(message: FeedMessage): number | string {
+
+    if (this.isOnlineMessage(message)) {
+
+      return this.onlineLikes.get(message.key)?.likes
+        ?? '—';
+    }
+
+    return message.likes;
+  }
+
+  // Autoriser le bouton J'aime
+
+  canLike(message: FeedMessage): boolean {
+
+    if (!this.authService.isLoggedIn()) {
+
+      return false;
+    }
+
+    if (!this.isOnlineMessage(message)) {
+
+      return true;
+    }
+
+    return !this.loading
+      && !this.publicationsLoading
+      && !this.likesLoading.has(message.key);
+  }
+
+  // Ajouter ou retirer un like
+
+  async toggleLike(message: FeedMessage) {
+
+    if (!this.canLike(message)) {
+
+      return;
+    }
+
+    // Likes locaux
+
+    if (!this.isOnlineMessage(message)) {
+
+      this.messageService.toggleLike(message);
+
+      this.cdr.markForCheck();
+
+      return;
+    }
+
+    // Likes Firebase
+
+    const key = message.key;
+
+    const uid = this.authService.getCurrentUser()?.uid;
+
+    if (!uid) {
+
+      return;
+    }
+
+    this.likesLoading.add(key);
+
+    this.cdr.markForCheck();
+
+    try {
+
+      if (
+        this.likesErrors.has(key) ||
+        !this.onlineLikes.has(key)
+      ) {
+
+        await this.fetchOnlineLikes(message);
+
+        return;
+      }
+
+      await this.interactionService.toggleLike(
+        message.churchId,
+        message.id
+      );
+
+      if (!this.isCurrentSession(uid)) {
+
+        return;
+      }
+
+      await this.fetchOnlineLikes(message);
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur modification like profil',
+        error
+      );
+
+      this.onlineLikes.delete(key);
+
+      this.likesErrors.add(key);
+
+      if (this.isCurrentSession(uid)) {
+
+        await alert({
+
+          title: 'Publication',
+
+          message:
+            'Impossible de confirmer votre like. Veuillez réessayer.',
+
+          okButtonText: 'OK'
+
+        });
+      }
+
+    } finally {
+
+      this.likesLoading.delete(key);
+
+      this.cdr.markForCheck();
+    }
+  }
+
+  // ==========================================
+  // COMMENTAIRES FIREBASE
+  // ==========================================
+
+  private async fetchOnlineComments(
+    message: OnlinePublication
+  ) {
+
+    const uid = this.authService.getCurrentUser()?.uid;
+
+    if (!uid || !this.isCurrentSession(uid)) {
+
+      return;
+    }
+
+    const comments =
+      await this.interactionService.getComments(
+        message.churchId,
+        message.id
+      );
+
+    if (!this.isCurrentSession(uid)) {
+
+      return;
+    }
+
+    this.onlineComments.set(
+      message.key,
+      comments
+    );
+
+    this.commentsErrors.delete(message.key);
+
+    console.log(
+      'DAILY FAITH : Commentaires profil Firebase =',
+      comments.length
+    );
+
+    this.cdr.markForCheck();
+  }
+
+  // Charger les commentaires
+
+  async loadOnlineComments(
+    message: OnlinePublication
+  ) {
+
+    const key = message.key;
+
+    if (this.commentsLoading.has(key)) {
+
+      return;
+    }
+
+    this.commentsLoading.add(key);
+
+    this.commentsErrors.delete(key);
+
+    this.cdr.markForCheck();
+
+    try {
+
+      await this.fetchOnlineComments(message);
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur chargement commentaires profil',
+        error
+      );
+
+      this.commentsErrors.add(key);
+
+    } finally {
+
+      this.commentsLoading.delete(key);
+
+      this.cdr.markForCheck();
+    }
+  }
+
+  // Actualiser les commentaires
+
+  async refreshComments(message: FeedMessage) {
+
+    if (
+      !this.isOnlineMessage(message) ||
+      this.publicationsLoading ||
+      this.isCommentLoading(message) ||
+      !this.authService.isLoggedIn()
+    ) {
+
+      return;
+    }
+
+    await this.loadOnlineComments(message);
+  }
+
+  // Récupérer les commentaires Firebase
+
+  getOnlineComments(
+    message: FeedMessage
+  ): OnlineComment[] {
+
+    if (!this.isOnlineMessage(message)) {
+
+      return [];
+    }
+
+    return this.onlineComments.get(message.key)
+      ?? [];
+  }
+
+  // Récupérer les commentaires locaux
+
+  getComments(message: FeedMessage) {
+
+    return this.isOnlineMessage(message)
+      ? []
+      : message.comments;
+  }
+
+  // Nombre de commentaires
+
+  getCommentsCount(
+    message: FeedMessage
+  ): number | string {
+
+    if (this.isOnlineMessage(message)) {
+
+      if (this.commentsErrors.has(message.key)) {
+
+        return '—';
+      }
+
+      return this.onlineComments.get(message.key)?.length
+        ?? '—';
+    }
+
+    return message.comments.length;
+  }
+
+  // Vérifier le chargement
+
+  isCommentLoading(message: FeedMessage): boolean {
+
+    return this.isOnlineMessage(message)
+      && this.commentsLoading.has(message.key);
+  }
+
+  // Vérifier les erreurs
+
+  hasCommentError(message: FeedMessage): boolean {
+
+    return this.isOnlineMessage(message)
+      && this.commentsErrors.has(message.key);
+  }
+
+  // Vérifier si les commentaires sont ouverts
+
+  showComments(message: FeedMessage): boolean {
+
+    if (this.isOnlineMessage(message)) {
+
+      return this.openedComments.has(message.key);
+    }
+
+    return message.showComments;
   }
 
   // Afficher ou masquer les commentaires
 
-  toggleComments(message: Message) {
+  async toggleComments(message: FeedMessage) {
 
-    message.showComments = !message.showComments;
+    if (!this.authService.isLoggedIn()) {
+
+      return;
+    }
+
+    // Commentaires locaux
+
+    if (!this.isOnlineMessage(message)) {
+
+      message.showComments = !message.showComments;
+
+      this.cdr.markForCheck();
+
+      return;
+    }
+
+    // Commentaires Firebase
+
+    if (
+      this.publicationsLoading ||
+      this.isCommentLoading(message)
+    ) {
+
+      return;
+    }
+
+    const key = message.key;
+
+    if (this.openedComments.has(key)) {
+
+      this.openedComments.delete(key);
+
+    } else {
+
+      this.openedComments.add(key);
+
+      this.cdr.markForCheck();
+
+      await this.loadOnlineComments(message);
+    }
+
+    this.cdr.markForCheck();
   }
 
   // Récupérer le texte du commentaire
 
-  onCommentChange(args: any, message: Message) {
+  getNewComment(message: FeedMessage): string {
 
-    message.newComment = args.object.text || '';
+    if (this.isOnlineMessage(message)) {
+
+      return this.commentInputs.get(message.key)
+        ?? '';
+    }
+
+    return message.newComment;
+  }
+
+  // Saisir un commentaire
+
+  onCommentChange(
+    args: any,
+    message: FeedMessage
+  ) {
+
+    const content = args.object.text || '';
+
+    if (this.isOnlineMessage(message)) {
+
+      this.commentInputs.set(
+        message.key,
+        content
+      );
+
+    } else {
+
+      message.newComment = content;
+    }
+
+    this.cdr.markForCheck();
+  }
+
+  // Autoriser la publication
+
+  canComment(message: FeedMessage): boolean {
+
+    const content = this.getNewComment(message).trim();
+
+    return this.authService.isLoggedIn()
+      && !this.loading
+      && !this.publicationsLoading
+      && !this.isCommentLoading(message)
+      && !this.hasCommentError(message)
+      && content.length > 0
+      && content.length <= 2000;
   }
 
   // Ajouter un commentaire
 
-  addComment(message: Message) {
+  async addComment(message: FeedMessage) {
 
-    if (this.online) {
+    const content = this.getNewComment(message).trim();
+
+    if (!content) {
+
+      await alert(
+        'Veuillez écrire un commentaire.'
+      );
+
       return;
     }
 
-    if (!message.newComment.trim()) {
+    if (content.length > 2000) {
 
-      alert('Veuillez écrire un commentaire.');
+      await alert(
+        'Le commentaire ne doit pas dépasser 2000 caractères.'
+      );
 
       return;
     }
 
-    this.messageService.addComment(
-      message,
-      message.newComment
-    );
+    if (!this.canComment(message)) {
+
+      return;
+    }
+
+    // Commentaires locaux
+
+    if (!this.isOnlineMessage(message)) {
+
+      this.messageService.addComment(
+        message,
+        content
+      );
+
+      this.cdr.markForCheck();
+
+      return;
+    }
+
+    // Commentaires Firebase
+
+    const key = message.key;
+
+    const uid = this.authService.getCurrentUser()?.uid;
+
+    if (!uid) {
+
+      return;
+    }
+
+    this.commentsLoading.add(key);
+
+    this.commentsErrors.delete(key);
+
+    this.cdr.markForCheck();
+
+    let saved = false;
+
+    try {
+
+      await this.interactionService.addComment(
+        message.churchId,
+        message.id,
+        content
+      );
+
+      saved = true;
+
+      if (!this.isCurrentSession(uid)) {
+
+        return;
+      }
+
+      if (
+        this.getNewComment(message).trim() === content
+      ) {
+
+        this.commentInputs.delete(key);
+      }
+
+      await this.fetchOnlineComments(message);
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur publication commentaire profil',
+        error
+      );
+
+      this.commentsErrors.add(key);
+
+      if (this.isCurrentSession(uid)) {
+
+        await alert({
+
+          title: 'Commentaire',
+
+          message: saved
+            ? 'Commentaire enregistré. Actualisez pour le voir.'
+            : 'Impossible de confirmer le commentaire. Actualisez avant de réessayer.',
+
+          okButtonText: 'OK'
+
+        });
+      }
+
+    } finally {
+
+      this.commentsLoading.delete(key);
+
+      this.cdr.markForCheck();
+    }
+  }
+
+  // ==========================================
+  // MODERATION DES COMMENTAIRES
+  // ==========================================
+
+  canDeleteComment(
+    message: FeedMessage,
+    comment: OnlineComment
+  ): boolean {
+
+    const user = this.authService.getCurrentUser();
+
+    if (
+      !user ||
+      !this.authService.isLoggedIn() ||
+      !this.isOnlineMessage(message)
+    ) {
+
+      return false;
+    }
+
+    // L'auteur peut supprimer son commentaire.
+    // Le pasteur propriétaire peut modérer son église.
+
+    return comment.authorUid === user.uid
+      || (
+        this.authService.isAdmin()
+        && message.church.ownerUid === user.uid
+      );
+  }
+
+  // Supprimer un commentaire Firebase
+
+  async deleteOnlineComment(
+    message: FeedMessage,
+    comment: OnlineComment
+  ) {
+
+    if (
+      !this.isOnlineMessage(message) ||
+      !this.canDeleteComment(message, comment) ||
+      this.isCommentLoading(message) ||
+      this.publicationsLoading
+    ) {
+
+      return;
+    }
+
+    const key = message.key;
+
+    const uid = this.authService.getCurrentUser()?.uid;
+
+    if (!uid) {
+
+      return;
+    }
+
+    this.commentsLoading.add(key);
+
+    this.cdr.markForCheck();
+
+    try {
+
+      const confirmed = await confirm({
+
+        title: 'Supprimer le commentaire',
+
+        message:
+          'Voulez-vous vraiment supprimer ce commentaire ?',
+
+        okButtonText: 'Supprimer',
+
+        cancelButtonText: 'Annuler'
+
+      });
+
+      if (
+        !confirmed ||
+        !this.isCurrentSession(uid)
+      ) {
+
+        return;
+      }
+
+      await this.interactionService.deleteComment(
+        message.churchId,
+        message.id,
+        comment.id
+      );
+
+      if (!this.isCurrentSession(uid)) {
+
+        return;
+      }
+
+      await this.fetchOnlineComments(message);
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur suppression commentaire profil',
+        error
+      );
+
+      this.commentsErrors.add(key);
+
+      if (this.isCurrentSession(uid)) {
+
+        await alert({
+
+          title: 'Commentaire',
+
+          message:
+            'Impossible de confirmer la suppression. Veuillez actualiser.',
+
+          okButtonText: 'OK'
+
+        });
+      }
+
+    } finally {
+
+      this.commentsLoading.delete(key);
+
+      this.cdr.markForCheck();
+    }
   }
 
   // ==========================================
@@ -610,6 +1496,8 @@ export class ChurchProfileComponent implements OnInit {
   showPublications() {
 
     this.activeTab = 'publications';
+
+    this.cdr.markForCheck();
   }
 
   // Afficher les événements
@@ -617,13 +1505,20 @@ export class ChurchProfileComponent implements OnInit {
   showEvents() {
 
     this.activeTab = 'events';
+
+    this.cdr.markForCheck();
   }
 
   // Retour à la page précédente
 
   goBack() {
 
-    if (this.followLoading) {
+    if (
+      this.followLoading ||
+      this.publicationsLoading ||
+      this.interactionsLoading
+    ) {
+
       return;
     }
 
@@ -639,7 +1534,9 @@ export class ChurchProfileComponent implements OnInit {
       : '/search';
 
     this.router.navigate([destination], {
+
       clearHistory: true
+
     });
   }
 }
