@@ -14,12 +14,14 @@
 
           <Label
             text="DAILY FAITH"
-            class="app-title">
+            class="app-title"
+            textWrap="true">
           </Label>
 
           <Label
             text="Grow in Faith. Live in Grace."
-            class="subtitle">
+            class="subtitle"
+            textWrap="true">
           </Label>
 
         </StackLayout>
@@ -54,7 +56,7 @@
         textWrap="true">
       </Label>
 
-      <!-- Référence biblique -->
+      <!-- Méditation biblique -->
 
       <StackLayout class="verse-card">
 
@@ -93,9 +95,50 @@
 
       </StackLayout>
 
+      <!-- Actualisation Firebase -->
+
+      <Button
+        [text]="loading ? 'Chargement...' : 'Actualiser'"
+        class="secondary-button"
+        [isEnabled]="!loading"
+        (tap)="refresh()">
+      </Button>
+
+      @if (loading) {
+
+        <ActivityIndicator
+          [busy]="loading"
+          color="#183B32"
+          height="35">
+        </ActivityIndicator>
+
+        <Label
+          text="Chargement de vos communautés..."
+          color="#183B32"
+          fontSize="13"
+          textAlignment="center"
+          textWrap="true">
+        </Label>
+
+      }
+
+      @if (errorMessage) {
+
+        <Label
+          [text]="errorMessage"
+          color="#B91C1C"
+          fontSize="13"
+          marginBottom="15"
+          textWrap="true">
+        </Label>
+
+      }
+
       <!-- Mes communautés -->
 
-      <GridLayout columns="*, auto" class="section-header">
+      <GridLayout
+        columns="*, auto"
+        class="section-header">
 
         <Label
           col="0"
@@ -121,7 +164,7 @@
           orientation="horizontal"
           class="communities">
 
-          <!-- Découvrir des églises -->
+          <!-- Découvrir -->
 
           <StackLayout
             class="community-item"
@@ -147,6 +190,8 @@
 
           </StackLayout>
 
+          <!-- Communautés locales et Firebase -->
+
           @for (church of churches; track church.id) {
 
             <StackLayout
@@ -157,7 +202,7 @@
                 class="community-circle"
                 horizontalAlignment="center">
 
-                @if (church.logo) {
+                @if (getLogoPath(church)) {
 
                   <Image
                     [src]="getLogoPath(church)"
@@ -192,20 +237,33 @@
 
       </ScrollView>
 
-      <!-- Fil d'actualité -->
+      <!-- Accès aux messages bibliques -->
 
-      <Label
-        text="Fil d'actualité"
-        class="section-title">
-      </Label>
+<Button
+  text="Voir toutes les publications"
+  backgroundColor="#183B32"
+  color="#FFFFFF"
+  borderRadius="12"
+  fontSize="14"
+  height="48"
+  marginTop="15"
+  marginBottom="20"
+  (tap)="goToMessages()">
+</Button>
 
-      <Label
-        text="Les dernières publications de vos églises."
-        class="feed-description"
-        textWrap="true">
-      </Label>
+<!-- Fil d'actualité -->
 
-      @for (message of messages; track message.id) {
+<Label
+  text="Fil d'actualité"
+  class="section-title">
+</Label>
+
+<Label
+  text="Les dernières publications de vos églises."
+  class="feed-description"
+  textWrap="true">
+</Label>
+      @for (message of messages; track getMessageKey(message)) {
 
         <StackLayout class="publication-card">
 
@@ -216,7 +274,9 @@
             class="publication-header"
             (tap)="viewMessageChurch(message)">
 
-            <GridLayout col="0" class="publication-logo">
+            <GridLayout
+              col="0"
+              class="publication-logo">
 
               @if (getMessageLogo(message)) {
 
@@ -250,7 +310,7 @@
               </Label>
 
               <Label
-                [text]="message.author"
+                [text]="getAuthor(message)"
                 class="publication-author">
               </Label>
 
@@ -259,17 +319,31 @@
                 class="publication-date">
               </Label>
 
+              @if (isOnlineMessage(message)) {
+
+                <Label
+                  text="● Publication en ligne"
+                  color="#15803D"
+                  fontSize="11"
+                  marginTop="4"
+                  textWrap="true">
+                </Label>
+
+              }
+
             </StackLayout>
 
           </GridLayout>
 
-          <!-- Message biblique -->
+          <!-- Titre du message -->
 
           <Label
             [text]="message.title"
             class="publication-title"
             textWrap="true">
           </Label>
+
+          <!-- Verset biblique -->
 
           <GridLayout
             columns="30, *"
@@ -291,6 +365,8 @@
 
           </GridLayout>
 
+          <!-- Contenu -->
+
           <Label
             [text]="message.content"
             class="publication-content"
@@ -299,83 +375,119 @@
 
           <!-- Likes et commentaires -->
 
-          <GridLayout
-            columns="*, *"
-            class="publication-actions">
+          @if (isOnlineMessage(message)) {
 
-            <Button
-              col="0"
-              [text]="(message.liked ? '♥ ' : '♡ ') + message.likes + ' J’aime'"
-              [class]="message.liked ? 'liked-button' : 'like-button'"
-              (tap)="toggleLike(message)">
-            </Button>
+            <GridLayout
+              columns="*, *"
+              class="publication-actions">
 
-            <Button
-              col="1"
-              [text]="message.comments.length + ' Commentaire(s)'"
-              class="comment-button"
-              (tap)="toggleComments(message)">
-            </Button>
+              <Button
+                col="0"
+                text="♡ J’aime"
+                class="like-button"
+                [isEnabled]="false">
+              </Button>
 
-          </GridLayout>
+              <Button
+                col="1"
+                text="Commenter"
+                class="comment-button"
+                [isEnabled]="false">
+              </Button>
 
-          <!-- Liste des commentaires -->
+            </GridLayout>
 
-          @if (message.showComments) {
+            <Label
+              text="Les interactions en ligne seront bientôt disponibles."
+              color="#A88A50"
+              fontSize="11"
+              textAlignment="center"
+              textWrap="true">
+            </Label>
 
-            <StackLayout class="comments-section">
+          } @else {
 
-              <Label
-                text="Commentaires"
-                class="comments-title">
-              </Label>
+            <!-- Interactions locales -->
 
-              @for (comment of message.comments; track $index) {
+            <GridLayout
+              columns="*, *"
+              class="publication-actions">
 
-                <StackLayout class="comment-card">
+              <Button
+                col="0"
+                [text]="(isLiked(message) ? '♥ ' : '♡ ') + getLikes(message) + ' J’aime'"
+                [class]="isLiked(message) ? 'liked-button' : 'like-button'"
+                (tap)="toggleLike(message)">
+              </Button>
+
+              <Button
+                col="1"
+                [text]="getCommentsCount(message) + ' Commentaire(s)'"
+                class="comment-button"
+                (tap)="toggleComments(message)">
+              </Button>
+
+            </GridLayout>
+
+            <!-- Liste des commentaires -->
+
+            @if (showComments(message)) {
+
+              <StackLayout class="comments-section">
+
+                <Label
+                  text="Commentaires"
+                  class="comments-title">
+                </Label>
+
+                @for (comment of getComments(message); track $index) {
+
+                  <StackLayout class="comment-card">
+
+                    <Label
+                      [text]="comment.author"
+                      class="comment-author">
+                    </Label>
+
+                    <Label
+                      [text]="comment.content"
+                      class="comment-content"
+                      textWrap="true">
+                    </Label>
+
+                    <Label
+                      [text]="comment.date"
+                      class="comment-date">
+                    </Label>
+
+                  </StackLayout>
+
+                } @empty {
 
                   <Label
-                    [text]="comment.author"
-                    class="comment-author">
-                  </Label>
-
-                  <Label
-                    [text]="comment.content"
-                    class="comment-content"
+                    text="Soyez le premier à commenter."
+                    class="empty-text"
                     textWrap="true">
                   </Label>
 
-                  <Label
-                    [text]="comment.date"
-                    class="comment-date">
-                  </Label>
+                }
 
-                </StackLayout>
+                <TextView
+                  hint="Écrivez un commentaire..."
+                  [text]="getNewComment(message)"
+                  (textChange)="onCommentChange($event, message)"
+                  class="comment-input">
+                </TextView>
 
-              } @empty {
+                <Button
+                  text="Publier le commentaire"
+                  class="publish-button"
+                  (tap)="addComment(message)">
+                </Button>
 
-                <Label
-                  text="Soyez le premier à commenter."
-                  class="empty-text"
-                  textWrap="true">
-                </Label>
+              </StackLayout>
 
-              }
-
-              <TextView
-                hint="Écrivez un commentaire..."
-                [text]="message.newComment"
-                (textChange)="onCommentChange($event, message)"
-                class="comment-input">
-              </TextView>
-
-              <Button
-                text="Publier le commentaire"
-                class="publish-button"
-                (tap)="addComment(message)">
-              </Button>
-
-            </StackLayout>
+            }
 
           }
 
@@ -383,51 +495,53 @@
 
       } @empty {
 
-        <!-- Fil d'actualité vide -->
+        @if (!loading && !errorMessage) {
 
-        <StackLayout class="empty-card">
-
-          <Label
-            text="&#xf51d;"
-            class="empty-icon">
-          </Label>
-
-          @if (churches.length === 0) {
+          <StackLayout class="empty-card">
 
             <Label
-              text="Découvrez votre communauté"
-              class="empty-title"
-              textWrap="true">
+              text="&#xf51d;"
+              class="empty-icon">
             </Label>
 
-            <Label
-              text="Abonnez-vous à vos églises pour recevoir leurs publications bibliques."
-              class="empty-text"
-              textWrap="true">
-            </Label>
+            @if (churches.length === 0) {
 
-            <Button
-              text="Découvrir les églises"
-              class="publish-button"
-              (tap)="discoverChurches()">
-            </Button>
+              <Label
+                text="Découvrez votre communauté"
+                class="empty-title"
+                textWrap="true">
+              </Label>
 
-          } @else {
+              <Label
+                text="Abonnez-vous à vos églises pour recevoir leurs publications bibliques."
+                class="empty-text"
+                textWrap="true">
+              </Label>
 
-            <Label
-              text="Aucune publication"
-              class="empty-title">
-            </Label>
+              <Button
+                text="Découvrir les églises"
+                class="publish-button"
+                (tap)="discoverChurches()">
+              </Button>
 
-            <Label
-              text="Les églises que vous suivez n'ont pas encore publié de message."
-              class="empty-text"
-              textWrap="true">
-            </Label>
+            } @else {
 
-          }
+              <Label
+                text="Aucune publication"
+                class="empty-title">
+              </Label>
 
-        </StackLayout>
+              <Label
+                text="Les églises que vous suivez n'ont pas encore publié de message."
+                class="empty-text"
+                textWrap="true">
+              </Label>
+
+            }
+
+          </StackLayout>
+
+        }
 
       }
 
@@ -438,6 +552,8 @@
         class="secondary-button"
         (tap)="goToEvents()">
       </Button>
+
+      <!-- Déconnexion -->
 
       <Button
         text="Se déconnecter"

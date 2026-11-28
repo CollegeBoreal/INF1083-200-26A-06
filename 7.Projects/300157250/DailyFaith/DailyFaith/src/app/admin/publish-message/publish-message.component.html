@@ -32,6 +32,37 @@
         class="field-label">
       </Label>
 
+      @if (loading) {
+
+        <ActivityIndicator
+          [busy]="loading"
+          color="#183B32">
+        </ActivityIndicator>
+
+        <Label
+          text="Chargement de vos églises..."
+          class="empty-text">
+        </Label>
+
+      }
+
+      @if (errorMessage) {
+
+        <Label
+          [text]="errorMessage"
+          color="#B91C1C"
+          textWrap="true">
+        </Label>
+
+        <Button
+          text="Réessayer"
+          class="publish-button"
+          [isEnabled]="!loading && !publishing"
+          (tap)="loadChurches()">
+        </Button>
+
+      }
+
       @for (church of churches; track church.id) {
 
         <GridLayout
@@ -79,6 +110,13 @@
               class="church-username">
             </Label>
 
+            <Label
+              [text]="church.online ? '● Communauté en ligne' : 'Communauté locale'"
+              [color]="church.online ? '#15803D' : '#A88A50'"
+              fontSize="12"
+              textWrap="true">
+            </Label>
+
           </StackLayout>
 
           <Label
@@ -92,21 +130,33 @@
 
       } @empty {
 
-        <Label
-          text="Vous devez créer une église avant de publier."
-          class="empty-text"
-          textWrap="true">
-        </Label>
+        @if (!loading && !errorMessage) {
 
-        <Button
-          text="+ Créer une église"
-          class="publish-button"
-          (tap)="createChurch()">
-        </Button>
+          <Label
+            text="Vous devez créer une église avant de publier."
+            class="empty-text"
+            textWrap="true">
+          </Label>
+
+          <Button
+            text="+ Créer une église"
+            class="publish-button"
+            (tap)="createChurch()">
+          </Button>
+
+        }
 
       }
 
-      @if (selectedChurch) {
+      @if (selectedChurch; as church) {
+
+        <Label
+          [text]="church.online ? 'Votre message sera enregistré dans Firebase.' : 'Votre message restera sur cet appareil.'"
+          [color]="church.online ? '#15803D' : '#A88A50'"
+          fontSize="13"
+          marginTop="12"
+          textWrap="true">
+        </Label>
 
         <Label
           text="Titre du message"
@@ -116,6 +166,8 @@
         <TextField
           hint="Exemple : Marcher dans la foi"
           [text]="title"
+          [editable]="!publishing"
+          maxLength="200"
           (textChange)="onTitleChange($event)"
           class="input">
         </TextField>
@@ -128,6 +180,8 @@
         <TextField
           hint="Exemple : Jean 3:16"
           [text]="verse"
+          [editable]="!publishing"
+          maxLength="300"
           (textChange)="onVerseChange($event)"
           class="input">
         </TextField>
@@ -140,13 +194,25 @@
         <TextView
           hint="Écrivez votre message..."
           [text]="content"
+          [editable]="!publishing"
+          maxLength="20000"
           (textChange)="onContentChange($event)"
           class="message-input">
         </TextView>
 
+        @if (publishing) {
+
+          <ActivityIndicator
+            [busy]="publishing"
+            color="#183B32">
+          </ActivityIndicator>
+
+        }
+
         <Button
-          text="Publier le message"
+          [text]="publishing ? 'Publication en cours...' : 'Publier le message'"
           class="publish-button"
+          [isEnabled]="!publishing && !loading"
           (tap)="publish()">
         </Button>
 
@@ -155,6 +221,7 @@
       <Button
         text="Annuler"
         class="cancel-button"
+        [isEnabled]="!publishing"
         (tap)="cancel()">
       </Button>
 

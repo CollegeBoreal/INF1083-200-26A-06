@@ -1,4 +1,3 @@
-
 import {
   Component,
   OnInit,
@@ -16,8 +15,16 @@ import {
 import { alert } from '@nativescript/core';
 
 import { ChurchService } from '../../services/church.service';
+
+import {
+  ChurchFirestoreService
+} from '../../services/church-firestore.service';
+
 import { AuthService } from '../../services/auth.service';
-import { ChurchImageService } from '../../services/church-image.service';
+
+import {
+  ChurchImageService
+} from '../../services/church-image.service';
 
 @Component({
   selector: 'ns-edit-church',
@@ -30,6 +37,12 @@ import { ChurchImageService } from '../../services/church-image.service';
 export class EditChurchComponent implements OnInit {
 
   churchId = 0;
+  firestoreId = '';
+
+  online = false;
+  loading = true;
+  saving = false;
+  errorMessage = '';
 
   name = '';
   username = '';
@@ -49,33 +62,89 @@ export class EditChurchComponent implements OnInit {
     private route: ActivatedRoute,
     private router: RouterExtensions,
     private churchService: ChurchService,
+    private firestoreService: ChurchFirestoreService,
     private authService: AuthService,
     private imageService: ChurchImageService,
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
 
-    this.churchId = Number(
-      this.route.snapshot.paramMap.get('id')
-    );
+    const id = this.route.snapshot.paramMap.get('id') || '';
 
     const user = this.authService.getCurrentUser();
 
-    const church = this.churchService.getChurchById(
-      this.churchId
-    );
+    this.online =
+      this.route.snapshot.queryParamMap.get('source') === 'firebase';
 
-    if (
-      !user ||
-      !this.authService.isAdmin() ||
-      !church ||
-      church.ownerId !== user.id
-    ) {
-      return;
+    try {
+
+      if (!user || !this.authService.isAdmin()) {
+        return;
+      }
+
+      if (this.online) {
+
+        this.firestoreId = id;
+
+        const church =
+          await this.firestoreService.getChurchById(id);
+
+        if (
+          !church ||
+          church.ownerUid !== user.uid ||
+          this.authService.getCurrentUser()?.uid !== user.uid
+        ) {
+          return;
+        }
+
+        this.loadFields(church);
+
+      } else {
+
+        this.churchId = Number(id);
+
+        const church =
+          this.churchService.getChurchById(this.churchId);
+
+        if (!church || church.ownerId !== user.id) {
+          return;
+        }
+
+        this.loadFields(church);
+      }
+
+      this.authorized = true;
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur chargement du profil',
+        error
+      );
+
+      this.errorMessage =
+        'Impossible de charger le profil de cette église.';
+
+    } finally {
+
+      this.loading = false;
+      this.cdr.markForCheck();
+
     }
+  }
 
-    this.authorized = true;
+  private loadFields(church: {
+    name: string;
+    username: string;
+    pastor: string;
+    country: string;
+    city: string;
+    address: string;
+    description: string;
+    logo: string;
+    cover: string;
+  }) {
 
     this.name = church.name;
     this.username = church.username;
@@ -89,29 +158,36 @@ export class EditChurchComponent implements OnInit {
     this.cover = church.cover || '';
   }
 
-  // Chemin du logo
   get logoPath(): string {
-    return this.imageService.getImagePath(this.logo);
+
+    return this.online
+      ? this.logo
+      : this.imageService.getImagePath(this.logo);
   }
 
-  // Chemin de la couverture
   get coverPath(): string {
-    return this.imageService.getImagePath(this.cover);
+
+    return this.online
+      ? this.cover
+      : this.imageService.getImagePath(this.cover);
   }
 
-  // Sélectionner un logo
   async selectLogo() {
     await this.selectPhoto('logo');
   }
 
-  // Sélectionner une couverture
   async selectCover() {
     await this.selectPhoto('cover');
   }
 
   private async selectPhoto(type: 'logo' | 'cover') {
 
-    if (!this.authorized || this.selectingImage) {
+    if (
+      !this.authorized ||
+      this.selectingImage ||
+      this.saving ||
+      this.online
+    ) {
       return;
     }
 
@@ -131,21 +207,27 @@ export class EditChurchComponent implements OnInit {
         } else {
           this.cover = image;
         }
+
       }
 
     } finally {
 
       this.selectingImage = false;
       this.cdr.markForCheck();
+
     }
   }
 
   removeLogo() {
-    this.logo = '';
+    if (!this.online && !this.saving) {
+      this.logo = '';
+    }
   }
 
   removeCover() {
-    this.cover = '';
+    if (!this.online && !this.saving) {
+      this.cover = '';
+    }
   }
 
   onNameChange(args: any) {
@@ -178,7 +260,7 @@ export class EditChurchComponent implements OnInit {
 
   async saveChanges() {
 
-    if (this.selectingImage) {
+    if (this.selectingImage || this.saving) {
       return;
     }
 
@@ -210,43 +292,90 @@ export class EditChurchComponent implements OnInit {
       return;
     }
 
-    const updated = this.churchService.updateChurch(
-      this.churchId,
-      user.id,
-      this.name,
-      this.username,
-      this.pastor,
-      this.country,
-      this.city,
-      this.address,
-      this.description,
-      this.logo,
-      this.cover
-    );
+    this.saving = true;
+    this.cdr.markForCheck();
 
-    if (!updated) {
+    try {
+
+      let updated = false;
+
+      if (this.online) {
+
+        updated = await this.firestoreService.updateChurch(
+          this.firestoreId,
+          {
+            name: this.name,
+            username: this.username,
+            pastor: this.pastor,
+            country: this.country,
+            city: this.city,
+            address: this.address,
+            description: this.description
+          }
+        );
+
+      } else {
+
+        updated = this.churchService.updateChurch(
+          this.churchId,
+          user.id,
+          this.name,
+          this.username,
+          this.pastor,
+          this.country,
+          this.city,
+          this.address,
+          this.description,
+          this.logo,
+          this.cover
+        );
+
+      }
+
+      if (!updated) {
+        throw new Error(
+          'Identifiant invalide, déjà utilisé ou accès non autorisé.'
+        );
+      }
+
+      await alert({
+        title: 'Profil mis à jour',
+        message: this.online
+          ? 'Les modifications ont été enregistrées dans Firebase.'
+          : 'Les modifications ont été enregistrées localement.',
+        okButtonText: 'Continuer'
+      });
+
+      await this.router.navigate(['/manage-churches'], {
+        clearHistory: true
+      });
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur modification église',
+        error
+      );
 
       await alert({
         title: 'Modification impossible',
-        message: 'Identifiant invalide, déjà utilisé ou accès non autorisé.',
+        message: error instanceof Error
+          ? error.message
+          : 'Vérifiez votre connexion Internet.',
         okButtonText: 'OK'
       });
 
-      return;
+    } finally {
+
+      this.saving = false;
+      this.cdr.markForCheck();
+
     }
-
-    await alert({
-      title: 'Profil mis à jour',
-      message: 'Les modifications ont été enregistrées avec succès.',
-      okButtonText: 'Continuer'
-    });
-
-    this.goBack();
   }
 
   goBack() {
 
-    if (this.selectingImage) {
+    if (this.selectingImage || this.saving) {
       return;
     }
 

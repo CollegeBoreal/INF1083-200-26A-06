@@ -1,4 +1,9 @@
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  NO_ERRORS_SCHEMA,
+  ChangeDetectorRef
+} from '@angular/core';
 
 import {
   NativeScriptCommonModule,
@@ -8,10 +13,39 @@ import {
 import { alert } from '@nativescript/core';
 
 import { MessageService } from '../../services/message.service';
-import { NotificationService } from '../../services/notification.service';
-import { Church, ChurchService } from '../../services/church.service';
+
+import {
+  MessageFirestoreService
+} from '../../services/message-firestore.service';
+
+import {
+  NotificationService
+} from '../../services/notification.service';
+
+import {
+  Church,
+  ChurchService
+} from '../../services/church.service';
+
+import {
+  FirestoreChurch,
+  ChurchFirestoreService
+} from '../../services/church-firestore.service';
+
 import { AuthService } from '../../services/auth.service';
-import { ChurchImageService } from '../../services/church-image.service';
+
+import {
+  ChurchImageService
+} from '../../services/church-image.service';
+
+interface ChurchOption {
+
+  id: number | string;
+  name: string;
+  username: string;
+  logo: string;
+  online: boolean;
+}
 
 @Component({
 
@@ -28,94 +62,225 @@ import { ChurchImageService } from '../../services/church-image.service';
   styleUrls: ['./publish-message.component.css']
 
 })
-
-export class PublishMessageComponent {
+export class PublishMessageComponent implements OnInit {
 
   title = '';
   verse = '';
   content = '';
 
-  selectedChurchId: number | null = null;
+  loading = false;
+  publishing = false;
+  errorMessage = '';
+
+  churches: ChurchOption[] = [];
+
+  selectedChurchId: number | string | null = null;
 
   constructor(
+
     private router: RouterExtensions,
+
     private messageService: MessageService,
+
+    private messageFirestoreService: MessageFirestoreService,
+
     private churchService: ChurchService,
+
+    private churchFirestoreService: ChurchFirestoreService,
+
     private authService: AuthService,
+
     private imageService: ChurchImageService,
-    private notificationService: NotificationService
-  ) {
 
-    if (this.churches.length === 1) {
+    private notificationService: NotificationService,
 
-      this.selectedChurchId = this.churches[0].id;
+    private cdr: ChangeDetectorRef
 
-    }
+  ) {}
 
+  async ngOnInit() {
+
+    await this.loadChurches();
   }
 
-  get churches(): Church[] {
+  // Charger les églises du pasteur
+
+  async loadChurches() {
+
+    if (this.loading || this.publishing) {
+      return;
+    }
 
     const user = this.authService.getCurrentUser();
 
     if (!user || !this.authService.isAdmin()) {
-      return [];
+
+      this.churches = [];
+
+      return;
     }
 
-    return this.churchService.getPastorChurches(user.id);
+    this.loading = true;
+    this.errorMessage = '';
 
+    const localChurches: ChurchOption[] =
+      this.churchService
+        .getPastorChurches(user.id)
+        .map((church: Church) => ({
+
+          ...church,
+
+          online: false
+
+        }));
+
+    this.churches = localChurches;
+
+    this.cdr.markForCheck();
+
+    try {
+
+      const firebaseChurches =
+        await this.churchFirestoreService.getPastorChurches();
+
+      if (
+        this.authService.getCurrentUser()?.uid !== user.uid
+      ) {
+        return;
+      }
+
+      const onlineChurches: ChurchOption[] =
+        firebaseChurches.map((church: FirestoreChurch) => ({
+
+          ...church,
+
+          online: true
+
+        }));
+
+      this.churches = [
+
+        ...onlineChurches,
+
+        ...localChurches
+
+      ];
+
+      console.log(
+        'DAILY FAITH : Églises disponibles pour publication =',
+        this.churches.length
+      );
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur chargement des églises',
+        error
+      );
+
+      this.errorMessage =
+        'Impossible de charger les églises en ligne.';
+
+    } finally {
+
+      if (
+        this.authService.getCurrentUser()?.uid === user.uid
+      ) {
+
+        if (this.churches.length === 1) {
+
+          this.selectedChurchId = this.churches[0].id;
+
+        } else if (
+          !this.churches.some(
+            church => church.id === this.selectedChurchId
+          )
+        ) {
+
+          this.selectedChurchId = null;
+
+        }
+
+      } else {
+
+        this.churches = [];
+
+        this.selectedChurchId = null;
+
+      }
+
+      this.loading = false;
+
+      this.cdr.markForCheck();
+
+    }
   }
 
-  get selectedChurch(): Church | undefined {
+  // Église sélectionnée
+
+  get selectedChurch(): ChurchOption | undefined {
 
     return this.churches.find(
       church => church.id === this.selectedChurchId
     );
-
   }
 
-  selectChurch(church: Church) {
+  selectChurch(church: ChurchOption) {
+
+    if (this.loading || this.publishing) {
+      return;
+    }
 
     this.selectedChurchId = church.id;
-
   }
 
-  getLogoPath(church: Church): string {
+  // Logo de l'église
 
-    return this.imageService.getImagePath(
-      church.logo || ''
-    );
+  getLogoPath(church: ChurchOption): string {
 
+    return church.online
+
+      ? church.logo || ''
+
+      : this.imageService.getImagePath(
+          church.logo || ''
+        );
   }
+
+  // Champs du formulaire
 
   onTitleChange(args: any) {
 
     this.title = args.object.text || '';
-
   }
 
   onVerseChange(args: any) {
 
     this.verse = args.object.text || '';
-
   }
 
   onContentChange(args: any) {
 
     this.content = args.object.text || '';
-
   }
 
+  // Publier le message
+
   async publish() {
+
+    if (this.publishing || this.loading) {
+      return;
+    }
 
     const church = this.selectedChurch;
 
     if (!church) {
 
-      await alert('Veuillez sélectionner une église.');
+      await alert(
+        'Veuillez sélectionner une église.'
+      );
 
       return;
-
     }
 
     if (
@@ -124,66 +289,177 @@ export class PublishMessageComponent {
       !this.content.trim()
     ) {
 
-      await alert('Veuillez remplir tous les champs.');
+      await alert(
+        'Veuillez remplir tous les champs.'
+      );
 
       return;
-
     }
 
-    const published = this.messageService.addMessage(
-      this.title,
-      this.verse,
-      this.content,
-      church.id
-    );
-
-    if (!published) {
-
-      await alert('Impossible de publier ce message.');
-
+    if (!this.authService.isAdmin()) {
       return;
-
     }
 
-    // Notification automatique
+    this.publishing = true;
 
-    const notified = this.notificationService.addNotification(
-      'Nouveau message biblique',
-      `${this.title}\n${this.verse}`,
-      church.id,
-      'message'
-    );
+    this.cdr.markForCheck();
 
-    await alert({
+    const input = {
 
-      title: 'Publication réussie',
+      title: this.title,
 
-      message: notified
-        ? `Votre message a été publié sur la page de ${church.name}. Une notification interne a été créée pour les abonnés concernés.`
-        : `Votre message a été publié, mais la notification n'a pas pu être créée.`,
+      verse: this.verse,
 
-      okButtonText: 'OK'
+      content: this.content
 
-    });
+    };
 
-    this.router.navigate(['/admin'], {
-      clearHistory: true
-    });
+    try {
 
+      if (church.online) {
+
+        // Publication Firebase
+
+        await this.messageFirestoreService.createMessage(
+
+          String(church.id),
+
+          input
+
+        );
+
+        await alert({
+
+          title: 'Publication réussie',
+
+          message:
+            `Votre message a été publié en ligne sur la page de ${church.name}.`,
+
+          okButtonText: 'OK'
+
+        });
+
+      } else if (typeof church.id === 'number') {
+
+        // Ancienne publication locale
+
+        const published =
+          this.messageService.addMessage(
+
+            input.title,
+
+            input.verse,
+
+            input.content,
+
+            church.id
+
+          );
+
+        if (!published) {
+
+          throw new Error(
+            'Impossible de publier ce message.'
+          );
+        }
+
+        let notified = false;
+
+        try {
+
+          notified =
+            this.notificationService.addNotification(
+
+              'Nouveau message biblique',
+
+              `${input.title}\n${input.verse}`,
+
+              church.id,
+
+              'message'
+
+            );
+
+        } catch (error) {
+
+          console.error(
+            'DAILY FAITH : Erreur notification locale',
+            error
+          );
+
+        }
+
+        await alert({
+
+          title: 'Publication réussie',
+
+          message: notified
+
+            ? `Votre message a été publié sur ${church.name}. Une notification interne a été créée.`
+
+            : 'Votre message local a été publié sans notification.',
+
+          okButtonText: 'OK'
+
+        });
+
+      }
+
+      await this.router.navigate(['/admin'], {
+
+        clearHistory: true
+
+      });
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur publication',
+        error
+      );
+
+      await alert({
+
+        title: 'Erreur',
+
+        message: error instanceof Error
+
+          ? error.message
+
+          : 'Impossible de publier le message.',
+
+        okButtonText: 'OK'
+
+      });
+
+    } finally {
+
+      this.publishing = false;
+
+      this.cdr.markForCheck();
+
+    }
   }
 
   createChurch() {
 
-    this.router.navigate(['/create-church']);
+    if (this.publishing) {
+      return;
+    }
 
+    this.router.navigate(['/create-church']);
   }
 
   cancel() {
 
+    if (this.publishing) {
+      return;
+    }
+
     this.router.navigate(['/admin'], {
+
       clearHistory: true
+
     });
-
   }
-
 }

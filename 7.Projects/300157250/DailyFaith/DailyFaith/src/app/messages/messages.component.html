@@ -18,6 +18,137 @@
         textWrap="true">
       </Label>
 
+      <!-- Actualisation Firebase -->
+
+      <Button
+        [text]="feedLoading ? 'Chargement...' : 'Actualiser'"
+        backgroundColor="#183B32"
+        color="#FFFFFF"
+        borderRadius="12"
+        marginBottom="15"
+        [isEnabled]="!feedLoading"
+        (tap)="refreshFeed()">
+      </Button>
+
+      @if (feedLoading) {
+
+        <ActivityIndicator
+          [busy]="feedLoading"
+          color="#183B32"
+          height="40">
+        </ActivityIndicator>
+
+        <Label
+          text="Chargement des publications..."
+          textAlignment="center"
+          color="#183B32"
+          textWrap="true">
+        </Label>
+
+      }
+
+      @if (feedError) {
+
+        <Label
+          [text]="feedError"
+          color="#B91C1C"
+          fontSize="13"
+          marginBottom="15"
+          textWrap="true">
+        </Label>
+
+      }
+
+      <!-- Nombre de publications -->
+
+      <Label
+        [text]="totalMessages + ' publication(s)'"
+        color="#A88A50"
+        fontSize="13"
+        marginBottom="15">
+      </Label>
+
+      <!-- Publications Firebase -->
+
+      @for (message of onlinePublications; track message.key) {
+
+        <StackLayout class="message-card">
+
+          <Label
+            [text]="message.church.name"
+            class="church-name"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="message.church.pastor"
+            class="author">
+          </Label>
+
+          <Label
+            [text]="message.date"
+            class="author">
+          </Label>
+
+          <Label
+            text="● Publication en ligne"
+            color="#15803D"
+            fontSize="12"
+            marginBottom="10">
+          </Label>
+
+          <Label
+            [text]="message.title"
+            class="message-title"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="message.verse"
+            class="author"
+            textWrap="true">
+          </Label>
+
+          <Label
+            [text]="message.content"
+            class="content"
+            textWrap="true">
+          </Label>
+
+          <!-- Interactions Firebase à venir -->
+
+          <GridLayout columns="*, *">
+
+            <Button
+              col="0"
+              text="♡ J’aime"
+              class="like-button"
+              [isEnabled]="false">
+            </Button>
+
+            <Button
+              col="1"
+              text="Commentaires"
+              class="comment-button"
+              [isEnabled]="false">
+            </Button>
+
+          </GridLayout>
+
+          <Label
+            text="Les interactions en ligne seront bientôt disponibles."
+            color="#A88A50"
+            fontSize="11"
+            textAlignment="center"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      }
+
+      <!-- Publications locales -->
+
       @for (message of messages; track message.id) {
 
         <StackLayout class="message-card">
@@ -39,6 +170,13 @@
           </Label>
 
           <Label
+            text="Publication locale"
+            color="#A88A50"
+            fontSize="12"
+            marginBottom="10">
+          </Label>
+
+          <Label
             [text]="message.title"
             class="message-title"
             textWrap="true">
@@ -55,6 +193,8 @@
             class="content"
             textWrap="true">
           </Label>
+
+          <!-- Likes et commentaires locaux -->
 
           <GridLayout columns="*, *">
 
@@ -73,6 +213,8 @@
             </Button>
 
           </GridLayout>
+
+          <!-- Liste des commentaires -->
 
           @if (message.showComments) {
 
@@ -134,7 +276,11 @@
 
         </StackLayout>
 
-      } @empty {
+      }
+
+      <!-- Aucune publication -->
+
+      @if (!feedLoading && !feedError && totalMessages === 0) {
 
         <StackLayout class="message-card">
 

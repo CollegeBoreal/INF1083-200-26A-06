@@ -27,6 +27,37 @@
 
     </StackLayout>
 
+    <!-- Chargement -->
+
+    @if (loading || saving) {
+
+      <ActivityIndicator
+        [busy]="loading || saving"
+        color="#183B32"
+        height="40">
+      </ActivityIndicator>
+
+      <Label
+        [text]="loading ? 'Chargement des publications...' : 'Opération en cours...'"
+        textAlignment="center"
+        color="#183B32"
+        marginBottom="15"
+        textWrap="true">
+      </Label>
+
+    }
+
+    @if (errorMessage) {
+
+      <Label
+        [text]="errorMessage"
+        color="#B91C1C"
+        marginBottom="15"
+        textWrap="true">
+      </Label>
+
+    }
+
     <!-- Statistiques -->
 
     <GridLayout
@@ -92,15 +123,35 @@
 
     </GridLayout>
 
+    @if (hasOnlineMessages) {
+
+      <Label
+        text="Les statistiques des interactions en ligne seront disponibles prochainement."
+        color="#A88A50"
+        fontSize="12"
+        marginBottom="15"
+        textWrap="true">
+      </Label>
+
+    }
+
     <!-- Nouvelle publication -->
 
     <Button
       text="+ Nouvelle publication"
       class="new-button"
+      [isEnabled]="!loading && !saving"
       (tap)="publishMessage()">
     </Button>
 
-    <!-- Filtre par église -->
+    <Button
+      text="Actualiser les publications"
+      class="back-button"
+      [isEnabled]="!loading && !saving"
+      (tap)="refresh()">
+    </Button>
+
+    <!-- Filtrer par église -->
 
     <StackLayout class="filter-card">
 
@@ -112,14 +163,16 @@
       <Button
         text="Toutes mes églises"
         [class]="selectedChurchId === null ? 'filter-active' : 'filter-button'"
+        [isEnabled]="!loading && !saving"
         (tap)="selectChurch(null)">
       </Button>
 
       @for (church of churches; track church.id) {
 
         <Button
-          [text]="church.name"
+          [text]="church.name + (church.online ? ' · En ligne' : ' · Locale')"
           [class]="selectedChurchId === church.id ? 'filter-active' : 'filter-button'"
+          [isEnabled]="!loading && !saving"
           (tap)="selectChurch(church.id)">
         </Button>
 
@@ -136,7 +189,7 @@
 
     <!-- Liste des publications -->
 
-    @for (message of messages; track message.id) {
+    @for (message of messages; track message.key) {
 
       <StackLayout class="message-card">
 
@@ -191,6 +244,14 @@
               class="date">
             </Label>
 
+            <Label
+              [text]="message.online ? '● Publication en ligne' : 'Publication locale'"
+              [color]="message.online ? '#15803D' : '#A88A50'"
+              fontSize="12"
+              marginTop="5"
+              textWrap="true">
+            </Label>
+
           </StackLayout>
 
         </GridLayout>
@@ -221,48 +282,62 @@
 
         <!-- Interactions -->
 
-        <GridLayout
-          columns="*, *"
-          class="interactions">
+        @if (!message.online) {
 
-          <GridLayout col="0" columns="25, *">
+          <GridLayout
+            columns="*, *"
+            class="interactions">
 
-            <Label
-              col="0"
-              text="&#xf004;"
-              class="interaction-icon">
-            </Label>
+            <GridLayout col="0" columns="25, *">
 
-            <Label
-              col="1"
-              [text]="message.likes + ' J’aime'"
-              class="interaction-text">
-            </Label>
+              <Label
+                col="0"
+                text="&#xf004;"
+                class="interaction-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="message.likes + ' J’aime'"
+                class="interaction-text">
+              </Label>
+
+            </GridLayout>
+
+            <GridLayout col="1" columns="25, *">
+
+              <Label
+                col="0"
+                text="&#xf075;"
+                class="interaction-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="message.commentsCount + ' Commentaire(s)'"
+                class="interaction-text"
+                textWrap="true">
+              </Label>
+
+            </GridLayout>
 
           </GridLayout>
 
-          <GridLayout col="1" columns="25, *">
+        } @else {
 
-            <Label
-              col="0"
-              text="&#xf075;"
-              class="interaction-icon">
-            </Label>
+          <Label
+            text="Interactions en ligne bientôt disponibles."
+            color="#A88A50"
+            fontSize="12"
+            marginBottom="15"
+            textWrap="true">
+          </Label>
 
-            <Label
-              col="1"
-              [text]="message.comments.length + ' Commentaire(s)'"
-              class="interaction-text"
-              textWrap="true">
-            </Label>
-
-          </GridLayout>
-
-        </GridLayout>
+        }
 
         <!-- Formulaire de modification -->
 
-        @if (editingId === message.id) {
+        @if (editingId === message.key) {
 
           <StackLayout class="edit-form">
 
@@ -278,6 +353,8 @@
 
             <TextField
               [text]="title"
+              [editable]="!saving"
+              maxLength="200"
               (textChange)="onTitleChange($event)"
               class="input">
             </TextField>
@@ -289,6 +366,8 @@
 
             <TextField
               [text]="verse"
+              [editable]="!saving"
+              maxLength="300"
               (textChange)="onVerseChange($event)"
               class="input">
             </TextField>
@@ -300,19 +379,23 @@
 
             <TextView
               [text]="content"
+              [editable]="!saving"
+              maxLength="20000"
               (textChange)="onContentChange($event)"
               class="message-input">
             </TextView>
 
             <Button
-              text="Enregistrer les modifications"
+              [text]="saving ? 'Enregistrement...' : 'Enregistrer les modifications'"
               class="save-button"
+              [isEnabled]="!saving && !loading"
               (tap)="saveMessage()">
             </Button>
 
             <Button
               text="Annuler"
               class="cancel-button"
+              [isEnabled]="!saving"
               (tap)="cancelEdit()">
             </Button>
 
@@ -326,6 +409,7 @@
               col="0"
               text="Modifier"
               class="edit-button"
+              [isEnabled]="!loading && !saving"
               (tap)="editMessage(message)">
             </Button>
 
@@ -333,6 +417,7 @@
               col="1"
               text="Supprimer"
               class="delete-button"
+              [isEnabled]="!loading && !saving"
               (tap)="deleteMessage(message)">
             </Button>
 
@@ -344,31 +429,36 @@
 
     } @empty {
 
-      <StackLayout class="empty-card">
+      @if (!loading && !errorMessage) {
 
-        <Label
-          text="&#xf02d;"
-          class="empty-icon">
-        </Label>
+        <StackLayout class="empty-card">
 
-        <Label
-          text="Aucune publication"
-          class="empty-title">
-        </Label>
+          <Label
+            text="&#xf02d;"
+            class="empty-icon">
+          </Label>
 
-        <Label
-          text="Aucun message biblique disponible pour cette sélection."
-          class="empty-message"
-          textWrap="true">
-        </Label>
+          <Label
+            text="Aucune publication"
+            class="empty-title">
+          </Label>
 
-      </StackLayout>
+          <Label
+            text="Aucun message biblique disponible pour cette sélection."
+            class="empty-message"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      }
 
     }
 
     <Button
       text="Retour au tableau de bord"
       class="back-button"
+      [isEnabled]="!saving"
       (tap)="goBack()">
     </Button>
 

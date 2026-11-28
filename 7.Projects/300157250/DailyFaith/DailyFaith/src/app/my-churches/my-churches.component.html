@@ -36,6 +36,38 @@
 
       </StackLayout>
 
+      @if (loading) {
+
+        <ActivityIndicator
+          [busy]="loading"
+          color="#183B32">
+        </ActivityIndicator>
+
+        <Label
+          text="Chargement de vos abonnements..."
+          class="subtitle"
+          textWrap="true">
+        </Label>
+
+      }
+
+      @if (errorMessage) {
+
+        <Label
+          [text]="errorMessage"
+          color="#B91C1C"
+          textWrap="true">
+        </Label>
+
+      }
+
+      <Button
+        text="Actualiser"
+        class="profile-button"
+        [isEnabled]="!loading && !saving"
+        (tap)="loadChurches()">
+      </Button>
+
       <Label
         text="Mes communautés"
         class="section-title">
@@ -120,6 +152,14 @@
               horizontalAlignment="center">
             </Label>
 
+            <Label
+              [text]="church.online ? '● Communauté en ligne' : 'Communauté locale'"
+              [color]="church.online ? '#15803D' : '#A88A50'"
+              fontSize="12"
+              textAlignment="center"
+              marginBottom="12">
+            </Label>
+
             <GridLayout
               columns="25, *"
               class="information-row">
@@ -164,20 +204,26 @@
               textWrap="true">
             </Label>
 
-            <Label
-              [text]="church.followers.length + ' abonné(s)'"
-              class="followers">
-            </Label>
+            @if (!church.online) {
+
+              <Label
+                [text]="church.followers.length + ' abonné(s)'"
+                class="followers">
+              </Label>
+
+            }
 
             <Button
               text="Voir le profil"
               class="profile-button"
+              [isEnabled]="!saving"
               (tap)="viewChurch(church)">
             </Button>
 
             <Button
-              text="Se désabonner"
+              [text]="saving ? 'Veuillez patienter...' : 'Se désabonner'"
               class="unfollow-button"
+              [isEnabled]="!saving && !loading"
               (tap)="unfollowChurch(church)">
             </Button>
 
@@ -187,31 +233,36 @@
 
       } @empty {
 
-        <StackLayout class="empty-card">
+        @if (!loading && !errorMessage) {
 
-          <Label
-            text="&#xf51d;"
-            class="empty-icon">
-          </Label>
+          <StackLayout class="empty-card">
 
-          <Label
-            text="Aucun abonnement"
-            class="empty-title">
-          </Label>
+            <Label
+              text="&#xf51d;"
+              class="empty-icon">
+            </Label>
 
-          <Label
-            text="Recherchez votre église et abonnez-vous pour rester connecté à votre communauté."
-            class="subtitle"
-            textWrap="true">
-          </Label>
+            <Label
+              text="Aucun abonnement"
+              class="empty-title">
+            </Label>
 
-        </StackLayout>
+            <Label
+              text="Recherchez votre église et abonnez-vous pour rester connecté à votre communauté."
+              class="subtitle"
+              textWrap="true">
+            </Label>
+
+          </StackLayout>
+
+        }
 
       }
 
       <Button
         text="+ Découvrir des églises"
         class="discover-button"
+        [isEnabled]="!saving"
         (tap)="discoverChurches()">
       </Button>
 

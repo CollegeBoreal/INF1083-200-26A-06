@@ -1,12 +1,16 @@
-
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+
 import {
   NativeScriptCommonModule,
   RouterExtensions
 } from '@nativescript/angular';
 
 import { alert } from '@nativescript/core';
-import { ChurchService } from '../../services/church.service';
+
+import {
+  ChurchFirestoreService
+} from '../../services/church-firestore.service';
+
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -27,9 +31,11 @@ export class CreateChurchComponent {
   address = '';
   description = '';
 
+  loading = false;
+
   constructor(
     private router: RouterExtensions,
-    private churchService: ChurchService,
+    private churchService: ChurchFirestoreService,
     private authService: AuthService
   ) {}
 
@@ -63,6 +69,10 @@ export class CreateChurchComponent {
 
   async createChurch() {
 
+    if (this.loading) {
+      return;
+    }
+
     const user = this.authService.getCurrentUser();
 
     if (!user || !this.authService.isAdmin()) {
@@ -82,41 +92,65 @@ export class CreateChurchComponent {
         message: 'Veuillez remplir tous les champs obligatoires.',
         okButtonText: 'OK'
       });
+
       return;
     }
 
-    const church = this.churchService.createChurch(
-      user.id,
-      this.name,
-      this.username,
-      this.pastor,
-      this.country,
-      this.city,
-      this.address,
-      this.description
-    );
+    this.loading = true;
 
-    if (!church) {
+    try {
+
+      const churchId = await this.churchService.createChurch({
+        name: this.name,
+        username: this.username,
+        pastor: this.pastor,
+        country: this.country,
+        city: this.city,
+        address: this.address,
+        description: this.description
+      });
+
+      console.log(
+        'DAILY FAITH : Identifiant Firestore =',
+        churchId
+      );
+
+      await alert({
+        title: 'Félicitations !',
+        message: `La page ${this.name} a été créée en ligne avec succès.`,
+        okButtonText: 'Continuer'
+      });
+
+      await this.router.navigate(['/admin'], {
+        clearHistory: true
+      });
+
+    } catch (error) {
+
+      console.error(
+        'DAILY FAITH : Erreur création église',
+        error
+      );
+
       await alert({
         title: 'Création impossible',
-        message: 'Cet identifiant est déjà utilisé ou invalide.',
+        message: 'Vérifiez les informations et votre connexion Internet.',
         okButtonText: 'OK'
       });
-      return;
+
+    } finally {
+
+      this.loading = false;
+
     }
-
-    await alert({
-      title: 'Félicitations !',
-      message: `La page ${church.name} a été créée avec succès.`,
-      okButtonText: 'Continuer'
-    });
-
-    this.router.navigate(['/admin'], {
-      clearHistory: true
-    });
   }
 
   cancel() {
+
+    if (this.loading) {
+      return;
+    }
+
     this.router.navigate(['/admin'], {
       clearHistory: true
     });

@@ -1,4 +1,3 @@
-
 <ActionBar title="Mes églises"></ActionBar>
 
 <ScrollView>
@@ -16,39 +15,80 @@
       textWrap="true">
     </Label>
 
+    <!-- Chargement Firebase -->
+
+    @if (loading) {
+
+      <ActivityIndicator
+        [busy]="loading"
+        color="#183B32">
+      </ActivityIndicator>
+
+      <Label
+        text="Chargement des églises..."
+        class="subtitle"
+        textAlignment="center">
+      </Label>
+
+    }
+
+    @if (errorMessage) {
+
+      <Label
+        [text]="errorMessage"
+        color="#B91C1C"
+        textWrap="true">
+      </Label>
+
+    }
+
     <!-- Statistiques -->
 
     <GridLayout columns="*, *" class="statistics">
 
       <StackLayout col="0" class="stat-card">
 
-        <Label text="&#xf51d;" class="stat-icon"></Label>
+        <Label text="&#xf51d;" class="stat-icon">
+        </Label>
 
         <Label
           [text]="totalChurches"
           class="stat-number">
         </Label>
 
-        <Label text="Églises" class="stat-label"></Label>
+        <Label text="Églises" class="stat-label">
+        </Label>
 
       </StackLayout>
 
       <StackLayout col="1" class="stat-card">
 
-        <Label text="&#xf0c0;" class="stat-icon"></Label>
+        <Label text="&#xf0c0;" class="stat-icon">
+        </Label>
 
         <Label
           [text]="totalFollowers"
           class="stat-number">
         </Label>
 
-        <Label text="Abonnés" class="stat-label"></Label>
+        <Label
+          text="Abonnés locaux"
+          class="stat-label">
+        </Label>
 
       </StackLayout>
 
     </GridLayout>
 
-    <Label text="Vos pages" class="section-title"></Label>
+    <Button
+      text="Actualiser les églises"
+      class="edit-button"
+      [isEnabled]="!loading"
+      (tap)="loadChurches()">
+    </Button>
+
+    <Label text="Vos pages" class="section-title">
+    </Label>
 
     <!-- Liste des églises -->
 
@@ -56,7 +96,7 @@
 
       <StackLayout class="church-card">
 
-        <!-- Photo de couverture -->
+        <!-- Couverture -->
 
         <GridLayout class="cover" height="180">
 
@@ -109,8 +149,6 @@
 
         </GridLayout>
 
-        <!-- Informations de l'église -->
-
         <StackLayout class="church-content">
 
           <Label
@@ -124,14 +162,44 @@
             class="username">
           </Label>
 
-          <!-- Statistiques de la page -->
+          <!-- Statut de synchronisation -->
 
-          <GridLayout columns="*, *" class="church-stats">
+          @if (church.online) {
+
+            <Label
+              text="● EN LIGNE · FIREBASE"
+              color="#15803D"
+              fontSize="12"
+              fontWeight="bold"
+              textAlignment="center"
+              marginTop="8"
+              marginBottom="8">
+            </Label>
+
+          } @else {
+
+            <Label
+              text="● STOCKAGE LOCAL · V2"
+              color="#A88A50"
+              fontSize="12"
+              fontWeight="bold"
+              textAlignment="center"
+              marginTop="8"
+              marginBottom="8">
+            </Label>
+
+          }
+
+          <!-- Statistiques -->
+
+          <GridLayout
+            columns="*, *"
+            class="church-stats">
 
             <StackLayout col="0">
 
               <Label
-                [text]="church.followers.length"
+                [text]="church.online ? '—' : church.followers.length"
                 class="follower-number">
               </Label>
 
@@ -158,11 +226,14 @@
 
           </GridLayout>
 
-          <StackLayout class="separator"></StackLayout>
+          <StackLayout class="separator">
+          </StackLayout>
 
           <!-- Pasteur -->
 
-          <GridLayout columns="25, *" class="info-row">
+          <GridLayout
+            columns="25, *"
+            class="info-row">
 
             <Label
               col="0"
@@ -181,7 +252,9 @@
 
           <!-- Localisation -->
 
-          <GridLayout columns="25, *" class="info-row">
+          <GridLayout
+            columns="25, *"
+            class="info-row">
 
             <Label
               col="0"
@@ -208,23 +281,17 @@
 
           }
 
-          <!-- Description -->
-
           <Label
             [text]="church.description || 'Aucune description.'"
             class="description"
             textWrap="true">
           </Label>
 
-          <!-- Voir le profil public -->
-
           <Button
             text="Voir le profil public"
             class="create-button"
             (tap)="viewChurchProfile(church)">
           </Button>
-
-          <!-- Modifier le profil -->
 
           <Button
             text="Modifier le profil"
@@ -238,25 +305,29 @@
 
     } @empty {
 
-      <StackLayout class="empty-card">
+      @if (!loading) {
 
-        <Label
-          text="&#xf51d;"
-          class="empty-icon">
-        </Label>
+        <StackLayout class="empty-card">
 
-        <Label
-          text="Aucune église"
-          class="empty-title">
-        </Label>
+          <Label
+            text="&#xf51d;"
+            class="empty-icon">
+          </Label>
 
-        <Label
-          text="Créez votre première page pour développer votre communauté."
-          class="subtitle"
-          textWrap="true">
-        </Label>
+          <Label
+            text="Aucune église affichée"
+            class="empty-title">
+          </Label>
 
-      </StackLayout>
+          <Label
+            text="Créez votre première page pour développer votre communauté."
+            class="subtitle"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      }
 
     }
 

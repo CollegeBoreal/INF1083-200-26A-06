@@ -1,4 +1,3 @@
-
 <ActionBar title="Recherche"></ActionBar>
 
 <GridLayout rows="*, auto" class="page">
@@ -57,10 +56,41 @@
       </GridLayout>
 
       <Label
-        text="Recherchez par nom, ville, pays ou pasteur."
+        text="Recherchez par nom, identifiant, ville, pays ou pasteur."
         class="search-help"
         textWrap="true">
       </Label>
+
+      @if (loading) {
+
+        <ActivityIndicator
+          [busy]="loading"
+          color="#183B32">
+        </ActivityIndicator>
+
+        <Label
+          text="Chargement des communautés..."
+          class="subtitle">
+        </Label>
+
+      }
+
+      @if (errorMessage) {
+
+        <Label
+          [text]="errorMessage"
+          color="#B91C1C"
+          textWrap="true">
+        </Label>
+
+      }
+
+      <Button
+        text="Actualiser"
+        class="reset-button"
+        [isEnabled]="!loading"
+        (tap)="loadChurches()">
+      </Button>
 
       <!-- Résultats -->
 
@@ -86,8 +116,6 @@
         <StackLayout class="church-card">
 
           <GridLayout columns="75, *, 25">
-
-            <!-- Logo -->
 
             <GridLayout
               col="0"
@@ -115,8 +143,6 @@
 
             </GridLayout>
 
-            <!-- Informations -->
-
             <StackLayout col="1">
 
               <Label
@@ -136,10 +162,28 @@
                 textWrap="true">
               </Label>
 
-              <Label
-                [text]="church.followers.length + ' abonné(s)'"
-                class="followers">
-              </Label>
+              @if (church.online) {
+
+                <Label
+                  text="● Communauté en ligne"
+                  color="#15803D"
+                  fontSize="12">
+                </Label>
+
+              } @else {
+
+                <Label
+                  [text]="church.followers.length + ' abonné(s)'"
+                  class="followers">
+                </Label>
+
+                <Label
+                  text="Communauté locale"
+                  color="#A88A50"
+                  fontSize="12">
+                </Label>
+
+              }
 
               @if (isFollowing(church)) {
 
@@ -178,35 +222,39 @@
 
       } @empty {
 
-        <StackLayout class="empty-card">
+        @if (!loading) {
 
-          <Label
-            text="&#xf002;"
-            class="empty-icon">
-          </Label>
+          <StackLayout class="empty-card">
 
-          <Label
-            text="Aucune église trouvée"
-            class="empty-title">
-          </Label>
+            <Label
+              text="&#xf002;"
+              class="empty-icon">
+            </Label>
 
-          <Label
-            text="Essayez un autre nom, une ville ou un pays."
-            class="empty-text"
-            textWrap="true">
-          </Label>
+            <Label
+              text="Aucune église trouvée"
+              class="empty-title">
+            </Label>
 
-          @if (searchQuery) {
+            <Label
+              text="Essayez un autre nom, une ville ou un pays."
+              class="empty-text"
+              textWrap="true">
+            </Label>
 
-            <Button
-              text="Effacer la recherche"
-              class="reset-button"
-              (tap)="clearSearch()">
-            </Button>
+            @if (searchQuery) {
 
-          }
+              <Button
+                text="Effacer la recherche"
+                class="reset-button"
+                (tap)="clearSearch()">
+              </Button>
 
-        </StackLayout>
+            }
+
+          </StackLayout>
+
+        }
 
       }
 

@@ -4,7 +4,19 @@
 
   <StackLayout class="container">
 
-    @if (church; as page) {
+    @if (loading) {
+
+      <ActivityIndicator
+        [busy]="loading"
+        color="#183B32">
+      </ActivityIndicator>
+
+      <Label
+        text="Chargement du profil..."
+        class="empty-text">
+      </Label>
+
+    } @else if (church; as page) {
 
       <!-- Photo de couverture -->
 
@@ -72,6 +84,21 @@
         class="username">
       </Label>
 
+      <!-- Statut Firebase -->
+
+      @if (online) {
+
+        <Label
+          text="● COMMUNAUTÉ EN LIGNE"
+          color="#15803D"
+          fontSize="12"
+          fontWeight="bold"
+          textAlignment="center"
+          marginBottom="12">
+        </Label>
+
+      }
+
       <!-- Statistiques -->
 
       <GridLayout columns="*, *, *" class="statistics">
@@ -125,10 +152,24 @@
       @if (!isOwner) {
 
         <Button
-          [text]="isFollowing ? 'Abonné - Se désabonner' : '+ S’abonner'"
+          [text]="followLoading ? 'Veuillez patienter...' : (online && !followReady ? 'Réessayer' : (isFollowing ? '✓ Abonné - Se désabonner' : '+ S’abonner'))"
           [class]="isFollowing ? 'following-button' : 'follow-button'"
+          [isEnabled]="!followLoading"
           (tap)="toggleFollow()">
         </Button>
+
+        @if (isFollowing) {
+
+          <Label
+            text="✓ Vous suivez cette communauté"
+            color="#15803D"
+            fontSize="13"
+            textAlignment="center"
+            textWrap="true"
+            marginBottom="12">
+          </Label>
+
+        }
 
       } @else {
 
@@ -250,15 +291,198 @@
 
       </GridLayout>
 
-      <!-- Publications bibliques -->
+      <!-- ====================================== -->
+      <!-- PUBLICATIONS BIBLIQUES -->
+      <!-- ====================================== -->
 
       @if (activeTab === 'publications') {
+
+        <!-- Publications Firebase -->
+
+        @if (online) {
+
+          <Button
+            text="Actualiser les publications"
+            backgroundColor="#183B32"
+            color="#FFFFFF"
+            borderRadius="12"
+            fontSize="13"
+            height="44"
+            marginBottom="15"
+            [isEnabled]="!publicationsLoading"
+            (tap)="loadOnlinePublications()">
+          </Button>
+
+          @if (publicationsLoading) {
+
+            <ActivityIndicator
+              [busy]="publicationsLoading"
+              color="#183B32">
+            </ActivityIndicator>
+
+            <Label
+              text="Chargement des publications..."
+              class="empty-text">
+            </Label>
+
+          }
+
+          @if (publicationsError) {
+
+            <Label
+              [text]="publicationsError"
+              color="#B91C1C"
+              textAlignment="center"
+              textWrap="true"
+              marginBottom="15">
+            </Label>
+
+          }
+
+          @for (message of onlinePublications; track message.key) {
+
+            <StackLayout class="publication-card">
+
+              <!-- Auteur de la publication -->
+
+              <GridLayout
+                columns="55, *"
+                class="publication-header">
+
+                <GridLayout
+                  col="0"
+                  class="publication-logo">
+
+                  @if (page.logo) {
+
+                    <Image
+                      [src]="logoPath"
+                      class="publication-logo-image"
+                      stretch="aspectFill">
+                    </Image>
+
+                  } @else {
+
+                    <Label
+                      text="&#xf51d;"
+                      class="publication-logo-icon"
+                      horizontalAlignment="center"
+                      verticalAlignment="center">
+                    </Label>
+
+                  }
+
+                </GridLayout>
+
+                <StackLayout
+                  col="1"
+                  verticalAlignment="center">
+
+                  <Label
+                    [text]="page.name"
+                    class="publication-church"
+                    textWrap="true">
+                  </Label>
+
+                  <Label
+                    [text]="message.church.pastor"
+                    class="publication-author">
+                  </Label>
+
+                  <Label
+                    [text]="message.date"
+                    class="publication-date">
+                  </Label>
+
+                  <Label
+                    text="● Publication en ligne"
+                    color="#15803D"
+                    fontSize="11">
+                  </Label>
+
+                </StackLayout>
+
+              </GridLayout>
+
+              <!-- Titre -->
+
+              <Label
+                [text]="message.title"
+                class="publication-title"
+                textWrap="true">
+              </Label>
+
+              <!-- Verset biblique -->
+
+              <GridLayout
+                columns="30, *"
+                class="verse-card">
+
+                <Label
+                  col="0"
+                  text="&#xf02d;"
+                  class="verse-icon"
+                  verticalAlignment="center">
+                </Label>
+
+                <Label
+                  col="1"
+                  [text]="message.verse"
+                  class="verse-text"
+                  textWrap="true">
+                </Label>
+
+              </GridLayout>
+
+              <!-- Contenu -->
+
+              <Label
+                [text]="message.content"
+                class="publication-content"
+                textWrap="true">
+              </Label>
+
+              <!-- Interactions Firebase à venir -->
+
+              <GridLayout
+                columns="*, *"
+                class="publication-actions">
+
+                <Button
+                  col="0"
+                  text="♡ J'aime"
+                  class="like-button"
+                  [isEnabled]="false">
+                </Button>
+
+                <Button
+                  col="1"
+                  text="Commentaires"
+                  class="comment-button"
+                  [isEnabled]="false">
+                </Button>
+
+              </GridLayout>
+
+              <Label
+                text="Les interactions en ligne seront bientôt disponibles."
+                color="#A88A50"
+                fontSize="11"
+                textAlignment="center"
+                textWrap="true">
+              </Label>
+
+            </StackLayout>
+
+          }
+
+        }
+
+        <!-- Publications locales -->
 
         @for (message of publications; track message.id) {
 
           <StackLayout class="publication-card">
-
-            <!-- Auteur de la publication -->
 
             <GridLayout
               columns="55, *"
@@ -309,6 +533,12 @@
                   class="publication-date">
                 </Label>
 
+                <Label
+                  text="Publication locale"
+                  color="#A88A50"
+                  fontSize="11">
+                </Label>
+
               </StackLayout>
 
             </GridLayout>
@@ -351,7 +581,7 @@
               textWrap="true">
             </Label>
 
-            <!-- Interactions -->
+            <!-- Interactions locales -->
 
             <GridLayout
               columns="*, *"
@@ -373,7 +603,7 @@
 
             </GridLayout>
 
-            <!-- Commentaires -->
+            <!-- Commentaires locaux -->
 
             @if (message.showComments) {
 
@@ -435,7 +665,17 @@
 
           </StackLayout>
 
-        } @empty {
+        }
+
+        <!-- Aucune publication -->
+
+        @if (
+          !publicationsLoading &&
+          !publicationsError &&
+          (!online || publicationsReady) &&
+          onlinePublications.length === 0 &&
+          publications.length === 0
+        ) {
 
           <StackLayout class="empty-card">
 
@@ -450,7 +690,7 @@
             </Label>
 
             <Label
-              text="Cette église n'a pas encore publié de message biblique."
+              text="Cette église n’a pas encore publié de message biblique."
               class="empty-text"
               textWrap="true">
             </Label>
@@ -461,7 +701,9 @@
 
       } @else {
 
-        <!-- Événements de l'église -->
+        <!-- ====================================== -->
+        <!-- ÉVÉNEMENTS DE L'ÉGLISE -->
+        <!-- ====================================== -->
 
         @for (event of events; track event.id) {
 
@@ -487,7 +729,7 @@
 
             </GridLayout>
 
-            <!-- Titre de l'événement -->
+            <!-- Titre -->
 
             <Label
               [text]="event.title"
@@ -624,7 +866,7 @@
             </Label>
 
             <Label
-              text="Cette église n'a pas encore publié d'événement."
+              [text]="online ? 'Les événements Firebase seront disponibles prochainement.' : 'Cette église n’a pas encore publié d’événement.'"
               class="empty-text"
               textWrap="true">
             </Label>
@@ -642,8 +884,9 @@
       <StackLayout class="empty-card">
 
         <Label
-          text="Église introuvable"
-          class="empty-title">
+          [text]="errorMessage || 'Église introuvable'"
+          class="empty-title"
+          textWrap="true">
         </Label>
 
       </StackLayout>
