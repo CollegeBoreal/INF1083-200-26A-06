@@ -1,0 +1,125 @@
+
+<ActionBar title="Créer une église"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="container">
+
+    <Label
+      text="&#xf51d;"
+      class="church-icon"
+      horizontalAlignment="center">
+    </Label>
+
+    <Label
+      text="Créer mon église"
+      class="page-title">
+    </Label>
+
+    <Label
+      text="Créez votre communauté sur Daily Faith et partagez la parole de Dieu."
+      class="subtitle"
+      textWrap="true">
+    </Label>
+
+    <StackLayout class="form-card">
+
+      <Label
+        text="INFORMATIONS DE L'ÉGLISE"
+        class="section-title">
+      </Label>
+
+      <Label text="Nom de l'église *" class="field-label"></Label>
+
+      <TextField
+        hint="Ex : Église Grâce Divine"
+        class="input"
+        (textChange)="onNameChange($event)">
+      </TextField>
+
+      <Label text="Identifiant de la page *" class="field-label"></Label>
+
+      <TextField
+        hint="@gracedivine"
+        autocapitalizationType="none"
+        autocorrect="false"
+        class="input"
+        (textChange)="onUsernameChange($event)">
+      </TextField>
+
+      <Label
+        text="Lettres sans accents, chiffres, points et underscores."
+        class="help-text"
+        textWrap="true">
+      </Label>
+
+      <Label text="Nom du pasteur *" class="field-label"></Label>
+
+      <TextField
+        hint="Nom complet du pasteur"
+        class="input"
+        (textChange)="onPastorChange($event)">
+      </TextField>
+
+      <Label
+        text="LOCALISATION"
+        class="section-title">
+      </Label>
+
+      <Label text="Pays *" class="field-label"></Label>
+
+      <TextField
+        hint="Ex : Canada"
+        class="input"
+        (textChange)="onCountryChange($event)">
+      </TextField>
+
+      <Label text="Ville *" class="field-label"></Label>
+
+      <TextField
+        hint="Ex : Toronto"
+        class="input"
+        (textChange)="onCityChange($event)">
+      </TextField>
+
+      <Label text="Adresse" class="field-label"></Label>
+
+      <TextField
+        hint="Adresse de votre église"
+        class="input"
+        (textChange)="onAddressChange($event)">
+      </TextField>
+
+      <Label
+        text="PRÉSENTATION"
+        class="section-title">
+      </Label>
+
+      <Label text="Description" class="field-label"></Label>
+
+      <TextView
+        hint="Présentez votre église, sa vision et sa mission..."
+        class="description-input"
+        (textChange)="onDescriptionChange($event)">
+      </TextView>
+
+      <Label
+        text="* Champs obligatoires"
+        class="help-text">
+      </Label>
+
+      <Button
+        text="Créer ma page"
+        class="create-button"
+        (tap)="createChurch()">
+      </Button>
+
+      <Button
+        text="Annuler"
+        class="cancel-button"
+        (tap)="cancel()">
+      </Button>
+
+    </StackLayout>
+
+  </StackLayout>
+</ScrollView>

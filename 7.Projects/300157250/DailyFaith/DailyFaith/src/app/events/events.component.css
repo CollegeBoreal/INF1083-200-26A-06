@@ -1,63 +1,260 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
 
 .container {
     background-color: #F7F4EC;
     padding: 20;
 }
 
-.title {
-    color: #183B32;
-    font-size: 26;
-    font-weight: bold;
+/* En-tête */
+
+.header-card {
+    background-color: #183B32;
+    border-radius: 18;
+    padding: 25;
     margin-top: 15;
+    margin-bottom: 20;
 }
 
-.subtitle {
-    color: #A88A50;
-    font-size: 14;
-    margin-top: 8;
-    margin-bottom: 25;
+.header-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 35;
+    color: #C5A66A;
+    text-align: center;
+    margin-bottom: 15;
 }
+
+.header-title {
+    color: #FFFFFF;
+    font-size: 25;
+    font-weight: bold;
+    text-align: center;
+}
+
+.header-description {
+    color: #C5A66A;
+    font-size: 14;
+    text-align: center;
+    margin-top: 10;
+}
+
+/* Statistiques */
+
+.statistics {
+    margin-bottom: 20;
+}
+
+.stat-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin: 5;
+}
+
+.stat-number {
+    color: #183B32;
+    font-size: 30;
+    font-weight: bold;
+    text-align: center;
+}
+
+.stat-label {
+    color: #A88A50;
+    font-size: 12;
+    text-align: center;
+    margin-top: 8;
+}
+
+/* Filtres */
+
+.filters {
+    margin-bottom: 20;
+}
+
+.filter-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-radius: 12;
+    border-width: 1;
+    border-color: #E3DCCB;
+    font-size: 13;
+    padding: 12;
+    margin: 4;
+}
+
+.filter-active {
+    background-color: #183B32;
+    color: #FFFFFF;
+    border-radius: 12;
+    font-size: 13;
+    font-weight: bold;
+    padding: 12;
+    margin: 4;
+}
+
+/* Carte événement */
 
 .event-card {
     background-color: #FFFFFF;
-    border-radius: 15;
+    border-radius: 18;
     border-width: 1;
     border-color: #E3DCCB;
     padding: 20;
     margin-bottom: 20;
 }
 
-.event-title {
+/* Informations de l'église */
+
+.church-header {
+    margin-bottom: 15;
+}
+
+.church-logo {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+    background-color: #183B32;
+}
+
+.church-image {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+}
+
+.church-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 20;
+    color: #C5A66A;
+}
+
+.church-name {
     color: #183B32;
-    font-size: 21;
+    font-size: 16;
     font-weight: bold;
 }
 
-.date {
+.church-subtitle {
     color: #A88A50;
-    font-size: 14;
+    font-size: 11;
+    margin-top: 5;
+}
+
+.separator {
+    height: 1;
+    background-color: #E3DCCB;
+    margin-bottom: 18;
+}
+
+/* Informations événement */
+
+.event-title {
+    color: #183B32;
+    font-size: 22;
     font-weight: bold;
-    margin-top: 12;
-    margin-bottom: 8;
+    margin-bottom: 20;
+}
+
+.detail-row {
+    margin-bottom: 12;
+}
+
+.detail-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #A88A50;
+    font-size: 16;
 }
 
 .details {
-    color: #555555;
+    color: #183B32;
     font-size: 14;
-    margin-top: 5;
 }
 
 .description {
     color: #555555;
     font-size: 15;
-    margin-top: 15;
+    margin-top: 10;
+    margin-bottom: 20;
+}
+
+/* Participants */
+
+.participants-card {
+    background-color: #F7F4EC;
+    border-radius: 10;
+    padding: 12;
     margin-bottom: 15;
+}
+
+.participants-text {
+    color: #183B32;
+    font-size: 14;
+    font-weight: bold;
 }
 
 .participate-button {
     background-color: #183B32;
     color: #FFFFFF;
-    border-radius: 10;
+    border-radius: 12;
+    font-size: 15;
     font-weight: bold;
-    padding: 12;
+    padding: 15;
+}
+
+.registered-button {
+    background-color: #E8EDE7;
+    color: #183B32;
+    border-radius: 12;
+    border-width: 1;
+    border-color: #183B32;
+    font-size: 15;
+    font-weight: bold;
+    padding: 15;
+}
+
+.participation-help {
+    color: #8A806D;
+    font-size: 12;
+    text-align: center;
+    margin-top: 10;
+}
+
+/* Aucun événement */
+
+.empty-card {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    padding: 25;
+    margin-bottom: 20;
+}
+
+.empty-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 40;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.empty-title {
+    color: #183B32;
+    font-size: 20;
+    font-weight: bold;
+    text-align: center;
+}
+
+.empty-text {
+    color: #777777;
+    font-size: 14;
+    text-align: center;
+    margin-top: 12;
+    margin-bottom: 20;
 }

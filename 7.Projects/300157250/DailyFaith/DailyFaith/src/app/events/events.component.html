@@ -1,27 +1,153 @@
-
-
 <ActionBar title="Événements"></ActionBar>
 
 <GridLayout rows="*, auto">
 
   <ScrollView row="0">
+
     <StackLayout class="container">
 
-      <Label
-        text="Événements de l'église"
-        class="title"
-        textWrap="true">
-      </Label>
+      <!-- En-tête -->
 
-      <Label
-        text="Restons unis dans la foi."
-        class="subtitle"
-        textWrap="true">
-      </Label>
+      <StackLayout class="header-card">
 
-      @for (event of events; track event.title) {
+        <Label
+          text="&#xf073;"
+          class="header-icon">
+        </Label>
+
+        <Label
+          text="Mes événements"
+          class="header-title">
+        </Label>
+
+        <Label
+          text="Retrouvez les activités de vos communautés."
+          class="header-description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <!-- Statistiques -->
+
+      <GridLayout columns="*, *" class="statistics">
+
+        <StackLayout col="0" class="stat-card">
+
+          <Label
+            [text]="totalEvents"
+            class="stat-number">
+          </Label>
+
+          <Label
+            text="Événements"
+            class="stat-label">
+          </Label>
+
+        </StackLayout>
+
+        <StackLayout col="1" class="stat-card">
+
+          <Label
+            [text]="totalRegistered"
+            class="stat-number">
+          </Label>
+
+          <Label
+            text="Mes participations"
+            class="stat-label">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <!-- Filtres -->
+
+      <GridLayout columns="*, *" class="filters">
+
+        <Button
+          col="0"
+          text="Tous"
+          [class]="activeFilter === 'all' ? 'filter-active' : 'filter-button'"
+          (tap)="selectFilter('all')">
+        </Button>
+
+        <Button
+          col="1"
+          text="Mes participations"
+          [class]="activeFilter === 'registered' ? 'filter-active' : 'filter-button'"
+          (tap)="selectFilter('registered')">
+        </Button>
+
+      </GridLayout>
+
+      <!-- Liste des événements -->
+
+      @for (event of events; track event.id) {
 
         <StackLayout class="event-card">
+
+          <!-- Église -->
+
+          <GridLayout
+            columns="55, *, 25"
+            class="church-header"
+            (tap)="viewChurch(event)">
+
+            <GridLayout col="0" class="church-logo">
+
+              @if (getChurchLogo(event)) {
+
+                <Image
+                  [src]="getChurchLogo(event)"
+                  class="church-image"
+                  stretch="aspectFill">
+                </Image>
+
+              } @else {
+
+                <Label
+                  text="&#xf51d;"
+                  class="church-icon"
+                  horizontalAlignment="center"
+                  verticalAlignment="center">
+                </Label>
+
+              }
+
+            </GridLayout>
+
+            <StackLayout
+              col="1"
+              verticalAlignment="center">
+
+              <Label
+                [text]="getChurchName(event)"
+                class="church-name"
+                textWrap="true">
+              </Label>
+
+              <Label
+                text="Événement de la communauté"
+                class="church-subtitle"
+                textWrap="true">
+              </Label>
+
+            </StackLayout>
+
+            <Label
+              col="2"
+              text="&#xf054;"
+              class="detail-icon"
+              verticalAlignment="center">
+            </Label>
+
+          </GridLayout>
+
+          <StackLayout class="separator"></StackLayout>
+
+          <!-- Titre -->
 
           <Label
             [text]="event.title"
@@ -29,22 +155,61 @@
             textWrap="true">
           </Label>
 
-          <Label
-            [text]="event.date"
-            class="date"
-            textWrap="true">
-          </Label>
+          <!-- Date -->
 
-          <Label
-            [text]="'Heure : ' + event.time"
-            class="details">
-          </Label>
+          <GridLayout columns="30, *" class="detail-row">
 
-          <Label
-            [text]="'Lieu : ' + event.location"
-            class="details"
-            textWrap="true">
-          </Label>
+            <Label
+              col="0"
+              text="&#xf073;"
+              class="detail-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="event.date"
+              class="details"
+              textWrap="true">
+            </Label>
+
+          </GridLayout>
+
+          <!-- Heure -->
+
+          <GridLayout columns="30, *" class="detail-row">
+
+            <Label
+              col="0"
+              text="&#xf017;"
+              class="detail-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="event.time"
+              class="details">
+            </Label>
+
+          </GridLayout>
+
+          <!-- Lieu -->
+
+          <GridLayout columns="30, *" class="detail-row">
+
+            <Label
+              col="0"
+              text="&#xf3c5;"
+              class="detail-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="event.location"
+              class="details"
+              textWrap="true">
+            </Label>
+
+          </GridLayout>
 
           <Label
             [text]="event.description"
@@ -52,17 +217,90 @@
             textWrap="true">
           </Label>
 
+          <!-- Participants -->
+
+          <GridLayout
+            columns="30, *"
+            class="participants-card">
+
+            <Label
+              col="0"
+              text="&#xf0c0;"
+              class="detail-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="getParticipantsCount(event) + ' participant(s)'"
+              class="participants-text">
+            </Label>
+
+          </GridLayout>
+
+          <!-- Bouton participation -->
+
           <Button
-            [text]="event.registered ? 'Participation confirmée' : 'Participer'"
-            (tap)="participate(event)"
-            class="participate-button">
+            [text]="isRegistered(event) ? '✓ Participation confirmée' : 'Participer'"
+            [class]="isRegistered(event) ? 'registered-button' : 'participate-button'"
+            (tap)="participate(event)">
           </Button>
+
+          @if (isRegistered(event)) {
+
+            <Label
+              text="Appuyez de nouveau pour annuler."
+              class="participation-help"
+              textWrap="true">
+            </Label>
+
+          }
+
+        </StackLayout>
+
+      } @empty {
+
+        <StackLayout class="empty-card">
+
+          <Label
+            text="&#xf073;"
+            class="empty-icon">
+          </Label>
+
+          <Label
+            [text]="activeFilter === 'registered' ? 'Aucune participation' : 'Aucun événement'"
+            class="empty-title">
+          </Label>
+
+          <Label
+            [text]="activeFilter === 'registered' ? 'Vous ne participez encore à aucun événement de vos communautés.' : 'Les événements de vos églises suivies apparaîtront ici.'"
+            class="empty-text"
+            textWrap="true">
+          </Label>
+
+          @if (activeFilter === 'registered') {
+
+            <Button
+              text="Voir tous les événements"
+              class="participate-button"
+              (tap)="selectFilter('all')">
+            </Button>
+
+          } @else {
+
+            <Button
+              text="Découvrir des églises"
+              class="participate-button"
+              (tap)="discoverChurches()">
+            </Button>
+
+          }
 
         </StackLayout>
 
       }
 
     </StackLayout>
+
   </ScrollView>
 
   <ns-navigation row="1"></ns-navigation>

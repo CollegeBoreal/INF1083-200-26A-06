@@ -1,0 +1,224 @@
+<ActionBar title="Mes abonnements"></ActionBar>
+
+<GridLayout rows="*, auto">
+
+  <ScrollView row="0">
+
+    <StackLayout class="container">
+
+      <Label
+        text="MES ABONNEMENTS"
+        class="page-title">
+      </Label>
+
+      <Label
+        text="Restez connecté à vos communautés chrétiennes."
+        class="subtitle"
+        textWrap="true">
+      </Label>
+
+      <StackLayout class="statistics-card">
+
+        <Label
+          text="&#xf51d;"
+          class="stat-icon">
+        </Label>
+
+        <Label
+          [text]="totalChurches"
+          class="stat-number">
+        </Label>
+
+        <Label
+          [text]="totalChurches === 1 ? 'Église suivie' : 'Églises suivies'"
+          class="stat-label">
+        </Label>
+
+      </StackLayout>
+
+      <Label
+        text="Mes communautés"
+        class="section-title">
+      </Label>
+
+      @for (church of churches; track church.id) {
+
+        <StackLayout class="church-card">
+
+          <GridLayout rows="140, 40">
+
+            <GridLayout
+              row="0"
+              class="cover">
+
+              @if (church.cover) {
+
+                <Image
+                  [src]="getCoverPath(church)"
+                  stretch="aspectFill">
+                </Image>
+
+              } @else {
+
+                <Label
+                  text="&#xf51d;"
+                  class="cover-icon"
+                  horizontalAlignment="center"
+                  verticalAlignment="center">
+                </Label>
+
+              }
+
+            </GridLayout>
+
+            <GridLayout
+              row="0"
+              rowSpan="2"
+              class="logo"
+              horizontalAlignment="center"
+              verticalAlignment="bottom">
+
+              @if (church.logo) {
+
+                <Image
+                  [src]="getLogoPath(church)"
+                  stretch="aspectFill"
+                  class="logo-image">
+                </Image>
+
+              } @else {
+
+                <Label
+                  text="&#xf51d;"
+                  class="logo-icon"
+                  horizontalAlignment="center"
+                  verticalAlignment="center">
+                </Label>
+
+              }
+
+            </GridLayout>
+
+          </GridLayout>
+
+          <StackLayout class="church-content">
+
+            <Label
+              [text]="church.name"
+              class="church-name"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="'@' + church.username"
+              class="username">
+            </Label>
+
+            <Label
+              text="✓ Abonné"
+              class="following-badge"
+              horizontalAlignment="center">
+            </Label>
+
+            <GridLayout
+              columns="25, *"
+              class="information-row">
+
+              <Label
+                col="0"
+                text="&#xf007;"
+                class="small-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="church.pastor"
+                class="information"
+                textWrap="true">
+              </Label>
+
+            </GridLayout>
+
+            <GridLayout
+              columns="25, *"
+              class="information-row">
+
+              <Label
+                col="0"
+                text="&#xf3c5;"
+                class="small-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="church.city + ', ' + church.country"
+                class="information"
+                textWrap="true">
+              </Label>
+
+            </GridLayout>
+
+            <Label
+              [text]="church.description"
+              class="description"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="church.followers.length + ' abonné(s)'"
+              class="followers">
+            </Label>
+
+            <Button
+              text="Voir le profil"
+              class="profile-button"
+              (tap)="viewChurch(church)">
+            </Button>
+
+            <Button
+              text="Se désabonner"
+              class="unfollow-button"
+              (tap)="unfollowChurch(church)">
+            </Button>
+
+          </StackLayout>
+
+        </StackLayout>
+
+      } @empty {
+
+        <StackLayout class="empty-card">
+
+          <Label
+            text="&#xf51d;"
+            class="empty-icon">
+          </Label>
+
+          <Label
+            text="Aucun abonnement"
+            class="empty-title">
+          </Label>
+
+          <Label
+            text="Recherchez votre église et abonnez-vous pour rester connecté à votre communauté."
+            class="subtitle"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      }
+
+      <Button
+        text="+ Découvrir des églises"
+        class="discover-button"
+        (tap)="discoverChurches()">
+      </Button>
+
+    </StackLayout>
+
+  </ScrollView>
+
+  <ns-navigation row="1"></ns-navigation>
+
+</GridLayout>

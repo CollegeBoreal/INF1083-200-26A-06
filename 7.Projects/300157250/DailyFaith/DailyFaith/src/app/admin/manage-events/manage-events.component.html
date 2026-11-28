@@ -1,9 +1,10 @@
-
 <ActionBar title="Gestion des événements"></ActionBar>
 
 <ScrollView>
 
   <StackLayout class="container">
+
+    <!-- En-tête -->
 
     <StackLayout class="header-card">
 
@@ -19,32 +20,142 @@
       </Label>
 
       <Label
-        text="Gérez les activités de votre église."
+        text="Gérez les activités de vos communautés."
         class="header-description"
         textWrap="true">
       </Label>
 
     </StackLayout>
 
+    <!-- Statistiques -->
+
+    <GridLayout columns="*, *, *" class="stats-container">
+
+      <StackLayout col="0" class="stat-card">
+
+        <Label
+          text="&#xf51d;"
+          class="stat-icon">
+        </Label>
+
+        <Label
+          [text]="totalChurches"
+          class="stat-number">
+        </Label>
+
+        <Label
+          text="Églises"
+          class="stat-label">
+        </Label>
+
+      </StackLayout>
+
+      <StackLayout col="1" class="stat-card">
+
+        <Label
+          text="&#xf073;"
+          class="stat-icon">
+        </Label>
+
+        <Label
+          [text]="totalEvents"
+          class="stat-number">
+        </Label>
+
+        <Label
+          text="Événements"
+          class="stat-label">
+        </Label>
+
+      </StackLayout>
+
+      <StackLayout col="2" class="stat-card">
+
+        <Label
+          text="&#xf0c0;"
+          class="stat-icon">
+        </Label>
+
+        <Label
+          [text]="totalParticipants"
+          class="stat-number">
+        </Label>
+
+        <Label
+          text="Inscriptions"
+          class="stat-label">
+        </Label>
+
+      </StackLayout>
+
+    </GridLayout>
+
+    <!-- Filtrer par église -->
+
     <Label
-      [text]="events.length + ' événement(s) programmé(s)'"
-      class="counter"
-      textWrap="true">
+      text="MES ÉGLISES"
+      class="section-title">
     </Label>
 
-    @if (events.length === 0) {
+    <ScrollView orientation="horizontal">
 
-      <Label
-        text="Aucun événement disponible."
-        class="empty-message"
-        textWrap="true">
-      </Label>
+      <StackLayout
+        orientation="horizontal"
+        class="filters">
 
-    }
+        <Button
+          text="Toutes"
+          [class]="selectedChurchId === null ? 'filter-active' : 'filter-button'"
+          (tap)="selectChurch(null)">
+        </Button>
+
+        @for (church of churches; track church.id) {
+
+          <Button
+            [text]="church.name"
+            [class]="selectedChurchId === church.id ? 'filter-active' : 'filter-button'"
+            (tap)="selectChurch(church.id)">
+          </Button>
+
+        }
+
+      </StackLayout>
+
+    </ScrollView>
+
+    <!-- Liste des événements -->
+
+    <Label
+      [text]="events.length + ' événement(s)'"
+      class="counter">
+    </Label>
 
     @for (event of events; track event.id) {
 
       <StackLayout class="event-card">
+
+        <!-- Église -->
+
+        <GridLayout columns="30, *" class="church-header">
+
+          <Label
+            col="0"
+            text="&#xf51d;"
+            class="detail-icon">
+          </Label>
+
+          <Label
+            col="1"
+            [text]="getChurchName(event)"
+            class="church-name"
+            textWrap="true">
+          </Label>
+
+        </GridLayout>
+
+        <StackLayout class="separator"></StackLayout>
+
+        <!-- Titre -->
 
         <Label
           [text]="event.title"
@@ -52,9 +163,15 @@
           textWrap="true">
         </Label>
 
+        <!-- Date -->
+
         <GridLayout columns="30, *" class="detail-row">
 
-          <Label col="0" text="&#xf073;" class="detail-icon"></Label>
+          <Label
+            col="0"
+            text="&#xf073;"
+            class="detail-icon">
+          </Label>
 
           <Label
             col="1"
@@ -65,21 +182,34 @@
 
         </GridLayout>
 
+        <!-- Heure -->
+
         <GridLayout columns="30, *" class="detail-row">
 
-          <Label col="0" text="&#xf017;" class="detail-icon"></Label>
+          <Label
+            col="0"
+            text="&#xf017;"
+            class="detail-icon">
+          </Label>
 
           <Label
             col="1"
             [text]="event.time"
-            class="details">
+            class="details"
+            textWrap="true">
           </Label>
 
         </GridLayout>
 
+        <!-- Lieu -->
+
         <GridLayout columns="30, *" class="detail-row">
 
-          <Label col="0" text="&#xf3c5;" class="detail-icon"></Label>
+          <Label
+            col="0"
+            text="&#xf3c5;"
+            class="detail-icon">
+          </Label>
 
           <Label
             col="1"
@@ -90,11 +220,33 @@
 
         </GridLayout>
 
+        <!-- Participants -->
+
+        <GridLayout columns="30, *" class="participants-card">
+
+          <Label
+            col="0"
+            text="&#xf0c0;"
+            class="detail-icon">
+          </Label>
+
+          <Label
+            col="1"
+            [text]="getParticipantsCount(event) + ' participant(s)'"
+            class="participants-text">
+          </Label>
+
+        </GridLayout>
+
+        <!-- Description -->
+
         <Label
           [text]="event.description"
           class="description"
           textWrap="true">
         </Label>
+
+        <!-- Formulaire de modification -->
 
         @if (editingId === event.id) {
 
@@ -102,11 +254,13 @@
 
             <Label
               text="Modifier l'événement"
-              class="edit-title"
-              textWrap="true">
+              class="edit-title">
             </Label>
 
-            <Label text="Nom de l'événement" class="field-label"></Label>
+            <Label
+              text="Nom de l'événement"
+              class="field-label">
+            </Label>
 
             <TextField
               [text]="title"
@@ -114,7 +268,10 @@
               class="input">
             </TextField>
 
-            <Label text="Date" class="field-label"></Label>
+            <Label
+              text="Date"
+              class="field-label">
+            </Label>
 
             <TextField
               [text]="date"
@@ -122,7 +279,10 @@
               class="input">
             </TextField>
 
-            <Label text="Heure" class="field-label"></Label>
+            <Label
+              text="Heure"
+              class="field-label">
+            </Label>
 
             <TextField
               [text]="time"
@@ -130,7 +290,10 @@
               class="input">
             </TextField>
 
-            <Label text="Lieu" class="field-label"></Label>
+            <Label
+              text="Lieu"
+              class="field-label">
+            </Label>
 
             <TextField
               [text]="location"
@@ -138,7 +301,10 @@
               class="input">
             </TextField>
 
-            <Label text="Description" class="field-label"></Label>
+            <Label
+              text="Description"
+              class="field-label">
+            </Label>
 
             <TextView
               [text]="description"
@@ -184,12 +350,42 @@
 
       </StackLayout>
 
+    } @empty {
+
+      <StackLayout class="empty-card">
+
+        <Label
+          text="&#xf073;"
+          class="empty-icon">
+        </Label>
+
+        <Label
+          text="Aucun événement"
+          class="empty-title">
+        </Label>
+
+        <Label
+          text="Aucun événement n'a encore été publié pour cette sélection."
+          class="empty-message"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
     }
+
+    <!-- Boutons -->
+
+    <Button
+      text="+ Créer un événement"
+      class="create-button"
+      (tap)="createEvent()">
+    </Button>
 
     <Button
       text="Retour au tableau de bord"
-      (tap)="goBack()"
-      class="back-button">
+      class="back-button"
+      (tap)="goBack()">
     </Button>
 
   </StackLayout>

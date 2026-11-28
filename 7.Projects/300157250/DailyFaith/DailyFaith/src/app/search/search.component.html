@@ -1,0 +1,219 @@
+
+<ActionBar title="Recherche"></ActionBar>
+
+<GridLayout rows="*, auto" class="page">
+
+  <ScrollView row="0">
+
+    <StackLayout class="container">
+
+      <Label
+        text="DÉCOUVRIR"
+        class="page-title">
+      </Label>
+
+      <Label
+        text="Trouvez votre communauté chrétienne."
+        class="subtitle"
+        textWrap="true">
+      </Label>
+
+      <!-- Barre de recherche -->
+
+      <GridLayout
+        columns="40, *, 40"
+        class="search-bar">
+
+        <Label
+          col="0"
+          text="&#xf002;"
+          class="search-icon"
+          horizontalAlignment="center"
+          verticalAlignment="center">
+        </Label>
+
+        <TextField
+          col="1"
+          hint="Rechercher une église..."
+          [text]="searchQuery"
+          (textChange)="onSearchChange($event)"
+          autocorrect="false"
+          class="search-input">
+        </TextField>
+
+        @if (searchQuery) {
+
+          <Label
+            col="2"
+            text="&#xf00d;"
+            class="clear-icon"
+            horizontalAlignment="center"
+            verticalAlignment="center"
+            (tap)="clearSearch()">
+          </Label>
+
+        }
+
+      </GridLayout>
+
+      <Label
+        text="Recherchez par nom, ville, pays ou pasteur."
+        class="search-help"
+        textWrap="true">
+      </Label>
+
+      <!-- Résultats -->
+
+      <GridLayout columns="*, auto" class="results-header">
+
+        <Label
+          col="0"
+          [text]="searchQuery ? 'Résultats' : 'Églises disponibles'"
+          class="section-title">
+        </Label>
+
+        <Label
+          col="1"
+          [text]="totalResults + ' résultat(s)'"
+          class="result-count"
+          verticalAlignment="center">
+        </Label>
+
+      </GridLayout>
+
+      @for (church of churches; track church.id) {
+
+        <StackLayout class="church-card">
+
+          <GridLayout columns="75, *, 25">
+
+            <!-- Logo -->
+
+            <GridLayout
+              col="0"
+              class="logo-container"
+              verticalAlignment="top">
+
+              @if (church.logo) {
+
+                <Image
+                  [src]="getLogoPath(church)"
+                  class="logo-image"
+                  stretch="aspectFill">
+                </Image>
+
+              } @else {
+
+                <Label
+                  text="&#xf51d;"
+                  class="logo-icon"
+                  horizontalAlignment="center"
+                  verticalAlignment="center">
+                </Label>
+
+              }
+
+            </GridLayout>
+
+            <!-- Informations -->
+
+            <StackLayout col="1">
+
+              <Label
+                [text]="church.name"
+                class="church-name"
+                textWrap="true">
+              </Label>
+
+              <Label
+                [text]="'@' + church.username"
+                class="username">
+              </Label>
+
+              <Label
+                [text]="church.city + ', ' + church.country"
+                class="location"
+                textWrap="true">
+              </Label>
+
+              <Label
+                [text]="church.followers.length + ' abonné(s)'"
+                class="followers">
+              </Label>
+
+              @if (isFollowing(church)) {
+
+                <Label
+                  text="✓ Abonné"
+                  class="following-label">
+                </Label>
+
+              }
+
+            </StackLayout>
+
+            <Label
+              col="2"
+              text="&#xf054;"
+              class="arrow-icon"
+              verticalAlignment="center"
+              (tap)="viewChurch(church)">
+            </Label>
+
+          </GridLayout>
+
+          <Label
+            [text]="church.description || 'Aucune description.'"
+            class="description"
+            textWrap="true">
+          </Label>
+
+          <Button
+            text="Voir le profil"
+            class="profile-button"
+            (tap)="viewChurch(church)">
+          </Button>
+
+        </StackLayout>
+
+      } @empty {
+
+        <StackLayout class="empty-card">
+
+          <Label
+            text="&#xf002;"
+            class="empty-icon">
+          </Label>
+
+          <Label
+            text="Aucune église trouvée"
+            class="empty-title">
+          </Label>
+
+          <Label
+            text="Essayez un autre nom, une ville ou un pays."
+            class="empty-text"
+            textWrap="true">
+          </Label>
+
+          @if (searchQuery) {
+
+            <Button
+              text="Effacer la recherche"
+              class="reset-button"
+              (tap)="clearSearch()">
+            </Button>
+
+          }
+
+        </StackLayout>
+
+      }
+
+    </StackLayout>
+
+  </ScrollView>
+
+  <ns-navigation row="1"></ns-navigation>
+
+</GridLayout>

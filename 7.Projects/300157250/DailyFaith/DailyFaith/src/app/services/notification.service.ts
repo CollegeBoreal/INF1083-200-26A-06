@@ -1,128 +1,331 @@
-
 import { Injectable } from '@angular/core';
 import { ApplicationSettings } from '@nativescript/core';
 
+import { AuthService } from './auth.service';
+import { ChurchService } from './church.service';
+
+export type NotificationType =
+  'message' | 'event' | 'announcement';
+
 export interface ChurchNotification {
+
   id: number;
+  churchId: number;
   title: string;
   content: string;
   date: string;
+  type: NotificationType;
+
+  recipientIds: number[];
+  readBy: number[];
   read: boolean;
+
 }
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class NotificationService {
 
-  private storageKey = 'dailyfaith_notifications';
-  private nextId = 4;
+  private storageKey = 'dailyfaith_notifications_v2';
 
-  notifications: ChurchNotification[] = [
-    {
-      id: 1,
-      title: 'Nouveau message biblique',
-      content: 'Le pasteur a publié un nouveau message.',
-      date: 'Aujourd’hui à 7 h 00',
-      read: false
-    },
-    {
-      id: 2,
-      title: 'Culte du dimanche',
-      content: 'N’oubliez pas notre prochain culte à 10 h.',
-      date: 'Aujourd’hui à 8 h 30',
-      read: false
-    },
-    {
-      id: 3,
-      title: 'Bienvenue sur Daily Faith',
-      content: 'Merci de rejoindre notre communauté chrétienne.',
-      date: 'Hier',
-      read: false
-    }
-  ];
+  private preferencesKey = 'dailyfaith_notification_preferences';
 
-  constructor() {
+  private nextId = 1;
+
+  private notifications: ChurchNotification[] = [];
+
+  private preferences: Record<string, boolean> = {};
+
+  constructor(
+    private authService: AuthService,
+    private churchService: ChurchService
+  ) {
+
     this.loadNotifications();
+    this.loadPreferences();
+
   }
 
-  // Charger les notifications sauvegardées
+  // Charger les notifications
+
   private loadNotifications() {
 
-    const savedNotifications = ApplicationSettings.getString(
+    const saved = ApplicationSettings.getString(
       this.storageKey,
       ''
     );
 
-    if (savedNotifications) {
+    if (saved) {
+
       try {
 
-        const data = JSON.parse(savedNotifications);
+        const data = JSON.parse(saved);
 
-        this.notifications = data.notifications;
-        this.nextId = data.nextId;
+        this.notifications = data.notifications || [];
+        this.nextId = data.nextId || 1;
 
       } catch (error) {
+
         console.error(
           'Erreur de chargement des notifications',
           error
         );
+
       }
+
     }
+
   }
 
   // Sauvegarder les notifications
-  saveNotifications() {
 
-    const data = {
-      notifications: this.notifications,
-      nextId: this.nextId
-    };
+  saveNotifications() {
 
     ApplicationSettings.setString(
       this.storageKey,
-      JSON.stringify(data)
+      JSON.stringify({
+        notifications: this.notifications,
+        nextId: this.nextId
+      })
     );
+
   }
 
-  getNotifications(): ChurchNotification[] {
-    return this.notifications;
+  // Charger les préférences
+
+  private loadPreferences() {
+
+    const saved = ApplicationSettings.getString(
+      this.preferencesKey,
+      ''
+    );
+
+    if (saved) {
+
+      try {
+
+        this.preferences = JSON.parse(saved);
+
+      } catch (error) {
+
+        console.error(
+          'Erreur de chargement des préférences',
+          error
+        );
+
+      }
+
+    }
+
   }
 
-  // Créer et sauvegarder une notification
-  addNotification(title: string, content: string) {
+  // Vérifier si les notifications sont activées
+
+  areNotificationsEnabled(
+    churchId: number,
+    userId: number
+  ): boolean {
+
+    const key = `${userId}_${churchId}`;
+
+    return this.preferences[key] !== false;
+
+  }
+
+  // Activer ou désactiver les notifications
+
+  toggleChurchNotifications(churchId: number) {
+
+    const user = this.authService.getCurrentUser();
+
+    if (
+      !user ||
+      !this.churchService.isFollowing(churchId, user.id)
+    ) {
+      return;
+    }
+
+    const key = `${user.id}_${churchId}`;
+
+    this.preferences[key] =
+      !this.areNotificationsEnabled(churchId, user.id);
+
+    ApplicationSettings.setString(
+      this.preferencesKey,
+      JSON.stringify(this.preferences)
+    );
+
+  }
+
+  // Créer une notification
+
+  addNotification(
+    title: string,
+    content: string,
+    churchId?: number,
+    type: NotificationType = 'announcement'
+  ): boolean {
+
+    const user = this.authService.getCurrentUser();
+
+    if (
+      !user ||
+      !this.authService.isAdmin() ||
+      churchId === undefined ||
+      !title.trim() ||
+      !content.trim()
+    ) {
+      return false;
+    }
+
+    const church = this.churchService.getChurchById(
+      churchId
+    );
+
+    if (!church || church.ownerId !== user.id) {
+      return false;
+    }
+
+    const recipientIds = church.followers.filter(
+      userId => this.areNotificationsEnabled(
+        church.id,
+        userId
+      )
+    );
 
     this.notifications.unshift({
+
       id: this.nextId++,
+      churchId: church.id,
+
       title: title.trim(),
       content: content.trim(),
+
       date: new Date().toLocaleString('fr-CA'),
+
+      type,
+
+      recipientIds: [...new Set(recipientIds)],
+      readBy: [],
       read: false
+
     });
 
     this.saveNotifications();
+
+    return true;
+
+  }
+
+  // Notifications du membre connecté
+
+  getNotifications(): ChurchNotification[] {
+
+    const user = this.authService.getCurrentUser();
+
+    if (!user) {
+      return [];
+    }
+
+    return this.notifications
+
+      .filter(notification =>
+
+        notification.recipientIds.includes(user.id) &&
+
+        this.churchService.isFollowing(
+          notification.churchId,
+          user.id
+        )
+
+      )
+
+      .map(notification => ({
+
+        ...notification,
+
+        read: notification.readBy.includes(user.id)
+
+      }));
+
   }
 
   // Marquer une notification comme lue
+
   markAsRead(notification: ChurchNotification) {
 
-    notification.read = true;
+    const user = this.authService.getCurrentUser();
 
-    this.saveNotifications();
+    if (!user) {
+      return;
+    }
+
+    const item = this.notifications.find(
+      n => n.id === notification.id
+    );
+
+    if (
+      !item ||
+      !item.recipientIds.includes(user.id) ||
+      !this.churchService.isFollowing(
+        item.churchId,
+        user.id
+      )
+    ) {
+      return;
+    }
+
+    if (!item.readBy.includes(user.id)) {
+
+      item.readBy.push(user.id);
+
+      this.saveNotifications();
+
+    }
+
   }
 
   // Marquer toutes les notifications comme lues
+
   markAllAsRead() {
 
+    const user = this.authService.getCurrentUser();
+
+    if (!user) {
+      return;
+    }
+
+    const ids = this.getNotifications().map(
+      notification => notification.id
+    );
+
     this.notifications.forEach(notification => {
-      notification.read = true;
+
+      if (
+        ids.includes(notification.id) &&
+        !notification.readBy.includes(user.id)
+      ) {
+
+        notification.readBy.push(user.id);
+
+      }
+
     });
 
     this.saveNotifications();
+
   }
 
-  // Compter les notifications non lues
+  // Compteur individuel
+
   getUnreadCount(): number {
-    return this.notifications.filter(n => !n.read).length;
+
+    return this.getNotifications().filter(
+      notification => !notification.read
+    ).length;
+
   }
+
 }

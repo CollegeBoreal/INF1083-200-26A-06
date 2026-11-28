@@ -1,8 +1,14 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
 
 .container {
     background-color: #F7F4EC;
     padding: 20;
 }
+
+/* En-tête */
 
 .header-card {
     background-color: #183B32;
@@ -14,6 +20,7 @@
 
 .header-icon {
     font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
     font-size: 35;
     color: #C5A66A;
     text-align: center;
@@ -33,6 +40,102 @@
     text-align: center;
     margin-top: 12;
 }
+
+/* Sélection de l'église */
+
+.church-section {
+    background-color: #FFFFFF;
+    border-radius: 18;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 20;
+    margin-bottom: 20;
+}
+
+.section-title {
+    color: #A88A50;
+    font-size: 14;
+    font-weight: bold;
+    margin-bottom: 12;
+}
+
+.section-description {
+    color: #8A806D;
+    font-size: 14;
+    margin-bottom: 15;
+}
+
+.church-card {
+    background-color: #F7F4EC;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.church-selected {
+    background-color: #183B32;
+    border-width: 2;
+    border-color: #A88A50;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.church-logo {
+    background-color: #F7F4EC;
+    width: 48;
+    height: 48;
+    border-radius: 24;
+}
+
+.church-image {
+    width: 48;
+    height: 48;
+    border-radius: 24;
+}
+
+.church-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #A88A50;
+    font-size: 22;
+}
+
+.church-name {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.selected-name {
+    color: #FFFFFF;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.church-username {
+    color: #A88A50;
+    font-size: 12;
+    margin-top: 5;
+}
+
+.check-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #C5A66A;
+    font-size: 20;
+}
+
+.empty-message {
+    color: #8A806D;
+    font-size: 14;
+    text-align: center;
+    margin-top: 10;
+}
+
+/* Formulaire */
 
 .form-card {
     background-color: #FFFFFF;
@@ -72,6 +175,8 @@
     height: 150;
 }
 
+/* Boutons */
+
 .publish-button {
     background-color: #183B32;
     color: #FFFFFF;
@@ -83,12 +188,13 @@
 }
 
 .cancel-button {
-    background-color: #F7F4EC;
+    background-color: #FFFFFF;
     color: #183B32;
     border-width: 1;
-    border-color: #C5A66A;
+    border-color: #A88A50;
     border-radius: 12;
-    font-size: 16;
+    font-size: 15;
     padding: 15;
-    margin-top: 12;
+    margin-top: 20;
+    margin-bottom: 25;
 }

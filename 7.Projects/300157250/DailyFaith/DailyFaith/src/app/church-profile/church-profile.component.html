@@ -1,0 +1,663 @@
+<ActionBar title="Profil de l'église"></ActionBar>
+
+<ScrollView>
+
+  <StackLayout class="container">
+
+    @if (church; as page) {
+
+      <!-- Photo de couverture -->
+
+      <GridLayout class="cover" height="190">
+
+        @if (page.cover) {
+
+          <Image
+            [src]="coverPath"
+            stretch="aspectFill"
+            width="100%"
+            height="190">
+          </Image>
+
+        } @else {
+
+          <Label
+            text="&#xf51d;"
+            class="cover-icon"
+            horizontalAlignment="center"
+            verticalAlignment="center">
+          </Label>
+
+        }
+
+      </GridLayout>
+
+      <!-- Logo de l'église -->
+
+      <GridLayout
+        class="logo-container"
+        horizontalAlignment="center">
+
+        @if (page.logo) {
+
+          <Image
+            [src]="logoPath"
+            class="logo-image"
+            stretch="aspectFill">
+          </Image>
+
+        } @else {
+
+          <Label
+            text="&#xf51d;"
+            class="logo-icon"
+            horizontalAlignment="center"
+            verticalAlignment="center">
+          </Label>
+
+        }
+
+      </GridLayout>
+
+      <!-- Nom de l'église -->
+
+      <Label
+        [text]="page.name"
+        class="church-name"
+        textWrap="true">
+      </Label>
+
+      <Label
+        [text]="'@' + page.username"
+        class="username">
+      </Label>
+
+      <!-- Statistiques -->
+
+      <GridLayout columns="*, *, *" class="statistics">
+
+        <StackLayout col="0">
+
+          <Label
+            [text]="publicationsCount"
+            class="stat-number">
+          </Label>
+
+          <Label
+            text="Publications"
+            class="stat-label">
+          </Label>
+
+        </StackLayout>
+
+        <StackLayout col="1">
+
+          <Label
+            [text]="followersCount"
+            class="stat-number">
+          </Label>
+
+          <Label
+            text="Abonnés"
+            class="stat-label">
+          </Label>
+
+        </StackLayout>
+
+        <StackLayout col="2">
+
+          <Label
+            [text]="eventsCount"
+            class="stat-number">
+          </Label>
+
+          <Label
+            text="Événements"
+            class="stat-label">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <!-- Abonnement -->
+
+      @if (!isOwner) {
+
+        <Button
+          [text]="isFollowing ? 'Abonné - Se désabonner' : '+ S’abonner'"
+          [class]="isFollowing ? 'following-button' : 'follow-button'"
+          (tap)="toggleFollow()">
+        </Button>
+
+      } @else {
+
+        <Label
+          text="Aperçu de votre page publique"
+          class="owner-label">
+        </Label>
+
+      }
+
+      <!-- Présentation de l'église -->
+
+      <StackLayout class="info-card">
+
+        <Label
+          text="À PROPOS DE L'ÉGLISE"
+          class="section-title">
+        </Label>
+
+        <GridLayout columns="25, *" class="info-row">
+
+          <Label
+            col="0"
+            text="&#xf007;"
+            class="small-icon">
+          </Label>
+
+          <Label
+            col="1"
+            [text]="page.pastor"
+            class="info-text"
+            textWrap="true">
+          </Label>
+
+        </GridLayout>
+
+        <GridLayout columns="25, *" class="info-row">
+
+          <Label
+            col="0"
+            text="&#xf3c5;"
+            class="small-icon">
+          </Label>
+
+          <Label
+            col="1"
+            [text]="page.city + ', ' + page.country"
+            class="info-text"
+            textWrap="true">
+          </Label>
+
+        </GridLayout>
+
+        @if (page.address) {
+
+          <Label
+            [text]="page.address"
+            class="address"
+            textWrap="true">
+          </Label>
+
+        }
+
+        <Label
+          [text]="page.description || 'Aucune description.'"
+          class="description"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <!-- Onglets -->
+
+      <GridLayout columns="*, *" class="tabs">
+
+        <StackLayout
+          col="0"
+          (tap)="showPublications()">
+
+          <Label
+            text="&#xf02d;"
+            class="tab-icon">
+          </Label>
+
+          <Label
+            text="Publications"
+            [class]="activeTab === 'publications' ? 'tab-active' : 'tab-label'">
+          </Label>
+
+          @if (activeTab === 'publications') {
+
+            <StackLayout class="indicator"></StackLayout>
+
+          }
+
+        </StackLayout>
+
+        <StackLayout
+          col="1"
+          (tap)="showEvents()">
+
+          <Label
+            text="&#xf073;"
+            class="tab-icon">
+          </Label>
+
+          <Label
+            text="Événements"
+            [class]="activeTab === 'events' ? 'tab-active' : 'tab-label'">
+          </Label>
+
+          @if (activeTab === 'events') {
+
+            <StackLayout class="indicator"></StackLayout>
+
+          }
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <!-- Publications bibliques -->
+
+      @if (activeTab === 'publications') {
+
+        @for (message of publications; track message.id) {
+
+          <StackLayout class="publication-card">
+
+            <!-- Auteur de la publication -->
+
+            <GridLayout
+              columns="55, *"
+              class="publication-header">
+
+              <GridLayout
+                col="0"
+                class="publication-logo">
+
+                @if (page.logo) {
+
+                  <Image
+                    [src]="logoPath"
+                    class="publication-logo-image"
+                    stretch="aspectFill">
+                  </Image>
+
+                } @else {
+
+                  <Label
+                    text="&#xf51d;"
+                    class="publication-logo-icon"
+                    horizontalAlignment="center"
+                    verticalAlignment="center">
+                  </Label>
+
+                }
+
+              </GridLayout>
+
+              <StackLayout
+                col="1"
+                verticalAlignment="center">
+
+                <Label
+                  [text]="page.name"
+                  class="publication-church"
+                  textWrap="true">
+                </Label>
+
+                <Label
+                  [text]="message.author"
+                  class="publication-author">
+                </Label>
+
+                <Label
+                  [text]="message.date"
+                  class="publication-date">
+                </Label>
+
+              </StackLayout>
+
+            </GridLayout>
+
+            <!-- Titre -->
+
+            <Label
+              [text]="message.title"
+              class="publication-title"
+              textWrap="true">
+            </Label>
+
+            <!-- Verset biblique -->
+
+            <GridLayout
+              columns="30, *"
+              class="verse-card">
+
+              <Label
+                col="0"
+                text="&#xf02d;"
+                class="verse-icon"
+                verticalAlignment="center">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="message.verse"
+                class="verse-text"
+                textWrap="true">
+              </Label>
+
+            </GridLayout>
+
+            <!-- Contenu -->
+
+            <Label
+              [text]="message.content"
+              class="publication-content"
+              textWrap="true">
+            </Label>
+
+            <!-- Interactions -->
+
+            <GridLayout
+              columns="*, *"
+              class="publication-actions">
+
+              <Button
+                col="0"
+                [text]="(message.liked ? '♥ ' : '♡ ') + message.likes + ' J’aime'"
+                [class]="message.liked ? 'liked-button' : 'like-button'"
+                (tap)="toggleLike(message)">
+              </Button>
+
+              <Button
+                col="1"
+                [text]="message.comments.length + ' Commentaire(s)'"
+                class="comment-button"
+                (tap)="toggleComments(message)">
+              </Button>
+
+            </GridLayout>
+
+            <!-- Commentaires -->
+
+            @if (message.showComments) {
+
+              <StackLayout class="comments-section">
+
+                <Label
+                  text="Commentaires"
+                  class="comments-title">
+                </Label>
+
+                @for (comment of message.comments; track $index) {
+
+                  <StackLayout class="comment-card">
+
+                    <Label
+                      [text]="comment.author"
+                      class="comment-author">
+                    </Label>
+
+                    <Label
+                      [text]="comment.content"
+                      class="comment-content"
+                      textWrap="true">
+                    </Label>
+
+                    <Label
+                      [text]="comment.date"
+                      class="comment-date">
+                    </Label>
+
+                  </StackLayout>
+
+                } @empty {
+
+                  <Label
+                    text="Soyez le premier à commenter."
+                    class="empty-comments"
+                    textWrap="true">
+                  </Label>
+
+                }
+
+                <TextView
+                  hint="Écrivez un commentaire..."
+                  [text]="message.newComment"
+                  (textChange)="onCommentChange($event, message)"
+                  class="comment-input">
+                </TextView>
+
+                <Button
+                  text="Publier le commentaire"
+                  class="publish-button"
+                  (tap)="addComment(message)">
+                </Button>
+
+              </StackLayout>
+
+            }
+
+          </StackLayout>
+
+        } @empty {
+
+          <StackLayout class="empty-card">
+
+            <Label
+              text="&#xf02d;"
+              class="empty-icon">
+            </Label>
+
+            <Label
+              text="Aucune publication"
+              class="empty-title">
+            </Label>
+
+            <Label
+              text="Cette église n'a pas encore publié de message biblique."
+              class="empty-text"
+              textWrap="true">
+            </Label>
+
+          </StackLayout>
+
+        }
+
+      } @else {
+
+        <!-- Événements de l'église -->
+
+        @for (event of events; track event.id) {
+
+          <StackLayout class="event-card">
+
+            <!-- En-tête de l'événement -->
+
+            <GridLayout
+              columns="30, *"
+              class="event-header">
+
+              <Label
+                col="0"
+                text="&#xf073;"
+                class="event-icon">
+              </Label>
+
+              <Label
+                col="1"
+                text="ÉVÉNEMENT DE L'ÉGLISE"
+                class="event-category">
+              </Label>
+
+            </GridLayout>
+
+            <!-- Titre de l'événement -->
+
+            <Label
+              [text]="event.title"
+              class="event-title"
+              textWrap="true">
+            </Label>
+
+            <!-- Date -->
+
+            <GridLayout
+              columns="30, *"
+              class="event-detail">
+
+              <Label
+                col="0"
+                text="&#xf073;"
+                class="event-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="event.date"
+                class="event-info"
+                textWrap="true">
+              </Label>
+
+            </GridLayout>
+
+            <!-- Heure -->
+
+            <GridLayout
+              columns="30, *"
+              class="event-detail">
+
+              <Label
+                col="0"
+                text="&#xf017;"
+                class="event-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="event.time"
+                class="event-info">
+              </Label>
+
+            </GridLayout>
+
+            <!-- Lieu -->
+
+            <GridLayout
+              columns="30, *"
+              class="event-detail">
+
+              <Label
+                col="0"
+                text="&#xf3c5;"
+                class="event-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="event.location"
+                class="event-info"
+                textWrap="true">
+              </Label>
+
+            </GridLayout>
+
+            <!-- Description -->
+
+            <Label
+              [text]="event.description"
+              class="event-description"
+              textWrap="true">
+            </Label>
+
+            <!-- Nombre de participants -->
+
+            <GridLayout
+              columns="30, *"
+              class="event-participants">
+
+              <Label
+                col="0"
+                text="&#xf0c0;"
+                class="event-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="getParticipantsCount(event) + ' participant(s)'"
+                class="event-participants-text">
+              </Label>
+
+            </GridLayout>
+
+            <!-- Participation du membre -->
+
+            @if (canParticipate) {
+
+              <Button
+                [text]="isRegistered(event) ? '✓ Participation confirmée' : 'Participer'"
+                [class]="isRegistered(event) ? 'registered-button' : 'participate-button'"
+                (tap)="participate(event)">
+              </Button>
+
+              @if (isRegistered(event)) {
+
+                <Label
+                  text="Appuyez de nouveau pour annuler votre participation."
+                  class="participation-help"
+                  textWrap="true">
+                </Label>
+
+              }
+
+            }
+
+          </StackLayout>
+
+        } @empty {
+
+          <StackLayout class="empty-card">
+
+            <Label
+              text="&#xf073;"
+              class="empty-icon">
+            </Label>
+
+            <Label
+              text="Aucun événement"
+              class="empty-title">
+            </Label>
+
+            <Label
+              text="Cette église n'a pas encore publié d'événement."
+              class="empty-text"
+              textWrap="true">
+            </Label>
+
+          </StackLayout>
+
+        }
+
+      }
+
+    } @else {
+
+      <!-- Église introuvable -->
+
+      <StackLayout class="empty-card">
+
+        <Label
+          text="Église introuvable"
+          class="empty-title">
+        </Label>
+
+      </StackLayout>
+
+    }
+
+    <!-- Bouton retour -->
+
+    <Button
+      text="Retour"
+      class="back-button"
+      (tap)="goBack()">
+    </Button>
+
+  </StackLayout>
+
+</ScrollView>

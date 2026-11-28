@@ -1,0 +1,202 @@
+
+ActionBar {
+  background-color: #183B32;
+  color: #FFFFFF;
+}
+
+.page {
+  background-color: #F7F4EC;
+}
+
+.container {
+  padding: 20;
+}
+
+.page-title {
+  font-size: 27;
+  font-weight: bold;
+  color: #183B32;
+  text-align: center;
+  margin-top: 15;
+  margin-bottom: 10;
+}
+
+.subtitle {
+  font-size: 14;
+  color: #777777;
+  text-align: center;
+  margin-bottom: 25;
+}
+
+.search-bar {
+  background-color: #FFFFFF;
+  border-radius: 14;
+  border-width: 1;
+  border-color: #E2DED4;
+  height: 55;
+  padding: 5;
+}
+
+.search-icon {
+  font-family: "Font Awesome 6 Free", "fa-solid-900";
+  font-weight: 900;
+  font-size: 19;
+  color: #A88A50;
+}
+
+.clear-icon {
+  font-family: "Font Awesome 6 Free", "fa-solid-900";
+  font-weight: 900;
+  font-size: 16;
+  color: #777777;
+}
+
+.search-input {
+  font-size: 15;
+  color: #183B32;
+  background-color: transparent;
+  border-width: 0;
+  padding: 8;
+}
+
+.search-help {
+  font-size: 12;
+  color: #888888;
+  margin-top: 10;
+  margin-bottom: 25;
+}
+
+.results-header {
+  margin-bottom: 18;
+}
+
+.section-title {
+  font-size: 19;
+  font-weight: bold;
+  color: #183B32;
+}
+
+.result-count {
+  font-size: 12;
+  color: #A88A50;
+}
+
+.church-card {
+  background-color: #FFFFFF;
+  border-radius: 16;
+  padding: 18;
+  margin-bottom: 18;
+}
+
+.logo-container {
+  width: 60;
+  height: 60;
+  border-radius: 30;
+  background-color: #183B32;
+}
+
+.logo-image {
+  width: 60;
+  height: 60;
+  border-radius: 30;
+}
+
+.logo-icon {
+  font-family: "Font Awesome 6 Free", "fa-solid-900";
+  font-weight: 900;
+  font-size: 25;
+  color: #C7AB70;
+}
+
+.church-name {
+  font-size: 18;
+  font-weight: bold;
+  color: #183B32;
+  margin-bottom: 5;
+}
+
+.username {
+  font-size: 13;
+  color: #A88A50;
+  margin-bottom: 8;
+}
+
+.location {
+  font-size: 13;
+  color: #777777;
+  margin-bottom: 5;
+}
+
+.followers {
+  font-size: 12;
+  color: #777777;
+}
+
+.following-label {
+  font-size: 12;
+  font-weight: bold;
+  color: #183B32;
+  margin-top: 8;
+}
+
+.arrow-icon {
+  font-family: "Font Awesome 6 Free", "fa-solid-900";
+  font-weight: 900;
+  font-size: 15;
+  color: #183B32;
+}
+
+.description {
+  font-size: 14;
+  color: #555555;
+  margin-top: 18;
+  margin-bottom: 15;
+}
+
+.profile-button {
+  background-color: #183B32;
+  color: #FFFFFF;
+  font-size: 14;
+  font-weight: bold;
+  border-radius: 10;
+  height: 45;
+}
+
+.empty-card {
+  background-color: #FFFFFF;
+  border-radius: 16;
+  padding: 30 20;
+  margin-top: 10;
+}
+
+.empty-icon {
+  font-family: "Font Awesome 6 Free", "fa-solid-900";
+  font-weight: 900;
+  font-size: 38;
+  color: #A88A50;
+  text-align: center;
+  margin-bottom: 18;
+}
+
+.empty-title {
+  font-size: 18;
+  font-weight: bold;
+  color: #183B32;
+  text-align: center;
+  margin-bottom: 10;
+}
+
+.empty-text {
+  font-size: 14;
+  color: #777777;
+  text-align: center;
+}
+
+.reset-button {
+  background-color: #F7F4EC;
+  color: #183B32;
+  border-radius: 10;
+  font-size: 14;
+  height: 45;
+  margin-top: 20;
+}
