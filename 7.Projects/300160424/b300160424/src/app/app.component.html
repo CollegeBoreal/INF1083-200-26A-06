@@ -1,34 +1,49 @@
-<GridLayout rows="*, auto">
+
+<GridLayout rows="*, auto" backgroundColor="#101010">
 
   <page-router-outlet row="0"></page-router-outlet>
 
   <GridLayout row="1"
     columns="*, *, *"
-    backgroundColor="#15803d"
-    padding="5">
+    backgroundColor="#181818"
+    borderTopColor="#FF6B00"
+    borderTopWidth="2"
+    padding="8">
 
     <Button col="0"
-      text="Accueil"
+      text="🏠 Accueil"
       [nsRouterLink]="['/accueil']"
-      backgroundColor="#15803d"
-      color="white"
-      fontSize="14">
+      backgroundColor="#242424"
+      color="#FF6B00"
+      fontSize="13"
+      fontWeight="bold"
+      borderRadius="12"
+      height="50"
+      margin="3">
     </Button>
 
     <Button col="1"
-      text="Exercices"
+      text="💪 Exercices"
       [nsRouterLink]="['/exercices']"
-      backgroundColor="#15803d"
-      color="white"
-      fontSize="14">
+      backgroundColor="#242424"
+      color="#FF6B00"
+      fontSize="13"
+      fontWeight="bold"
+      borderRadius="12"
+      height="50"
+      margin="3">
     </Button>
 
     <Button col="2"
-      text="Suivi"
+      text="📊 Suivi"
       [nsRouterLink]="['/suivi']"
-      backgroundColor="#15803d"
-      color="white"
-      fontSize="14">
+      backgroundColor="#242424"
+      color="#FF6B00"
+      fontSize="13"
+      fontWeight="bold"
+      borderRadius="12"
+      height="50"
+      margin="3">
     </Button>
 
   </GridLayout>

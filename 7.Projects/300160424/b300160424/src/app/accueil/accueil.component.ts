@@ -1,3 +1,4 @@
+
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import {
   NativeScriptCommonModule,
@@ -12,129 +13,194 @@ import {
     NativeScriptRouterModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
+
   template: `
-    <ActionBar title="SportFit 💪"
-      backgroundColor="#15803d" color="white">
+    <ActionBar title="SPORTFIT | TRAINING"
+      backgroundColor="#101010"
+      color="#FF6B00">
     </ActionBar>
 
-    <ScrollView backgroundColor="#101713">
-      <StackLayout padding="20">
+    <ScrollView backgroundColor="#101010">
+      <StackLayout padding="18">
 
-        <Label text="🔥 SPORTFIT"
-          fontSize="35"
-          fontWeight="bold"
-          color="#4ade80"
-          textAlignment="center">
+        <Label text="SPORTFIT PRO"
+          color="#FF6B00"
+          fontSize="15"
+          fontWeight="bold">
         </Label>
 
-        <Label text="Bienvenue Youcef !"
-          fontSize="24"
+        <Label text="Prêt à t'entraîner ?"
           color="white"
-          textAlignment="center"
-          marginTop="15">
+          fontSize="28"
+          fontWeight="bold"
+          marginTop="8">
         </Label>
 
-        <Label text="Deviens la meilleure version de toi-même."
-          color="#a7c4b0"
-          textWrap="true"
-          textAlignment="center"
+        <Label text="Chaque effort compte."
+          color="#AAAAAA"
           fontSize="16"
-          marginTop="10">
+          marginTop="5">
         </Label>
 
-        <StackLayout backgroundColor="#22332a"
+        <GridLayout rows="220"
           borderRadius="20"
-          padding="20"
-          marginTop="25">
+          marginTop="20"
+          backgroundColor="#242424">
 
-          <Label text="🎯 Objectif du jour"
-            color="white"
-            fontSize="20"
-            fontWeight="bold">
-          </Label>
+          <Image
+            src="~/images/fitness.jpg"
+            stretch="aspectFill"
+            opacity="0.55">
+          </Image>
 
-          <Label text="30 MIN"
-            fontSize="45"
-            color="#4ade80"
-            fontWeight="bold"
-            textAlignment="center"
-            marginTop="10">
-          </Label>
+          <StackLayout
+            verticalAlignment="bottom"
+            padding="18">
 
-          <Label text="Entraînement quotidien"
-            color="#a7c4b0"
-            textAlignment="center">
-          </Label>
-
-        </StackLayout>
-
-        <GridLayout columns="*, *" marginTop="15">
-
-          <StackLayout col="0"
-            backgroundColor="#22332a"
-            borderRadius="15"
-            padding="15"
-            marginRight="5">
-
-            <Label text="🏋️" fontSize="35"
-              textAlignment="center">
+            <Label text="NO EXCUSES"
+              color="#FF6B00"
+              fontSize="32"
+              fontWeight="bold">
             </Label>
 
-            <Label text="4 Exercices"
+            <Label text="TRAIN HARD"
               color="white"
-              fontSize="18"
-              textAlignment="center">
+              fontSize="30"
+              fontWeight="bold">
             </Label>
 
-          </StackLayout>
-
-          <StackLayout col="1"
-            backgroundColor="#22332a"
-            borderRadius="15"
-            padding="15"
-            marginLeft="5">
-
-            <Label text="🏆" fontSize="35"
-              textAlignment="center">
-            </Label>
-
-            <Label text="1 Objectif"
+            <Label text="Construis ta meilleure version."
               color="white"
-              fontSize="18"
-              textAlignment="center">
+              fontSize="14">
             </Label>
 
           </StackLayout>
 
         </GridLayout>
 
-        <Button text="▶ Commencer mon entraînement"
-          [nsRouterLink]="['/exercices']"
-          backgroundColor="#22c55e"
-          color="#101713"
-          fontWeight="bold"
-          fontSize="16"
-          height="55"
-          borderRadius="15"
-          marginTop="25">
-        </Button>
-
-        <Button text="📊 Voir mes progrès"
-          [nsRouterLink]="['/suivi']"
-          backgroundColor="#22332a"
+        <Label text="TON PROGRAMME"
           color="white"
-          fontSize="16"
+          fontWeight="bold"
+          fontSize="19"
+          marginTop="25">
+        </Label>
+
+        <GridLayout columns="*, *"
+          marginTop="12">
+
+          <StackLayout col="0"
+            backgroundColor="#242424"
+            borderRadius="16"
+            padding="18"
+            marginRight="5">
+
+            <Label text="⏱"
+              fontSize="30"
+              color="#FF6B00">
+            </Label>
+
+            <Label text="30 MIN"
+              color="#FF6B00"
+              fontSize="28"
+              fontWeight="bold">
+            </Label>
+
+            <Label text="Objectif quotidien"
+              color="#BBBBBB"
+              fontSize="13"
+              textWrap="true">
+            </Label>
+
+          </StackLayout>
+
+          <StackLayout col="1"
+            backgroundColor="#242424"
+            borderRadius="16"
+            padding="18"
+            marginLeft="5">
+
+            <Label text="🏋️"
+              fontSize="30">
+            </Label>
+
+            <Label text="04"
+              color="#FF6B00"
+              fontSize="28"
+              fontWeight="bold">
+            </Label>
+
+            <Label text="Exercices"
+              color="#BBBBBB"
+              fontSize="13">
+            </Label>
+
+          </StackLayout>
+
+        </GridLayout>
+
+        <Label text="ENTRAÎNEMENT DU JOUR"
+          color="white"
+          fontSize="19"
+          fontWeight="bold"
+          marginTop="25">
+        </Label>
+
+        <StackLayout
+          backgroundColor="#242424"
+          borderRadius="16"
+          padding="18"
+          marginTop="12">
+
+          <Label text="💪 Full Body Workout"
+            color="white"
+            fontSize="21"
+            fontWeight="bold">
+          </Label>
+
+          <Label text="Pompes • Squats • Abdominaux • Course"
+            color="#AAAAAA"
+            textWrap="true"
+            marginTop="8">
+          </Label>
+
+          <Label text="NIVEAU DÉBUTANT"
+            color="#FF6B00"
+            fontWeight="bold"
+            marginTop="12">
+          </Label>
+
+          <Button text="▶ COMMENCER"
+            [nsRouterLink]="['/exercices']"
+            backgroundColor="#FF6B00"
+            color="white"
+            fontSize="17"
+            fontWeight="bold"
+            borderRadius="12"
+            height="55"
+            marginTop="15">
+          </Button>
+
+        </StackLayout>
+
+        <Button text="📊 VOIR MES PERFORMANCES"
+          [nsRouterLink]="['/suivi']"
+          backgroundColor="#242424"
+          color="#FF6B00"
+          fontWeight="bold"
+          borderColor="#FF6B00"
+          borderWidth="1"
+          borderRadius="12"
           height="55"
-          borderRadius="15"
-          marginTop="10">
+          marginTop="15">
         </Button>
 
-        <Label text="💡 La discipline est la clé du succès."
-          color="#4ade80"
-          fontSize="15"
+        <Label text="DISCIPLINE • FORCE • PERFORMANCE"
+          color="#FF6B00"
+          fontSize="12"
+          fontWeight="bold"
           textAlignment="center"
-          textWrap="true"
-          marginTop="25">
+          marginTop="25"
+          marginBottom="15">
         </Label>
 
       </StackLayout>

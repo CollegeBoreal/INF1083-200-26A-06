@@ -1,55 +1,97 @@
+
 import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { NativeScriptCommonModule } from '@nativescript/angular';
-import { ApplicationSettings } from '@nativescript/core';
+import { ApplicationSettings, Dialogs } from '@nativescript/core';
 
 @Component({
   selector: 'app-suivi',
   standalone: true,
   imports: [NativeScriptCommonModule],
   schemas: [NO_ERRORS_SCHEMA],
+
   template: `
-    <ActionBar title="SportFit - Mes progrès"
-      backgroundColor="#15803d" color="white">
+    <ActionBar title="SPORTFIT | PERFORMANCE"
+      backgroundColor="#101010"
+      color="#FF6B00">
     </ActionBar>
 
-    <ScrollView backgroundColor="#101713">
-      <StackLayout padding="20">
+    <ScrollView backgroundColor="#101010"
+      (loaded)="actualiser()">
 
-        <Label text="📊 Mes performances"
-          fontSize="27"
-          fontWeight="bold"
-          color="#4ade80"
-          textAlignment="center">
+      <StackLayout padding="18">
+
+        <Label text="PERFORMANCE TRACKER"
+          color="#FF6B00"
+          fontSize="14"
+          fontWeight="bold">
         </Label>
 
-        <StackLayout backgroundColor="#22332a"
-          padding="25"
+        <Label text="Mes performances"
+          fontSize="28"
+          fontWeight="bold"
+          color="white"
+          marginTop="8">
+        </Label>
+
+        <Label text="Chaque effort te rapproche de ton objectif."
+          color="#AAAAAA"
+          textWrap="true"
+          marginTop="5">
+        </Label>
+
+        <StackLayout
+          backgroundColor="#242424"
+          padding="20"
           borderRadius="20"
           marginTop="20">
 
-          <Label text="Progression du programme"
-            fontSize="20"
-            color="white"
-            textAlignment="center">
-          </Label>
-
-          <Label [text]="pourcentage + '%'"
-            fontSize="55"
+          <Label text="PROGRESSION DU PROGRAMME"
+            fontSize="15"
             fontWeight="bold"
-            color="#4ade80"
+            color="#BBBBBB"
             textAlignment="center">
           </Label>
 
-          <Progress [value]="total"
-            [maxValue]="4"
-            color="#22c55e"
-            backgroundColor="#374151"
-            height="15">
+          <GridLayout
+            width="180"
+            height="180"
+            borderRadius="90"
+            borderWidth="10"
+            [borderColor]="pourcentage === 100 ? '#22c55e' : '#FF6B00'"
+            backgroundColor="#101010"
+            marginTop="20">
+
+            <StackLayout verticalAlignment="center">
+
+              <Label [text]="pourcentage + '%'"
+                fontSize="48"
+                fontWeight="bold"
+                color="#FF6B00"
+                textAlignment="center">
+              </Label>
+
+              <Label [text]="total + ' / 4 exercices'"
+                color="#BBBBBB"
+                fontSize="14"
+                textAlignment="center">
+              </Label>
+
+            </StackLayout>
+
+          </GridLayout>
+
+          <Progress
+            [value]="pourcentage"
+            [maxValue]="100"
+            color="#FF6B00"
+            backgroundColor="#414141"
+            height="12"
+            marginTop="20">
           </Progress>
 
-          <Label [text]="total + ' / 4 exercices terminés'"
-            color="white"
-            fontSize="17"
+          <Label [text]="total === 4 ? 'OBJECTIF ATTEINT !' : 'Continue ton entraînement !'"
+            color="#FF6B00"
+            fontWeight="bold"
             textAlignment="center"
             marginTop="15">
           </Label>
@@ -59,7 +101,7 @@ import { ApplicationSettings } from '@nativescript/core';
         <GridLayout columns="*, *" marginTop="15">
 
           <StackLayout col="0"
-            backgroundColor="#22332a"
+            backgroundColor="#242424"
             borderRadius="18"
             padding="15"
             marginRight="5">
@@ -70,14 +112,14 @@ import { ApplicationSettings } from '@nativescript/core';
             </Label>
 
             <Label [text]="calories + ' kcal'"
-              color="#4ade80"
+              color="#FF6B00"
               fontSize="25"
               fontWeight="bold"
               textAlignment="center">
             </Label>
 
-            <Label text="Calories indicatives"
-              color="white"
+            <Label text="Calories estimées"
+              color="#BBBBBB"
               textWrap="true"
               textAlignment="center">
             </Label>
@@ -85,7 +127,7 @@ import { ApplicationSettings } from '@nativescript/core';
           </StackLayout>
 
           <StackLayout col="1"
-            backgroundColor="#22332a"
+            backgroundColor="#242424"
             borderRadius="18"
             padding="15"
             marginLeft="5">
@@ -96,14 +138,15 @@ import { ApplicationSettings } from '@nativescript/core';
             </Label>
 
             <Label [text]="total + ' / 4'"
-              color="#4ade80"
+              color="#FF6B00"
               fontSize="25"
               fontWeight="bold"
               textAlignment="center">
             </Label>
 
-            <Label text="Exercices"
-              color="white"
+            <Label text="Exercices terminés"
+              color="#BBBBBB"
+              textWrap="true"
               textAlignment="center">
             </Label>
 
@@ -111,33 +154,71 @@ import { ApplicationSettings } from '@nativescript/core';
 
         </GridLayout>
 
-        <StackLayout backgroundColor="#22332a"
+        <Label text="BILAN DES EXERCICES"
+          color="white"
+          fontSize="19"
+          fontWeight="bold"
+          marginTop="25">
+        </Label>
+
+        <StackLayout
+          backgroundColor="#242424"
+          borderRadius="18"
+          padding="15"
+          marginTop="12">
+
+          <GridLayout
+            *ngFor="let exercice of exercices"
+            columns="*, auto"
+            padding="12"
+            borderBottomWidth="1"
+            borderBottomColor="#414141">
+
+            <Label col="0"
+              [text]="exercice.nom"
+              color="white"
+              fontSize="17">
+            </Label>
+
+            <Label col="1"
+              [text]="estTermine(exercice.nom) ? '✓ Terminé' : 'En attente'"
+              [color]="estTermine(exercice.nom) ? '#22c55e' : '#AAAAAA'"
+              fontSize="14">
+            </Label>
+
+          </GridLayout>
+
+        </StackLayout>
+
+        <StackLayout
+          backgroundColor="#242424"
           borderRadius="20"
           padding="20"
           marginTop="20">
 
-          <Label text="🏆 Mes récompenses"
-            fontSize="23"
+          <Label text="MES RÉCOMPENSES"
+            fontSize="18"
             fontWeight="bold"
-            color="white"
+            color="#BBBBBB"
             textAlignment="center">
           </Label>
 
           <Label [text]="trophee"
-            fontSize="50"
+            fontSize="65"
             textAlignment="center"
             marginTop="15">
           </Label>
 
           <Label [text]="niveau"
-            color="#4ade80"
-            fontSize="23"
+            color="#FF6B00"
+            fontSize="24"
             fontWeight="bold"
-            textAlignment="center">
+            textAlignment="center"
+            textWrap="true">
           </Label>
 
           <Label [text]="message"
-            color="#a7c4b0"
+            color="#BBBBBB"
             fontSize="16"
             textWrap="true"
             textAlignment="center"
@@ -146,24 +227,35 @@ import { ApplicationSettings } from '@nativescript/core';
 
         </StackLayout>
 
-        <Button text="🔄 Actualiser mes progrès"
-          backgroundColor="#22c55e"
-          color="#101713"
+        <Button text="ACTUALISER MES PROGRÈS"
+          backgroundColor="#FF6B00"
+          color="white"
           fontWeight="bold"
-          borderRadius="15"
+          borderRadius="12"
           height="55"
           marginTop="20"
           (tap)="actualiser()">
         </Button>
 
         <Button text="Réinitialiser l'entraînement"
-          backgroundColor="#dc2626"
-          color="white"
-          borderRadius="15"
+          backgroundColor="#242424"
+          color="#FF6B00"
+          borderColor="#FF6B00"
+          borderWidth="1"
+          borderRadius="12"
           height="50"
           marginTop="10"
           (tap)="reinitialiser()">
         </Button>
+
+        <Label text="DISCIPLINE • FORCE • PERFORMANCE"
+          color="#FF6B00"
+          fontSize="12"
+          fontWeight="bold"
+          textAlignment="center"
+          marginTop="25"
+          marginBottom="15">
+        </Label>
 
       </StackLayout>
     </ScrollView>
@@ -189,12 +281,16 @@ export class SuiviComponent implements OnInit {
     this.actualiser();
   }
 
+  estTermine(nom: string): boolean {
+    return ApplicationSettings.getBoolean(
+      'sportfit_' + nom, false
+    );
+  }
+
   actualiser() {
 
     const termines = this.exercices.filter(exercice =>
-      ApplicationSettings.getBoolean(
-        'sportfit_' + exercice.nom, false
-      )
+      this.estTermine(exercice.nom)
     );
 
     this.total = termines.length;
@@ -208,26 +304,41 @@ export class SuiviComponent implements OnInit {
       this.trophee = '🎯';
       this.niveau = 'Débutant';
       this.message = 'Commence ton premier exercice !';
+
     } else if (this.total === 1) {
       this.trophee = '🥉';
       this.niveau = 'Sportif débutant';
       this.message = 'Bravo ! Continue comme ça.';
+
     } else if (this.total === 2) {
       this.trophee = '🥈';
       this.niveau = 'Sportif motivé';
       this.message = 'Tu es à la moitié du programme !';
+
     } else if (this.total === 3) {
       this.trophee = '🥇';
       this.niveau = 'Sportif confirmé';
       this.message = 'Encore un exercice !';
+
     } else {
       this.trophee = '🏆';
       this.niveau = 'Champion SportFit';
-      this.message = 'Félicitations ! Objectif atteint !';
+      this.message = 'Félicitations ! Programme terminé à 100 % !';
     }
   }
 
-  reinitialiser() {
+  async reinitialiser() {
+
+    const confirmation = await Dialogs.confirm({
+      title: 'Réinitialisation',
+      message: 'Veux-tu vraiment effacer tes progrès ?',
+      okButtonText: 'Oui',
+      cancelButtonText: 'Annuler'
+    });
+
+    if (!confirmation) {
+      return;
+    }
 
     this.exercices.forEach(exercice =>
       ApplicationSettings.remove(
