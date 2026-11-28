@@ -6,6 +6,7 @@ import { Application } from '@nativescript/core'
   standalone: false,
   selector: 'Home',
   templateUrl: './home.component.html',
+  styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
   constructor() {
