@@ -1,3 +1,7 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
 
 .container {
     background-color: #F7F4EC;
@@ -50,6 +54,62 @@
     margin-bottom: 10;
 }
 
+.church-option {
+    background-color: #F7F4EC;
+    border-radius: 12;
+    border-width: 1;
+    border-color: #E3DCCB;
+    padding: 12;
+    margin-bottom: 12;
+}
+
+.church-selected {
+    background-color: #E6EEE7;
+    border-radius: 12;
+    border-width: 2;
+    border-color: #183B32;
+    padding: 12;
+    margin-bottom: 12;
+}
+
+.church-logo {
+    width: 48;
+    height: 48;
+    border-radius: 24;
+    background-color: #183B32;
+}
+
+.church-image {
+    width: 48;
+    height: 48;
+    border-radius: 24;
+}
+
+.church-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-size: 22;
+    color: #C5A66A;
+}
+
+.church-name {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.church-username {
+    color: #A88A50;
+    font-size: 12;
+    margin-top: 5;
+}
+
+.selection-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    color: #183B32;
+    font-size: 20;
+    text-align: center;
+}
+
 .input {
     background-color: #F7F4EC;
     color: #183B32;
@@ -91,4 +151,11 @@
     font-size: 16;
     padding: 15;
     margin-top: 12;
+}
+
+.empty-text {
+    color: #777777;
+    font-size: 14;
+    text-align: center;
+    margin-top: 15;
 }

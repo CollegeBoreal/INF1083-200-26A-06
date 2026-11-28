@@ -1,4 +1,3 @@
-
 <ActionBar title="Messages bibliques"></ActionBar>
 
 <GridLayout rows="*, auto">
@@ -14,7 +13,7 @@
       </Label>
 
       <Label
-        text="Nourrissez votre foi chaque jour."
+        text="Les publications de vos communautés."
         class="subtitle"
         textWrap="true">
       </Label>
@@ -24,8 +23,8 @@
         <StackLayout class="message-card">
 
           <Label
-            [text]="message.title"
-            class="message-title"
+            [text]="getChurchName(message)"
+            class="church-name"
             textWrap="true">
           </Label>
 
@@ -37,6 +36,12 @@
           <Label
             [text]="message.date"
             class="author">
+          </Label>
+
+          <Label
+            [text]="message.title"
+            class="message-title"
+            textWrap="true">
           </Label>
 
           <Label
@@ -55,9 +60,9 @@
 
             <Button
               col="0"
-              [text]="(message.liked ? 'Aimé' : 'J’aime') + ' (' + message.likes + ')'"
-              (tap)="toggleLike(message)"
-              class="like-button">
+              [text]="(isLiked(message) ? '♥ Aimé' : '♡ J’aime') + ' (' + message.likes + ')'"
+              [class]="isLiked(message) ? 'liked-button' : 'like-button'"
+              (tap)="toggleLike(message)">
             </Button>
 
             <Button
@@ -77,16 +82,6 @@
                 text="Commentaires"
                 class="comments-title">
               </Label>
-
-              @if (message.comments.length === 0) {
-
-                <Label
-                  text="Soyez le premier à commenter."
-                  class="empty-comments"
-                  textWrap="true">
-                </Label>
-
-              }
 
               @for (comment of message.comments; track $index) {
 
@@ -110,6 +105,14 @@
 
                 </StackLayout>
 
+              } @empty {
+
+                <Label
+                  text="Soyez le premier à commenter."
+                  class="empty-comments"
+                  textWrap="true">
+                </Label>
+
               }
 
               <TextView
@@ -128,6 +131,24 @@
             </StackLayout>
 
           }
+
+        </StackLayout>
+
+      } @empty {
+
+        <StackLayout class="message-card">
+
+          <Label
+            text="Aucune publication disponible"
+            class="message-title"
+            textWrap="true">
+          </Label>
+
+          <Label
+            text="Découvrez et suivez des églises pour recevoir leurs messages bibliques."
+            class="content"
+            textWrap="true">
+          </Label>
 
         </StackLayout>
 

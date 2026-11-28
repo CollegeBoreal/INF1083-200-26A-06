@@ -1,9 +1,10 @@
-
-<ActionBar title="Gestion des messages"></ActionBar>
+<ActionBar title="Gestion des publications"></ActionBar>
 
 <ScrollView>
 
   <StackLayout class="container">
+
+    <!-- En-tête -->
 
     <StackLayout class="header-card">
 
@@ -13,37 +14,188 @@
       </Label>
 
       <Label
-        text="Gestion des messages"
+        text="MES PUBLICATIONS"
         class="header-title"
         textWrap="true">
       </Label>
 
       <Label
-        text="Gérez vos publications bibliques."
+        text="Gérez les messages bibliques de vos églises."
         class="header-description"
         textWrap="true">
       </Label>
 
     </StackLayout>
 
+    <!-- Statistiques -->
+
+    <GridLayout
+      columns="*, *, *"
+      class="statistics">
+
+      <StackLayout col="0" class="stat-item">
+
+        <Label
+          text="&#xf02d;"
+          class="stat-icon">
+        </Label>
+
+        <Label
+          [text]="totalMessages"
+          class="stat-number">
+        </Label>
+
+        <Label
+          text="Publications"
+          class="stat-label">
+        </Label>
+
+      </StackLayout>
+
+      <StackLayout col="1" class="stat-item">
+
+        <Label
+          text="&#xf004;"
+          class="stat-icon">
+        </Label>
+
+        <Label
+          [text]="totalLikes"
+          class="stat-number">
+        </Label>
+
+        <Label
+          text="J'aime"
+          class="stat-label">
+        </Label>
+
+      </StackLayout>
+
+      <StackLayout col="2" class="stat-item">
+
+        <Label
+          text="&#xf075;"
+          class="stat-icon">
+        </Label>
+
+        <Label
+          [text]="totalComments"
+          class="stat-number">
+        </Label>
+
+        <Label
+          text="Commentaires"
+          class="stat-label">
+        </Label>
+
+      </StackLayout>
+
+    </GridLayout>
+
+    <!-- Nouvelle publication -->
+
+    <Button
+      text="+ Nouvelle publication"
+      class="new-button"
+      (tap)="publishMessage()">
+    </Button>
+
+    <!-- Filtre par église -->
+
+    <StackLayout class="filter-card">
+
+      <Label
+        text="FILTRER PAR ÉGLISE"
+        class="section-title">
+      </Label>
+
+      <Button
+        text="Toutes mes églises"
+        [class]="selectedChurchId === null ? 'filter-active' : 'filter-button'"
+        (tap)="selectChurch(null)">
+      </Button>
+
+      @for (church of churches; track church.id) {
+
+        <Button
+          [text]="church.name"
+          [class]="selectedChurchId === church.id ? 'filter-active' : 'filter-button'"
+          (tap)="selectChurch(church.id)">
+        </Button>
+
+      }
+
+    </StackLayout>
+
+    <!-- Compteur -->
+
     <Label
-      [text]="messages.length + ' message(s) publié(s)'"
+      [text]="messages.length + ' publication(s)'"
       class="counter">
     </Label>
 
-    @if (messages.length === 0) {
-
-      <Label
-        text="Aucun message disponible."
-        class="empty-message"
-        textWrap="true">
-      </Label>
-
-    }
+    <!-- Liste des publications -->
 
     @for (message of messages; track message.id) {
 
       <StackLayout class="message-card">
+
+        <!-- Église et pasteur -->
+
+        <GridLayout
+          columns="60, *"
+          class="publication-header">
+
+          <GridLayout
+            col="0"
+            class="church-logo">
+
+            @if (getChurchLogo(message)) {
+
+              <Image
+                [src]="getChurchLogo(message)"
+                class="church-image"
+                stretch="aspectFill">
+              </Image>
+
+            } @else {
+
+              <Label
+                text="&#xf51d;"
+                class="church-icon"
+                horizontalAlignment="center"
+                verticalAlignment="center">
+              </Label>
+
+            }
+
+          </GridLayout>
+
+          <StackLayout
+            col="1"
+            verticalAlignment="center">
+
+            <Label
+              [text]="getChurchName(message)"
+              class="church-name"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="message.author"
+              class="author">
+            </Label>
+
+            <Label
+              [text]="message.date"
+              class="date">
+            </Label>
+
+          </StackLayout>
+
+        </GridLayout>
+
+        <!-- Message biblique -->
 
         <Label
           [text]="message.title"
@@ -51,16 +203,15 @@
           textWrap="true">
         </Label>
 
-        <Label
-          [text]="message.verse"
-          class="verse"
-          textWrap="true">
-        </Label>
+        <StackLayout class="verse-card">
 
-        <Label
-          [text]="message.date"
-          class="date">
-        </Label>
+          <Label
+            [text]="message.verse"
+            class="verse"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
 
         <Label
           [text]="message.content"
@@ -68,16 +219,62 @@
           textWrap="true">
         </Label>
 
+        <!-- Interactions -->
+
+        <GridLayout
+          columns="*, *"
+          class="interactions">
+
+          <GridLayout col="0" columns="25, *">
+
+            <Label
+              col="0"
+              text="&#xf004;"
+              class="interaction-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="message.likes + ' J’aime'"
+              class="interaction-text">
+            </Label>
+
+          </GridLayout>
+
+          <GridLayout col="1" columns="25, *">
+
+            <Label
+              col="0"
+              text="&#xf075;"
+              class="interaction-icon">
+            </Label>
+
+            <Label
+              col="1"
+              [text]="message.comments.length + ' Commentaire(s)'"
+              class="interaction-text"
+              textWrap="true">
+            </Label>
+
+          </GridLayout>
+
+        </GridLayout>
+
+        <!-- Formulaire de modification -->
+
         @if (editingId === message.id) {
 
           <StackLayout class="edit-form">
 
             <Label
-              text="Modifier le message"
+              text="Modifier la publication"
               class="edit-title">
             </Label>
 
-            <Label text="Titre" class="field-label"></Label>
+            <Label
+              text="Titre"
+              class="field-label">
+            </Label>
 
             <TextField
               [text]="title"
@@ -96,7 +293,10 @@
               class="input">
             </TextField>
 
-            <Label text="Contenu" class="field-label"></Label>
+            <Label
+              text="Contenu du message"
+              class="field-label">
+            </Label>
 
             <TextView
               [text]="content"
@@ -105,15 +305,15 @@
             </TextView>
 
             <Button
-              text="Enregistrer"
-              (tap)="saveMessage()"
-              class="save-button">
+              text="Enregistrer les modifications"
+              class="save-button"
+              (tap)="saveMessage()">
             </Button>
 
             <Button
               text="Annuler"
-              (tap)="cancelEdit()"
-              class="cancel-button">
+              class="cancel-button"
+              (tap)="cancelEdit()">
             </Button>
 
           </StackLayout>
@@ -125,15 +325,15 @@
             <Button
               col="0"
               text="Modifier"
-              (tap)="editMessage(message)"
-              class="edit-button">
+              class="edit-button"
+              (tap)="editMessage(message)">
             </Button>
 
             <Button
               col="1"
               text="Supprimer"
-              (tap)="deleteMessage(message)"
-              class="delete-button">
+              class="delete-button"
+              (tap)="deleteMessage(message)">
             </Button>
 
           </GridLayout>
@@ -142,12 +342,34 @@
 
       </StackLayout>
 
+    } @empty {
+
+      <StackLayout class="empty-card">
+
+        <Label
+          text="&#xf02d;"
+          class="empty-icon">
+        </Label>
+
+        <Label
+          text="Aucune publication"
+          class="empty-title">
+        </Label>
+
+        <Label
+          text="Aucun message biblique disponible pour cette sélection."
+          class="empty-message"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
     }
 
     <Button
       text="Retour au tableau de bord"
-      (tap)="goBack()"
-      class="back-button">
+      class="back-button"
+      (tap)="goBack()">
     </Button>
 
   </StackLayout>

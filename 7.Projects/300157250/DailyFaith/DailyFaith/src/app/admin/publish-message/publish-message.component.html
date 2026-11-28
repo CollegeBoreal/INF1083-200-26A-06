@@ -1,5 +1,4 @@
-
-<ActionBar title="Publier un message"></ActionBar>
+<ActionBar title="Nouvelle publication"></ActionBar>
 
 <ScrollView>
 
@@ -13,7 +12,7 @@
       </Label>
 
       <Label
-        text="Nouveau message biblique"
+        text="PUBLIER UN MESSAGE"
         class="header-title"
         textWrap="true">
       </Label>
@@ -29,51 +28,134 @@
     <StackLayout class="form-card">
 
       <Label
-        text="Titre du message"
+        text="Sélectionner une église"
         class="field-label">
       </Label>
 
-      <TextField
-        hint="Ex : Gardez confiance en Dieu"
-        [text]="title"
-        (textChange)="onTitleChange($event)"
-        class="input">
-      </TextField>
+      @for (church of churches; track church.id) {
 
-      <Label
-        text="Référence biblique"
-        class="field-label">
-      </Label>
+        <GridLayout
+          columns="60, *, 35"
+          [class]="selectedChurchId === church.id ? 'church-selected' : 'church-option'"
+          (tap)="selectChurch(church)">
 
-      <TextField
-        hint="Ex : Psaume 23:1"
-        [text]="verse"
-        (textChange)="onVerseChange($event)"
-        class="input">
-      </TextField>
+          <GridLayout
+            col="0"
+            class="church-logo">
 
-      <Label
-        text="Contenu du message"
-        class="field-label">
-      </Label>
+            @if (church.logo) {
 
-      <TextView
-        hint="Écrivez votre message biblique ici..."
-        [text]="content"
-        (textChange)="onContentChange($event)"
-        class="message-input">
-      </TextView>
+              <Image
+                [src]="getLogoPath(church)"
+                class="church-image"
+                stretch="aspectFill">
+              </Image>
 
-      <Button
-        text="Publier le message"
-        (tap)="publish()"
-        class="publish-button">
-      </Button>
+            } @else {
+
+              <Label
+                text="&#xf51d;"
+                class="church-icon"
+                horizontalAlignment="center"
+                verticalAlignment="center">
+              </Label>
+
+            }
+
+          </GridLayout>
+
+          <StackLayout
+            col="1"
+            verticalAlignment="center">
+
+            <Label
+              [text]="church.name"
+              class="church-name"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="'@' + church.username"
+              class="church-username">
+            </Label>
+
+          </StackLayout>
+
+          <Label
+            col="2"
+            [text]="selectedChurchId === church.id ? '&#xf058;' : '&#xf111;'"
+            class="selection-icon"
+            verticalAlignment="center">
+          </Label>
+
+        </GridLayout>
+
+      } @empty {
+
+        <Label
+          text="Vous devez créer une église avant de publier."
+          class="empty-text"
+          textWrap="true">
+        </Label>
+
+        <Button
+          text="+ Créer une église"
+          class="publish-button"
+          (tap)="createChurch()">
+        </Button>
+
+      }
+
+      @if (selectedChurch) {
+
+        <Label
+          text="Titre du message"
+          class="field-label">
+        </Label>
+
+        <TextField
+          hint="Exemple : Marcher dans la foi"
+          [text]="title"
+          (textChange)="onTitleChange($event)"
+          class="input">
+        </TextField>
+
+        <Label
+          text="Verset biblique"
+          class="field-label">
+        </Label>
+
+        <TextField
+          hint="Exemple : Jean 3:16"
+          [text]="verse"
+          (textChange)="onVerseChange($event)"
+          class="input">
+        </TextField>
+
+        <Label
+          text="Message biblique"
+          class="field-label">
+        </Label>
+
+        <TextView
+          hint="Écrivez votre message..."
+          [text]="content"
+          (textChange)="onContentChange($event)"
+          class="message-input">
+        </TextView>
+
+        <Button
+          text="Publier le message"
+          class="publish-button"
+          (tap)="publish()">
+        </Button>
+
+      }
 
       <Button
         text="Annuler"
-        (tap)="cancel()"
-        class="cancel-button">
+        class="cancel-button"
+        (tap)="cancel()">
       </Button>
 
     </StackLayout>

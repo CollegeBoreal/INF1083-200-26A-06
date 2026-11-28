@@ -1,8 +1,19 @@
-
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { NativeScriptCommonModule } from '@nativescript/angular';
+
+import {
+  NativeScriptCommonModule
+} from '@nativescript/angular';
+
 import { NavigationComponent } from '../navigation/navigation.component';
-import { Message, MessageService } from '../services/message.service';
+
+import {
+  Message,
+  MessageService
+} from '../services/message.service';
+
+import { AuthService } from '../services/auth.service';
+import { ChurchService } from '../services/church.service';
+
 import { alert } from '@nativescript/core';
 
 @Component({
@@ -14,42 +25,95 @@ import { alert } from '@nativescript/core';
   ],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css'],
+  styleUrls: ['./messages.component.css']
 })
+
 export class MessagesComponent {
 
-  constructor(private messageService: MessageService) {}
+  constructor(
+    private messageService: MessageService,
+    private authService: AuthService,
+    private churchService: ChurchService
+  ) {}
+
+  // Publications des églises suivies
 
   get messages(): Message[] {
-    return this.messageService.getMessages();
+
+    const user = this.authService.getCurrentUser();
+
+    if (!user) {
+      return [];
+    }
+
+    return this.messageService
+      .getFollowedChurchMessages(user.id)
+      .sort((a, b) => b.id - a.id);
+
   }
 
-  // Aimer et sauvegarder un message
+  // Nom de l'église
+
+  getChurchName(message: Message): string {
+
+    if (message.churchId === undefined) {
+      return 'Église inconnue';
+    }
+
+    return this.churchService
+      .getChurchById(message.churchId)?.name
+      || 'Église inconnue';
+
+  }
+
+  // Vérifier le like du membre
+
+  isLiked(message: Message): boolean {
+
+    return this.messageService
+      .isLikedByCurrentUser(message);
+
+  }
+
+  // Aimer une publication
+
   toggleLike(message: Message) {
+
     this.messageService.toggleLike(message);
+
   }
 
-  // Afficher ou masquer les commentaires
+  // Afficher les commentaires
+
   toggleComments(message: Message) {
+
     message.showComments = !message.showComments;
+
   }
 
-  // Récupérer le commentaire saisi
   onCommentChange(args: any, message: Message) {
-    message.newComment = args.object.text;
+
+    message.newComment = args.object.text || '';
+
   }
 
-  // Publier et sauvegarder un commentaire
+  // Publier un commentaire
+
   addComment(message: Message) {
 
     if (!message.newComment.trim()) {
+
       alert('Veuillez écrire un commentaire.');
+
       return;
+
     }
 
     this.messageService.addComment(
       message,
       message.newComment
     );
+
   }
+
 }

@@ -1,19 +1,26 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
 
 .container {
     background-color: #F7F4EC;
     padding: 20;
 }
 
+/* En-tête */
+
 .header-card {
     background-color: #183B32;
     border-radius: 18;
     padding: 25;
     margin-top: 15;
-    margin-bottom: 25;
+    margin-bottom: 20;
 }
 
 .header-icon {
     font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
     font-size: 32;
     color: #C5A66A;
     text-align: center;
@@ -34,54 +41,200 @@
     margin-top: 10;
 }
 
+/* Statistiques */
+
+.statistics {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    padding: 20 5;
+    margin-bottom: 20;
+}
+
+.stat-item {
+    padding: 5;
+}
+
+.stat-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 22;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 10;
+}
+
+.stat-number {
+    color: #183B32;
+    font-size: 25;
+    font-weight: bold;
+    text-align: center;
+}
+
+.stat-label {
+    color: #777777;
+    font-size: 11;
+    text-align: center;
+    margin-top: 5;
+}
+
+/* Nouvelle publication */
+
+.new-button {
+    background-color: #183B32;
+    color: #FFFFFF;
+    font-size: 16;
+    font-weight: bold;
+    border-radius: 12;
+    height: 52;
+    margin-bottom: 20;
+}
+
+/* Filtres */
+
+.filter-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    padding: 15;
+    margin-bottom: 20;
+}
+
+.section-title {
+    color: #A88A50;
+    font-size: 13;
+    font-weight: bold;
+    margin-bottom: 15;
+}
+
+.filter-button {
+    background-color: #F7F4EC;
+    color: #183B32;
+    font-size: 14;
+    border-radius: 10;
+    height: 45;
+    margin-bottom: 8;
+}
+
+.filter-active {
+    background-color: #183B32;
+    color: #FFFFFF;
+    font-size: 14;
+    font-weight: bold;
+    border-radius: 10;
+    height: 45;
+    margin-bottom: 8;
+}
+
 .counter {
     color: #183B32;
     font-size: 18;
     font-weight: bold;
-    margin-bottom: 20;
+    margin-bottom: 15;
 }
 
-.empty-message {
-    color: #8A806D;
-    font-size: 16;
-    text-align: center;
-    padding: 25;
-}
+/* Cartes des publications */
 
 .message-card {
     background-color: #FFFFFF;
-    border-radius: 15;
+    border-radius: 18;
     border-width: 1;
     border-color: #E3DCCB;
     padding: 20;
-    margin-bottom: 18;
+    margin-bottom: 20;
+}
+
+.publication-header {
+    margin-bottom: 20;
+}
+
+.church-logo {
+    width: 48;
+    height: 48;
+    border-radius: 24;
+    background-color: #183B32;
+}
+
+.church-image {
+    width: 48;
+    height: 48;
+    border-radius: 24;
+}
+
+.church-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 22;
+    color: #C5A66A;
+}
+
+.church-name {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.author {
+    color: #A88A50;
+    font-size: 13;
+    margin-top: 4;
+}
+
+.date {
+    color: #8A806D;
+    font-size: 11;
+    margin-top: 4;
 }
 
 .message-title {
     color: #183B32;
-    font-size: 20;
+    font-size: 22;
     font-weight: bold;
+    margin-bottom: 15;
+}
+
+.verse-card {
+    background-color: #F7F4EC;
+    border-left-width: 4;
+    border-left-color: #A88A50;
+    border-radius: 10;
+    padding: 12;
 }
 
 .verse {
     color: #A88A50;
     font-size: 14;
     font-weight: bold;
-    margin-top: 8;
-}
-
-.date {
-    color: #8A806D;
-    font-size: 12;
-    margin-top: 8;
 }
 
 .content {
-    color: #183B32;
+    color: #444444;
     font-size: 15;
     margin-top: 15;
+    margin-bottom: 20;
+}
+
+/* Interactions */
+
+.interactions {
+    background-color: #F7F4EC;
+    border-radius: 10;
+    padding: 12;
     margin-bottom: 15;
 }
+
+.interaction-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 15;
+    color: #A88A50;
+}
+
+.interaction-text {
+    color: #183B32;
+    font-size: 12;
+    font-weight: bold;
+}
+
+/* Boutons */
 
 .edit-button {
     background-color: #183B32;
@@ -100,6 +253,8 @@
     padding: 12;
     margin: 4;
 }
+
+/* Formulaire de modification */
 
 .edit-form {
     background-color: #F7F4EC;
@@ -149,6 +304,7 @@
     background-color: #183B32;
     color: #FFFFFF;
     border-radius: 10;
+    font-size: 14;
     font-weight: bold;
     padding: 12;
     margin-top: 20;
@@ -164,12 +320,47 @@
     margin-top: 10;
 }
 
-.back-button {
-    background-color: #183B32;
-    color: #FFFFFF;
-    border-radius: 12;
-    font-size: 16;
+/* État vide */
+
+.empty-card {
+    background-color: #FFFFFF;
+    border-radius: 15;
+    padding: 25;
+    margin-bottom: 20;
+}
+
+.empty-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 35;
+    color: #A88A50;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.empty-title {
+    color: #183B32;
+    font-size: 18;
     font-weight: bold;
+    text-align: center;
+    margin-bottom: 10;
+}
+
+.empty-message {
+    color: #8A806D;
+    font-size: 14;
+    text-align: center;
+}
+
+/* Retour */
+
+.back-button {
+    background-color: #FFFFFF;
+    color: #183B32;
+    border-width: 1;
+    border-color: #183B32;
+    border-radius: 12;
+    font-size: 15;
     padding: 15;
     margin-top: 15;
     margin-bottom: 20;

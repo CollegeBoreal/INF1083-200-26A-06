@@ -1,4 +1,3 @@
-
 <ActionBar title="Notifications"></ActionBar>
 
 <GridLayout rows="*, auto">
@@ -7,52 +6,224 @@
 
     <StackLayout class="container">
 
-      <Label
-        text="Notifications"
-        class="title">
-      </Label>
+      <StackLayout class="header-card">
 
-      <Label
-        [text]="unreadCount + ' notification(s) non lue(s)'"
-        class="subtitle"
-        textWrap="true">
-      </Label>
+        <Label
+          text="&#xf0f3;"
+          class="header-icon">
+        </Label>
 
-      <Button
-        text="Tout marquer comme lu"
-        (tap)="markAllAsRead()"
-        class="read-all-button">
-      </Button>
+        <Label
+          text="Mes notifications"
+          class="header-title">
+        </Label>
 
-      @for (notification of notifications; track notification.id) {
+        <Label
+          [text]="unreadCount + ' notification(s) non lue(s)'"
+          class="header-description">
+        </Label>
 
-        <StackLayout
-          class="notification-card"
-          (tap)="markAsRead(notification)">
+      </StackLayout>
 
-          <Label
-            [text]="notification.read ? 'Lu' : 'NOUVEAU'"
-            [class]="notification.read ? 'read' : 'unread'">
-          </Label>
+      <!-- Onglets -->
 
-          <Label
-            [text]="notification.title"
-            class="notification-title"
-            textWrap="true">
-          </Label>
+      <GridLayout columns="*, *" class="tabs">
 
-          <Label
-            [text]="notification.content"
-            class="content"
-            textWrap="true">
-          </Label>
+        <Button
+          col="0"
+          text="Notifications"
+          [class]="activeTab === 'notifications' ? 'tab-active' : 'tab-button'"
+          (tap)="showNotifications()">
+        </Button>
 
-          <Label
-            [text]="notification.date"
-            class="date">
-          </Label>
+        <Button
+          col="1"
+          text="Préférences"
+          [class]="activeTab === 'settings' ? 'tab-active' : 'tab-button'"
+          (tap)="showSettings()">
+        </Button>
 
-        </StackLayout>
+      </GridLayout>
+
+      @if (activeTab === 'notifications') {
+
+        <Button
+          text="Tout marquer comme lu"
+          class="read-all-button"
+          (tap)="markAllAsRead()">
+        </Button>
+
+        <GridLayout columns="*, *" class="tabs">
+
+          <Button
+            col="0"
+            text="Toutes"
+            [class]="activeFilter === 'all' ? 'tab-active' : 'tab-button'"
+            (tap)="selectFilter('all')">
+          </Button>
+
+          <Button
+            col="1"
+            text="Non lues"
+            [class]="activeFilter === 'unread' ? 'tab-active' : 'tab-button'"
+            (tap)="selectFilter('unread')">
+          </Button>
+
+        </GridLayout>
+
+        @for (notification of notifications; track notification.id) {
+
+          <StackLayout
+            class="notification-card"
+            (tap)="markAsRead(notification)">
+
+            <GridLayout columns="35, *, auto">
+
+              <Label
+                col="0"
+                [text]="getNotificationIcon(notification)"
+                class="notification-icon">
+              </Label>
+
+              <Label
+                col="1"
+                [text]="getNotificationCategory(notification)"
+                class="category"
+                textWrap="true">
+              </Label>
+
+              <Label
+                col="2"
+                [text]="notification.read ? 'Lu' : 'NOUVEAU'"
+                [class]="notification.read ? 'read' : 'unread'">
+              </Label>
+
+            </GridLayout>
+
+            <Label
+              [text]="getChurchName(notification)"
+              class="church-name">
+            </Label>
+
+            <Label
+              [text]="notification.title"
+              class="notification-title"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="notification.content"
+              class="content"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="notification.date"
+              class="date">
+            </Label>
+
+            <Button
+              text="Voir la page de l'église"
+              class="view-button"
+              (tap)="viewChurch(notification)">
+            </Button>
+
+          </StackLayout>
+
+        } @empty {
+
+          <StackLayout class="empty-card">
+
+            <Label
+              text="&#xf0f3;"
+              class="empty-icon">
+            </Label>
+
+            <Label
+              text="Aucune notification"
+              class="empty-title">
+            </Label>
+
+            <Label
+              text="Vous êtes à jour. Les nouvelles annonces de vos communautés apparaîtront ici."
+              class="empty-text"
+              textWrap="true">
+            </Label>
+
+          </StackLayout>
+
+        }
+
+      } @else {
+
+        <Label
+          text="MES COMMUNAUTÉS"
+          class="section-title">
+        </Label>
+
+        <Label
+          text="Choisissez les églises dont vous souhaitez recevoir les notifications."
+          class="empty-text"
+          textWrap="true">
+        </Label>
+
+        @for (church of churches; track church.id) {
+
+          <GridLayout
+            columns="40, *, 65"
+            class="notification-card">
+
+            <Label
+              col="0"
+              text="&#xf51d;"
+              class="notification-icon"
+              verticalAlignment="center">
+            </Label>
+
+            <StackLayout col="1">
+
+              <Label
+                [text]="church.name"
+                class="church-name"
+                textWrap="true">
+              </Label>
+
+              <Label
+                [text]="isEnabled(church) ? 'Notifications activées' : 'Notifications désactivées'"
+                class="preference-text"
+                textWrap="true">
+              </Label>
+
+            </StackLayout>
+
+            <Switch
+              col="2"
+              [checked]="isEnabled(church)"
+              (checkedChange)="toggleNotifications(church)"
+              class="notification-switch"
+              verticalAlignment="center">
+            </Switch>
+
+          </GridLayout>
+
+        } @empty {
+
+          <StackLayout class="empty-card">
+
+            <Label
+              text="Aucune église suivie"
+              class="empty-title">
+            </Label>
+
+            <Button
+              text="Découvrir des églises"
+              class="read-all-button"
+              (tap)="discoverChurches()">
+            </Button>
+
+          </StackLayout>
+
+        }
 
       }
 

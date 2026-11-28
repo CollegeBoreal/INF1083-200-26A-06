@@ -1,3 +1,7 @@
+ActionBar {
+    background-color: #183B32;
+    color: #FFFFFF;
+}
 
 .container {
     background-color: #F7F4EC;
@@ -14,6 +18,7 @@
 
 .header-icon {
     font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
     color: #C5A66A;
     font-size: 35;
     text-align: center;
@@ -50,6 +55,63 @@
     margin-bottom: 10;
 }
 
+.church-card {
+    background-color: #FFFFFF;
+    border-width: 1;
+    border-color: #E3DCCB;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.church-selected {
+    background-color: #E8EDE7;
+    border-width: 2;
+    border-color: #183B32;
+    border-radius: 12;
+    padding: 12;
+    margin-bottom: 10;
+}
+
+.church-logo {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+    background-color: #183B32;
+}
+
+.church-image {
+    width: 45;
+    height: 45;
+    border-radius: 23;
+}
+
+.church-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    font-size: 20;
+    color: #C5A66A;
+}
+
+.church-name {
+    color: #183B32;
+    font-size: 16;
+    font-weight: bold;
+}
+
+.church-followers {
+    color: #8A806D;
+    font-size: 12;
+    margin-top: 5;
+}
+
+.selected-icon {
+    font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
+    color: #183B32;
+    font-size: 22;
+}
+
 .recipient-card {
     background-color: #F7F4EC;
     border-radius: 10;
@@ -58,6 +120,7 @@
 
 .recipient-icon {
     font-family: "Font Awesome 6 Free", "fa-solid-900";
+    font-weight: 900;
     color: #A88A50;
     font-size: 20;
 }
@@ -66,6 +129,12 @@
     color: #183B32;
     font-size: 16;
     font-weight: bold;
+}
+
+.recipient-description {
+    color: #8A806D;
+    font-size: 12;
+    margin-top: 5;
 }
 
 .input {
@@ -98,6 +167,10 @@
     font-weight: bold;
     padding: 15;
     margin-top: 25;
+}
+
+.send-button:disabled {
+    opacity: 0.5;
 }
 
 .cancel-button {

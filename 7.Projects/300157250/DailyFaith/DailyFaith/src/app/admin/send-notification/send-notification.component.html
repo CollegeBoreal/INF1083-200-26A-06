@@ -1,4 +1,3 @@
-
 <ActionBar title="Envoyer une notification"></ActionBar>
 
 <ScrollView>
@@ -29,6 +28,87 @@
     <StackLayout class="form-card">
 
       <Label
+        text="Sélectionner une église"
+        class="field-label">
+      </Label>
+
+      @for (church of churches; track church.id) {
+
+        <GridLayout
+          columns="55, *, 30"
+          [class]="selectedChurchId === church.id ? 'church-selected' : 'church-card'"
+          (tap)="selectChurch(church)">
+
+          <GridLayout col="0" class="church-logo">
+
+            @if (church.logo) {
+
+              <Image
+                [src]="getLogoPath(church)"
+                class="church-image"
+                stretch="aspectFill">
+              </Image>
+
+            } @else {
+
+              <Label
+                text="&#xf51d;"
+                class="church-icon"
+                horizontalAlignment="center"
+                verticalAlignment="center">
+              </Label>
+
+            }
+
+          </GridLayout>
+
+          <StackLayout
+            col="1"
+            verticalAlignment="center">
+
+            <Label
+              [text]="church.name"
+              class="church-name"
+              textWrap="true">
+            </Label>
+
+            <Label
+              [text]="church.followers.length + ' abonné(s)'"
+              class="church-followers">
+            </Label>
+
+          </StackLayout>
+
+          @if (selectedChurchId === church.id) {
+
+            <Label
+              col="2"
+              text="&#xf058;"
+              class="selected-icon"
+              verticalAlignment="center">
+            </Label>
+
+          }
+
+        </GridLayout>
+
+      } @empty {
+
+        <Label
+          text="Vous devez créer une église avant d'envoyer une notification."
+          class="field-label"
+          textWrap="true">
+        </Label>
+
+        <Button
+          text="+ Créer une église"
+          class="send-button"
+          (tap)="createChurch()">
+        </Button>
+
+      }
+
+      <Label
         text="Destinataires"
         class="field-label">
       </Label>
@@ -41,11 +121,20 @@
           class="recipient-icon">
         </Label>
 
-        <Label
-          col="1"
-          text="Espace membre"
-          class="recipient-text">
-        </Label>
+        <StackLayout col="1">
+
+          <Label
+            [text]="recipientsCount + ' destinataire(s)'"
+            class="recipient-text">
+          </Label>
+
+          <Label
+            text="Abonnés ayant activé les notifications"
+            class="recipient-description"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
 
       </GridLayout>
 
@@ -76,6 +165,7 @@
       <Button
         text="Envoyer la notification"
         (tap)="sendNotification()"
+        [isEnabled]="recipientsCount > 0"
         class="send-button">
       </Button>
 

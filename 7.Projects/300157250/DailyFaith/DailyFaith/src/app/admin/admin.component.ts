@@ -1,12 +1,15 @@
 
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+
 import {
   NativeScriptCommonModule,
   RouterExtensions
 } from '@nativescript/angular';
+
 import { MessageService } from '../services/message.service';
 import { EventService } from '../services/event.service';
 import { AuthService } from '../services/auth.service';
+import { ChurchService } from '../services/church.service';
 
 @Component({
   selector: 'ns-admin',
@@ -14,7 +17,7 @@ import { AuthService } from '../services/auth.service';
   imports: [NativeScriptCommonModule],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css'],
+  styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
 
@@ -22,22 +25,41 @@ export class AdminComponent {
     private router: RouterExtensions,
     private messageService: MessageService,
     private eventService: EventService,
-    private authService: AuthService
+    private authService: AuthService,
+    private churchService: ChurchService
   ) {}
 
-  // Récupérer le nom du pasteur connecté
   get pastorName(): string {
     return this.authService.getCurrentUser()?.name || 'Pasteur';
   }
 
-  // Nombre de messages publiés
   get totalMessages(): number {
     return this.messageService.getTotalMessages();
   }
 
-  // Nombre d'événements publiés
   get totalEvents(): number {
     return this.eventService.getTotalEvents();
+  }
+
+  get totalChurches(): number {
+
+    const user = this.authService.getCurrentUser();
+
+    if (!user) {
+      return 0;
+    }
+
+    return this.churchService
+      .getPastorChurches(user.id).length;
+  }
+
+  createChurch() {
+    this.router.navigate(['/create-church']);
+  }
+
+  // Gérer les pages du pasteur
+  manageChurches() {
+    this.router.navigate(['/manage-churches']);
   }
 
   publishMessage() {
@@ -60,7 +82,6 @@ export class AdminComponent {
     this.router.navigate(['/send-notification']);
   }
 
-  // Fermer la session du pasteur
   logout() {
 
     this.authService.logout();
