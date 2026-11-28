@@ -1,0 +1,21 @@
+<ActionBar title="A3 Garage" class="garage-bar"></ActionBar>
+
+<ScrollView class="garage-page">
+  <StackLayout class="page-inset">
+    <StackLayout class="vehicle-card">
+      <Label text="Audi" class="vehicle-make"></Label>
+      <Label text="A3" class="vehicle-model"></Label>
+      <Label text="Année 2015" class="vehicle-year"></Label>
+    </StackLayout>
+
+    <Label text="Dernier entretien" class="section-title"></Label>
+    @if (entretiens.dernier(); as entretien) {
+      <StackLayout class="panel">
+        <Label [text]="entretien.type" class="entry-title" textWrap="true"></Label>
+        <Label [text]="entretien.date + '  •  ' + entretien.kilometrage + ' km'" class="entry-meta"></Label>
+      </StackLayout>
+    } @else {
+      <Label class="panel entry-meta" text="Aucun entretien enregistré." textWrap="true"></Label>
+    }
+  </StackLayout>
+</ScrollView>

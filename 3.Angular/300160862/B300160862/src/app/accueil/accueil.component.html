@@ -1,0 +1,26 @@
+<h1>{{ titre }}</h1>
+<p>{{ nom }}</p>
+<button type="button" (click)="saluer()">Cliquez-moi</button>.
+@if (connecte) {
+  <p>Connecté</p>
+}
+<ul>
+  @for (personne of noms; track personne) {
+    <li>{{ personne }}</li>
+  }
+</ul>
+<h2>Utilisateurs de l’API REST</h2>
+
+<button type="button" (click)="chargerUtilisateurs()">
+  Charger les utilisateurs
+</button>
+
+@if (erreur()) {
+  <p>{{ erreur() }}</p>
+}
+
+<ul>
+  @for (utilisateur of utilisateurs(); track utilisateur.id) {
+    <li>{{ utilisateur.name }}</li>
+  }
+</ul>

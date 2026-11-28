@@ -1,0 +1,208 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f5f9;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+h2 {
+  color: #ed7100;
+}
+
+h3 {
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.5;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 25px 0;
+}
+
+button {
+  background: #ed7100;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 18px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+}
+
+button:hover {
+  background: #cc5f00;
+}
+
+input {
+  padding: 13px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 14px;
+  min-width: 0;
+}
+
+input:focus {
+  outline: 2px solid #ed7100;
+  border-color: #ed7100;
+}
+
+.formulaire {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.formulaire input {
+  flex: 1;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.message {
+  color: #ed7100;
+  margin: 10px 0;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.stat-card {
+  background: #fff3e8;
+  border-left: 4px solid #ed7100;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.stat-card p {
+  font-size: 13px;
+}
+
+.stat-card h2 {
+  margin: 5px 0;
+}
+
+.search-box {
+  background: #fff6ef;
+  padding: 18px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.search-box label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.search-box input {
+  width: 100%;
+}
+
+.student-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: #f2f2f2;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 12px 0;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 130px;
+}
+
+.student-info small {
+  color: #777;
+  font-size: 11px;
+}
+
+.btn-danger {
+  background: #555;
+}
+
+.btn-danger:hover {
+  background: #333;
+}
+
+.btn-export {
+  background: #16834a;
+}
+
+.btn-export:hover {
+  background: #106738;
+}
+
+.export-section {
+  background: #f0faf4;
+  border: 1px solid #cdebd8;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 25px;
+}
+
+.export-section h3 {
+  color: #16834a;
+}
+
+.empty {
+  background: #f2f2f2;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 10px;
+    padding: 18px;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .formulaire {
+    flex-direction: column;
+  }
+
+  .student-card {
+    align-items: flex-start;
+  }
+}
