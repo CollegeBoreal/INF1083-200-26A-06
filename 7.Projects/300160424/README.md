@@ -1,3 +1,4 @@
+
 # 🏋️ SportFit
 
 **Étudiant :** Youcef Laziz — 300160424  
@@ -9,26 +10,49 @@
 
 ## 📝 Résumé du projet
 
-SportFit est une application mobile de fitness qui aide l'utilisateur à organiser son entraînement et à suivre ses performances.
+SportFit est une application mobile de fitness qui permet à l'utilisateur d'organiser son entraînement, de suivre ses performances et d'atteindre ses objectifs sportifs.
 
-Elle permet de :
+L'application permet de :
 
 - Consulter un programme de quatre exercices.
 - Chronométrer la durée de son entraînement.
 - Enregistrer les exercices terminés.
-- Visualiser sa progression et ses calories indicatives.
-- Obtenir des récompenses selon ses résultats.
-- Réinitialiser son programme pour recommencer.
+- Visualiser sa progression en temps réel sur la page Exercices.
+- Consulter ses calories estimées.
+- Obtenir des trophées selon ses résultats.
+- Réinitialiser son entraînement avec une confirmation.
 
-Les résultats sont enregistrés localement avec `ApplicationSettings`, sans API externe.
+Les données sont enregistrées localement avec `ApplicationSettings`, sans API externe.
+
+---
 
 ## 🏷️ Nom de l'application
 
-**SportFit**, affiché sur la page d'accueil. Le dossier technique `b300160424` correspond à mon matricule étudiant.
+**SportFit** est le nom de mon application mobile.
 
-## 🎨 Design
+Le dossier technique `b300160424` correspond à mon matricule étudiant.
 
-J'ai choisi un thème noir et vert, avec des cartes arrondies, des icônes sportives et des boutons colorés. Le menu inférieur permet de passer d'une page à l'autre.
+## 🎨 Design de l'application
+
+J'ai amélioré le design initial de mon application en choisissant un thème moderne noir et orange, inspiré des applications professionnelles de musculation.
+
+| Élément | Couleur |
+|---|---|
+| Arrière-plan | Noir `#101010` |
+| Couleur principale | Orange `#FF6B00` |
+| Cartes | Gris foncé `#242424` |
+| Texte principal | Blanc |
+| Exercices terminés | Vert |
+
+Le nouveau design comprend :
+
+- Une photo de salle de musculation.
+- Des cartes modernes et arrondies.
+- Des boutons orange.
+- Des icônes sportives.
+- Un chronomètre modernisé.
+- Un affichage circulaire du pourcentage.
+- Un menu inférieur avec trois boutons de navigation.
 
 ---
 
@@ -36,19 +60,25 @@ J'ai choisi un thème noir et vert, avec des cartes arrondies, des icônes sport
 
 ### 1. Accueil
 
-La première page présente un objectif quotidien de 30 minutes, un résumé du programme et un message de motivation.
+La page d'accueil présente le programme sportif avec une interface moderne et une photo de salle de musculation.
 
-Le bouton **Commencer mon entraînement** ouvre la page Exercices et **Voir mes progrès** permet d'accéder au suivi.
+Elle contient :
 
-<img width="854" height="675" alt="image" src="https://github.com/user-attachments/assets/aa2d39d5-8fd7-4c07-8364-9c0611e92340" />
+- Un message de motivation.
+- Une bannière « NO EXCUSES – TRAIN HARD ».
+- Un objectif quotidien de 30 minutes.
+- Un programme de quatre exercices.
+- Un entraînement Full Body pour débutants.
+- Un bouton pour commencer l'entraînement.
+- Un bouton pour consulter les performances.
 
 <p align="center">
-  <img src="images/accueil.png" width="650">
+  <img src="images/accueil.png" width="350" alt="Page Accueil SportFit">
 </p>
 
 ### 2. Exercices
 
-Cette page affiche le chronomètre et les cartes des exercices. Chaque carte indique le nom, le programme et un bouton pour terminer l'exercice.
+Cette page permet de consulter les exercices, de chronométrer l'entraînement et d'enregistrer les activités terminées.
 
 | Exercice | Programme |
 |---|---|
@@ -57,28 +87,35 @@ Cette page affiche le chronomètre et les cartes des exercices. Chaque carte ind
 | 🔥 Abdominaux | 3 séries de 20 |
 | 🏃 Course | 15 minutes |
 
-L'utilisateur appuie sur **Terminer exercice** pour enregistrer son activité. Le programme utilise une clé associée au nom de l'exercice pour éviter de compter deux fois le même exercice.
+Chaque exercice possède une carte avec son nom, son programme, sa description et un bouton de validation.
 
-<img width="479" height="675" alt="image" src="https://github.com/user-attachments/assets/e9fe7da5-c7e1-4e88-9456-3bdccd8de8b5" />
+Une barre de progression affiche le nombre d'exercices terminés.
+
+Lorsqu'un exercice est terminé, son bouton devient vert et ne peut plus être utilisé pour enregistrer une deuxième fois le même exercice.
+
+Une animation est également prévue lors de la validation.
 
 <p align="center">
-  <img src="images/exercices.png" width="450">
+  <img src="images/exercices.png" width="350" alt="Page Exercices SportFit">
 </p>
 
 ### 3. Suivi
 
-Cette page affiche le nombre d'exercices terminés, le pourcentage de progression, une barre de progression, les calories indicatives et les récompenses.
+La page Suivi permet de consulter les performances de l'utilisateur.
 
-Le bouton **Actualiser mes progrès** permet de recalculer les résultats.
+Elle affiche :
 
-Le bouton **Réinitialiser l'entraînement** est prévu pour effacer les résultats du programme.
+- Le pourcentage de progression dans un cercle.
+- Une barre de progression dynamique.
+- Le nombre d'exercices terminés.
+- Les calories estimées.
+- Le bilan individuel des exercices.
+- Les récompenses et les messages de motivation.
 
-Pendant mon test, trois exercices sur quatre ont été enregistrés. L'application a affiché **75 %**, **160 kcal indicatives** et le niveau **Sportif confirmé**.
-
-<img width="445" height="675" alt="image" src="https://github.com/user-attachments/assets/69e3b886-7dcf-4057-97a6-e29085d4cef7" />
+Pendant mon test, les quatre exercices ont été enregistrés. L'application a affiché une progression de **100 %**, **4/4 exercices terminés** et **190 kcal estimées**.
 
 <p align="center">
-  <img src="images/suivi.png" width="450">
+  <img src="images/suivi.png" width="350" alt="Page Suivi SportFit">
 </p>
 
 ---
@@ -87,89 +124,175 @@ Pendant mon test, trois exercices sur quatre ont été enregistrés. L'applicati
 
 | Bouton | Fonction |
 |---|---|
-| Start | Démarrer ou reprendre le compteur |
-| Pause | Suspendre le compteur |
-| Reset | Remettre le compteur à zéro |
+| Start | Démarrer ou reprendre le chronomètre |
+| Pause | Suspendre le chronomètre |
+| Reset | Remettre le chronomètre à zéro |
 
-Le compteur affiche le temps en minutes et secondes. La capture de la page Exercices montre le compteur à 00:13.
+Le chronomètre affiche le temps en minutes et secondes.
+
+La fonction `setInterval()` permet d'actualiser le compteur chaque seconde.
+
+La fonction `clearInterval()` permet d'arrêter le compteur.
+
+---
 
 ## 💾 Stockage local
 
-`ApplicationSettings` permet d'associer une valeur booléenne à chaque exercice.
+L'application utilise `ApplicationSettings` pour enregistrer les exercices terminés directement sur le téléphone.
 
 ```typescript
 const cle = 'sportfit_' + nom;
 ApplicationSettings.setBoolean(cle, true);
 ```
 
-La page Suivi lit les valeurs enregistrées avec `getBoolean()` et compte les exercices terminés. La réinitialisation utilise `remove()` pour supprimer les clés correspondantes.
+La méthode `getBoolean()` permet de vérifier si un exercice est terminé.
+
+```typescript
+ApplicationSettings.getBoolean(
+  'sportfit_' + nom, false
+);
+```
+
+La méthode `remove()` permet de supprimer les résultats lors de la réinitialisation.
+
+---
 
 ## 📊 Calcul de la progression
 
-La progression est calculée à partir du nombre d'exercices terminés.
+La progression est calculée selon le nombre d'exercices terminés.
 
-```
+```text
 Progression = (exercices terminés / 4) × 100
-Exemple : (3 / 4) × 100 = 75 %
 ```
 
-Les récompenses encouragent l'utilisateur à terminer le programme. Les calories affichées sont des estimations de démonstration, et non des mesures réelles.
+| Exercices terminés | Progression |
+|---|---|
+| 0/4 | 0 % |
+| 1/4 | 25 % |
+| 2/4 | 50 % |
+| 3/4 | 75 % |
+| 4/4 | 100 % |
+
+## 🔥 Calcul des calories
+
+| Exercice | Calories estimées |
+|---|---|
+| Pompes | 25 kcal |
+| Squats | 35 kcal |
+| Abdominaux | 30 kcal |
+| Course | 100 kcal |
+| Total | 190 kcal |
+
+Les calories sont des valeurs indicatives utilisées pour la démonstration. Elles ne représentent pas des mesures médicales ou sportives réelles.
+
+---
+
+## 🏆 Système de récompenses
+
+| Exercices terminés | Récompense |
+|---|---|
+| 0 | 🎯 Débutant |
+| 1 | 🥉 Sportif débutant |
+| 2 | 🥈 Sportif motivé |
+| 3 | 🥇 Sportif confirmé |
+| 4 | 🏆 Champion SportFit |
+
+Ce système encourage l'utilisateur à terminer son programme sportif.
+
+## 🔄 Réinitialisation
+
+Le bouton Réinitialiser l'entraînement permet de recommencer le programme.
+
+Une fenêtre de confirmation est prévue avec deux choix :
+
+- Oui : effacer les résultats.
+- Annuler : conserver les résultats.
+
+Cette fonctionnalité utilise `Dialogs.confirm()` pour éviter une suppression accidentelle.
+
+---
 
 ## 🧩 Template utilisé
 
-| Template | Usage |
+| Template | Utilisation |
 |---|---|
-| NativeScript Angular | Structure initiale du projet et composants Angular |
+| NativeScript Angular | Structure initiale du projet |
 
-J'ai créé le projet sous le nom SportFit, puis renommé son dossier en `b300160424`. J'ai ajouté trois composants pour remplacer la navigation de démonstration par les pages de fitness.
+J'ai créé mon application avec NativeScript et Angular.
 
-<img width="842" height="675" alt="image" src="https://github.com/user-attachments/assets/c040b7cf-e9b2-4693-83d5-c16e4a61cd3c" />
+J'ai ensuite personnalisé les composants pour créer trois pages adaptées à mon projet de fitness.
 
 <p align="center">
-  <img src="images/creation.png" width="750">
+  <img src="images/creation.png" width="750" alt="Création du projet">
 </p>
+
+---
 
 ## 🔌 Plugins et modules
 
-Aucun plugin externe supplémentaire n'est identifié dans les fonctionnalités présentées.
+Aucun plugin externe supplémentaire n'a été nécessaire pour les fonctionnalités présentées.
 
-| Module ou fonctionnalité | Usage |
+| Module ou fonctionnalité | Utilisation |
 |---|---|
 | `@nativescript/core` | Composants et fonctionnalités natives |
+| `@nativescript/angular` | Intégration Angular |
+| `@angular/core` | Gestion des composants |
+| `@angular/router` | Navigation |
 | `ApplicationSettings` | Stockage local |
-| `@nativescript/angular` | Intégration Angular et navigation native |
-| `@angular/core` | Composants Angular |
-| `@angular/router` | Configuration des routes |
+| `Dialogs` | Fenêtre de confirmation |
+| `View.animate()` | Animation des boutons |
 
-## 🛠️ Technologies
+---
 
-- NativeScript, Angular et TypeScript
-- Templates HTML et styles CSS
+## 🛠️ Technologies utilisées
+
+- NativeScript
+- Angular
+- TypeScript
+- HTML
+- CSS
 - Visual Studio Code
-- Android Studio et émulateur Android
+- Android Studio
+- Émulateur Android
 - Git et GitHub
 
-## 🗂️ Structure du code
+---
 
-| Fichier | Rôle |
-|---|---|
-| `src/main.ts` | Démarrage de l'application |
-| `src/app/accueil/accueil.component.ts` | Page d'accueil |
-| `src/app/exercices/exercices.component.ts` | Exercices et chronomètre |
-| `src/app/suivi/suivi.component.ts` | Statistiques et réinitialisation |
-| `src/app/app.routes.ts` | Routes des trois pages |
-| `src/app/app.component.html` | Menu de navigation |
-| `src/app/app.component.ts` | Composant principal |
+## 🗂️ Structure du projet
 
-<img width="967" height="675" alt="image" src="https://github.com/user-attachments/assets/1a8645f0-a27c-48d1-bc5e-46470013d5a8" />
+```text
+300160424/
+├── README.md
+├── images/
+└── b300160424/
+    ├── App_Resources/
+    ├── src/
+    │   ├── app/
+    │   │   ├── accueil/
+    │   │   │   └── accueil.component.ts
+    │   │   ├── exercices/
+    │   │   │   └── exercices.component.ts
+    │   │   ├── suivi/
+    │   │   │   └── suivi.component.ts
+    │   │   ├── app.component.html
+    │   │   ├── app.component.ts
+    │   │   └── app.routes.ts
+    │   ├── images/
+    │   │   └── fitness.jpg
+    │   ├── app.css
+    │   └── main.ts
+    └── package.json
+```
 
 <p align="center">
-  <img src="images/structure.png" width="750">
+  <img src="images/structure.png" width="750" alt="Structure du projet">
 </p>
+
+---
 
 ## 🔀 Navigation
 
-Les routes Angular relient les trois composants. La route vide redirige vers l'accueil.
+L'application utilise les routes Angular pour naviguer entre les trois pages.
 
 ```typescript
 export const routes: Routes = [
@@ -179,15 +302,23 @@ export const routes: Routes = [
   { path: 'suivi', component: SuiviComponent }
 ];
 ```
-<img width="975" height="628" alt="image" src="https://github.com/user-attachments/assets/a892925b-49f3-449f-9bbe-c08da7d8c14f" />
+
+Le menu inférieur permet d'accéder directement aux pages Accueil, Exercices et Suivi.
 
 <p align="center">
-  <img src="images/routes.png" width="750">
+  <img src="images/routes.png" width="750" alt="Routes Angular">
 </p>
+
+---
 
 ## ▶️ Lancer le projet
 
-Prérequis : Node.js, NativeScript CLI et un environnement Android configuré avec un émulateur démarré.
+### Prérequis
+
+- Node.js
+- NativeScript CLI
+- Android Studio
+- Un émulateur Android
 
 Depuis le répertoire étudiant `300160424` :
 
@@ -197,43 +328,77 @@ npm install
 ns run android
 ```
 
+---
+
 ## 🧪 Tests réalisés
 
 | Test | Résultat |
 |---|---|
+| Compilation du projet | ✅ Réussi |
 | Démarrage sur Android | ✅ Réussi |
 | Affichage des trois pages | ✅ Réussi |
-| Chronomètre à 00:13 | ✅ Observé |
-| Enregistrement de trois exercices | ✅ Réussi |
-| Progression à 75 % | ✅ Réussi |
-| Récompense Sportif confirmé | ✅ Affichée |
-| Progression à 100 % et réinitialisation | À confirmer |
+| Nouveau design noir et orange | ✅ Réussi |
+| Affichage de la photo sportive | ✅ Réussi |
+| Navigation entre les pages | ✅ Réussi |
+| Chronomètre à 00:13 (version initiale) | ✅ Observé |
+| Enregistrement des quatre exercices | ✅ Réussi |
+| Progression à 100 % | ✅ Réussi |
+| Affichage de 190 kcal | ✅ Réussi |
+| Confirmation de réinitialisation | À vérifier |
+| Animation des boutons | À vérifier |
+
+---
 
 ## 🧯 Difficultés rencontrées et solutions
 
 | Problème | Solution |
 |---|---|
-| Chemin du dépôt introuvable | Recherche du répertoire dans `C:\Users` |
-| Commandes de création de fichiers collées ensemble | Exécution séparée des commandes PowerShell |
-| Nom du dossier SportFit différent du matricule | Renommage en `b300160424` |
-| Push refusé car le dépôt distant avait évolué | `git pull --rebase origin main`, puis `git push origin main` |
+| Chemin du projet introuvable | Recherche du dossier avec PowerShell |
+| Émulateur Android bloqué | Redémarrage de l'émulateur |
+| Ancien design trop simple | Création d'un thème noir et orange |
+| Ajout de la photo sportive | Création du dossier `src/images` |
+| Caractères mal affichés | Correction de l'encodage UTF-8 à vérifier |
+| Dépôt GitHub distant modifié | Utilisation de `git pull --rebase origin main` |
+
+---
 
 ## 🚀 Publication sur GitHub
 
-Le projet a été envoyé sur la branche `main` sans utiliser `--force`.
+Le projet est publié sur la branche `main`.
 
-<p align="center">
-  <img src="images/github.png" width="750">
-</p>
+Les modifications du nouveau design sont enregistrées avec Git.
+
+```powershell
+git add src/
+git commit -m "SportFit - Nouveau design noir et orange"
+git pull --rebase origin main
+git push origin main
+```
+
+Aucune commande `git push --force` n'a été utilisée.
+
+---
 
 ## 📌 Limites et améliorations possibles
 
-L'application a été testée sur Android. Elle ne mesure pas réellement les calories et ne possède pas de serveur externe.
+L'application fonctionne localement et ne nécessite pas de serveur externe.
 
-Une prochaine version pourrait proposer des vidéos d'exercices, un historique des entraînements et des objectifs personnalisés.
+Dans une prochaine version, je pourrais ajouter :
+
+- Un historique des entraînements.
+- Des vidéos pour expliquer les exercices.
+- Des objectifs personnalisés.
+- Plusieurs niveaux de difficulté.
+- Des notifications pour rappeler les entraînements.
 
 ---
 
 ## Conclusion
 
-Ce projet m'a permis de développer une application mobile avec trois pages, un chronomètre, une navigation et un système de suivi local. J'ai également appris à tester mon application sur Android et à publier mon code sur GitHub.
+Ce projet m'a permis de développer une application mobile de fitness avec NativeScript et Angular.
+
+J'ai appris à créer des composants, gérer la navigation, utiliser le stockage local et développer un chronomètre.
+
+J'ai également amélioré le design de mon application avec un thème noir et orange, une photo sportive, des statistiques et des récompenses.
+
+Finalement, j'ai testé mon application sur Android et utilisé Git et GitHub pour publier mon travail.
